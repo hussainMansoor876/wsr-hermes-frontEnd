@@ -20,63 +20,86 @@ class Search extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
+            <div class="authentication-bg">
 
-                <div className="account-pages mt-5 mb-5">
-                    <Container>
-                        <Row className="justify-content-center">
-                            <Col md={8} lg={6} xl={5} >
-                                <Card className="bg-pattern">
-                                    <CardBody className="p-4 position-relative">
-                                        { /* preloader */}
-                                        {this.props.loading && <Loader />}
+                <div class="account-pages mt-5 mb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8 col-lg-6 col-xl-5">
+                                <div class="card bg-pattern">
 
-                                        <div className="text-center w-75 m-auto">
-                                            <a href="/">
+                                    <div class="card-body p-4">
+
+                                        <div class="text-center w-75 m-auto">
+                                            <a href="index.html">
                                                 <span><img src={logo} alt="" height="22" /></span>
                                             </a>
-                                            <p className="text-muted mb-4 mt-3">Enter your username and password to access admin panel.</p>
+                                            <p class="text-muted mb-4 mt-3">Enter your email address and password to access admin panel.</p>
                                         </div>
 
+                                        <form action="#">
 
-                                        {this.props.error && <Alert color="danger" isOpen={this.props.error ? true : false}>
-                                            <div>{this.props.error}</div>
-                                        </Alert>}
+                                            <div class="form-group mb-3">
+                                                <label for="emailaddress">Email address</label>
+                                                <input class="form-control" type="email" id="emailaddress" required placeholder="Enter your email" />
+                                            </div>
 
-                                        <AvForm onValidSubmit={this.handleValidSubmit}>
-                                            <AvField name="username" label="Username" placeholder="Enter your username" value={this.state.username} required />
+                                            <div class="form-group mb-3">
+                                                <label for="password">Password</label>
+                                                <input class="form-control" type="password" required id="password" placeholder="Enter your password" />
+                                            </div>
 
-                                            <AvGroup className="mb-3">
-                                                <Label for="password">Password</Label>
-                                                <AvInput type="password" name="password" id="password" placeholder="Enter your password" value={this.state.password} required />
-                                                <AvFeedback>This field is invalid</AvFeedback>
-                                            </AvGroup>
+                                            <div class="form-group mb-3">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="checkbox-signin" checked />
+                                                    <label class="custom-control-label" for="checkbox-signin">Remember me</label>
+                                                </div>
+                                            </div>
 
-                                            <FormGroup>
-                                                <Button color="primary" className="btn-block">Log In</Button>
-                                            </FormGroup>
+                                            <div class="form-group mb-0 text-center">
+                                                <button class="btn btn-primary btn-block" type="submit"> Log In </button>
+                                            </div>
 
-                                            <p><strong>Username:</strong> test &nbsp;&nbsp; <strong>Password:</strong> test</p>
-                                        </AvForm>
-                                    </CardBody>
-                                </Card>
-                            </Col>
-                        </Row>
+                                        </form>
 
-                        <Row className="mt-3">
-                            <Col className="col-12 text-center">
-                                {/* <p><Link to="/forget-password" className="text-white-50 ml-1">Forgot your password?</Link></p> */}
-                                {/* <p className="text-white-50">Don't have an account? <Link to="/register" className="text-white ml-1"><b>Register</b></Link></p> */}
-                            </Col>
-                        </Row>
+                                        <div class="text-center">
+                                            <h5 class="mt-3 text-muted">Sign in with</h5>
+                                            <ul class="social-list list-inline mt-3 mb-0">
+                                                <li class="list-inline-item">
+                                                    <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github-circle"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
 
-                    </Container>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col-12 text-center">
+                                        <p> <a href="pages-recoverpw.html" class="text-white-50 ml-1">Forgot your password?</a></p>
+                                        <p class="text-white-50">Don't have an account? <a href="pages-register.html" class="text-white ml-1"><b>Sign Up</b></a></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <footer className="footer footer-alt">
-                    {/* 2015 - 2019 &copy; UBold theme by <Link to="https://coderthemes.com" className="text-white-50">Coderthemes</Link> */}
-                </footer>
-            </React.Fragment>
+
+                {/* <footer class="footer footer-alt">
+                    2015 - 2019 &copy; UBold theme by <a href="" class="text-white-50">Coderthemes</a>
+                </footer> */}
+            </div>
         )
     }
 }

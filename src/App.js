@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Login from './Screens/Login1/Login'
+import Login from './Screens/Login/Login'
 
 
 import './assets/scss/DefaultTheme.scss'
@@ -13,7 +13,9 @@ class App extends React.Component{
 
   render(){
     return(
-      <Login />
+      <div>
+        <Login />
+      </div>
     )
   }
 }
