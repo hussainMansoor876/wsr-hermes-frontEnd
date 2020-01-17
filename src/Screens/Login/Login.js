@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Container, Row, Col, Card, CardBody, Label, FormGroup, Button, Alert } from 'reactstrap';
 import { AvForm, AvField, AvGroup, AvInput, AvFeedback } from 'availity-reactstrap-validation';
 import Loader from '../../Components/Loader';
+import logo from '../../assets/images/logo-dark.png';
 // import { Redirect, Link } from 'react-router-dom'
 
 
@@ -32,7 +33,7 @@ class Search extends React.Component {
 
                                         <div className="text-center w-75 m-auto">
                                             <a href="/">
-                                                <span><img src={'https://avatars0.githubusercontent.com/u/35415573?s=400&u=7585be6ddd43c201b02168c1fe36fd5e33a06bca&v=4'} alt="" height="22" /></span>
+                                                <span><img src={logo} alt="" height="22" /></span>
                                             </a>
                                             <p className="text-muted mb-4 mt-3">Enter your username and password to access admin panel.</p>
                                         </div>
