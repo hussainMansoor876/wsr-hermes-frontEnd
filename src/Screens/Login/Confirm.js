@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
+import './style.css'
 import logo from '../../assets/images/logo-dark.png';
 
 
