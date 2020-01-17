@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
-import { Container, Row, Col, Card, CardBody, Label, FormGroup, Button, Alert } from 'reactstrap';
-import { AvForm, AvField, AvGroup, AvInput, AvFeedback } from 'availity-reactstrap-validation';
 import Loader from '../../Components/Loader';
 import logo from '../../assets/images/logo-dark.png';
-// import { Redirect, Link } from 'react-router-dom'
 
 
 class Search extends React.Component {
