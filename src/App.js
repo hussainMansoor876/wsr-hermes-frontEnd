@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Login from './Screens/Login/Logout'
+import Login from './Screens/Login/Confirm'
 
 
 import './assets/scss/DefaultTheme.scss'
