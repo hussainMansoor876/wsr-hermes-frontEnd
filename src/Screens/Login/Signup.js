@@ -5,7 +5,7 @@ import Loader from '../../Components/Loader';
 import logo from '../../assets/images/logo-dark.png';
 
 
-class Login extends React.Component {
+class Signup extends React.Component {
 
     constructor(props) {
         super(props)
@@ -17,8 +17,7 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className="authentication-bg">
-
+            <div className="authentication-bg authentication-bg-pattern">
                 <div className="account-pages mt-5 mb-5">
                     <div className="container">
                         <div className="row justify-content-center">
@@ -31,36 +30,37 @@ class Login extends React.Component {
                                             <a href="index.html">
                                                 <span><img src={logo} alt="" height="22" /></span>
                                             </a>
-                                            <p className="text-muted mb-4 mt-3">Enter your email address and password to access admin panel.</p>
+                                            <p className="text-muted mb-4 mt-3">Don't have an account? Create your account, it takes less than a minute</p>
                                         </div>
 
                                         <form action="#">
 
-                                            <div className="form-group mb-3">
+                                            <div className="form-group">
+                                                <label for="fullname">Full Name</label>
+                                                <input className="form-control" type="text" id="fullname" placeholder="Enter your name" required />
+                                            </div>
+                                            <div className="form-group">
                                                 <label for="emailaddress">Email address</label>
                                                 <input className="form-control" type="email" id="emailaddress" required placeholder="Enter your email" />
                                             </div>
-
-                                            <div className="form-group mb-3">
+                                            <div className="form-group">
                                                 <label for="password">Password</label>
                                                 <input className="form-control" type="password" required id="password" placeholder="Enter your password" />
                                             </div>
-
-                                            <div className="form-group mb-3">
+                                            <div className="form-group">
                                                 <div className="custom-control custom-checkbox">
-                                                    <input type="checkbox" className="custom-control-input" id="checkbox-signin" checked />
-                                                    <label className="custom-control-label" for="checkbox-signin">Remember me</label>
+                                                    <input type="checkbox" className="custom-control-input" id="checkbox-signup" />
+                                                    <label className="custom-control-label" for="checkbox-signup">I accept <a href="javascript: void(0);" className="text-dark">Terms and Conditions</a></label>
                                                 </div>
                                             </div>
-
                                             <div className="form-group mb-0 text-center">
-                                                <button className="btn btn-primary btn-block" type="submit"> Log In </button>
+                                                <button className="btn btn-success btn-block" type="submit"> Sign Up </button>
                                             </div>
 
                                         </form>
 
                                         <div className="text-center">
-                                            <h5 className="mt-3 text-muted">Sign in with</h5>
+                                            <h5 className="mt-3 text-muted">Sign up using</h5>
                                             <ul className="social-list list-inline mt-3 mb-0">
                                                 <li className="list-inline-item">
                                                     <a href="javascript: void(0);" className="social-list-item border-primary text-primary"><i className="mdi mdi-facebook"></i></a>
@@ -80,10 +80,10 @@ class Login extends React.Component {
                                     </div>
                                 </div>
 
+
                                 <div className="row mt-3">
                                     <div className="col-12 text-center">
-                                        <p> <a href="pages-recoverpw.html" className="text-white-50 ml-1">Forgot your password?</a></p>
-                                        <p className="text-white-50">Don't have an account? <a href="pages-register.html" className="text-white ml-1"><b>Sign Up</b></a></p>
+                                        <p className="text-white-50">Already have account?  <a href="pages-login.html" className="text-white ml-1"><b>Sign In</b></a></p>
                                     </div>
                                 </div>
 
@@ -91,7 +91,6 @@ class Login extends React.Component {
                         </div>
                     </div>
                 </div>
-
 
                 {/* <footer className="footer footer-alt">
                     2015 - 2019 &copy; UBold theme by <a href="" className="text-white-50">Coderthemes</a>
@@ -118,4 +117,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)
