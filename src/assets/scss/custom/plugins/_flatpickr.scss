@@ -1,0 +1,47 @@
+//
+// flatpickr.scss
+//
+
+.flatpickr-day {
+    &.selected,
+    &.startRange,
+    &.endRange,
+    &.selected.inRange,
+    &.startRange.inRange,
+    &.endRange.inRange,
+    &.selected:focus,
+    &.startRange:focus,
+    &.endRange:focus,
+    &.selected:hover,
+    &.startRange:hover,
+    &.endRange:hover,
+    &.selected.prevMonthDay,
+    &.startRange.prevMonthDay,
+    &.endRange.prevMonthDay,
+    &.selected.nextMonthDay,
+    &.startRange.nextMonthDay,
+    &.endRange.nextMonthDay {
+        background: $primary;
+        border-color: $primary;
+    }
+    &.selected.startRange+.endRange:not(:nth-child(7n+1)),
+    &.startRange.startRange+.endRange:not(:nth-child(7n+1)),
+    &.endRange.startRange+.endRange:not(:nth-child(7n+1)) {
+        box-shadow: -10px 0 0 $primary;
+    }
+}
+
+.flatpickr-time {
+    input:hover,
+    .flatpickr-am-pm:hover,
+    input:focus,
+    .flatpickr-am-pm:focus {
+        background: $gray-100;
+    }
+}
+
+.flatpickr-months {
+    .flatpickr-month {
+        height: 36px;
+    }
+}
