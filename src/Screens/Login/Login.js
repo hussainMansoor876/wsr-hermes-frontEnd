@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
+import 'antd/dist/antd.css';
+import { Form, Icon, Input, Button, Checkbox, notification } from 'antd';
 import logo from '../../assets/images/logo-dark.png';
 
 
@@ -15,7 +17,18 @@ class Login extends React.Component {
     }
 
 
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
+        });
+    };
+
+
     render() {
+        const { getFieldDecorator } = this.props.form;
         return (
             <div className="authentication-bg">
 
@@ -59,6 +72,42 @@ class Login extends React.Component {
 
                                         </form>
 
+                                        <Form onSubmit={this.handleSubmit} className="login-form">
+                                            <Form.Item>
+                                                {getFieldDecorator('username', {
+                                                    rules: [{ required: true, message: 'Please input your username!' }],
+                                                })(
+                                                    <Input
+                                                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                        placeholder="Username"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item>
+                                                {getFieldDecorator('password', {
+                                                    rules: [{ required: true, message: 'Please input your Password!' }],
+                                                })(
+                                                    <Input
+                                                        prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                        type="password"
+                                                        placeholder="Password"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item>
+                                                {getFieldDecorator('remember', {
+                                                    valuePropName: 'checked',
+                                                    initialValue: true,
+                                                })(<Checkbox>Remember me</Checkbox>)}
+                                                <a className="login-form-forgot btn-primary" href="">
+                                                    Forgot password
+                                                    </a>
+                                                <Button type="primary" htmlType="submit" className="login-form-button btn-primary btn-block">
+                                                    Log in
+                                                </Button>
+                                                Or <a href="">register now!</a>
+                                            </Form.Item>
+                                        </Form>
                                         <div className="text-center">
                                             <h5 className="mt-3 text-muted">Sign in with</h5>
                                             <ul className="social-list list-inline mt-3 mb-0">
@@ -101,7 +150,7 @@ class Login extends React.Component {
     }
 }
 
-
+const LoginComp = Form.create({ name: 'normal_login' })(Login);
 
 const mapStateToProps = (state) => {
     console.log("mapToState", state.authReducer)
@@ -118,4 +167,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginComp)
