@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
+import { connect } from 'react-redux';
+import Pages from '../Screens'
 
 
 function PrivateRoute({ component: Component, isLoggedIn, ...rest }) {
@@ -45,6 +47,7 @@ class Routes extends Component {
 
                 <Switch>
                     {/* <Route path="/" exact component={Home} /> */}
+                    <Route path="/" exact component={Pages.Login} />
                 </Switch>
             </Router>
         )
