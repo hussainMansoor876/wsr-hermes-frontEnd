@@ -3,7 +3,6 @@ import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import Loader from '../../Components/Loader';
-import 'antd/dist/antd.css';
 import { Form, Icon, Input, Button, Checkbox, notification } from 'antd';
 import logo from '../../assets/images/logo-dark.png';
 
@@ -90,11 +89,6 @@ class Login extends React.Component {
                         </div>
                     </div>
                 </div>
-
-
-                {/* <footer className="footer footer-alt">
-                    2015 - 2019 &copy; UBold theme by <a href="" className="text-white-50">Coderthemes</a>
-                </footer> */}
             </div>
         )
     }

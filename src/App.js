@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Routes from './Config/routes'
+import 'antd/dist/antd.css';
 
 
 import './assets/scss/DefaultTheme.scss'

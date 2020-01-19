@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
+import { Form, Icon, Input, Button, Checkbox, notification } from 'antd';
 import Loader from '../../Components/Loader';
 import logo from '../../assets/images/logo-dark.png';
 
@@ -16,6 +18,7 @@ class Signup extends React.Component {
 
 
     render() {
+        const { getFieldDecorator } = this.props.form;
         return (
             <div className="authentication-bg authentication-bg-pattern">
                 <div className="account-pages mt-5 mb-5">
@@ -32,73 +35,51 @@ class Signup extends React.Component {
                                             </a>
                                             <p className="text-muted mb-4 mt-3">Don't have an account? Create your account, it takes less than a minute</p>
                                         </div>
+                                        <Form onSubmit={this.handleSubmit} className="login-form">
+                                            <Form.Item>
+                                                {getFieldDecorator('username', {
+                                                    rules: [{ required: true, message: 'Please input your username!' }],
+                                                })(
+                                                    <Input
+                                                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                        placeholder="Username"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item>
+                                                {getFieldDecorator('password', {
+                                                    rules: [{ required: true, message: 'Please input your Password!' }],
+                                                })(
+                                                    <Input
+                                                        prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                        type="password"
+                                                        placeholder="Password"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item>
+                                                <Button type="primary" htmlType="submit" className="login-form-button btn-block signup-btn">
+                                                    Register
+                                                </Button>
+                                                Already have account? <Link to="" className="login-form-forgot" style={{ color: '#1abc9c'}}>Sign In</Link>
+                                            </Form.Item>
+                                        </Form>
 
-                                        <form action="#">
-
-                                            <div className="form-group">
-                                                <label for="fullname">Full Name</label>
-                                                <input className="form-control" type="text" id="fullname" placeholder="Enter your name" required />
-                                            </div>
-                                            <div className="form-group">
-                                                <label for="emailaddress">Email address</label>
-                                                <input className="form-control" type="email" id="emailaddress" required placeholder="Enter your email" />
-                                            </div>
-                                            <div className="form-group">
-                                                <label for="password">Password</label>
-                                                <input className="form-control" type="password" required id="password" placeholder="Enter your password" />
-                                            </div>
-                                            <div className="form-group">
-                                                <div className="custom-control custom-checkbox">
-                                                    <input type="checkbox" className="custom-control-input" id="checkbox-signup" />
-                                                    <label className="custom-control-label" for="checkbox-signup">I accept <a href="javascript: void(0);" className="text-dark">Terms and Conditions</a></label>
-                                                </div>
-                                            </div>
-                                            <div className="form-group mb-0 text-center">
-                                                <button className="btn btn-success btn-block" type="submit"> Sign Up </button>
-                                            </div>
-
-                                        </form>
-
-                                        <div className="text-center">
-                                            <h5 className="mt-3 text-muted">Sign up using</h5>
-                                            <ul className="social-list list-inline mt-3 mb-0">
-                                                <li className="list-inline-item">
-                                                    <a href="javascript: void(0);" className="social-list-item border-primary text-primary"><i className="mdi mdi-facebook"></i></a>
-                                                </li>
-                                                <li className="list-inline-item">
-                                                    <a href="javascript: void(0);" className="social-list-item border-danger text-danger"><i className="mdi mdi-google"></i></a>
-                                                </li>
-                                                <li className="list-inline-item">
-                                                    <a href="javascript: void(0);" className="social-list-item border-info text-info"><i className="mdi mdi-twitter"></i></a>
-                                                </li>
-                                                <li className="list-inline-item">
-                                                    <a href="javascript: void(0);" className="social-list-item border-secondary text-secondary"><i className="mdi mdi-github-circle"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
 
                                     </div>
                                 </div>
 
-
-                                <div className="row mt-3">
-                                    <div className="col-12 text-center">
-                                        <p className="text-white-50">Already have account?  <a href="pages-login.html" className="text-white ml-1"><b>Sign In</b></a></p>
-                                    </div>
-                                </div>
 
                             </div>
                         </div>
                     </div>
                 </div>
-
-                {/* <footer className="footer footer-alt">
-                    2015 - 2019 &copy; UBold theme by <a href="" className="text-white-50">Coderthemes</a>
-                </footer> */}
             </div>
         )
     }
 }
+
+const SignupComp = Form.create({ name: 'normal_login' })(Signup);
 
 
 
@@ -117,4 +98,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signup)
+export default connect(mapStateToProps, mapDispatchToProps)(SignupComp)
