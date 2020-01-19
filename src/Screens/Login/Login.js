@@ -74,13 +74,13 @@ class Login extends React.Component {
                                                     valuePropName: 'checked',
                                                     initialValue: true,
                                                 })(<Checkbox>Remember me</Checkbox>)}
-                                                <Link className="login-form-forgot" to="" style={{ color: '#6658dd' }}>
+                                                <Link className="login-form-forgot textColor" to="" >
                                                     Forgot password
                                                     </Link>
-                                                <Button type="primary" htmlType="submit" className="login-form-button btn-primary btn-block">
+                                                <Button type="primary" htmlType="submit" className="login-form-button btn-block btn-color">
                                                     Log in
                                                 </Button>
-                                                Don't have an account? <Link to="" className="login-form-forgot">Sign Up</Link>
+                                                Don't have an account? <Link to="" className="login-form-forgot textColor">Sign Up</Link>
                                             </Form.Item>
                                         </Form>
                                     </div>
