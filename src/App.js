@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Login from './Screens/Login/Error404'
+import Login from './Screens/Login/Error500'
 
 
 import './assets/scss/DefaultTheme.scss'
