@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
-import logo from '../../assets/images/logo-dark.png';
+import Header from '../Header/Header'
 
 
 class Error404 extends React.Component {
@@ -18,8 +18,9 @@ class Error404 extends React.Component {
     render() {
         return (
             <div className="authentication-bg authentication-bg-pattern">
+                <Header />
                 <div className="account-pages mt-5 mb-5">
-            <div className="container">
+            <div className="container" style={{ paddingBottom: 150 }}>
                 <div className="row justify-content-center">
                     <div className="col-lg-5">
                         <div className="card">
@@ -90,6 +91,7 @@ class Error404 extends React.Component {
                 </div>
             </div>
         </div>
+        <span>&nbsp;</span>
             </div>
         )
     }
