@@ -3,6 +3,7 @@ import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import Loader from '../../Components/Loader';
+import './Header.css'
 import logo from '../../assets/images/logo-dark.png';
 
 
@@ -18,9 +19,14 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div className="header1">
+            <div style={{
+                display: 'flex',
+                paddingTop: 10,
+                marginLeft: 10,
+                marginRight: 10
+            }}>
                 <Link to="/">
-                    <span><img src={logo} alt="" height="100" width="200" /></span>
+                    <span><img src={logo} alt="" height="50" width="80" /></span>
                 </Link>
             </div>
         )

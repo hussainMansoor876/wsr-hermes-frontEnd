@@ -1,0 +1,16 @@
+.header-text{
+    position: absolute;
+    width: 64px;
+    height: 20px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #C96310;
+}
