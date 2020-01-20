@@ -20,7 +20,7 @@ class Error404 extends React.Component {
             <div className="authentication-bg authentication-bg-pattern">
                 <Header />
                 <div className="account-pages mt-5 mb-5">
-            <div className="container" style={{ paddingBottom: 150 }}>
+            <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-lg-5">
                         <div className="card">
