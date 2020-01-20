@@ -23,8 +23,8 @@ class Header extends React.Component {
             <div style={{
                 display: 'flex',
                 paddingTop: 10,
-                marginLeft: 10,
-                marginRight: 10,
+                marginLeft: 20,
+                marginRight: 20,
                 justifyContent: 'space-between'
             }}>
                 <div style={{ display: 'flex' }}>
@@ -35,14 +35,25 @@ class Header extends React.Component {
                     <h3 className="header-text">
                         Hermes
                 </h3>
-                    <div class="container1" onclick="myFunction(this)">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
+                    <div className="container1" onclick="myFunction(this)">
+                        <div className="bar1"></div>
+                        <div className="bar2"></div>
+                        <div className="bar3"></div>
                     </div>
                 </div>
-                <div>
+                <div style={{ display: 'flex' }}>
                     <img src={'https://avatars0.githubusercontent.com/u/35415573?s=400&u=7585be6ddd43c201b02168c1fe36fd5e33a06bca&v=4'} alt="" style={{ marginRight: 10, borderRadius: 50 }} height="30" width="30" />
+                    <div class="dropdown" style={{ marginTop: 10 }}>
+                        <p class="dropdown-toggle" id="menu1" data-toggle="dropdown">Mansoor
+    <span class="caret"></span></p>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         )
