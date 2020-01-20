@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { Form, Icon, Input, Button, Checkbox, notification } from 'antd';
 import Loader from '../../Components/Loader';
+import data from '../../country'
 import logo from '../../assets/images/logo-dark.png';
 
 
@@ -12,7 +13,7 @@ class Signup extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            city: [],
         }
     }
 
@@ -92,6 +93,14 @@ class Signup extends React.Component {
                                                     />,
                                                 )}
                                             </Form.Item>
+                                            <Form.Item>
+                                                {getFieldDecorator('phone', {
+                                                    rules: [{ required: true, message: 'Please input your phone number!' }],
+                                                })(<Input
+                                                    prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                    placeholder="Phone Number"
+                                                />)}
+                                            </Form.Item>
                                             <Form.Item hasFeedback>
                                                 {getFieldDecorator('password', {
                                                     rules: [
@@ -122,6 +131,14 @@ class Signup extends React.Component {
                                                     prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                                     placeholder="Confirm Password"
                                                     onBlur={this.handleConfirmBlur} />)}
+                                            </Form.Item>
+                                            <Form.Item>
+                                                {getFieldDecorator('address', {
+                                                    rules: [{ required: true, message: 'Please input your phone number!' }],
+                                                })(<Input
+                                                    prefix={<Icon type="number" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                    placeholder="Street Address"
+                                                />)}
                                             </Form.Item>
                                             <Form.Item>
                                                 <Button type="primary" htmlType="submit" className="login-form-button btn-block signup-btn">
