@@ -6,6 +6,7 @@ import { Form, Icon, Input, Button, Checkbox, notification, Select, DatePicker }
 import Loader from '../../Components/Loader';
 import data from '../../country'
 import logo from '../../assets/images/logo-dark.png';
+import Header from '../Header/Header'
 
 
 const { Option } = Select
@@ -52,6 +53,7 @@ class Signup extends React.Component {
         const { city } = this.state
         return (
             <div className="authentication-bg authentication-bg-pattern">
+                <Header />
                 <div className="account-pages mt-5 mb-5">
                     <div className="container">
                         <div className="row justify-content-center">
@@ -256,7 +258,8 @@ class Signup extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div >
+                <span>&nbsp;</span>
+            </div>
         )
     }
 }
