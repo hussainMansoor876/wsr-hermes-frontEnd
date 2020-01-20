@@ -19,6 +19,13 @@ class Header extends React.Component {
 
 
     render() {
+        const { user } = this.props
+        console.log('props', this.props)
+        if(!user){
+            return(
+                <span>&nbsp;</span>
+            )
+        }
         return (
             <div style={{
                 display: 'flex',

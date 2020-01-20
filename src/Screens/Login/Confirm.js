@@ -21,7 +21,7 @@ class Confirm extends React.Component {
         return (
             <div className="authentication-bg authentication-bg-pattern">
                 <Header />
-                <div className="account-pages mt-5 mb-5">
+                <div className="account-pages mt-5 mb-5" style={{ paddingBottom: 50 }}>
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-8 col-lg-6 col-xl-5">
