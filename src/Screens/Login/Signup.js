@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { Form, Icon, Input, Button, Checkbox, notification } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, notification, Select } from 'antd';
 import Loader from '../../Components/Loader';
 import data from '../../country'
 import logo from '../../assets/images/logo-dark.png';
 
+
+const { Option } = Select
 
 class Signup extends React.Component {
 
@@ -46,6 +48,7 @@ class Signup extends React.Component {
 
     render() {
         const { getFieldDecorator } = this.props.form;
+        const { city } = this.state
         return (
             <div className="authentication-bg authentication-bg-pattern">
                 <div className="account-pages mt-5 mb-5">
@@ -97,7 +100,7 @@ class Signup extends React.Component {
                                                 {getFieldDecorator('phone', {
                                                     rules: [{ required: true, message: 'Please input your phone number!' }],
                                                 })(<Input
-                                                    prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                    prefix={<Icon type="mobile" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                                     placeholder="Phone Number"
                                                 />)}
                                             </Form.Item>
@@ -139,6 +142,49 @@ class Signup extends React.Component {
                                                     prefix={<Icon type="number" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                                     placeholder="Street Address"
                                                 />)}
+                                            </Form.Item>
+                                            <Form.Item className="sign-up">
+                                                {getFieldDecorator('country', {
+                                                    rules: [{ required: true, message: 'Please Select Your Country!' }],
+                                                })(
+                                                    <Select
+                                                        showSearch
+                                                        style={{ backgroundColor: '#fff' }}
+                                                        placeholder="Select a Country"
+                                                        optionFilterProp="children"
+                                                        onSelect={(e) => this.setState({ city: data[e] })}
+                                                        filterOption={(input, option) =>
+                                                            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                                        }
+                                                    >
+                                                        {
+                                                            Object.keys(data).map((v, i) => {
+                                                                return <Option value={v} key={i}>{v}</Option>
+                                                            })
+                                                        }
+                                                    </Select>,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item className="sign-up">
+                                                {getFieldDecorator('city', {
+                                                    rules: [{ required: true, message: 'Please Select Your City!' }],
+                                                })(
+                                                    <Select
+                                                        showSearch
+                                                        style={{ backgroundColor: '#fff' }}
+                                                        placeholder="Select a city"
+                                                        optionFilterProp="children"
+                                                        filterOption={(input, option) =>
+                                                            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                                        }
+                                                    >
+                                                        {
+                                                            city.map((v, i) => {
+                                                                return <Option city={v} key={i}>{v}</Option>
+                                                            })
+                                                        }
+                                                    </Select>,
+                                                )}
                                             </Form.Item>
                                             <Form.Item>
                                                 <Button type="primary" htmlType="submit" className="login-form-button btn-block signup-btn">
