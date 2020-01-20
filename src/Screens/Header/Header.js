@@ -26,8 +26,12 @@ class Header extends React.Component {
                 marginRight: 10
             }}>
                 <Link to="/">
-                    <span><img src={logo} alt="" height="50" width="80" /></span>
+                    <span><img src={logo} alt="" style={{ height: '45px', marginRight: 10 }} width="80" /></span>
                 </Link>
+
+                <h3 className="header-text">
+                    Hermes
+                </h3>
             </div>
         )
     }

@@ -1,16 +1,16 @@
 .header-text{
-    position: absolute;
+    position: relative;
     width: 64px;
-    height: 20px;
-
-    font-family: Lato;
+    height: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
-    display: flex;
+    justify-content: center;
+    /* display: flex; */
     align-items: center;
-    text-align: center;
+    /* text-align: center; */
 
     color: #C96310;
 }
