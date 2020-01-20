@@ -23,9 +23,9 @@ class Header extends React.Component {
             <div style={{
                 display: 'flex',
                 paddingTop: 10,
-                marginLeft: 20,
-                marginRight: 20,
-                justifyContent: 'space-between'
+                marginLeft: 10,
+                marginRight: 10,
+                justifyContent: 'space-between',
             }}>
                 <div style={{ display: 'flex' }}>
                     <Link to="/">
@@ -41,18 +41,13 @@ class Header extends React.Component {
                         <div className="bar3"></div>
                     </div>
                 </div>
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'flex', marginRight: 10, marginTop: 7 }}>
                     <img src={'https://avatars0.githubusercontent.com/u/35415573?s=400&u=7585be6ddd43c201b02168c1fe36fd5e33a06bca&v=4'} alt="" style={{ marginRight: 10, borderRadius: 50 }} height="30" width="30" />
-                    <div class="dropdown" style={{ marginTop: 10 }}>
-                        <p class="dropdown-toggle" id="menu1" data-toggle="dropdown">Mansoor
-    <span class="caret"></span></p>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
-                            <li role="presentation" class="divider"></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
-                        </ul>
+                    <div className="dropdown">
+                        <span className="header2">Mansoor</span>
+                        <div className="dropdown-content">
+                            <p className="text1">Logout</p>
+                        </div>
                     </div>
                 </div>
             </div>
