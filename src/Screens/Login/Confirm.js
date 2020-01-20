@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
 import './style.css'
 import logo from '../../assets/images/logo-dark.png';
+import Header from '../Header/Header'
 
 
 class Confirm extends React.Component {
@@ -19,6 +20,7 @@ class Confirm extends React.Component {
     render() {
         return (
             <div className="authentication-bg authentication-bg-pattern">
+                <Header />
                 <div className="account-pages mt-5 mb-5">
             <div className="container">
                 <div className="row justify-content-center">
@@ -77,6 +79,7 @@ class Confirm extends React.Component {
                 </div>
             </div>
         </div>
+        <span>&nbsp;</span>
             </div>
         )
     }
