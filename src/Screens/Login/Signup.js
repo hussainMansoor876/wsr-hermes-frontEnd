@@ -63,12 +63,32 @@ class Signup extends React.Component {
                                         </div>
                                         <Form onSubmit={this.handleSubmit} className="login-form">
                                             <Form.Item>
-                                                {getFieldDecorator('username', {
-                                                    rules: [{ required: true, message: 'Please input your username!' }],
+                                                {getFieldDecorator('fname', {
+                                                    rules: [{ required: true, message: 'Please input your First Name!' }],
                                                 })(
                                                     <Input
                                                         prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                                        placeholder="Username"
+                                                        placeholder="First Name"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item>
+                                                {getFieldDecorator('lname', {
+                                                    rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                                })(
+                                                    <Input
+                                                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                        placeholder="Last Name"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item>
+                                                {getFieldDecorator('email', {
+                                                    rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                                })(
+                                                    <Input
+                                                        prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                        placeholder="Email"
                                                     />,
                                                 )}
                                             </Form.Item>
