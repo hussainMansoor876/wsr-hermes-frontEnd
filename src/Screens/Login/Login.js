@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import Loader from '../../Components/Loader';
 import { Form, Icon, Input, Button, Checkbox, notification } from 'antd';
 import logo from '../../assets/images/logo-dark.png';
-
+import Header from '../Header/Header'
 
 class Login extends React.Component {
 
@@ -31,7 +31,7 @@ class Login extends React.Component {
         const { getFieldDecorator } = this.props.form;
         return (
             <div className="authentication-bg">
-
+                <Header />
                 <div className="account-pages mt-5 mb-5">
                     <div className="container">
                         <div className="row justify-content-center">
@@ -41,9 +41,9 @@ class Login extends React.Component {
                                     <div className="card-body p-4">
 
                                         <div className="text-center w-75 m-auto">
-                                            <a href="index.html">
+                                            <Link to="/">
                                                 <span><img src={logo} alt="" height="100" width="200" /></span>
-                                            </a>
+                                            </Link>
                                             <p className="text-muted mb-4 mt-3">Enter your email address and password to access admin panel.</p>
                                         </div>
                                         <Form onSubmit={this.handleSubmit} className="login-form">
@@ -89,6 +89,7 @@ class Login extends React.Component {
                         </div>
                     </div>
                 </div>
+                <div>&nbsp;</div>
             </div>
         )
     }

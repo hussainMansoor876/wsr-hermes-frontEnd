@@ -48,3 +48,7 @@
 .signup-btn{
   background-color: #1abc9c !important;
 }
+
+.header{
+  display: flex;
+}
