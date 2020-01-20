@@ -28,7 +28,7 @@ class Recover extends React.Component {
 
                                         <div className="text-center w-75 m-auto">
                                             <a href="index.html">
-                                                <span><img src={logo} alt="" height="22" /></span>
+                                                <span><img src={logo} alt="" height="100" width="200" /></span>
                                             </a>
                                             <p className="text-muted mb-4 mt-3">Enter your email address and we'll send you an email with instructions to reset your password.</p>
                                         </div>

@@ -28,7 +28,7 @@ class Logout extends React.Component {
 
                                         <div className="text-center w-75 m-auto">
                                             <a href="index.html">
-                                                <span><img src={logo} alt="" height="22" /></span>
+                                                <span><img src={logo} alt="" height="100" width="200" /></span>
                                             </a>
                                         </div>
 
