@@ -68,7 +68,7 @@ class Signup extends React.Component {
                                         </div>
                                         <Form layout="horizontal" onSubmit={this.handleSubmit} className="login-form">
                                             <Form.Item
-                                                style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 2 }}
+                                                style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
                                             >
                                                 {getFieldDecorator('fname', {
                                                     rules: [{ required: true, message: 'Please input your First Name!' }],
@@ -111,7 +111,7 @@ class Signup extends React.Component {
                                                 />)}
                                             </Form.Item>
                                             <Form.Item 
-                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 2 }}
+                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
                                             hasFeedback>
                                                 {getFieldDecorator('password', {
                                                     rules: [
@@ -154,7 +154,7 @@ class Signup extends React.Component {
                                                 />)}
                                             </Form.Item>
                                             <Form.Item
-                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 2 }}
+                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
                                             >
                                                 {getFieldDecorator('country', {
                                                     rules: [{ required: true, message: 'Please Select Your Country!' }],
@@ -201,7 +201,7 @@ class Signup extends React.Component {
                                                 )}
                                             </Form.Item>
                                             <Form.Item
-                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 2 }}
+                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
                                             >
                                                 {getFieldDecorator('address', {
                                                     rules: [{ required: true, message: 'Please input your zip code!' }],
@@ -220,7 +220,7 @@ class Signup extends React.Component {
                                                 />)}
                                             </Form.Item>
                                             <Form.Item
-                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 2 }}
+                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
                                             >
                                                 {getFieldDecorator('license', {
                                                     rules: [{ required: true, message: 'Please input your license number!' }],
