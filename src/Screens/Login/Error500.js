@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import Loader from '../../Components/Loader';
 import logo from '../../assets/images/logo-dark.png';
+import Header from '../Header/Header'
 
 
 class Error500 extends React.Component {
@@ -19,7 +20,8 @@ class Error500 extends React.Component {
     render() {
         return (
             <div className="authentication-bg authentication-bg-pattern">
-                <div className="account-pages mt-5 mb-5">
+                <Header />
+                <div className="account-pages mt-5 mb-5" style={{ paddingBottom: 150 }}>
                     <div className="container">
                         <div className="row justify-content-center">
                             <div className="col-md-8 col-lg-6 col-xl-5">
@@ -48,6 +50,7 @@ class Error500 extends React.Component {
                         </div>
                     </div>
                 </div>
+                <span>&nbsp;</span>
             </div>
         )
     }
