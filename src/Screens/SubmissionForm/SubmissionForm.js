@@ -3,6 +3,8 @@ import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
 import logo from '../../assets/images/logo-dark.png';
+import Header from '../Header/Header'
+
 
 class Submission extends React.Component {
 
@@ -17,6 +19,7 @@ class Submission extends React.Component {
     render() {
         return (
             <div>
+                <Header {...this.props} />
                 Hello
             </div>
         )
