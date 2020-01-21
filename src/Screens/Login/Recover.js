@@ -3,6 +3,7 @@ import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
 import logo from '../../assets/images/logo-dark.png';
+import { Link } from 'react-router-dom'
 
 
 class Recover extends React.Component {
@@ -51,7 +52,7 @@ class Recover extends React.Component {
 
                                 <div className="row mt-3">
                                     <div className="col-12 text-center">
-                                        <p className="text-white-50">Back to <a href="pages-login.html" className="text-white ml-1"><b>Log in</b></a></p>
+                                        <p className="text-white-50">Back to <a href="pages-login.html" className="text-white ml-1"><Link to="/" style={{ color: '#fff' }}>Log in</Link></a></p>
                                     </div>
                                 </div>
 
