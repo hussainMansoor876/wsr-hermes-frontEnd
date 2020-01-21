@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
+import { Link } from 'react-router-dom'
 
 
 class Error404 extends React.Component {
@@ -81,7 +82,7 @@ class Error404 extends React.Component {
 
                         <div className="row mt-3">
                             <div className="col-12 text-center">
-                                <p className="text-white-50">Return to <a href="index.html" className="text-white ml-1"><b>Home</b></a></p>
+                                <p className="text-white-50">Return to <Link to="/dashboard" className="text-white ml-1"><b>Home</b></Link></p>
                             </div>
                         </div>
 

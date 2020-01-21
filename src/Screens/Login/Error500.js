@@ -37,7 +37,7 @@ class Error500 extends React.Component {
                                             <h3 className="mt-3 mb-2">Internal Server Error</h3>
                                             <p className="text-muted mb-3">Why not try refreshing your page? or you can contact <a to="mailto:wpowell@wsrealtor.com" target="_blank" className="text-dark"><b>Support</b></a></p>
 
-                                            <a href="index.html" className="btn btn-success waves-effect waves-light">Back to Home</a>
+                                            <Link to="/dashboard" className="btn btn-success waves-effect waves-light">Back to Home</Link>
                                         </div>
 
                                     </div>
