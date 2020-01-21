@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
 import './style.css'
 import logo from '../../assets/images/logo-dark.png';
+import { Link } from 'react-router-dom'
 
 
 class Confirm extends React.Component {
@@ -67,7 +68,7 @@ class Confirm extends React.Component {
                                         Please check for an email from company and click on the included link to
                                         reset your password. </p>
 
-                                    <a href="index.html" className="btn btn-block btn-pink waves-effect waves-light mt-3">Back to Home</a>
+                                    <Link to="/" className="btn btn-block btn-pink waves-effect waves-light mt-3">Back to Home</Link>
                                 </div>
 
                             </div>
