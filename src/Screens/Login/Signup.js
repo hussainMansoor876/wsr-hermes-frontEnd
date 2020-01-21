@@ -8,6 +8,7 @@ import data from '../../country'
 import logo from '../../assets/images/logo-dark.png';
 import validator from 'validator'
 import { toast } from 'react-toastify';
+import axios from 'axios'
 
 
 const { Option } = Select
@@ -40,9 +41,9 @@ class Signup extends React.Component {
     };
 
     handleSubmit = e => {
+        const { city } = this.state
         e.preventDefault();
 
-        toast.error("Error Notification !");
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 if (!validator.isEmail(values.email)) {
@@ -66,6 +67,15 @@ class Signup extends React.Component {
                 else if (values.license.length < 6) {
                     return toast.error("license must be Atleast 6 Numbers!");
                 }
+                values.city = city[values.city]
+                console.log(values)
+                axios.post('http://127.0.0.1:3001/login/signup', values)
+                    .then((res) => {
+                        console.log(res)
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
             }
         });
     };
