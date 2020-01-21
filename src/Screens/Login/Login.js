@@ -116,7 +116,7 @@ class Login extends React.Component {
                                                     valuePropName: 'checked',
                                                     initialValue: true,
                                                 })(<Checkbox>Remember me</Checkbox>)}
-                                                <Link className="login-form-forgot textColor" to="" >
+                                                <Link className="login-form-forgot textColor" to="/recover" >
                                                     Forgot password
                                                     </Link>
                                                 <Button disabled={this.state.disable} loading={this.state.loading} type="primary" htmlType="submit" className="login-form-button btn-block btn-color">

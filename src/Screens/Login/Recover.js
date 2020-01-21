@@ -36,7 +36,7 @@ class Recover extends React.Component {
                                         <form action="#">
 
                                             <div className="form-group mb-3">
-                                                <label for="emailaddress">Email address</label>
+                                                <label htmlFor="emailaddress">Email address</label>
                                                 <input className="form-control" type="email" id="emailaddress" required placeholder="Enter your email" />
                                             </div>
 
