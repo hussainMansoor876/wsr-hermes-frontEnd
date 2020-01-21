@@ -17,23 +17,17 @@ class Header extends React.Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         const { user, location } = this.props
 
-        if(user){
-            
+        if (!user) {
+            this.props.history.push('/')
         }
     }
 
 
     render() {
         const { user } = this.props
-        console.log('props', this.props)
-        if(!user){
-            return(
-                <span>&nbsp;</span>
-            )
-        }
         return (
             <div style={{
                 display: 'flex',
