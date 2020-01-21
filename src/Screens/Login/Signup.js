@@ -6,6 +6,7 @@ import { Form, Icon, Input, Button, Checkbox, notification, Select, DatePicker }
 import Loader from '../../Components/Loader';
 import data from '../../country'
 import logo from '../../assets/images/logo-dark.png';
+import validator from 'validator'
 
 
 const { Option } = Select
@@ -41,7 +42,27 @@ class Signup extends React.Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                if (!validator.isEmail(values.email)) {
+                    // return this.openNotification("Email", "Invalid Email", 'close-circle', 'red')
+                }
+                else if (values.phone.length < 6) {
+                    return this.openNotification("Password", "Password must be Atleast 6 Digits", 'close-circle', 'red')
+                }
+                else if (values.password.length < 6) {
+                    return this.openNotification("Password", "Password must be Atleast 6 Digits", 'close-circle', 'red')
+                }
+                else if (values.address.length < 6) {
+                    return this.openNotification("Password", "Password must be Atleast 6 Digits", 'close-circle', 'red')
+                }
+                else if (values.zip.length < 4) {
+                    return this.openNotification("Password", "Password must be Atleast 6 Digits", 'close-circle', 'red')
+                }
+                else if (values.board.length < 6) {
+                    return this.openNotification("Password", "Password must be Atleast 6 Digits", 'close-circle', 'red')
+                }
+                else if (values.license.length < 6) {
+                    return this.openNotification("Password", "Password must be Atleast 6 Digits", 'close-circle', 'red')
+                }
             }
         });
     };
@@ -110,9 +131,9 @@ class Signup extends React.Component {
                                                     placeholder="Phone Number"
                                                 />)}
                                             </Form.Item>
-                                            <Form.Item 
-                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
-                                            hasFeedback>
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
+                                                hasFeedback>
                                                 {getFieldDecorator('password', {
                                                     rules: [
                                                         {
@@ -127,9 +148,9 @@ class Signup extends React.Component {
                                                     prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                                     placeholder="Enter your Password" />)}
                                             </Form.Item>
-                                            <Form.Item 
-                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)' }}
-                                            hasFeedback>
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 1px)' }}
+                                                hasFeedback>
                                                 {getFieldDecorator('confirm', {
                                                     rules: [
                                                         {
@@ -154,7 +175,7 @@ class Signup extends React.Component {
                                                 />)}
                                             </Form.Item>
                                             <Form.Item
-                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
+                                                style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
                                             >
                                                 {getFieldDecorator('country', {
                                                     rules: [{ required: true, message: 'Please Select Your Country!' }],
@@ -177,8 +198,8 @@ class Signup extends React.Component {
                                                     </Select>,
                                                 )}
                                             </Form.Item>
-                                            <Form.Item 
-                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)' }}
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 1px)' }}
                                             >
                                                 {getFieldDecorator('city', {
                                                     rules: [{ required: true, message: 'Please Select Your City!' }],
@@ -201,9 +222,9 @@ class Signup extends React.Component {
                                                 )}
                                             </Form.Item>
                                             <Form.Item
-                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
+                                                style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
                                             >
-                                                {getFieldDecorator('address', {
+                                                {getFieldDecorator('zip', {
                                                     rules: [{ required: true, message: 'Please input your zip code!' }],
                                                 })(<Input
                                                     prefix={<Icon type="number" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -211,7 +232,7 @@ class Signup extends React.Component {
                                                 />)}
                                             </Form.Item>
                                             <Form.Item
-                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)' }}>
+                                                style={{ display: 'inline-block', width: 'calc(50% - 1px)' }}>
                                                 {getFieldDecorator('board', {
                                                     rules: [{ required: true, message: 'Please input your board!' }],
                                                 })(<Input
@@ -220,7 +241,7 @@ class Signup extends React.Component {
                                                 />)}
                                             </Form.Item>
                                             <Form.Item
-                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
+                                                style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
                                             >
                                                 {getFieldDecorator('license', {
                                                     rules: [{ required: true, message: 'Please input your license number!' }],
@@ -230,7 +251,7 @@ class Signup extends React.Component {
                                                 />)}
                                             </Form.Item>
                                             <Form.Item
-                                            style={{ display: 'inline-block', width: 'calc(50% - 1px)' }}
+                                                style={{ display: 'inline-block', width: 'calc(50% - 1px)' }}
                                             >
                                                 {getFieldDecorator('recruited', {
                                                     rules: [{ required: true, message: 'Please input your Recruited!' }],
