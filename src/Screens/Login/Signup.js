@@ -13,6 +13,8 @@ import axios from 'axios'
 
 const { Option } = Select
 
+const title = "Error"
+
 
 class Signup extends React.Component {
 
@@ -20,6 +22,7 @@ class Signup extends React.Component {
         super(props)
         this.state = {
             city: [],
+            loading: false
         }
     }
 
@@ -38,6 +41,14 @@ class Signup extends React.Component {
         } else {
             callback();
         }
+    };
+
+    openNotification = (title, desc, icon, color = '#108ee9') => {
+        notification.open({
+            message: title,
+            description: desc,
+            icon: <Icon type={icon} style={{ color: color }} />,
+        });
     };
 
     handleSubmit = e => {
@@ -68,10 +79,18 @@ class Signup extends React.Component {
                     return toast.error("license must be Atleast 6 Numbers!");
                 }
                 values.city = city[values.city]
-                console.log(values)
+                this.setState({ loading: true, disable: true })
                 axios.post('http://127.0.0.1:3001/login/signup', values)
-                    .then((res) => {
-                        console.log(res)
+                    .then((result) => {
+                        if (result.data.success) {
+                            this.props.loginUser(result.data.user)
+                            this.props.history.push('/dashboard')
+                        }
+                        else {
+                            this.setState({ loading: false, disable: false })
+                            this.openNotification(title, result.data.message, 'close-circle', 'red')
+                            // this.setState({ disable: false })
+                        }
                     })
                     .catch((err) => {
                         console.log(err)
@@ -274,7 +293,7 @@ class Signup extends React.Component {
                                                 />)}
                                             </Form.Item>
                                             <Form.Item>
-                                                <Button type="primary" htmlType="submit" className="login-form-button btn-block signup-btn">
+                                                <Button disabled={this.state.disable} loading={this.state.loading} type="primary" htmlType="submit" className="login-form-button btn-block signup-btn">
                                                     Register
                                                 </Button>
                                                 Already have account? <Link to="" className="login-form-forgot" style={{ color: '#1abc9c' }}>Sign In</Link>
