@@ -7,6 +7,7 @@ import Loader from '../../Components/Loader';
 import data from '../../country'
 import logo from '../../assets/images/logo-dark.png';
 import validator from 'validator'
+import { toast } from 'react-toastify';
 
 
 const { Option } = Select
@@ -40,6 +41,8 @@ class Signup extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
+
+        toast.error("Error Notification !");
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 if (!validator.isEmail(values.email)) {
