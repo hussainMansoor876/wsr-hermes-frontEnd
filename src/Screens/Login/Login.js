@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { loginUser } from '../../Redux/actions/authActions'
+import { loginUser, removeUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import Loader from '../../Components/Loader';
@@ -22,6 +22,16 @@ class Login extends React.Component {
         }
     }
 
+    componentDidMount() {
+        const { user, history } = this.props;
+        if (history.location.state) {
+            this.props.removeUser()
+        }
+        else if (user) {
+            this.props.history.push('/dashboard')
+        }
+    }
+
 
     handleSubmit = e => {
         e.preventDefault();
@@ -34,7 +44,7 @@ class Login extends React.Component {
                     return toast.error("Password must be Atleast 6 Digits!");
                 }
                 this.setState({ loading: true, disable: true })
-                axios.post('http://127.0.0.1:3001/login/signin', values)
+                axios.post('https://wsr-server.herokuapp.com/login/signin', values)
                     .then((result) => {
                         if (result.data.success) {
                             this.props.loginUser(result.data.user)
@@ -139,6 +149,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         loginUser: (user) => dispatch(loginUser(user)),
+        removeUser: () => dispatch(removeUser())
     }
 }
 

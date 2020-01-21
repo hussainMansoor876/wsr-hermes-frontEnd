@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { loginUser } from '../../Redux/actions/authActions'
+import { removeUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { Icon } from 'antd'
@@ -23,6 +23,12 @@ class Header extends React.Component {
         if (!user) {
             this.props.history.push('/')
         }
+    }
+
+    logout() {
+        setTimeout(() => {
+            this.props.history.push('/', { reload: true })
+        }, 100)
     }
 
 
@@ -55,10 +61,10 @@ class Header extends React.Component {
                     <div className="dropdown">
                         <span className="header2">
                             Mansoor &nbsp;
-                            <i class="fa fa-caret-down"></i>
+                            <i className="fa fa-caret-down"></i>
                         </span>
                         <div className="dropdown-content">
-                            <p className="text1">Logout</p>
+                            <p className="text1" onClick={() => this.logout()}>Logout</p>
                         </div>
                     </div>
                 </div>
@@ -78,7 +84,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loginUser: (user) => dispatch(loginUser(user)),
+        removeUser: () => dispatch(removeUser()),
     }
 }
 

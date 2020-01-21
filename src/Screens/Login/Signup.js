@@ -81,7 +81,7 @@ class Signup extends React.Component {
                 }
                 values.city = city[values.city]
                 this.setState({ loading: true, disable: true })
-                axios.post('http://127.0.0.1:3001/login/signup', values)
+                axios.post('https://wsr-server.herokuapp.com/login/signup', values)
                     .then((result) => {
                         if (result.data.success) {
                             this.props.loginUser(result.data.user)
