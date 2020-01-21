@@ -6,6 +6,8 @@ import Error500 from './Login/Error500'
 import Logout from './Login/Logout'
 import Recover from './Login/Recover'
 import Dashboard from './HealthDashboard/HealthDashboard'
+import SubmissionForm from './SubmissionForm/SubmissionForm'
+import ReviewPage from './ReviewPage/ReviewPage'
 
 
 export {
@@ -16,5 +18,7 @@ export {
     Error500,
     Logout,
     Recover,
-    Dashboard
+    Dashboard,
+    SubmissionForm,
+    ReviewPage
 }

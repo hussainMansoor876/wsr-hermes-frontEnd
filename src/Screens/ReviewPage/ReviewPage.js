@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
 import logo from '../../assets/images/logo-dark.png';
 
-class Dashboard extends React.Component {
+class ReviewPage extends React.Component {
 
     constructor(props) {
         super(props)
@@ -40,4 +40,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewPage)
