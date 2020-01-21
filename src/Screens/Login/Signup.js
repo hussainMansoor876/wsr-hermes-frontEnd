@@ -89,7 +89,6 @@ class Signup extends React.Component {
                         else {
                             this.setState({ loading: false, disable: false })
                             this.openNotification(title, result.data.message, 'close-circle', 'red')
-                            // this.setState({ disable: false })
                         }
                     })
                     .catch((err) => {

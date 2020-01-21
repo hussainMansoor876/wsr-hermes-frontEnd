@@ -17,6 +17,14 @@ class Header extends React.Component {
         }
     }
 
+    componentDidMount(){
+        const { user, location } = this.props
+
+        if(user){
+            
+        }
+    }
+
 
     render() {
         const { user } = this.props
