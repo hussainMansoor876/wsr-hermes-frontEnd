@@ -122,7 +122,7 @@ class Login extends React.Component {
                                                 <Button disabled={this.state.disable} loading={this.state.loading} type="primary" htmlType="submit" className="login-form-button btn-block btn-color">
                                                     Log in
                                                 </Button>
-                                                Don't have an account? <Link to="" className="login-form-forgot textColor">Sign Up</Link>
+                                                Don't have an account? <Link to="/register" className="login-form-forgot textColor">Sign Up</Link>
                                             </Form.Item>
                                         </Form>
                                     </div>
