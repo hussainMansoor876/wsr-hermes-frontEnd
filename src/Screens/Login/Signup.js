@@ -46,25 +46,25 @@ class Signup extends React.Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 if (!validator.isEmail(values.email)) {
-                    // return this.openNotification("Email", "Invalid Email", 'close-circle', 'red')
+                    return toast.error("Invalid Email!");
                 }
                 else if (values.phone.length < 6) {
-                    return this.openNotification("Password", "Password must be Atleast 6 Digits", 'close-circle', 'red')
+                    return toast.error("Phone number must be Atleast 6 Digits!");
                 }
                 else if (values.password.length < 6) {
-                    return this.openNotification("Password", "Password must be Atleast 6 Digits", 'close-circle', 'red')
+                    return toast.error("Password must be Atleast 6 Digits!");
                 }
                 else if (values.address.length < 6) {
-                    return this.openNotification("Password", "Password must be Atleast 6 Digits", 'close-circle', 'red')
+                    return toast.error("Address must be Atleast 6 Digits!");
                 }
                 else if (values.zip.length < 4) {
-                    return this.openNotification("Password", "Password must be Atleast 6 Digits", 'close-circle', 'red')
+                    return toast.error("Zip code must be Atleast 4 Numbers!");
                 }
                 else if (values.board.length < 6) {
-                    return this.openNotification("Password", "Password must be Atleast 6 Digits", 'close-circle', 'red')
+                    return toast.error("Board must be Atleast 6 Numbers!");
                 }
                 else if (values.license.length < 6) {
-                    return this.openNotification("Password", "Password must be Atleast 6 Digits", 'close-circle', 'red')
+                    return toast.error("license must be Atleast 6 Numbers!");
                 }
             }
         });
