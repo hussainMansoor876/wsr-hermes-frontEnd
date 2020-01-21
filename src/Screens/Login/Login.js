@@ -5,13 +5,16 @@ import { Link } from 'react-router-dom'
 import Loader from '../../Components/Loader';
 import { Form, Icon, Input, Button, Checkbox, notification } from 'antd';
 import logo from '../../assets/images/logo-dark.png';
+import { toast } from 'react-toastify';
+
 
 class Login extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-
+            loading: false,
+            disable: false
         }
     }
 
@@ -20,8 +23,36 @@ class Login extends React.Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                if (!validator.isEmail(values.email)) {
+                    return toast.error("Invalid Email!");
+                }
+                else if (values.password.length < 6) {
+                    return toast.error("Password must be Atleast 6 Digits!");
+                }
+                this.setState({ loading: true, disable: true })
+                axios.post('http://127.0.0.1:3001/login/signin', values)
+                    .then((result) => {
+                        if (result.data.success) {
+                            this.props.loginUser(result.data.user)
+                            this.props.history.push('/dashboard')
+                        }
+                        else {
+                            this.setState({ loading: false, disable: false })
+                            this.openNotification(title, result.data.message, 'close-circle', 'red')
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
             }
+        });
+    };
+
+    openNotification = (title, desc, icon, color = '#108ee9') => {
+        notification.open({
+            message: title,
+            description: desc,
+            icon: <Icon type={icon} style={{ color: color }} />,
         });
     };
 
@@ -74,7 +105,7 @@ class Login extends React.Component {
                                                 <Link className="login-form-forgot textColor" to="" >
                                                     Forgot password
                                                     </Link>
-                                                <Button type="primary" htmlType="submit" className="login-form-button btn-block btn-color">
+                                                <Button disabled={this.state.disable} loading={this.state.loading} type="primary" htmlType="submit" className="login-form-button btn-block btn-color">
                                                     Log in
                                                 </Button>
                                                 Don't have an account? <Link to="" className="login-form-forgot textColor">Sign Up</Link>

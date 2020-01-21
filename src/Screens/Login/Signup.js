@@ -22,7 +22,8 @@ class Signup extends React.Component {
         super(props)
         this.state = {
             city: [],
-            loading: false
+            loading: false,
+            disable: false
         }
     }
 
