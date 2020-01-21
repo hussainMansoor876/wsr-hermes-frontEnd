@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
-import { Login, Signup, Confirm, Recover, Error404, Error500, Logout } from '../Screens'
+import { Login, Signup, Confirm, Recover, Error404, Error500, Logout, Dashboard } from '../Screens'
 
 
 function PrivateRoute({ component: Component, isLoggedIn, ...rest }) {
@@ -54,7 +54,7 @@ class Routes extends Component {
                     <Route path="/404" exact component={Error404} />
                     <Route path="/500" exact component={Error500} />
                     <Route path="/logout" exact component={Logout} />
-
+                    <Route path="/dashboard" exact component={Dashboard} />
                 </Switch>
             </Router>
         )

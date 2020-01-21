@@ -5,6 +5,7 @@ import Error404 from './Login/Error404'
 import Error500 from './Login/Error500'
 import Logout from './Login/Logout'
 import Recover from './Login/Recover'
+import Dashboard from './HealthDashboard/HealthDashboard'
 
 
 export {
@@ -14,5 +15,6 @@ export {
     Error404,
     Error500,
     Logout,
-    Recover
+    Recover,
+    Dashboard
 }
