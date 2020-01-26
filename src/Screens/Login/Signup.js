@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { Form, Icon, Input, Button, Checkbox, notification, Select, DatePicker } from 'antd';
+import { Form, Icon, Input, Button, notification, Select, DatePicker } from 'antd';
 import Loader from '../../Components/Loader';
 import data from '../../country'
 import logo from '../../assets/images/logo-dark.png';

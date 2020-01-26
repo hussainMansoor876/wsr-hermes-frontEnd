@@ -5,20 +5,23 @@ import Loader from '../../Components/Loader';
 import logo from '../../assets/images/logo-dark.png';
 import Header from '../Header/Header'
 import { Link } from 'react-router-dom'
-import { Form, Icon, Input, Button, Upload, notification } from 'antd';
+import data from '../../country'
+import { Form, Icon, Input, Button, Upload, notification, Select } from 'antd';
 
+const { Option } = Select
 
 class Submission extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-
+            city: [],
         }
     }
 
 
     render() {
+        const { city } = this.state
         const { getFieldDecorator } = this.props.form;
         return (
             <div>
@@ -36,7 +39,8 @@ class Submission extends React.Component {
                                             rules: [{ required: true, message: 'Please input your First Name!' }],
                                         })(
                                             <Input
-                                                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                minLength={3}
+                                                type="text"
                                                 placeholder="Agent Id"
                                             />,
                                         )}
@@ -44,35 +48,72 @@ class Submission extends React.Component {
                                     <Form.Item
                                         style={{ display: 'inline-block', width: 'calc(50% - 10px)' }}
                                     >
-                                        {getFieldDecorator('lname', {
+                                        {getFieldDecorator('clientName', {
                                             rules: [{ required: true, message: 'Please input your Last Name!' }],
                                         })(
                                             <Input
-                                                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                                placeholder="Last Name"
+                                                type="text"
+                                                minLength={3}
+                                                placeholder="Client Name"
                                             />,
                                         )}
                                     </Form.Item>
                                     <Form.Item className="sign-up">
-                                        {getFieldDecorator('name', {
+                                        {getFieldDecorator('streetAddress', {
                                             rules: [{ required: true, message: 'Please input your username!' }],
                                         })(
                                             <Input
-                                                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                                 style={{ backgroundColor: '#FCFCFC' }}
-                                                placeholder="Username"
+                                                minLength={10}
+                                                placeholder="Street Address"
                                             />,
                                         )}
                                     </Form.Item>
-                                    <Form.Item className="sign-up">
-                                        {getFieldDecorator('email', {
-                                            rules: [{ required: true, message: 'Please input your Email!' }],
+                                    <Form.Item
+                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginRight: 20 }}
+                                    >
+                                        {getFieldDecorator('country', {
+                                            rules: [{ required: true, message: 'Please Select Your Country!' }],
                                         })(
-                                            <Input
-                                                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                                type="email"
-                                                placeholder="Email"
-                                            />,
+                                            <Select
+                                                showSearch
+                                                style={{ backgroundColor: '#fff' }}
+                                                placeholder="Select a Country"
+                                                optionFilterProp="children"
+                                                onSelect={(e) => this.setState({ city: data[e] })}
+                                                filterOption={(input, option) =>
+                                                    option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                                }
+                                            >
+                                                {
+                                                    Object.keys(data).map((v, i) => {
+                                                        return <Option value={v} key={i}>{v}</Option>
+                                                    })
+                                                }
+                                            </Select>,
+                                        )}
+                                    </Form.Item>
+                                    <Form.Item
+                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)' }}
+                                    >
+                                        {getFieldDecorator('city', {
+                                            rules: [{ required: true, message: 'Please Select Your City!' }],
+                                        })(
+                                            <Select
+                                                showSearch
+                                                style={{ backgroundColor: '#fff' }}
+                                                placeholder="Select a city"
+                                                optionFilterProp="children"
+                                                filterOption={(input, option) =>
+                                                    option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                                }
+                                            >
+                                                {
+                                                    city.map((v, i) => {
+                                                        return <Option city={v} key={i}>{v}</Option>
+                                                    })
+                                                }
+                                            </Select>,
                                         )}
                                     </Form.Item>
                                     <Form.Item className="sign-up">
