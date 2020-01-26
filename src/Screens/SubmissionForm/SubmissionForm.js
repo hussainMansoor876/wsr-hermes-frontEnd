@@ -167,7 +167,30 @@ class Submission extends React.Component {
                                             />,
                                         )}
                                     </Form.Item>
-                                    
+                                    <Form.Item
+                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginRight: 20 }}
+                                    >
+                                        {getFieldDecorator('transactionFee', {
+                                            rules: [{ required: true, message: 'Please input your First Name!' }],
+                                        })(
+                                            <Input
+                                                type="number"
+                                                placeholder="Transaction Fee"
+                                            />,
+                                        )}
+                                    </Form.Item>
+                                    <Form.Item
+                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)' }}
+                                    >
+                                        {getFieldDecorator('checkRec', {
+                                            rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                        })(
+                                            <Input
+                                                type="text"
+                                                placeholder="Check Recieved"
+                                            />,
+                                        )}
+                                    </Form.Item>
                                     <Form.Item className="sign-up">
                                         {getFieldDecorator('upload', {
                                             valuePropName: 'fileList',
