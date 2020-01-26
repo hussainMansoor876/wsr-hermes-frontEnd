@@ -6,9 +6,27 @@ import logo from '../../assets/images/logo-dark.png';
 import Header from '../Header/Header'
 import { Link } from 'react-router-dom'
 import data from '../../country'
-import { Form, Icon, Input, Button, Upload, notification, Select } from 'antd';
+import { Form, Icon, Input, Button, Upload, notification, Select, DatePicker, message } from 'antd';
 
 const { Option } = Select
+const { Dragger } = Upload
+
+const props = {
+    name: 'file',
+    multiple: true,
+    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    onChange(info) {
+        const { status } = info.file;
+        if (status !== 'uploading') {
+            console.log(info.file, info.fileList);
+        }
+        if (status === 'done') {
+            message.success(`${info.file.name} file uploaded successfully.`);
+        } else if (status === 'error') {
+            message.error(`${info.file.name} file upload failed.`);
+        }
+    },
+}
 
 class Submission extends React.Component {
 
@@ -191,16 +209,41 @@ class Submission extends React.Component {
                                             />,
                                         )}
                                     </Form.Item>
+                                    <Form.Item
+                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginRight: 20 }}
+                                    >
+                                        {getFieldDecorator('paidAmount', {
+                                            rules: [{ required: true, message: 'Please input your First Name!' }],
+                                        })(
+                                            <Input
+                                                type="number"
+                                                placeholder="Paid Amount"
+                                            />,
+                                        )}
+                                    </Form.Item>
+                                    <Form.Item
+                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)' }}
+                                    >
+                                        {getFieldDecorator('paidDate', {
+                                            rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                        })(
+                                            <DatePicker style={{ width: '100%' }} />,
+                                        )}
+                                    </Form.Item>
                                     <Form.Item className="sign-up">
                                         {getFieldDecorator('upload', {
                                             valuePropName: 'fileList',
                                             getValueFromEvent: this.normFile,
                                         })(
-                                            <Upload name="logo" accept="image/*" disabled={this.state.disable}>
-                                                <Button disabled={this.state.disableUpload}>
-                                                    <Icon type="upload" /> Click to upload
-                                                </Button>
-                                            </Upload>,
+                                            <Dragger {...props}>
+                                                <p className="ant-upload-drag-icon">
+                                                    <Icon type="inbox" />
+                                                </p>
+                                                <p className="ant-upload-text">File Upload</p>
+                                                <p className="ant-upload-hint">
+                                                    Drag and drop a file here or click
+                                                </p>
+                                            </Dragger>,
                                         )}
                                     </Form.Item>
 
@@ -208,7 +251,6 @@ class Submission extends React.Component {
                                         <Button htmlType="submit" disabled={this.state.disable} style={{ backgroundColor: '#120894', color: 'white', fontWeight: 'bold', fontSize: 14, height: 40, display: 'flex', width: '100%', textAlign: 'center', justifyContent: 'center', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
                                             Sign Up
                                         </Button>
-                                        Or <Link to="/">Login Account</Link>
                                     </Form.Item>
                                 </Form>
                             </div>
