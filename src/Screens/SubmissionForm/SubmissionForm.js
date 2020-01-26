@@ -116,14 +116,55 @@ class Submission extends React.Component {
                                             </Select>,
                                         )}
                                     </Form.Item>
-                                    <Form.Item className="sign-up">
-                                        {getFieldDecorator('password', {
-                                            rules: [{ required: true, message: 'Please input your Password!' }],
+                                    <Form.Item
+                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginRight: 20 }}
+                                    >
+                                        {getFieldDecorator('lender', {
+                                            rules: [{ required: true, message: 'Please input your First Name!' }],
                                         })(
                                             <Input
-                                                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                                type="password"
-                                                placeholder="Password"
+                                                minLength={3}
+                                                type="text"
+                                                placeholder="Lender"
+                                            />,
+                                        )}
+                                    </Form.Item>
+                                    <Form.Item
+                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)' }}
+                                    >
+                                        {getFieldDecorator('title', {
+                                            rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                        })(
+                                            <Input
+                                                type="text"
+                                                minLength={3}
+                                                placeholder="Title Company"
+                                            />,
+                                        )}
+                                    </Form.Item>
+                                    <Form.Item
+                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginRight: 20 }}
+                                    >
+                                        {getFieldDecorator('agentId', {
+                                            rules: [{ required: true, message: 'Please input your First Name!' }],
+                                        })(
+                                            <Input
+                                                minLength={3}
+                                                type="text"
+                                                placeholder="Agent Id"
+                                            />,
+                                        )}
+                                    </Form.Item>
+                                    <Form.Item
+                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)' }}
+                                    >
+                                        {getFieldDecorator('clientName', {
+                                            rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                        })(
+                                            <Input
+                                                type="text"
+                                                minLength={3}
+                                                placeholder="Client Name"
                                             />,
                                         )}
                                     </Form.Item>
@@ -141,7 +182,7 @@ class Submission extends React.Component {
                                     </Form.Item>
 
                                     <Form.Item className="sign-up">
-                                        <Button htmlType="submit" className="login-form-button" disabled={this.state.disable} style={{ backgroundColor: '#37A000', color: 'white', fontWeight: 'bold', fontSize: 14, height: 40 }}>
+                                        <Button htmlType="submit" disabled={this.state.disable} style={{ backgroundColor: '#120894', color: 'white', fontWeight: 'bold', fontSize: 14, height: 40, display: 'flex', width: '100%', textAlign: 'center', justifyContent: 'center', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
                                             Sign Up
                                         </Button>
                                         Or <Link to="/">Login Account</Link>
