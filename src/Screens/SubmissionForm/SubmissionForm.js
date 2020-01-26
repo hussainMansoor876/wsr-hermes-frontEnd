@@ -20,7 +20,9 @@ class Submission extends React.Component {
         return (
             <div>
                 <Header {...this.props} />
-                Hello
+                <div style={{ backgroundColor: '#E5E5E5' }}>
+                    Hello
+                </div>
             </div>
         )
     }
