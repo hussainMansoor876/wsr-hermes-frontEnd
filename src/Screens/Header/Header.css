@@ -6,8 +6,10 @@
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
-    line-height: 22px;
+    /* line-height: 22px; */
     justify-content: center;
+    margin-top: 20px;
+    margin-bottom: -10px;
     /* display: flex; */
     align-items: center;
     /* text-align: center; */
