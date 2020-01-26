@@ -145,29 +145,29 @@ class Submission extends React.Component {
                                     <Form.Item
                                         style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginRight: 20 }}
                                     >
-                                        {getFieldDecorator('agentId', {
+                                        {getFieldDecorator('soldPrice', {
                                             rules: [{ required: true, message: 'Please input your First Name!' }],
                                         })(
                                             <Input
-                                                minLength={3}
-                                                type="text"
-                                                placeholder="Agent Id"
+                                                type="number"
+                                                placeholder="Sold Price"
                                             />,
                                         )}
                                     </Form.Item>
                                     <Form.Item
                                         style={{ display: 'inline-block', width: 'calc(50% - 10px)' }}
                                     >
-                                        {getFieldDecorator('clientName', {
+                                        {getFieldDecorator('saleType', {
                                             rules: [{ required: true, message: 'Please input your Last Name!' }],
                                         })(
                                             <Input
                                                 type="text"
                                                 minLength={3}
-                                                placeholder="Client Name"
+                                                placeholder="Sale Type"
                                             />,
                                         )}
                                     </Form.Item>
+                                    
                                     <Form.Item className="sign-up">
                                         {getFieldDecorator('upload', {
                                             valuePropName: 'fileList',
