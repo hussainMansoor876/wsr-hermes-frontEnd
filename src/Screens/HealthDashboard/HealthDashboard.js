@@ -2,28 +2,28 @@ import React, { Component } from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
-import { Doughnut } from 'react-chartjs-2';
+import { Doughnut, Pie } from 'react-chartjs-2';
 import Header from '../Header/Header'
 
 const data = {
-	labels: [
-		'Red',
-		'Green',
-		'Yellow'
-	],
-	datasets: [{
-		data: [300, 50, 100],
-		backgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		],
-		hoverBackgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		]
-	}]
+    labels: [
+        'Red',
+        'Green',
+        'Yellow'
+    ],
+    datasets: [{
+        data: [300, 50, 100],
+        backgroundColor: [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56'
+        ],
+        hoverBackgroundColor: [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56'
+        ]
+    }]
 };
 
 class Dashboard extends React.Component {
@@ -41,11 +41,43 @@ class Dashboard extends React.Component {
             <div>
                 <Header {...this.props} />
                 <div style={{ backgroundColor: '#E5E5E5' }}>
-                <Doughnut
-                data={data}
-                // width={50}
-                // height={10}
-                 />
+                    <div className="dashboardHeader" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 20 }}>
+                        Woodward Square Reality Health Report
+                    </div>
+                    <div style={{ textAlign: 'center', display: 'flex', margin: 10, }}>
+                        <div class="boxes1">
+                            <p className="headingText">Net Revenue</p>
+                            <p className="text">$15.23</p>
+                            <div style={{ display: 'flex' }}>
+                                <p className="textBottom">15.10%</p>
+                            </div>
+                        </div>
+                        <div class="boxes1">
+                            <p className="headingText">Net Revenue</p>
+                            <p className="text">$15.23</p>
+                            <p className="textBottom">15.10%</p>
+                        </div>
+                        <div class="boxes1">
+                            <p className="headingText">Net Revenue</p>
+                            <p className="text">$15.23</p>
+                            <p className="textBottom">15.10%</p>
+                        </div>
+                        <div class="boxes1">
+                            <p className="headingText">Net Revenue</p>
+                            <p className="text">$15.23</p>
+                            <p className="textBottom">15.10%</p>
+                        </div>
+                        <div class="boxes1">
+                            <p className="headingText">Net Revenue</p>
+                            <p className="text">$15.23</p>
+                            <p className="textBottom">15.10%</p>
+                        </div>
+                        <div class="boxes1">
+                            <p className="headingText">Net Revenue</p>
+                            <p className="text">$15.23</p>
+                            <p className="textBottom">15.10%</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
