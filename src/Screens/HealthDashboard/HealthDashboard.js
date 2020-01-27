@@ -52,29 +52,6 @@ class Dashboard extends React.Component {
         return current && current < moment().endOf('day');
     }
 
-    disabledDateTime() {
-        return {
-            disabledHours: () => this.range(0, 24).splice(4, 20),
-            disabledMinutes: () => this.range(30, 60),
-            disabledSeconds: () => [55, 56],
-        };
-    }
-
-    disabledRangeTime(_, type) {
-        if (type === 'start') {
-            return {
-                disabledHours: () => this.range(0, 60).splice(4, 20),
-                disabledMinutes: () => this.range(30, 60),
-                disabledSeconds: () => [55, 56],
-            };
-        }
-        return {
-            disabledHours: () => this.range(0, 60).splice(20, 4),
-            disabledMinutes: () => this.range(0, 31),
-            disabledSeconds: () => [55, 56],
-        };
-    }
-
 
     render() {
         return (
