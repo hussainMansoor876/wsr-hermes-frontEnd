@@ -50,32 +50,48 @@ class Dashboard extends React.Component {
                             <p className="text">$15.23</p>
                             <div style={{ display: 'flex' }}>
                                 <p className="textBottom">15.10%</p>
+                                <p className="textBottom1">&nbsp;(31 days)</p>
                             </div>
                         </div>
                         <div class="boxes1">
                             <p className="headingText">Net Revenue</p>
                             <p className="text">$15.23</p>
-                            <p className="textBottom">15.10%</p>
+                            <div style={{ display: 'flex' }}>
+                                <p className="textBottom">15.10%</p>
+                                <p className="textBottom1">&nbsp;(31 days)</p>
+                            </div>
                         </div>
                         <div class="boxes1">
                             <p className="headingText">Net Revenue</p>
                             <p className="text">$15.23</p>
-                            <p className="textBottom">15.10%</p>
+                            <div style={{ display: 'flex' }}>
+                                <p className="textBottom">15.10%</p>
+                                <p className="textBottom1">&nbsp;(31 days)</p>
+                            </div>
                         </div>
                         <div class="boxes1">
                             <p className="headingText">Net Revenue</p>
                             <p className="text">$15.23</p>
-                            <p className="textBottom">15.10%</p>
+                            <div style={{ display: 'flex' }}>
+                                <p className="textBottom">15.10%</p>
+                                <p className="textBottom1">&nbsp;(31 days)</p>
+                            </div>
                         </div>
                         <div class="boxes1">
                             <p className="headingText">Net Revenue</p>
                             <p className="text">$15.23</p>
-                            <p className="textBottom">15.10%</p>
+                            <div style={{ display: 'flex' }}>
+                                <p className="textBottom">15.10%</p>
+                                <p className="textBottom1">&nbsp;(31 days)</p>
+                            </div>
                         </div>
                         <div class="boxes1">
                             <p className="headingText">Net Revenue</p>
                             <p className="text">$15.23</p>
-                            <p className="textBottom">15.10%</p>
+                            <div style={{ display: 'flex' }}>
+                                <p className="textBottom">15.10%</p>
+                                <p className="textBottom1">&nbsp;(31 days)</p>
+                            </div>
                         </div>
                     </div>
                 </div>

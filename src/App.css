@@ -238,3 +238,16 @@ height: 40;
 
   color: #232323;
 }
+
+
+.textBottom1{
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #232323;
+}
