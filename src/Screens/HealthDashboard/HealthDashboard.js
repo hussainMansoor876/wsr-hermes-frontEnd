@@ -45,7 +45,7 @@ class Dashboard extends React.Component {
                     <div className="dashboardHeader" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 20 }}>
                         Woodward Square Reality Health Report
                     </div>
-                    <div style={{ textAlign: 'center', display: 'flex', margin: 10, }}>
+                    <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
                         <div class="boxes1">
                             <p className="headingText">Net Revenue</p>
                             <p className="text">$15.23</p>

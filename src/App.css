@@ -178,9 +178,12 @@ height: 40;
 
 .boxes1{
   height: 100px;
-  width: 100%;
+  width: calc(16.666% - 10px);
   /* left: 57px; */
   /* top: 150px; */
+  display: inline-block;
+
+  overflow: hidden;
 
   background: #FFFFFF;
   margin: 5px;
@@ -250,4 +253,11 @@ height: 40;
   text-align: center;
 
   color: #232323;
+}
+
+
+@media(max-width: 900px){
+  .boxes1{
+    
+  }
 }
