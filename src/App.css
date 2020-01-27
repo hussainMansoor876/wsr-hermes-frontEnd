@@ -258,6 +258,30 @@ height: 40;
 
 @media(max-width: 900px){
   .boxes1{
-    
+    width: calc(33.33% - 10px);
+  }
+
+  .dashboardHeader{
+    font-size: 32px;
+  }
+}
+
+@media(max-width: 600px){
+  .boxes1{
+    width: calc(50% - 20px);
+  }
+
+  .dashboardHeader{
+    font-size: 28px;
+  }
+}
+
+@media(max-width: 400px){
+  .boxes1{
+    width: calc(100% - 40px);
+  }
+
+  .dashboardHeader{
+    font-size: 24px;
   }
 }
