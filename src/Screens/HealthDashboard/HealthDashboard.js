@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
-import { Doughnut, Pie } from 'react-chartjs-2';
+import { DatePicker } from 'antd';
 import Header from '../Header/Header'
 import moment from 'moment';
+
+const { MonthPicker, RangePicker } = DatePicker;
+
 
 const data = {
     labels: [
@@ -44,6 +47,17 @@ class Dashboard extends React.Component {
                 <div style={{ backgroundColor: '#E5E5E5' }}>
                     <div className="dashboardHeader" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 20 }}>
                         Woodward Square Reality Health Report
+                    </div>
+                    <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
+                        <RangePicker
+                            disabledDate={disabledDate}
+                            disabledTime={disabledRangeTime}
+                            showTime={{
+                                hideDisabledOptions: true,
+                                defaultValue: [moment('00:00:00', 'HH:mm:ss'), moment('11:59:59', 'HH:mm:ss')],
+                            }}
+                            format="YYYY-MM-DD HH:mm:ss"
+                        />
                     </div>
                     <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
                         <div class="boxes1">
