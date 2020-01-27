@@ -6,8 +6,38 @@ import { DatePicker } from 'antd';
 import Header from '../Header/Header'
 import moment from 'moment';
 import PieChart from 'react-minimal-pie-chart';
+import Chart from 'react-apexcharts'
 
 const { RangePicker } = DatePicker;
+
+var series = [25, 15, 44, 55, 41, 17]
+var options = {
+    chart: {
+        width: '100%',
+        type: 'pie',
+    },
+    labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    // theme: {
+    //     monochrome: {
+    //         enabled: true
+    //     }
+    // },
+    title: {
+        text: "Number of leads"
+    },
+    responsive: [{
+        breakpoint: 480,
+        options: {
+            chart: {
+                width: 200
+            },
+            legend: {
+                position: 'bottom'
+            }
+        }
+    }]
+}
+
 
 
 class Dashboard extends React.Component {
@@ -40,20 +70,15 @@ class Dashboard extends React.Component {
                 <div style={{ backgroundColor: '#E5E5E5' }}>
                     <div className="dashboardHeader" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 20 }}>
                         Woodward Square Reality Health Report
-                        <PieChart
-                            data={[
-                                { title: 'One', value: 10, color: '#4472C4' },
-                                { title: 'Two', value: 15, color: '#5B9BD5' },
-                                { title: 'Three', value: 20, color: '#FFC000' },
-                                { title: 'Three', value: 20, color: '#ED7D31' },
-                            ]}
-                        />
                     </div>
                     <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
                         <RangePicker
                             disabledDate={this.disabledDate.bind(this)}
                             format="YYYY-MM-DD"
                         />
+                    </div>
+                    <div className="chart1">
+                        <Chart options={options} series={series} type="pie" width={500} height={320} />
                     </div>
                     <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
                         <div class="boxes1">
