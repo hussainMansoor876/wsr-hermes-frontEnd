@@ -61,7 +61,7 @@ class Dashboard extends React.Component {
                     <div className="dashboardHeader" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 20 }}>
                         Woodward Square Reality Health Report
                     </div>
-                    <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
+                    <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
                         <RangePicker
                             disabledDate={this.disabledDate.bind(this)}
                             format="YYYY-MM-DD"
