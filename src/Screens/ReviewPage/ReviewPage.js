@@ -49,7 +49,7 @@ class Review extends React.Component {
                         <div className="card">
                             <div>
                                 <Form onSubmit={this.handleSubmit} className="login-form">
-                                    <h1 className="heading1" >Closing Submission Form</h1>
+                                    <h1 className="heading1" >Review Submission Form</h1>
                                     <Form.Item
                                         style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginRight: 20 }}
                                     >
