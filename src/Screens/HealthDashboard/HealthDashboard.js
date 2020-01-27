@@ -49,7 +49,7 @@ class Dashboard extends React.Component {
 
     disabledDate(current) {
         // Can not select days before today and today
-        return current && current < moment().endOf('day');
+        return current && current < moment('31/12/2019').endOf('day');
     }
 
 
@@ -64,11 +64,6 @@ class Dashboard extends React.Component {
                     <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
                         <RangePicker
                             disabledDate={this.disabledDate.bind(this)}
-                            // disabledTime={this.disabledRangeTime.bind(this)}
-                            // showTime={{
-                            //     hideDisabledOptions: true,
-                            //     defaultValue: [moment('00:00:00', 'HH:mm:ss'), moment('11:59:59', 'HH:mm:ss')],
-                            // }}
                             format="YYYY-MM-DD"
                         />
                     </div>
