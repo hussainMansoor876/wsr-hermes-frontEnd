@@ -87,12 +87,12 @@ class Dashboard extends React.Component {
                     <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
                         <RangePicker
                             disabledDate={this.disabledDate.bind(this)}
-                            disabledTime={this.disabledRangeTime.bind(this)}
-                            showTime={{
-                                hideDisabledOptions: true,
-                                defaultValue: [moment('00:00:00', 'HH:mm:ss'), moment('11:59:59', 'HH:mm:ss')],
-                            }}
-                            format="YYYY-MM-DD HH:mm:ss"
+                            // disabledTime={this.disabledRangeTime.bind(this)}
+                            // showTime={{
+                            //     hideDisabledOptions: true,
+                            //     defaultValue: [moment('00:00:00', 'HH:mm:ss'), moment('11:59:59', 'HH:mm:ss')],
+                            // }}
+                            format="YYYY-MM-DD"
                         />
                     </div>
                     <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
