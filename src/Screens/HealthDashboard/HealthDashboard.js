@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
 import { Doughnut, Pie } from 'react-chartjs-2';
 import Header from '../Header/Header'
+import moment from 'moment';
 
 const data = {
     labels: [
