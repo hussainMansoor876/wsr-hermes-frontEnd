@@ -87,8 +87,9 @@
   /* position: relative; */
   margin: 10%;
   padding: 30px;
-  width: 40%;
+  width: 50%;
   background-color: #E5E5E5;
+  overflow: hidden;
 }
 
 .card:hover, .card1:hover{
