@@ -90,7 +90,7 @@
   background-color: #E5E5E5;
 }
 
-.card:hover {
+.card:hover, .card1:hover{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
@@ -128,7 +128,7 @@
 
 
 @media(max-width: 700px){
-  .card{
+  .card1{
     width: 75%;
   }
   .heading1{
@@ -138,7 +138,7 @@
 }
 
 @media(max-width: 500px){
-  .card{
+  .card1{
     width: 80%;
   }
   .heading1{
