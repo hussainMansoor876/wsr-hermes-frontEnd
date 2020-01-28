@@ -75,29 +75,38 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   /* position: relative; */
-  background-color: #E5E5E5;
+  margin: 10%;
+  padding: 30px;
+  width: 100%;
+}
+
+.card1{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  /* position: relative; */
   margin: 10%;
   padding: 30px;
   width: 40%;
+  background-color: #E5E5E5;
 }
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.container {
+/* .containerReview {
   padding: 2px 16px;
   display: flex;
   align-self: center;
   justify-content: center;
   justify-content: center;
   align-items: center;
-}
+} */
 
 
 
 @media(max-width: 1000px){
-  .card{
+  .card1{
     width: 60%;
   }
 
@@ -108,7 +117,7 @@
 
 
 @media(max-width: 800px){
-  .card{
+  .card1{
     width: 70%;
   }
 
@@ -139,19 +148,18 @@
 
 
 .login-form {
-/* max-width: 500px; */
-width: auto;
+  width: auto;
 }
 .login-form-forgot {
-float: right;
+  float: right;
 }
 .login-form-button {
-width: 100%;
-background-color: #37A000 !important;
-color: white !important;
-font-weight: bold;
-font-size: 14; 
-height: 40;
+  width: 100%;
+  background-color: #37A000 !important;
+  color: white !important;
+  font-weight: bold;
+  font-size: 14; 
+  height: 40;
 }
 
 

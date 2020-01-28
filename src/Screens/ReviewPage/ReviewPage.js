@@ -46,7 +46,7 @@ class Review extends React.Component {
                 <Header {...this.props} />
                 <div style={{ backgroundColor: '#E5E5E5' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'ceenter' }}>
-                        <div className="card">
+                        <div className="card1">
                             <div>
                                 <Form onSubmit={this.handleSubmit} className="login-form">
                                     <h1 className="heading1" >Review Submission Form</h1>
