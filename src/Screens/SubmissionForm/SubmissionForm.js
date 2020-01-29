@@ -69,18 +69,6 @@ class Submission extends React.Component {
                 else if (!validator.isAlphanumeric(values.title)) {
                     return toast.error("Title Must be an alphaNumeric!!!");
                 }
-                else if (values.address.length < 6) {
-                    return toast.error("Address must be Atleast 6 Digits!");
-                }
-                else if (values.zip.length < 4) {
-                    return toast.error("Zip code must be Atleast 4 Numbers!");
-                }
-                else if (values.board.length < 6) {
-                    return toast.error("Board must be Atleast 6 Numbers!");
-                }
-                else if (values.license.length < 6) {
-                    return toast.error("license must be Atleast 6 Numbers!");
-                }
                 values.city = city[values.city]
                 this.setState({ loading: true, disable: true })
                 axios.post('https://wsr-server.herokuapp.com/login/signup', values)
