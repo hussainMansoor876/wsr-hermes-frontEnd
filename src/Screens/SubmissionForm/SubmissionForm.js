@@ -82,14 +82,14 @@ class Submission extends React.Component {
                 axios.post('http://127.0.0.1:3001/subform/submission', formData)
                     .then((result) => {
                         console.log('result', result)
-                        // if (result.data.success) {
-                        //     this.props.loginUser(result.data.user)
-                        //     this.props.history.push('/dashboard')
-                        // }
-                        // else {
-                        //     this.setState({ loading: false, disable: false })
-                        //     this.openNotification(title, result.data.message, 'close-circle', 'red')
-                        // }
+                        if (result.data.success) {
+                            this.props.loginUser(result.data.user)
+                            this.props.history.push('/dashboard')
+                        }
+                        else {
+                            this.setState({ loading: false, disable: false })
+                            this.openNotification(title, result.data.message, 'close-circle', 'red')
+                        }
                     })
                     .catch((err) => {
                         console.log(err)
