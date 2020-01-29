@@ -79,7 +79,7 @@ class Submission extends React.Component {
                 }
                 formData.append('upload', values.upload[0].originFileObj)
                 console.log('form', formData)
-                axios.post('http://127.0.0.1:3001/subform/submission', formData)
+                axios.post('https://wsr-server.herokuapp.com/subform/submission', formData)
                     .then((result) => {
                         console.log('result', result)
                         if (result.data.success) {
