@@ -74,8 +74,8 @@ class Submission extends React.Component {
                 values.city = city[values.city]
                 // this.setState({ loading: true, disable: true })
                 var formData = new FormData();
-                for(var i in values){
-                    formData.append(i, values[i] )
+                for (var i in values) {
+                    formData.append(i, JSON.stringify(values[i]))
                 }
                 formData.append('upload', values.upload[0].originFileObj)
                 console.log('form', formData)
@@ -291,7 +291,7 @@ class Submission extends React.Component {
                                             <DatePicker style={{ width: '100%' }} />,
                                         )}
                                     </Form.Item>
-                                    
+
                                     <Form.Item className="sign-up">
                                         {getFieldDecorator('upload', {
                                             valuePropName: 'fileList',
