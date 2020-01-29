@@ -65,16 +65,20 @@ class Submission extends React.Component {
 
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                // if (!validator.isAlpha(values.clientName)) {
-                //     return toast.error("Client Name Must be an alphabet!!!");
-                // }
-                // else if (!validator.isAlphanumeric(values.title)) {
-                //     return toast.error("Title Must be an alphaNumeric!!!");
-                // }
-                // values.city = city[values.city]
+                if (!validator.isAlpha(values.clientName)) {
+                    return toast.error("Client Name Must be an alphabet!!!");
+                }
+                else if (!validator.isAlphanumeric(values.title)) {
+                    return toast.error("Title Must be an alphaNumeric!!!");
+                }
+                values.city = city[values.city]
                 // this.setState({ loading: true, disable: true })
                 var formData = new FormData();
+                for(var i in values){
+                    formData.append(i, values[i] )
+                }
                 formData.append('upload', values.upload[0].originFileObj)
+                console.log('form', formData)
                 axios.post('http://127.0.0.1:3001/subform/submission', formData)
                     .then((result) => {
                         console.log('result', result)
@@ -107,7 +111,7 @@ class Submission extends React.Component {
                             <div>
                                 <Form onSubmit={this.handleSubmit} className="login-form">
                                     <h1 className="heading1" >Closing Submission Form</h1>
-                                    {/* <Form.Item
+                                    <Form.Item
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('agentId', {
@@ -287,7 +291,7 @@ class Submission extends React.Component {
                                             <DatePicker style={{ width: '100%' }} />,
                                         )}
                                     </Form.Item>
-                                     */}
+                                    
                                     <Form.Item className="sign-up">
                                         {getFieldDecorator('upload', {
                                             valuePropName: 'fileList',
