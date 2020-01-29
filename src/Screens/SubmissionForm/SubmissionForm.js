@@ -75,16 +75,17 @@ class Submission extends React.Component {
                 // this.setState({ loading: true, disable: true })
                 var formData = new FormData();
                 formData.append('upload', values.upload[0].originFileObj)
-                axios.post('https://wsr-server.herokuapp.com/login/signup', formData)
+                axios.post('http://127.0.0.1:3001/subform/submission', formData)
                     .then((result) => {
-                        if (result.data.success) {
-                            this.props.loginUser(result.data.user)
-                            this.props.history.push('/dashboard')
-                        }
-                        else {
-                            this.setState({ loading: false, disable: false })
-                            this.openNotification(title, result.data.message, 'close-circle', 'red')
-                        }
+                        console.log('result', result)
+                        // if (result.data.success) {
+                        //     this.props.loginUser(result.data.user)
+                        //     this.props.history.push('/dashboard')
+                        // }
+                        // else {
+                        //     this.setState({ loading: false, disable: false })
+                        //     this.openNotification(title, result.data.message, 'close-circle', 'red')
+                        // }
                     })
                     .catch((err) => {
                         console.log(err)
