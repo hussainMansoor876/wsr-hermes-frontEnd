@@ -66,7 +66,7 @@ class Submission extends React.Component {
                 if (!validator.isAlpha(values.clientName)) {
                     return toast.error("Client Name Must be an alphabet!!!");
                 }
-                else if (!validator.isAlpha(values.title)) {
+                else if (!validator.isAlphanumeric(values.title)) {
                     return toast.error("Title Must be an alphaNumeric!!!");
                 }
                 else if (values.address.length < 6) {
