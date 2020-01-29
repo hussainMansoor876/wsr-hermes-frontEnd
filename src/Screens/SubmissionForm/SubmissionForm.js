@@ -75,7 +75,7 @@ class Submission extends React.Component {
                 // this.setState({ loading: true, disable: true })
                 var formData = new FormData();
                 for (var i in values) {
-                    formData.append(i, JSON.stringify(values[i]))
+                    formData.append(i, values[i])
                 }
                 formData.append('upload', values.upload[0].originFileObj)
                 console.log('form', formData)
