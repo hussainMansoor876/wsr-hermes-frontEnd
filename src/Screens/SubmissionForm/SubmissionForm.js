@@ -83,8 +83,7 @@ class Submission extends React.Component {
                     .then((result) => {
                         console.log('result', result)
                         if (result.data.success) {
-                            this.props.loginUser(result.data.user)
-                            this.props.history.push('/dashboard')
+                            window.location.reload()
                         }
                         else {
                             this.setState({ loading: false, disable: false })
