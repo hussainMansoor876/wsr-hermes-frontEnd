@@ -65,15 +65,17 @@ class Submission extends React.Component {
 
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                if (!validator.isAlpha(values.clientName)) {
-                    return toast.error("Client Name Must be an alphabet!!!");
-                }
-                else if (!validator.isAlphanumeric(values.title)) {
-                    return toast.error("Title Must be an alphaNumeric!!!");
-                }
-                values.city = city[values.city]
-                this.setState({ loading: true, disable: true })
-                axios.post('https://wsr-server.herokuapp.com/login/signup', values)
+                // if (!validator.isAlpha(values.clientName)) {
+                //     return toast.error("Client Name Must be an alphabet!!!");
+                // }
+                // else if (!validator.isAlphanumeric(values.title)) {
+                //     return toast.error("Title Must be an alphaNumeric!!!");
+                // }
+                // values.city = city[values.city]
+                // this.setState({ loading: true, disable: true })
+                var formData = new FormData();
+                formData.append('upload', values.upload[0].originFileObj)
+                axios.post('https://wsr-server.herokuapp.com/login/signup', formData)
                     .then((result) => {
                         if (result.data.success) {
                             this.props.loginUser(result.data.user)
@@ -104,7 +106,7 @@ class Submission extends React.Component {
                             <div>
                                 <Form onSubmit={this.handleSubmit} className="login-form">
                                     <h1 className="heading1" >Closing Submission Form</h1>
-                                    <Form.Item
+                                    {/* <Form.Item
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('agentId', {
@@ -284,6 +286,7 @@ class Submission extends React.Component {
                                             <DatePicker style={{ width: '100%' }} />,
                                         )}
                                     </Form.Item>
+                                     */}
                                     <Form.Item className="sign-up">
                                         {getFieldDecorator('upload', {
                                             valuePropName: 'fileList',
