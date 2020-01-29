@@ -42,6 +42,21 @@ class Submission extends React.Component {
         }
     }
 
+    normFile = e => {
+        // this.setState({ disableUpload: false })
+        // if (e.file.type.indexOf('image')) {
+        //     this.openNotification(title, 'Please Upload an Image', 'close-circle', 'red')
+        //     return
+        // }
+        // if (Array.isArray(e)) {
+        //     return e;
+        // }
+        // if (e.fileList.length) {
+        //     this.setState({ disableUpload: true })
+        // }
+        return e && e.fileList;
+    }
+
     handleSubmit = e => {
         const { city } = this.state
         e.preventDefault();
