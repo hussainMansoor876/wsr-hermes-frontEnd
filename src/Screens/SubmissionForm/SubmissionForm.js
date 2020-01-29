@@ -63,11 +63,11 @@ class Submission extends React.Component {
 
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                if (values.clientName.length < 3) {
-                    return toast.error("Phone number must be Atleast 6 Digits!");
+                if (!validator.isAlpha(values.clientName)) {
+                    return toast.error("Client Name Must be an alphabet!!!");
                 }
-                else if (values.password.length < 6) {
-                    return toast.error("Password must be Atleast 6 Digits!");
+                else if (!validator.isAlpha(values.title)) {
+                    return toast.error("Title Must be an alphaNumeric!!!");
                 }
                 else if (values.address.length < 6) {
                     return toast.error("Address must be Atleast 6 Digits!");
