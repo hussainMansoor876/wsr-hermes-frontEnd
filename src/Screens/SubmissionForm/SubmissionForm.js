@@ -5,11 +5,16 @@ import Loader from '../../Components/Loader';
 import logo from '../../assets/images/logo-dark.png';
 import Header from '../Header/Header'
 import { Link } from 'react-router-dom'
+import validator from 'validator'
+import { toast } from 'react-toastify';
 import data from '../../country'
+import axios from 'axios'
 import { Form, Icon, Input, Button, Upload, notification, Select, DatePicker, message } from 'antd';
 
 const { Option } = Select
 const { Dragger } = Upload
+
+const title = "Error"
 
 const props = {
     name: 'file',
@@ -36,6 +41,53 @@ class Submission extends React.Component {
             city: [],
         }
     }
+
+    handleSubmit = e => {
+        const { city } = this.state
+        e.preventDefault();
+
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                if (!validator.isEmail(values.email)) {
+                    return toast.error("Invalid Email!");
+                }
+                else if (values.phone.length < 6) {
+                    return toast.error("Phone number must be Atleast 6 Digits!");
+                }
+                else if (values.password.length < 6) {
+                    return toast.error("Password must be Atleast 6 Digits!");
+                }
+                else if (values.address.length < 6) {
+                    return toast.error("Address must be Atleast 6 Digits!");
+                }
+                else if (values.zip.length < 4) {
+                    return toast.error("Zip code must be Atleast 4 Numbers!");
+                }
+                else if (values.board.length < 6) {
+                    return toast.error("Board must be Atleast 6 Numbers!");
+                }
+                else if (values.license.length < 6) {
+                    return toast.error("license must be Atleast 6 Numbers!");
+                }
+                values.city = city[values.city]
+                this.setState({ loading: true, disable: true })
+                axios.post('https://wsr-server.herokuapp.com/login/signup', values)
+                    .then((result) => {
+                        if (result.data.success) {
+                            this.props.loginUser(result.data.user)
+                            this.props.history.push('/dashboard')
+                        }
+                        else {
+                            this.setState({ loading: false, disable: false })
+                            this.openNotification(title, result.data.message, 'close-circle', 'red')
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+            }
+        });
+    };
 
 
     render() {
