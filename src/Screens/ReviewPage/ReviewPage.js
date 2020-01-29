@@ -51,7 +51,7 @@ class Review extends React.Component {
                                 <Form onSubmit={this.handleSubmit} className="login-form">
                                     <h1 className="heading1" >Review Submission Form</h1>
                                     <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginRight: 20 }}
+                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('agentId', {
                                             rules: [{ required: true, message: 'Please input your First Name!' }],
@@ -64,7 +64,7 @@ class Review extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)' }}
+                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('clientName', {
                                             rules: [{ required: true, message: 'Please input your Last Name!' }],
@@ -88,7 +88,7 @@ class Review extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginRight: 20 }}
+                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('country', {
                                             rules: [{ required: true, message: 'Please Select Your Country!' }],
@@ -112,7 +112,7 @@ class Review extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)' }}
+                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('city', {
                                             rules: [{ required: true, message: 'Please Select Your City!' }],
@@ -135,7 +135,7 @@ class Review extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginRight: 20 }}
+                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('lender', {
                                             rules: [{ required: true, message: 'Please input your First Name!' }],
@@ -148,7 +148,7 @@ class Review extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)' }}
+                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('title', {
                                             rules: [{ required: true, message: 'Please input your Last Name!' }],
@@ -161,7 +161,7 @@ class Review extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginRight: 20 }}
+                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('soldPrice', {
                                             rules: [{ required: true, message: 'Please input your First Name!' }],
@@ -173,7 +173,7 @@ class Review extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)' }}
+                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('saleType', {
                                             rules: [{ required: true, message: 'Please input your Last Name!' }],
@@ -186,7 +186,7 @@ class Review extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginRight: 20 }}
+                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('transactionFee', {
                                             rules: [{ required: true, message: 'Please input your First Name!' }],
@@ -198,7 +198,7 @@ class Review extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)' }}
+                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('checkRec', {
                                             rules: [{ required: true, message: 'Please input your Last Name!' }],
@@ -210,7 +210,7 @@ class Review extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginRight: 20 }}
+                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('paidAmount', {
                                             rules: [{ required: true, message: 'Please input your First Name!' }],
@@ -222,7 +222,7 @@ class Review extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 10px)' }}
+                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('paidDate', {
                                             rules: [{ required: true, message: 'Please input your Last Name!' }],
