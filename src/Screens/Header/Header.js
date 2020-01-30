@@ -19,9 +19,15 @@ class Header extends React.Component {
 
     componentDidMount() {
         const { user, location } = this.props
+        console.log(location)
+        console.log(user)
 
         if (!user) {
-            this.props.history.push('/')
+            this.props.history.replace('/')
+        }
+
+        if(user && user.role == 'agent' && location.pathname !== '/submission'){
+            this.props.history.replace('/submission')
         }
     }
 
