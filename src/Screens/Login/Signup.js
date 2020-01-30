@@ -27,6 +27,13 @@ class Signup extends React.Component {
         }
     }
 
+    componentDidMount() {
+        const { user, history } = this.props;
+        if (user) {
+            history.replace('/dashboard')
+        }
+    }
+
     validateToNextPassword = (rule, value, callback) => {
         const { form } = this.props;
         if (value && this.state.confirmDirty) {

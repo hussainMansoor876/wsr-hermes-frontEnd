@@ -28,7 +28,7 @@ class Login extends React.Component {
             this.props.removeUser()
         }
         if (user) {
-            this.props.history.push('/dashboard')
+            this.props.history.replace('/dashboard')
         }
     }
 

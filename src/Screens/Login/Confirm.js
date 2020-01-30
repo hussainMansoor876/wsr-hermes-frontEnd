@@ -16,6 +16,13 @@ class Confirm extends React.Component {
         }
     }
 
+    componentDidMount() {
+        const { user, history } = this.props;
+        if (user) {
+            history.replace('/dashboard')
+        }
+    }
+
 
     render() {
         return (
