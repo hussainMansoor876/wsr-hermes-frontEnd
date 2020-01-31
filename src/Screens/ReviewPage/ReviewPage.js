@@ -115,7 +115,6 @@ class Review extends React.Component {
                     return toast.error("Title Must be an alphaNumeric!!!");
                 }
                 // this.setState({ loading: true, disable: true })
-                var formData = new FormData();
                 values.city = city[values.city]
                 // this.setState({ loading: true, disable: true })
                 var formData = new FormData();

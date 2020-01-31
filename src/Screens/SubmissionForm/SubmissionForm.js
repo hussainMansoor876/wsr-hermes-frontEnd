@@ -61,13 +61,11 @@ class Submission extends React.Component {
                 //     return toast.error("Title Must be an alphaNumeric!!!");
                 // }
                 values.city = city[values.city]
-                // this.setState({ loading: true, disable: true })
+                this.setState({ loading: true, disable: true })
                 var formData = new FormData();
-                // for (var i = 0; i < values.upload; i++) {
-                //     values.upload[i] = values.upload[1].originFileObj
-                // }
-                console.log('values', values)
-                formData.append('upload', values.upload)
+                for (var i = 0; i < values.upload.length; i++) {
+                    formData.append(`upload${i}`, values.upload[i].originFileObj)
+                }
                 formData.append('agentId', values.agentId)
                 formData.append('clientName', values.clientName)
                 formData.append('streetAddress', values.streetAddress)
@@ -82,8 +80,6 @@ class Submission extends React.Component {
                 formData.append('paidAmount', values.paidAmount)
                 formData.append('paidDate', values.paidDate)
                 formData.append('paidDate', values.paidDate)
-
-
                 axios.post('http://127.0.0.1:3001/subform/submission', formData)
                     .then((result) => {
                         console.log('result', result)
