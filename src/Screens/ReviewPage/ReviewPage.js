@@ -10,7 +10,7 @@ import validator from 'validator'
 import { toast } from 'react-toastify';
 import axios from 'axios'
 import { Form, Icon, Input, Button, Upload, Descriptions, Select, DatePicker, message, Menu, Table, Skeleton, Badge } from 'antd';
-import Iframe from 'react-iframe'
+import moment from 'moment';
 
 const { Option } = Select
 const { Dragger } = Upload
@@ -379,7 +379,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('paidDate', {
-                                                    initialValue: viewForm.paidDate,
+                                                    initialValue: moment('2015/01/01', 'YYYY/MM/DD'),
                                                     rules: [{ required: true, message: 'Please input your Last Name!' }],
                                                 })(
                                                     <DatePicker style={{ width: '100%' }} />,
