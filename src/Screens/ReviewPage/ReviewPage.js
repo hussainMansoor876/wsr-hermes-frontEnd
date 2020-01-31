@@ -383,7 +383,10 @@ class Review extends React.Component {
 
                                             <Form.Item className="sign-up">
                                                 <Button htmlType="submit" disabled={this.state.disable} style={{ backgroundColor: '#120894', color: 'white', fontWeight: 'bold', fontSize: 14, height: 40, display: 'flex', width: '100%', textAlign: 'center', justifyContent: 'center', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
-                                                    Sign Up
+                                                    Update
+                                        </Button>
+                                                <Button style={{ fontWeight: 'bold', fontSize: 14, height: 40, display: 'flex', width: '100%', textAlign: 'center', justifyContent: 'center', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', marginTop: 10 }}>
+                                                    Cancel
                                         </Button>
                                             </Form.Item>
                                         </Form>

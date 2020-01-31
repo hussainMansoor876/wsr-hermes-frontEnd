@@ -310,7 +310,7 @@ class Submission extends React.Component {
 
                                     <Form.Item className="sign-up">
                                         <Button htmlType="submit" disabled={this.state.disable} loading={this.state.loading} style={{ backgroundColor: '#120894', color: 'white', fontWeight: 'bold', fontSize: 14, height: 40, display: 'flex', width: '100%', textAlign: 'center', justifyContent: 'center', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
-                                            Sign Up
+                                            Submit
                                         </Button>
                                     </Form.Item>
                                 </Form>
