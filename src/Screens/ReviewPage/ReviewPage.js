@@ -156,7 +156,7 @@ class Review extends React.Component {
                                 tableLayout={'fixed'}
                             />
                         </div> :
-                            <Descriptions layout="vertical" bordered column={2} style={{
+                            viewForm && edit ? <Descriptions layout="vertical" bordered column={2} style={{
                                 backgroundColor: '#fff',
                                 width: '60%',
                                 marginBottom: 20
@@ -179,216 +179,216 @@ class Review extends React.Component {
                                 <Descriptions.Item label="Check Recieved">Prepaid</Descriptions.Item>
                                 <Descriptions.Item label="Paid Amount">Cloud Database</Descriptions.Item>
                                 <Descriptions.Item label="Date">Prepaid</Descriptions.Item>
-                            </Descriptions>}
-                        {/* <div className="card1">
-                            <div>
-                                <Form onSubmit={this.handleSubmit} className="login-form">
-                                    <h1 className="heading1" >Review Submission Form</h1>
-                                    <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
-                                    >
-                                        {getFieldDecorator('agentId', {
-                                            rules: [{ required: true, message: 'Please input your First Name!' }],
-                                        })(
-                                            <Input
-                                                minLength={3}
-                                                type="text"
-                                                placeholder="Agent Id"
-                                            />,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
-                                    >
-                                        {getFieldDecorator('clientName', {
-                                            rules: [{ required: true, message: 'Please input your Last Name!' }],
-                                        })(
-                                            <Input
-                                                type="text"
-                                                minLength={3}
-                                                placeholder="Client Name"
-                                            />,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item className="sign-up">
-                                        {getFieldDecorator('streetAddress', {
-                                            rules: [{ required: true, message: 'Please input your username!' }],
-                                        })(
-                                            <Input
-                                                style={{ backgroundColor: '#FCFCFC' }}
-                                                minLength={10}
-                                                placeholder="Street Address"
-                                            />,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
-                                    >
-                                        {getFieldDecorator('country', {
-                                            rules: [{ required: true, message: 'Please Select Your Country!' }],
-                                        })(
-                                            <Select
-                                                showSearch
-                                                style={{ backgroundColor: '#fff' }}
-                                                placeholder="Select a Country"
-                                                optionFilterProp="children"
-                                                onSelect={(e) => this.setState({ city: dataCountry[e] })}
-                                                filterOption={(input, option) =>
-                                                    option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                                                }
+                            </Descriptions> :
+                                <div className="card1">
+                                    <div>
+                                        <Form onSubmit={this.handleSubmit} className="login-form">
+                                            <h1 className="heading1" >Review Submission Form</h1>
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                             >
-                                                {
-                                                    Object.keys(dataCountry).map((v, i) => {
-                                                        return <Option value={v} key={i}>{v}</Option>
-                                                    })
-                                                }
-                                            </Select>,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
-                                    >
-                                        {getFieldDecorator('city', {
-                                            rules: [{ required: true, message: 'Please Select Your City!' }],
-                                        })(
-                                            <Select
-                                                showSearch
-                                                style={{ backgroundColor: '#fff' }}
-                                                placeholder="Select a city"
-                                                optionFilterProp="children"
-                                                filterOption={(input, option) =>
-                                                    option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                                                }
+                                                {getFieldDecorator('agentId', {
+                                                    rules: [{ required: true, message: 'Please input your First Name!' }],
+                                                })(
+                                                    <Input
+                                                        minLength={3}
+                                                        type="text"
+                                                        placeholder="Agent Id"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
-                                                {
-                                                    city.map((v, i) => {
-                                                        return <Option city={v} key={i}>{v}</Option>
-                                                    })
-                                                }
-                                            </Select>,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
-                                    >
-                                        {getFieldDecorator('lender', {
-                                            rules: [{ required: true, message: 'Please input your First Name!' }],
-                                        })(
-                                            <Input
-                                                minLength={3}
-                                                type="text"
-                                                placeholder="Lender"
-                                            />,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
-                                    >
-                                        {getFieldDecorator('title', {
-                                            rules: [{ required: true, message: 'Please input your Last Name!' }],
-                                        })(
-                                            <Input
-                                                type="text"
-                                                minLength={3}
-                                                placeholder="Title Company"
-                                            />,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
-                                    >
-                                        {getFieldDecorator('soldPrice', {
-                                            rules: [{ required: true, message: 'Please input your First Name!' }],
-                                        })(
-                                            <Input
-                                                type="number"
-                                                placeholder="Sold Price"
-                                            />,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
-                                    >
-                                        {getFieldDecorator('saleType', {
-                                            rules: [{ required: true, message: 'Please input your Last Name!' }],
-                                        })(
-                                            <Input
-                                                type="text"
-                                                minLength={3}
-                                                placeholder="Sale Type"
-                                            />,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
-                                    >
-                                        {getFieldDecorator('transactionFee', {
-                                            rules: [{ required: true, message: 'Please input your First Name!' }],
-                                        })(
-                                            <Input
-                                                type="number"
-                                                placeholder="Transaction Fee"
-                                            />,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
-                                    >
-                                        {getFieldDecorator('checkRec', {
-                                            rules: [{ required: true, message: 'Please input your Last Name!' }],
-                                        })(
-                                            <Input
-                                                type="text"
-                                                placeholder="Check Recieved"
-                                            />,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
-                                    >
-                                        {getFieldDecorator('paidAmount', {
-                                            rules: [{ required: true, message: 'Please input your First Name!' }],
-                                        })(
-                                            <Input
-                                                type="number"
-                                                placeholder="Paid Amount"
-                                            />,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
-                                    >
-                                        {getFieldDecorator('paidDate', {
-                                            rules: [{ required: true, message: 'Please input your Last Name!' }],
-                                        })(
-                                            <DatePicker style={{ width: '100%' }} />,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item className="sign-up">
-                                        {getFieldDecorator('upload', {
-                                            valuePropName: 'fileList',
-                                            getValueFromEvent: this.normFile,
-                                        })(
-                                            <Dragger {...props}>
-                                                <p className="ant-upload-drag-icon">
-                                                    <Icon type="inbox" />
+                                                {getFieldDecorator('clientName', {
+                                                    rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                                })(
+                                                    <Input
+                                                        type="text"
+                                                        minLength={3}
+                                                        placeholder="Client Name"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item className="sign-up">
+                                                {getFieldDecorator('streetAddress', {
+                                                    rules: [{ required: true, message: 'Please input your username!' }],
+                                                })(
+                                                    <Input
+                                                        style={{ backgroundColor: '#FCFCFC' }}
+                                                        minLength={10}
+                                                        placeholder="Street Address"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
+                                            >
+                                                {getFieldDecorator('country', {
+                                                    rules: [{ required: true, message: 'Please Select Your Country!' }],
+                                                })(
+                                                    <Select
+                                                        showSearch
+                                                        style={{ backgroundColor: '#fff' }}
+                                                        placeholder="Select a Country"
+                                                        optionFilterProp="children"
+                                                        onSelect={(e) => this.setState({ city: dataCountry[e] })}
+                                                        filterOption={(input, option) =>
+                                                            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                                        }
+                                                    >
+                                                        {
+                                                            Object.keys(dataCountry).map((v, i) => {
+                                                                return <Option value={v} key={i}>{v}</Option>
+                                                            })
+                                                        }
+                                                    </Select>,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
+                                            >
+                                                {getFieldDecorator('city', {
+                                                    rules: [{ required: true, message: 'Please Select Your City!' }],
+                                                })(
+                                                    <Select
+                                                        showSearch
+                                                        style={{ backgroundColor: '#fff' }}
+                                                        placeholder="Select a city"
+                                                        optionFilterProp="children"
+                                                        filterOption={(input, option) =>
+                                                            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                                        }
+                                                    >
+                                                        {
+                                                            city.map((v, i) => {
+                                                                return <Option city={v} key={i}>{v}</Option>
+                                                            })
+                                                        }
+                                                    </Select>,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
+                                            >
+                                                {getFieldDecorator('lender', {
+                                                    rules: [{ required: true, message: 'Please input your First Name!' }],
+                                                })(
+                                                    <Input
+                                                        minLength={3}
+                                                        type="text"
+                                                        placeholder="Lender"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
+                                            >
+                                                {getFieldDecorator('title', {
+                                                    rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                                })(
+                                                    <Input
+                                                        type="text"
+                                                        minLength={3}
+                                                        placeholder="Title Company"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
+                                            >
+                                                {getFieldDecorator('soldPrice', {
+                                                    rules: [{ required: true, message: 'Please input your First Name!' }],
+                                                })(
+                                                    <Input
+                                                        type="number"
+                                                        placeholder="Sold Price"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
+                                            >
+                                                {getFieldDecorator('saleType', {
+                                                    rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                                })(
+                                                    <Input
+                                                        type="text"
+                                                        minLength={3}
+                                                        placeholder="Sale Type"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
+                                            >
+                                                {getFieldDecorator('transactionFee', {
+                                                    rules: [{ required: true, message: 'Please input your First Name!' }],
+                                                })(
+                                                    <Input
+                                                        type="number"
+                                                        placeholder="Transaction Fee"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
+                                            >
+                                                {getFieldDecorator('checkRec', {
+                                                    rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                                })(
+                                                    <Input
+                                                        type="text"
+                                                        placeholder="Check Recieved"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
+                                            >
+                                                {getFieldDecorator('paidAmount', {
+                                                    rules: [{ required: true, message: 'Please input your First Name!' }],
+                                                })(
+                                                    <Input
+                                                        type="number"
+                                                        placeholder="Paid Amount"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item
+                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
+                                            >
+                                                {getFieldDecorator('paidDate', {
+                                                    rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                                })(
+                                                    <DatePicker style={{ width: '100%' }} />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item className="sign-up">
+                                                {getFieldDecorator('upload', {
+                                                    valuePropName: 'fileList',
+                                                    getValueFromEvent: this.normFile,
+                                                })(
+                                                    <Dragger {...props}>
+                                                        <p className="ant-upload-drag-icon">
+                                                            <Icon type="inbox" />
+                                                        </p>
+                                                        <p className="ant-upload-text">File Upload</p>
+                                                        <p className="ant-upload-hint">
+                                                            Drag and drop a file here or click
                                                 </p>
-                                                <p className="ant-upload-text">File Upload</p>
-                                                <p className="ant-upload-hint">
-                                                    Drag and drop a file here or click
-                                                </p>
-                                            </Dragger>,
-                                        )}
-                                    </Form.Item>
+                                                    </Dragger>,
+                                                )}
+                                            </Form.Item>
 
-                                    <Form.Item className="sign-up">
-                                        <Button htmlType="submit" disabled={this.state.disable} style={{ backgroundColor: '#120894', color: 'white', fontWeight: 'bold', fontSize: 14, height: 40, display: 'flex', width: '100%', textAlign: 'center', justifyContent: 'center', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
-                                            Sign Up
+                                            <Form.Item className="sign-up">
+                                                <Button htmlType="submit" disabled={this.state.disable} style={{ backgroundColor: '#120894', color: 'white', fontWeight: 'bold', fontSize: 14, height: 40, display: 'flex', width: '100%', textAlign: 'center', justifyContent: 'center', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
+                                                    Sign Up
                                         </Button>
-                                    </Form.Item>
-                                </Form>
-                            </div>
-                        </div> */}
+                                            </Form.Item>
+                                        </Form>
+                                    </div>
+                                </div>}
                     </div>
                 </div>
             </div>
