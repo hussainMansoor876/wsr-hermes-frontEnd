@@ -5,8 +5,11 @@ import Loader from '../../Components/Loader';
 import logo from '../../assets/images/logo-dark.png';
 import Header from '../Header/Header'
 import { Link } from 'react-router-dom'
-import data from '../../country'
-import { Form, Icon, Input, Button, Upload, notification, Select, DatePicker, message } from 'antd';
+import dataCountry from '../../country'
+import validator from 'validator'
+import { toast } from 'react-toastify';
+import axios from 'axios'
+import { Form, Icon, Input, Button, Upload, notification, Select, DatePicker, message, Menu, Table } from 'antd';
 
 const { Option } = Select
 const { Dragger } = Upload
@@ -28,6 +31,36 @@ const props = {
     },
 }
 
+const columns = [
+    {
+        title: 'Headline',
+        dataIndex: 'headline',
+        render: text => <Link to={`article/${text.slug}`} onClick={() => sessionStorage.setItem("article", JSON.stringify(text))}>{text.headline.length > 30 ? text.headline.slice(0, 30) : text.headline}</Link>
+    },
+    {
+        title: 'Status',
+        dataIndex: 'status',
+    },
+    {
+        title: 'Author',
+        dataIndex: 'author',
+    },
+    {
+        title: 'Date',
+        dataIndex: 'date',
+    },
+];
+
+const data = [];
+for (let i = 0; i < 460; i++) {
+    data.push({
+        key: i,
+        name: `Edward King ABc hello rfjygyjgfyh ${i}`,
+        age: 32,
+        address: `London, Park Lane no. ${i}`,
+    });
+}
+
 class Review extends React.Component {
 
     constructor(props) {
@@ -36,6 +69,44 @@ class Review extends React.Component {
             city: [],
         }
     }
+
+    handleSubmit = e => {
+        const { city } = this.state
+        e.preventDefault();
+
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                if (!validator.isAlpha(values.clientName)) {
+                    return toast.error("Client Name Must be an alphabet!!!");
+                }
+                else if (!validator.isAlphanumeric(values.title)) {
+                    return toast.error("Title Must be an alphaNumeric!!!");
+                }
+                values.city = city[values.city]
+                // this.setState({ loading: true, disable: true })
+                var formData = new FormData();
+                for (var i in values) {
+                    formData.append(i, values[i])
+                }
+                formData.append('upload', values.upload[0].originFileObj)
+                console.log('form', formData)
+                axios.post('https://wsr-server.herokuapp.com/subform/submission', formData)
+                    .then((result) => {
+                        console.log('result', result)
+                        if (result.data.success) {
+                            window.location.reload()
+                        }
+                        else {
+                            this.setState({ loading: false, disable: false })
+                            toast.error(result.data.message)
+                        }
+                    })
+                    .catch((err) => {
+                        toast.error("Something Went Wrong!!!")
+                    })
+            }
+        });
+    };
 
 
     render() {
@@ -98,13 +169,13 @@ class Review extends React.Component {
                                                 style={{ backgroundColor: '#fff' }}
                                                 placeholder="Select a Country"
                                                 optionFilterProp="children"
-                                                onSelect={(e) => this.setState({ city: data[e] })}
+                                                onSelect={(e) => this.setState({ city: dataCountry[e] })}
                                                 filterOption={(input, option) =>
                                                     option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                                                 }
                                             >
                                                 {
-                                                    Object.keys(data).map((v, i) => {
+                                                    Object.keys(dataCountry).map((v, i) => {
                                                         return <Option value={v} key={i}>{v}</Option>
                                                     })
                                                 }
