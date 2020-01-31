@@ -172,7 +172,7 @@ class Review extends React.Component {
                                 </Descriptions.Item>
                                 <Descriptions.Item label="AgentId">{viewForm.agentId}</Descriptions.Item>
                                 <Descriptions.Item label="Client Name">{viewForm.clientName}</Descriptions.Item>
-                                <Descriptions.Item label="Street Address" span={1}>{viewForm.streetAddress}</Descriptions.Item>
+                                <Descriptions.Item label="Street Address">{viewForm.streetAddress}</Descriptions.Item>
                                 <Descriptions.Item label="Country">{viewForm.country}</Descriptions.Item>
                                 <Descriptions.Item label="City">{viewForm.city}</Descriptions.Item>
                                 <Descriptions.Item label="Lender">{viewForm.lender}</Descriptions.Item>
