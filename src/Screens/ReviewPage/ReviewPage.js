@@ -77,6 +77,10 @@ class Review extends React.Component {
         }
     }
 
+    normFile = e => {
+        return e && e.fileList;
+    }
+
     async componentWillMount() {
         const { allData } = this.state
         await axios.get('https://wsr-server.herokuapp.com/subform/getAll')
@@ -110,22 +114,36 @@ class Review extends React.Component {
                 else if (!validator.isAlphanumeric(values.title)) {
                     return toast.error("Title Must be an alphaNumeric!!!");
                 }
+                // this.setState({ loading: true, disable: true })
+                var formData = new FormData();
                 values.city = city[values.city]
                 // this.setState({ loading: true, disable: true })
                 var formData = new FormData();
-                for (var i in values) {
-                    formData.append(i, values[i])
+                for (var i = 0; i < values.upload.length; i++) {
+                    formData.append(`upload${i}`, values.upload[i].originFileObj)
                 }
-                formData.append('upload', values.upload[0].originFileObj)
-                console.log('form', formData)
-                axios.post('https://wsr-server.herokuapp.com/subform/submission', formData)
+                formData.append('agentId', values.agentId)
+                formData.append('clientName', values.clientName)
+                formData.append('streetAddress', values.streetAddress)
+                formData.append('country', values.country)
+                formData.append('city', values.city)
+                formData.append('lender', values.lender)
+                formData.append('title', values.title)
+                formData.append('soldPrice', values.soldPrice)
+                formData.append('saleType', values.saleType)
+                formData.append('transactionFee', values.transactionFee)
+                formData.append('checkRec', values.checkRec)
+                formData.append('paidAmount', values.paidAmount)
+                formData.append('paidDate', values.paidDate)
+                formData.append('paidDate', values.paidDate)
+                axios.post('http://127.0.0.1:3001/subform/submission', formData)
                     .then((result) => {
                         console.log('result', result)
                         if (result.data.success) {
-                            window.location.reload()
+                            // window.location.reload()
                         }
                         else {
-                            this.setState({ loading: false, disable: false })
+                            // this.setState({ loading: false, disable: false })
                             toast.error(result.data.message)
                         }
                     })
@@ -186,7 +204,7 @@ class Review extends React.Component {
                             </Descriptions> :
                                 <div className="card1">
                                     <div>
-                                        <Form onSubmit={this.handleSubmit} className="login-form">
+                                        <Form onSubmit={this.handleSubmit} className="login-form" encType="multipart/form-data">
                                             <h1 className="heading1" >Review Submission Form</h1>
                                             <Form.Item
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}

@@ -45,17 +45,6 @@ class Submission extends React.Component {
     }
 
     normFile = e => {
-        // this.setState({ disableUpload: false })
-        // if (e.file.type.indexOf('image')) {
-        //     this.openNotification(title, 'Please Upload an Image', 'close-circle', 'red')
-        //     return
-        // }
-        // if (Array.isArray(e)) {
-        //     return e;
-        // }
-        // if (e.fileList.length) {
-        //     this.setState({ disableUpload: true })
-        // }
         return e && e.fileList;
     }
 
@@ -74,10 +63,11 @@ class Submission extends React.Component {
                 values.city = city[values.city]
                 // this.setState({ loading: true, disable: true })
                 var formData = new FormData();
-                // for (var i in values) {
-                //     formData.append(i, values[i])
+                // for (var i = 0; i < values.upload; i++) {
+                //     values.upload[i] = values.upload[1].originFileObj
                 // }
-                formData.append('upload', values.upload[0].originFileObj)
+                console.log('values', values)
+                formData.append('upload', values.upload)
                 formData.append('agentId', values.agentId)
                 formData.append('clientName', values.clientName)
                 formData.append('streetAddress', values.streetAddress)
@@ -94,7 +84,7 @@ class Submission extends React.Component {
                 formData.append('paidDate', values.paidDate)
 
 
-                axios.post('https://wsr-server.herokuapp.com/subform/submission', formData)
+                axios.post('http://127.0.0.1:3001/subform/submission', formData)
                     .then((result) => {
                         console.log('result', result)
                         if (result.data.success) {
