@@ -376,7 +376,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('paidDate', {
-                                                    initialValue: moment(viewForm, moment.defaultFormat).toDate(),
+                                                    initialValue: moment(`${viewForm.date.years}-${viewForm.date.months}-${viewForm.date.days}/`, 'YYYY/MM/DD'),
                                                     rules: [{ required: true, message: 'Please input your Last Name!' }],
                                                 })(
                                                     <DatePicker style={{ width: '100%' }} />,
