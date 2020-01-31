@@ -9,7 +9,8 @@ import dataCountry from '../../country'
 import validator from 'validator'
 import { toast } from 'react-toastify';
 import axios from 'axios'
-import { Form, Icon, Input, Button, Upload, notification, Select, DatePicker, message, Menu, Table } from 'antd';
+import { Form, Icon, Input, Button, Upload, notification, Select, DatePicker, message, Menu, Table, Skeleton } from 'antd';
+import Iframe from 'react-iframe'
 
 const { Option } = Select
 const { Dragger } = Upload
@@ -33,21 +34,25 @@ const props = {
 
 const columns = [
     {
-        title: 'Headline',
+        title: 'Client',
         dataIndex: 'headline',
-        render: text => <Link to={`article/${text.slug}`} onClick={() => sessionStorage.setItem("article", JSON.stringify(text))}>{text.headline.length > 30 ? text.headline.slice(0, 30) : text.headline}</Link>
+        render: text => <Link>{text.clientName > 30 ? `${text.clientName(0, 30)}...` : text.clientName}</Link>
     },
     {
-        title: 'Status',
+        title: 'Sold Price',
         dataIndex: 'status',
     },
     {
-        title: 'Author',
+        title: 'Agent Id',
         dataIndex: 'author',
     },
     {
         title: 'Date',
         dataIndex: 'date',
+        render: text => <div style={{ display: 'flex' }}>
+            <p>{text}</p>
+            <button>HHHH</button>
+        </div>
     },
 ];
 
@@ -67,7 +72,29 @@ class Review extends React.Component {
         super(props)
         this.state = {
             city: [],
+            allData: []
         }
+    }
+
+    async componentWillMount() {
+        const { allData } = this.state
+        await axios.get('https://wsr-server.herokuapp.com/subform/getAll')
+            .then((res) => {
+                console.log(res.data.data)
+                const { data } = res.data
+                data.map((v, i) => {
+                    return allData.push({
+                        key: i,
+                        headline: v,
+                        status: v.soldPrice,
+                        author: v.agentId,
+                        date: v.timestamp
+                    })
+                })
+                this.setState({ allData })
+                console.log(allData)
+            })
+            .catch((err) => console.log(err))
     }
 
     handleSubmit = e => {
@@ -110,14 +137,22 @@ class Review extends React.Component {
 
 
     render() {
-        const { city } = this.state
+        const { city, allData } = this.state
         const { getFieldDecorator } = this.props.form;
         return (
             <div>
                 <Header {...this.props} />
                 <div style={{ backgroundColor: '#E5E5E5' }}>
-                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'ceenter' }}>
-                        <div className="card1">
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'ceenter', paddingTop: 20 }}>
+                        <div style={{ width: '100%', justifyContent: 'center', display: 'flex', textAlign: 'center' }}>
+                            {allData.length ? <Table
+                                style={{ width: '94%' }}
+                                columns={columns}
+                                bordered={true}
+                                dataSource={allData}
+                            /> : <Skeleton active />}
+                        </div>
+                        {/* <div className="card1">
                             <div>
                                 <Form onSubmit={this.handleSubmit} className="login-form">
                                     <h1 className="heading1" >Review Submission Form</h1>
@@ -325,7 +360,7 @@ class Review extends React.Component {
                                     </Form.Item>
                                 </Form>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

@@ -83,10 +83,10 @@ class Submission extends React.Component {
                     .then((result) => {
                         console.log('result', result)
                         if (result.data.success) {
-                            window.location.reload()
+                            // window.location.reload()
                         }
                         else {
-                            this.setState({ loading: false, disable: false })
+                            // this.setState({ loading: false, disable: false })
                             toast.error(result.data.message)
                         }
                     })
