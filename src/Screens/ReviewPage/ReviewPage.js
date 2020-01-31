@@ -40,6 +40,7 @@ class Review extends React.Component {
         super(props)
         this.state = {
             city: [],
+            isData: true,
             allData: [],
             columns: [
                 {
@@ -58,8 +59,22 @@ class Review extends React.Component {
                 {
                     title: 'Date',
                     dataIndex: 'date',
-                    render: text => <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <p>{text}</p>
+                    // render: text => <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    //     <p>{text}</p>
+                    //     <div>
+                    //         <Button type="secondary" style={{ margin: 5 }}>
+                    //             Detail
+                    //         </Button>
+                    //         <Button type="primary">
+                    //             Approve
+                    //         </Button>
+                    //     </div>
+                    // </div>
+                },
+                {
+                    title: 'Action',
+                    dataIndex: 'action',
+                    render: (data) => <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <div>
                             <Button type="secondary" style={{ margin: 5 }}>
                                 Detail
@@ -69,16 +84,15 @@ class Review extends React.Component {
                             </Button>
                         </div>
                     </div>
-                },
+                }
             ]
         }
     }
 
     async componentWillMount() {
         const { allData } = this.state
-        await axios.get('https://wsr-server.herokuapp.com/subform/getAll')
+        await axios.get('http://127.0.0.1:3001/subform/getAll')
             .then((res) => {
-                console.log(res.data.data)
                 const { data } = res.data
                 data.map((v, i) => {
                     return allData.push({
@@ -86,11 +100,11 @@ class Review extends React.Component {
                         headline: v,
                         status: v.soldPrice,
                         author: v.agentId,
-                        date: v.timestamp
+                        date: v.timestamp,
+                        action: v
                     })
                 })
-                this.setState({ allData })
-                console.log(allData)
+                this.setState({ allData, isData: allData.length ? true : false })
             })
             .catch((err) => console.log(err))
     }
@@ -135,23 +149,32 @@ class Review extends React.Component {
 
 
     render() {
-        const { city, allData, columns } = this.state
+        const { city, allData, columns, isData } = this.state
         const { getFieldDecorator } = this.props.form;
         return (
             <div>
                 <Header {...this.props} />
                 <div style={{ backgroundColor: '#E5E5E5' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'ceenter', paddingTop: 20 }}>
-                        {/* <div style={{ width: '100%', justifyContent: 'center', display: 'flex', textAlign: 'center' }}>
-                            {allData.length ? <Table
+                        <div style={{ width: '100%', justifyContent: 'center', display: 'flex', textAlign: 'center' }}>
+                        <Table
                                 style={{ width: '94%' }}
                                 columns={columns}
                                 bordered={true}
-                                // expandedRowRender={expandedRowRender}
+                                HasData={isData}
                                 dataSource={allData}
-                            /> : <Skeleton active />}
-                        </div> */}
-                        <Descriptions layout="vertical" bordered column={2} style={{
+                                loading={allData.length ? false : true}
+                                tableLayout={'fixed'}
+                            />
+                            {/* {allData.length && isData ? <Table
+                                style={{ width: '94%' }}
+                                columns={columns}
+                                bordered={true}
+                                HasData={isData}
+                                dataSource={allData}
+                            /> : <Skeleton active />} */}
+                        </div>
+                        {/* <Descriptions layout="vertical" bordered column={2} style={{
                             backgroundColor: '#fff',
                             width: '60%',
                             marginBottom: 20
@@ -174,7 +197,7 @@ class Review extends React.Component {
                             <Descriptions.Item label="Check Recieved">Prepaid</Descriptions.Item>
                             <Descriptions.Item label="Paid Amount">Cloud Database</Descriptions.Item>
                             <Descriptions.Item label="Date">Prepaid</Descriptions.Item>
-                        </Descriptions>
+                        </Descriptions> */}
                         {/* <div className="card1">
                             <div>
                                 <Form onSubmit={this.handleSubmit} className="login-form">
