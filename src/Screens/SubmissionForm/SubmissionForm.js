@@ -72,7 +72,7 @@ class Submission extends React.Component {
                     return toast.error("Title Must be an alphaNumeric!!!");
                 }
                 values.city = city[values.city]
-                // this.setState({ loading: true, disable: true })
+                this.setState({ loading: true, disable: true })
                 var formData = new FormData();
                 for (var i in values) {
                     formData.append(i, values[i])
@@ -83,10 +83,10 @@ class Submission extends React.Component {
                     .then((result) => {
                         console.log('result', result)
                         if (result.data.success) {
-                            // window.location.reload()
+                            window.location.reload()
                         }
                         else {
-                            // this.setState({ loading: false, disable: false })
+                            this.setState({ loading: false, disable: false })
                             toast.error(result.data.message)
                         }
                     })
