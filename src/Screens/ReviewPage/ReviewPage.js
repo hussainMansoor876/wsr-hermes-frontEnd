@@ -9,11 +9,13 @@ import dataCountry from '../../country'
 import validator from 'validator'
 import { toast } from 'react-toastify';
 import axios from 'axios'
-import { Form, Icon, Input, Button, Upload, notification, Select, DatePicker, message, Menu, Table, Skeleton } from 'antd';
+import { Form, Icon, Input, Button, Upload, Descriptions, Select, DatePicker, message, Menu, Table, Skeleton, Badge } from 'antd';
 import Iframe from 'react-iframe'
 
 const { Option } = Select
 const { Dragger } = Upload
+
+const expandedRowRender = record => <p>Hello</p>;
 
 const props = {
     name: 'file',
@@ -32,47 +34,43 @@ const props = {
     },
 }
 
-const columns = [
-    {
-        title: 'Client',
-        dataIndex: 'headline',
-        render: text => <Link>{text.clientName > 30 ? `${text.clientName(0, 30)}...` : text.clientName}</Link>
-    },
-    {
-        title: 'Sold Price',
-        dataIndex: 'status',
-    },
-    {
-        title: 'Agent Id',
-        dataIndex: 'author',
-    },
-    {
-        title: 'Date',
-        dataIndex: 'date',
-        render: text => <div style={{ display: 'flex' }}>
-            <p>{text}</p>
-            <button>HHHH</button>
-        </div>
-    },
-];
-
-const data = [];
-for (let i = 0; i < 460; i++) {
-    data.push({
-        key: i,
-        name: `Edward King ABc hello rfjygyjgfyh ${i}`,
-        age: 32,
-        address: `London, Park Lane no. ${i}`,
-    });
-}
-
 class Review extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
             city: [],
-            allData: []
+            allData: [],
+            columns: [
+                {
+                    title: 'Client',
+                    dataIndex: 'headline',
+                    render: text => <Link>{text.clientName > 30 ? `${text.clientName(0, 30)}...` : text.clientName}</Link>
+                },
+                {
+                    title: 'Sold Price',
+                    dataIndex: 'status',
+                },
+                {
+                    title: 'Agent Id',
+                    dataIndex: 'author',
+                },
+                {
+                    title: 'Date',
+                    dataIndex: 'date',
+                    render: text => <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <p>{text}</p>
+                        <div>
+                            <Button type="secondary" style={{ margin: 5 }}>
+                                Detail
+                            </Button>
+                            <Button type="primary">
+                                Approve
+                            </Button>
+                        </div>
+                    </div>
+                },
+            ]
         }
     }
 
@@ -137,21 +135,37 @@ class Review extends React.Component {
 
 
     render() {
-        const { city, allData } = this.state
+        const { city, allData, columns } = this.state
         const { getFieldDecorator } = this.props.form;
         return (
             <div>
                 <Header {...this.props} />
                 <div style={{ backgroundColor: '#E5E5E5' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'ceenter', paddingTop: 20 }}>
-                        <div style={{ width: '100%', justifyContent: 'center', display: 'flex', textAlign: 'center' }}>
+                        {/* <div style={{ width: '100%', justifyContent: 'center', display: 'flex', textAlign: 'center' }}>
                             {allData.length ? <Table
                                 style={{ width: '94%' }}
                                 columns={columns}
                                 bordered={true}
+                                // expandedRowRender={expandedRowRender}
                                 dataSource={allData}
                             /> : <Skeleton active />}
-                        </div>
+                        </div> */}
+                        <Descriptions title="User Info" layout="vertical" bordered column={2}>
+                            <Descriptions.Item label="AgentId">Cloud Database</Descriptions.Item>
+                            <Descriptions.Item label="Client Name">Prepaid</Descriptions.Item>
+                            <Descriptions.Item label="Street Address" span={2}>YES</Descriptions.Item>
+                            <Descriptions.Item label="Country">Cloud Database</Descriptions.Item>
+                            <Descriptions.Item label="City">Prepaid</Descriptions.Item>
+                            <Descriptions.Item label="Lender">Cloud Database</Descriptions.Item>
+                            <Descriptions.Item label="Title Company">Prepaid</Descriptions.Item>
+                            <Descriptions.Item label="Sold Price">Cloud Database</Descriptions.Item>
+                            <Descriptions.Item label="Sale Type">Prepaid</Descriptions.Item>
+                            <Descriptions.Item label="Transaction Fee">Cloud Database</Descriptions.Item>
+                            <Descriptions.Item label="Check Recieved">Prepaid</Descriptions.Item>
+                            <Descriptions.Item label="Transaction Fee">Cloud Database</Descriptions.Item>
+                            <Descriptions.Item label="Check Recieved">Prepaid</Descriptions.Item>
+                        </Descriptions>
                         {/* <div className="card1">
                             <div>
                                 <Form onSubmit={this.handleSubmit} className="login-form">
