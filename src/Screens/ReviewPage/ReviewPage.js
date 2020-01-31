@@ -156,14 +156,14 @@ class Review extends React.Component {
                                 tableLayout={'fixed'}
                             />
                         </div> :
-                            viewForm && edit ? <Descriptions layout="vertical" bordered column={2} style={{
+                            viewForm && !edit ? <Descriptions layout="vertical" bordered column={2} style={{
                                 backgroundColor: '#fff',
                                 width: '60%',
                                 marginBottom: 20
                             }}>
                                 <Descriptions.Item span={2}>
                                     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
-                                        <Button>Edit</Button>
+                                        <Button onClick={() => this.setState({ edit: true })}>Edit</Button>
                                     </div>
                                 </Descriptions.Item>
                                 <Descriptions.Item label="AgentId">Cloud Database</Descriptions.Item>
