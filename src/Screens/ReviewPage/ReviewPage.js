@@ -43,6 +43,7 @@ class Review extends React.Component {
             isData: true,
             allData: [],
             viewForm: null,
+            edit: false,
             columns: [
                 {
                     title: 'Client',
@@ -137,15 +138,14 @@ class Review extends React.Component {
 
 
     render() {
-        const { city, allData, columns, isData } = this.state
+        const { city, allData, columns, isData, viewForm, edit } = this.state
         const { getFieldDecorator } = this.props.form;
-        console.log('this', this.state.viewForm)
         return (
             <div>
                 <Header {...this.props} />
                 <div style={{ backgroundColor: '#E5E5E5' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'ceenter', paddingTop: 20 }}>
-                        <div style={{ width: '100%', justifyContent: 'center', display: 'flex', textAlign: 'center' }}>
+                        {!viewForm && !edit ? <div style={{ width: '100%', justifyContent: 'center', display: 'flex', textAlign: 'center' }}>
                             <Table
                                 style={{ width: '94%' }}
                                 columns={columns}
@@ -155,38 +155,31 @@ class Review extends React.Component {
                                 loading={allData.length ? false : true}
                                 tableLayout={'fixed'}
                             />
-                            {/* {allData.length && isData ? <Table
-                                style={{ width: '94%' }}
-                                columns={columns}
-                                bordered={true}
-                                HasData={isData}
-                                dataSource={allData}
-                            /> : <Skeleton active />} */}
-                        </div>
-                        {/* <Descriptions layout="vertical" bordered column={2} style={{
-                            backgroundColor: '#fff',
-                            width: '60%',
-                            marginBottom: 20
-                        }}>
-                            <Descriptions.Item span={2}>
-                                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
-                                    <Button>Edit</Button>
-                                </div>
-                            </Descriptions.Item>
-                            <Descriptions.Item label="AgentId">Cloud Database</Descriptions.Item>
-                            <Descriptions.Item label="Client Name">Prepaid</Descriptions.Item>
-                            <Descriptions.Item label="Street Address" span={2}>YES</Descriptions.Item>
-                            <Descriptions.Item label="Country">Cloud Database</Descriptions.Item>
-                            <Descriptions.Item label="City">Prepaid</Descriptions.Item>
-                            <Descriptions.Item label="Lender">Cloud Database</Descriptions.Item>
-                            <Descriptions.Item label="Title Company">Prepaid</Descriptions.Item>
-                            <Descriptions.Item label="Sold Price">Cloud Database</Descriptions.Item>
-                            <Descriptions.Item label="Sale Type">Prepaid</Descriptions.Item>
-                            <Descriptions.Item label="Transaction Fee">Cloud Database</Descriptions.Item>
-                            <Descriptions.Item label="Check Recieved">Prepaid</Descriptions.Item>
-                            <Descriptions.Item label="Paid Amount">Cloud Database</Descriptions.Item>
-                            <Descriptions.Item label="Date">Prepaid</Descriptions.Item>
-                        </Descriptions> */}
+                        </div> :
+                            <Descriptions layout="vertical" bordered column={2} style={{
+                                backgroundColor: '#fff',
+                                width: '60%',
+                                marginBottom: 20
+                            }}>
+                                <Descriptions.Item span={2}>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
+                                        <Button>Edit</Button>
+                                    </div>
+                                </Descriptions.Item>
+                                <Descriptions.Item label="AgentId">Cloud Database</Descriptions.Item>
+                                <Descriptions.Item label="Client Name">Prepaid</Descriptions.Item>
+                                <Descriptions.Item label="Street Address" span={2}>YES</Descriptions.Item>
+                                <Descriptions.Item label="Country">Cloud Database</Descriptions.Item>
+                                <Descriptions.Item label="City">Prepaid</Descriptions.Item>
+                                <Descriptions.Item label="Lender">Cloud Database</Descriptions.Item>
+                                <Descriptions.Item label="Title Company">Prepaid</Descriptions.Item>
+                                <Descriptions.Item label="Sold Price">Cloud Database</Descriptions.Item>
+                                <Descriptions.Item label="Sale Type">Prepaid</Descriptions.Item>
+                                <Descriptions.Item label="Transaction Fee">Cloud Database</Descriptions.Item>
+                                <Descriptions.Item label="Check Recieved">Prepaid</Descriptions.Item>
+                                <Descriptions.Item label="Paid Amount">Cloud Database</Descriptions.Item>
+                                <Descriptions.Item label="Date">Prepaid</Descriptions.Item>
+                            </Descriptions>}
                         {/* <div className="card1">
                             <div>
                                 <Form onSubmit={this.handleSubmit} className="login-form">
