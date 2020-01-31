@@ -9,7 +9,7 @@ import dataCountry from '../../country'
 import validator from 'validator'
 import { toast } from 'react-toastify';
 import axios from 'axios'
-import { Form, Icon, Input, Button, Upload, Descriptions, Select, DatePicker, message, Menu, Table, Skeleton, Badge } from 'antd';
+import { Form, Icon, Input, Button, Upload, Descriptions, Select, DatePicker, message, List, Table, Skeleton, Badge } from 'antd';
 import moment from 'moment';
 
 const { Option } = Select
@@ -398,6 +398,31 @@ class Review extends React.Component {
                                                     <DatePicker style={{ width: '100%' }} />,
                                                 )}
                                             </Form.Item>
+                                            <List
+                                                style={{ backgroundColor: '#fff', marginBottom: 10 }}
+                                                // loading={initLoading}
+                                                itemLayout="horizontal"
+                                                // loadMore={loadMore}
+                                                dataSource={viewForm.files}
+                                                renderItem={item => (
+                                                    <List.Item
+                                                        style={{
+                                                            borderRadius: 10
+                                                        }}
+                                                        actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
+                                                    >
+                                                        <Skeleton avatar title={false} loading={item.loading} active>
+                                                            <List.Item.Meta
+                                                                // avatar={
+                                                                //     <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                                                                // }
+                                                                title={<a href="https://ant.design">item.name.last</a>}
+                                                            />
+                                                            <div>content</div>
+                                                        </Skeleton>
+                                                    </List.Item>
+                                                )}
+                                            />
                                             <Form.Item className="sign-up">
                                                 {getFieldDecorator('upload', {
                                                     valuePropName: 'fileList',
