@@ -136,6 +136,10 @@ class Review extends React.Component {
         });
     };
 
+    formEdit(){
+        this.setState({ edit: true })
+    }
+
 
     render() {
         const { city, allData, columns, isData, viewForm, edit } = this.state
@@ -163,7 +167,7 @@ class Review extends React.Component {
                             }}>
                                 <Descriptions.Item span={2}>
                                     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
-                                        <Button onClick={() => this.setState({ edit: true })}>Edit</Button>
+                                        <Button onClick={() => this.formEdit()}>Edit</Button>
                                     </div>
                                 </Descriptions.Item>
                                 <Descriptions.Item label="AgentId">Cloud Database</Descriptions.Item>
