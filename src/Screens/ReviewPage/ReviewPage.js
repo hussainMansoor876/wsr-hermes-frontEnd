@@ -137,7 +137,11 @@ class Review extends React.Component {
     };
 
     formEdit() {
+        const { setFieldsValue } = this.props.form
         this.setState({ edit: true })
+        setFieldsValue({
+            agentId: 'hello'
+        })
     }
 
 
@@ -192,6 +196,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                             >
                                                 {getFieldDecorator('agentId', {
+                                                    initialValue: viewForm.agentId,
                                                     rules: [{ required: true, message: 'Please input your First Name!' }],
                                                 })(
                                                     <Input
@@ -205,6 +210,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('clientName', {
+                                                    initialValue: viewForm.clientName,
                                                     rules: [{ required: true, message: 'Please input your Last Name!' }],
                                                 })(
                                                     <Input
@@ -216,6 +222,7 @@ class Review extends React.Component {
                                             </Form.Item>
                                             <Form.Item className="sign-up">
                                                 {getFieldDecorator('streetAddress', {
+                                                    initialValue: viewForm.streetAddress,
                                                     rules: [{ required: true, message: 'Please input your username!' }],
                                                 })(
                                                     <Input
@@ -229,6 +236,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                             >
                                                 {getFieldDecorator('country', {
+                                                    initialValue: viewForm.country,
                                                     rules: [{ required: true, message: 'Please Select Your Country!' }],
                                                 })(
                                                     <Select
@@ -253,6 +261,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('city', {
+                                                    initialValue: viewForm.city,
                                                     rules: [{ required: true, message: 'Please Select Your City!' }],
                                                 })(
                                                     <Select
@@ -276,6 +285,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                             >
                                                 {getFieldDecorator('lender', {
+                                                    initialValue: viewForm.lender,
                                                     rules: [{ required: true, message: 'Please input your First Name!' }],
                                                 })(
                                                     <Input
@@ -289,6 +299,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('title', {
+                                                    initialValue: viewForm.title,
                                                     rules: [{ required: true, message: 'Please input your Last Name!' }],
                                                 })(
                                                     <Input
@@ -302,6 +313,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                             >
                                                 {getFieldDecorator('soldPrice', {
+                                                    initialValue: viewForm.soldPrice,
                                                     rules: [{ required: true, message: 'Please input your First Name!' }],
                                                 })(
                                                     <Input
@@ -314,6 +326,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('saleType', {
+                                                    initialValue: viewForm.saleType,
                                                     rules: [{ required: true, message: 'Please input your Last Name!' }],
                                                 })(
                                                     <Input
@@ -327,6 +340,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                             >
                                                 {getFieldDecorator('transactionFee', {
+                                                    initialValue: viewForm.transactionFee,
                                                     rules: [{ required: true, message: 'Please input your First Name!' }],
                                                 })(
                                                     <Input
@@ -339,6 +353,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('checkRec', {
+                                                    initialValue: viewForm.checkRec,
                                                     rules: [{ required: true, message: 'Please input your Last Name!' }],
                                                 })(
                                                     <Input
@@ -351,6 +366,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                             >
                                                 {getFieldDecorator('paidAmount', {
+                                                    initialValue: viewForm.paidAmount,
                                                     rules: [{ required: true, message: 'Please input your First Name!' }],
                                                 })(
                                                     <Input
@@ -363,6 +379,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('paidDate', {
+                                                    initialValue: viewForm.paidDate,
                                                     rules: [{ required: true, message: 'Please input your Last Name!' }],
                                                 })(
                                                     <DatePicker style={{ width: '100%' }} />,
