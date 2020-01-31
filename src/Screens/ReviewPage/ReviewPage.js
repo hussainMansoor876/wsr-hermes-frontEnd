@@ -42,6 +42,7 @@ class Review extends React.Component {
             city: [],
             isData: true,
             allData: [],
+            viewForm: null,
             columns: [
                 {
                     title: 'Client',
@@ -58,31 +59,18 @@ class Review extends React.Component {
                 },
                 {
                     title: 'Date',
-                    dataIndex: 'date',
-                    // render: text => <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    //     <p>{text}</p>
-                    //     <div>
-                    //         <Button type="secondary" style={{ margin: 5 }}>
-                    //             Detail
-                    //         </Button>
-                    //         <Button type="primary">
-                    //             Approve
-                    //         </Button>
-                    //     </div>
-                    // </div>
+                    dataIndex: 'date'
                 },
                 {
                     title: 'Action',
                     dataIndex: 'action',
-                    render: (data) => <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <div>
-                            <Button type="secondary" style={{ margin: 5 }}>
-                                Detail
+                    render: (v) => <div>
+                        <Button onClick={() => this.setState({ viewForm: v })} type="secondary" style={{ marginBottom: 5 }} block>
+                            Detail
                             </Button>
-                            <Button type="primary">
-                                Approve
+                        <Button type="primary" block>
+                            Approve
                             </Button>
-                        </div>
                     </div>
                 }
             ]
@@ -91,7 +79,7 @@ class Review extends React.Component {
 
     async componentWillMount() {
         const { allData } = this.state
-        await axios.get('http://127.0.0.1:3001/subform/getAll')
+        await axios.get('https://wsr-server.herokuapp.com/subform/getAll')
             .then((res) => {
                 const { data } = res.data
                 data.map((v, i) => {
@@ -151,13 +139,14 @@ class Review extends React.Component {
     render() {
         const { city, allData, columns, isData } = this.state
         const { getFieldDecorator } = this.props.form;
+        console.log('this', this.state.viewForm)
         return (
             <div>
                 <Header {...this.props} />
                 <div style={{ backgroundColor: '#E5E5E5' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'ceenter', paddingTop: 20 }}>
                         <div style={{ width: '100%', justifyContent: 'center', display: 'flex', textAlign: 'center' }}>
-                        <Table
+                            <Table
                                 style={{ width: '94%' }}
                                 columns={columns}
                                 bordered={true}
