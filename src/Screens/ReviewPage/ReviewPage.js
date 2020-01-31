@@ -408,16 +408,15 @@ class Review extends React.Component {
                                                 pagination={true}
                                                 renderItem={item => (
                                                     <List.Item
-                                                        actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
+                                                        actions={[<a key="list-loadmore-edit" target="_blank" href={item.url}>View</a>]}
                                                     >
                                                         <Skeleton avatar title={false} loading={item.loading} active>
                                                             <List.Item.Meta
                                                                 avatar={
-                                                                    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                                                                    <Avatar src={item.url} />
                                                                 }
-                                                                title={<a href="https://ant.design">item.name.last</a>}
+                                                                title={<a href="#">{item.public_id.split('/')[3]}</a>}
                                                             />
-                                                            <div>content</div>
                                                         </Skeleton>
                                                     </List.Item>
                                                 )}
