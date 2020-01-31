@@ -15,7 +15,6 @@ import moment from 'moment';
 const { Option } = Select
 const { Dragger } = Upload
 
-const expandedRowRender = record => <p>Hello</p>;
 
 const props = {
     name: 'file',
