@@ -48,7 +48,7 @@ class Review extends React.Component {
                 {
                     title: 'Client',
                     dataIndex: 'headline',
-                    render: text => <Link>{text.clientName > 30 ? `${text.clientName(0, 30)}...` : text.clientName}</Link>
+                    render: text => <Link to="">{text.clientName > 30 ? `${text.clientName(0, 30)}...` : text.clientName}</Link>
                 },
                 {
                     title: 'Sold Price',
@@ -59,7 +59,7 @@ class Review extends React.Component {
                     dataIndex: 'author',
                 },
                 {
-                    title: 'Date',
+                    title: 'Added Date',
                     dataIndex: 'date'
                 },
                 {
@@ -84,6 +84,7 @@ class Review extends React.Component {
             .then((res) => {
                 const { data } = res.data
                 data.map((v, i) => {
+                    v.date = moment(v.paidDate).toObject()
                     return allData.push({
                         key: i,
                         headline: v,
@@ -137,11 +138,7 @@ class Review extends React.Component {
     };
 
     formEdit() {
-        const { setFieldsValue } = this.props.form
         this.setState({ edit: true })
-        setFieldsValue({
-            agentId: 'hello'
-        })
     }
 
 
@@ -379,7 +376,7 @@ class Review extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('paidDate', {
-                                                    initialValue: moment('2015/01/01', 'YYYY/MM/DD'),
+                                                    initialValue: moment(viewForm, moment.defaultFormat).toDate(),
                                                     rules: [{ required: true, message: 'Please input your Last Name!' }],
                                                 })(
                                                     <DatePicker style={{ width: '100%' }} />,
