@@ -151,7 +151,16 @@ class Review extends React.Component {
                                 dataSource={allData}
                             /> : <Skeleton active />}
                         </div> */}
-                        <Descriptions title="User Info" layout="vertical" bordered column={2}>
+                        <Descriptions layout="vertical" bordered column={2} style={{
+                            backgroundColor: '#fff',
+                            width: '60%',
+                            marginBottom: 20
+                        }}>
+                            <Descriptions.Item span={2}>
+                                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
+                                    <Button>Edit</Button>
+                                </div>
+                            </Descriptions.Item>
                             <Descriptions.Item label="AgentId">Cloud Database</Descriptions.Item>
                             <Descriptions.Item label="Client Name">Prepaid</Descriptions.Item>
                             <Descriptions.Item label="Street Address" span={2}>YES</Descriptions.Item>
@@ -163,8 +172,8 @@ class Review extends React.Component {
                             <Descriptions.Item label="Sale Type">Prepaid</Descriptions.Item>
                             <Descriptions.Item label="Transaction Fee">Cloud Database</Descriptions.Item>
                             <Descriptions.Item label="Check Recieved">Prepaid</Descriptions.Item>
-                            <Descriptions.Item label="Transaction Fee">Cloud Database</Descriptions.Item>
-                            <Descriptions.Item label="Check Recieved">Prepaid</Descriptions.Item>
+                            <Descriptions.Item label="Paid Amount">Cloud Database</Descriptions.Item>
+                            <Descriptions.Item label="Date">Prepaid</Descriptions.Item>
                         </Descriptions>
                         {/* <div className="card1">
                             <div>
