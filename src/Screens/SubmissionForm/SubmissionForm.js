@@ -74,11 +74,22 @@ class Submission extends React.Component {
                 values.city = city[values.city]
                 this.setState({ loading: true, disable: true })
                 var formData = new FormData();
-                for (var i in values) {
-                    formData.append(i, values[i])
-                }
+                // for (var i in values) {
+                //     formData.append(i, values[i])
+                // }
                 formData.append('upload', values.upload[0].originFileObj)
-                console.log('form', formData)
+                formData.append('agentId', values.agentId)
+                formData.append('clientName', values.clientName)
+                formData.append('streetAddress', values.streetAddress)
+                formData.append('country', values.country)
+                formData.append('city', values.city)
+                formData.append('agentId', values.agentId)
+                formData.append('agentId', values.agentId)
+                formData.append('agentId', values.agentId)
+                formData.append('agentId', values.agentId)
+                formData.append('agentId', values.agentId)
+
+
                 axios.post('https://wsr-server.herokuapp.com/subform/submission', formData)
                     .then((result) => {
                         console.log('result', result)
