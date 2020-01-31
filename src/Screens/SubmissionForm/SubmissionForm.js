@@ -65,12 +65,12 @@ class Submission extends React.Component {
 
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                if (!validator.isAlpha(values.clientName)) {
-                    return toast.error("Client Name Must be an alphabet!!!");
-                }
-                else if (!validator.isAlphanumeric(values.title)) {
-                    return toast.error("Title Must be an alphaNumeric!!!");
-                }
+                // if (!validator.isAlpha(values.clientName)) {
+                //     return toast.error("Client Name Must be an alphabet!!!");
+                // }
+                // else if (!validator.isAlphanumeric(values.title)) {
+                //     return toast.error("Title Must be an alphaNumeric!!!");
+                // }
                 values.city = city[values.city]
                 this.setState({ loading: true, disable: true })
                 var formData = new FormData();

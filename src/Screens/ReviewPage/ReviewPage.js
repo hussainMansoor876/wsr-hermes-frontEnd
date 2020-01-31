@@ -136,7 +136,7 @@ class Review extends React.Component {
         });
     };
 
-    formEdit(){
+    formEdit() {
         this.setState({ edit: true })
     }
 
@@ -160,7 +160,7 @@ class Review extends React.Component {
                                 tableLayout={'fixed'}
                             />
                         </div> :
-                            viewForm && !edit ? <Descriptions layout="vertical" bordered column={2} style={{
+                            viewForm && !edit ? <Descriptions bordered column={1} style={{
                                 backgroundColor: '#fff',
                                 width: '60%',
                                 marginBottom: 20
@@ -170,19 +170,19 @@ class Review extends React.Component {
                                         <Button onClick={() => this.formEdit()}>Edit</Button>
                                     </div>
                                 </Descriptions.Item>
-                                <Descriptions.Item label="AgentId">Cloud Database</Descriptions.Item>
-                                <Descriptions.Item label="Client Name">Prepaid</Descriptions.Item>
-                                <Descriptions.Item label="Street Address" span={2}>YES</Descriptions.Item>
-                                <Descriptions.Item label="Country">Cloud Database</Descriptions.Item>
-                                <Descriptions.Item label="City">Prepaid</Descriptions.Item>
-                                <Descriptions.Item label="Lender">Cloud Database</Descriptions.Item>
-                                <Descriptions.Item label="Title Company">Prepaid</Descriptions.Item>
-                                <Descriptions.Item label="Sold Price">Cloud Database</Descriptions.Item>
-                                <Descriptions.Item label="Sale Type">Prepaid</Descriptions.Item>
-                                <Descriptions.Item label="Transaction Fee">Cloud Database</Descriptions.Item>
-                                <Descriptions.Item label="Check Recieved">Prepaid</Descriptions.Item>
-                                <Descriptions.Item label="Paid Amount">Cloud Database</Descriptions.Item>
-                                <Descriptions.Item label="Date">Prepaid</Descriptions.Item>
+                                <Descriptions.Item label="AgentId">{viewForm.agentId}</Descriptions.Item>
+                                <Descriptions.Item label="Client Name">{viewForm.clientName}</Descriptions.Item>
+                                <Descriptions.Item label="Street Address" span={1}>{viewForm.streetAddress}</Descriptions.Item>
+                                <Descriptions.Item label="Country">{viewForm.country}</Descriptions.Item>
+                                <Descriptions.Item label="City">{viewForm.city}</Descriptions.Item>
+                                <Descriptions.Item label="Lender">{viewForm.lender}</Descriptions.Item>
+                                <Descriptions.Item label="Title Company">{viewForm.title}</Descriptions.Item>
+                                <Descriptions.Item label="Sold Price">{viewForm.soldPrice}</Descriptions.Item>
+                                <Descriptions.Item label="Sale Type">{viewForm.saleType}</Descriptions.Item>
+                                <Descriptions.Item label="Transaction Fee">{viewForm.transactionFee}</Descriptions.Item>
+                                <Descriptions.Item label="Check Recieved">{viewForm.checkRec}</Descriptions.Item>
+                                <Descriptions.Item label="Paid Amount">{viewForm.paidAmount}</Descriptions.Item>
+                                <Descriptions.Item label="Date">{viewForm.paidDate}</Descriptions.Item>
                             </Descriptions> :
                                 <div className="card1">
                                     <div>
