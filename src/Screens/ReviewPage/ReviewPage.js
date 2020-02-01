@@ -116,41 +116,49 @@ class Review extends React.Component {
 
                 this.setState({ disable: true })
                 var formData = new FormData();
-                for (var i = 0; i < values.upload.length; i++) {
-                    formData.append(`upload${i}`, values.upload[i].originFileObj)
+                try {
+                    for (var i = 0; i < values.upload.length; i++) {
+                        formData.append(`upload${i}`, values.upload[i].originFileObj)
+                    }
                 }
-                formData.append('agentId', values.agentId)
-                formData.append('clientName', values.clientName)
-                formData.append('streetAddress', values.streetAddress)
-                formData.append('country', values.country)
-                formData.append('city', values.city)
-                formData.append('lender', values.lender)
-                formData.append('title', values.title)
-                formData.append('soldPrice', values.soldPrice)
-                formData.append('saleType', values.saleType)
-                formData.append('transactionFee', values.transactionFee)
-                formData.append('checkRec', values.checkRec)
-                formData.append('paidAmount', values.paidAmount)
-                formData.append('paidDate', values.paidDate)
-                formData.append('_id', viewForm._id)
-                formData.append('files', JSON.stringify(viewForm.files))
-                axios.post('http://127.0.0.1:3001/subform/update-form', formData)
-                    .then((result) => {
-                        console.log('result', result)
-                        if (result.data.success) {
-                            toast.success("Approved and updated successfully!!!")
-                            setTimeout(() => {
-                                window.location.reload()
-                            }, 1000)
-                        }
-                        else {
-                            this.setState({ disable: false })
+                catch (e) {
+
+                }
+                finally {
+                    formData.append('agentId', values.agentId)
+                    formData.append('clientName', values.clientName)
+                    formData.append('streetAddress', values.streetAddress)
+                    formData.append('country', values.country)
+                    formData.append('city', values.city)
+                    formData.append('lender', values.lender)
+                    formData.append('title', values.title)
+                    formData.append('soldPrice', values.soldPrice)
+                    formData.append('saleType', values.saleType)
+                    formData.append('transactionFee', values.transactionFee)
+                    formData.append('checkRec', values.checkRec)
+                    formData.append('paidAmount', values.paidAmount)
+                    formData.append('paidDate', values.paidDate)
+                    formData.append('_id', viewForm._id)
+                    formData.append('files', JSON.stringify(viewForm.files))
+                    axios.post('http://127.0.0.1:3001/subform/update-form', formData)
+                        .then((result) => {
+                            console.log('result', result)
+                            if (result.data.success) {
+                                toast.success("Approved and updated successfully!!!")
+                                setTimeout(() => {
+                                    window.location.reload()
+                                }, 1000)
+                            }
+                            else {
+                                this.setState({ disable: false })
+                                toast.error("Something Went Wrong!!!")
+                            }
+                        })
+                        .catch((err) => {
                             toast.error("Something Went Wrong!!!")
-                        }
-                    })
-                    .catch((err) => {
-                        toast.error("Something Went Wrong!!!")
-                    })
+                        })
+                }
+
             }
         });
     };
@@ -467,6 +475,7 @@ class Review extends React.Component {
                                                 {getFieldDecorator('upload', {
                                                     valuePropName: 'fileList',
                                                     getValueFromEvent: this.normFile,
+                                                    rules: [{ required: false }]
                                                 })(
                                                     <Dragger {...props}>
                                                         <p className="ant-upload-drag-icon">
