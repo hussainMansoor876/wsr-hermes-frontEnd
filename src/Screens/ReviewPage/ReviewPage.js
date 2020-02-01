@@ -174,7 +174,6 @@ class Review extends React.Component {
     }
 
     approveForm(id) {
-        const { viewForm } = this.state
         axios.post('http://127.0.0.1:3001/subform/approve', {id})
             .then((result) => {
                 if (result.data.success) {
@@ -218,7 +217,7 @@ class Review extends React.Component {
                                 <Descriptions.Item span={2}>
                                     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
                                         <Button onClick={() => this.formEdit()} style={{ marginRight: 5 }}>Edit</Button>
-                                        <Button type="primary" onClick={() => this.approveForm()}>Approve</Button>
+                                        <Button type="primary" onClick={() => this.approveForm(viewForm._id)}>Approve</Button>
                                     </div>
                                 </Descriptions.Item>
                                 <Descriptions.Item label="AgentId">{viewForm.agentId}</Descriptions.Item>
