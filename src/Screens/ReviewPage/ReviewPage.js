@@ -68,7 +68,7 @@ class Review extends React.Component {
                         <Button onClick={() => this.setState({ viewForm: v })} type="secondary" style={{ marginBottom: 5 }} block>
                             Detail
                             </Button>
-                        <Button type="primary" block>
+                        <Button type="primary" block onClick={() => this.approveForm(v._id)}>
                             Approve
                             </Button>
                     </div>
@@ -173,11 +173,12 @@ class Review extends React.Component {
             })
     }
 
-    approveForm() {
-        axios.get('http://127.0.0.1:3001/subform/approve')
+    approveForm(id) {
+        const { viewForm } = this.state
+        axios.post('http://127.0.0.1:3001/subform/approve', {id})
             .then((result) => {
                 if (result.data.success) {
-                    // window.location.reload()
+                    window.location.reload()
                 }
                 else {
                     // this.setState({ loading: false, disable: false })
