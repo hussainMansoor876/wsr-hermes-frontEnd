@@ -44,6 +44,8 @@ class Review extends React.Component {
             viewForm: null,
             loading: true,
             edit: false,
+            disable: false,
+            loadingButton: false,
             columns: [
                 {
                     title: 'Client',
@@ -113,7 +115,7 @@ class Review extends React.Component {
                     values.city = city[values.city]
                 }
 
-                this.setState({ loading: true, disable: true })
+                this.setState({ loadingButton: true, disable: true })
                 var formData = new FormData();
                 for (var i = 0; i < values.upload.length; i++) {
                     formData.append(`upload${i}`, values.upload[i].originFileObj)
@@ -143,7 +145,7 @@ class Review extends React.Component {
                             }, 1000)
                         }
                         else {
-                            this.setState({ loading: false, disable: false })
+                            this.setState({ loadingButton: false, disable: false })
                             toast.error("Something Went Wrong!!!")
                         }
                     })
@@ -442,9 +444,7 @@ class Review extends React.Component {
                                             </Form.Item>
                                             <List
                                                 style={{ backgroundColor: '#fff', marginBottom: 10 }}
-                                                // loading={initLoading}
                                                 itemLayout="horizontal"
-                                                // loadMore={loadMore}
                                                 dataSource={viewForm.files ? viewForm.files : []}
                                                 bordered={true}
                                                 pagination={true}
@@ -481,10 +481,10 @@ class Review extends React.Component {
                                             </Form.Item>
 
                                             <Form.Item className="sign-up">
-                                                <Button htmlType="submit" disabled={this.state.disable} style={{ backgroundColor: '#120894', color: 'white', fontWeight: 'bold', fontSize: 14, height: 40, display: 'flex', width: '100%', textAlign: 'center', justifyContent: 'center', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
+                                                <Button htmlType="submit" disabled={this.state.disable} loading={this.state.disable} style={{ backgroundColor: '#120894', color: 'white', fontWeight: 'bold', fontSize: 14, height: 40, display: 'flex', width: '100%', textAlign: 'center', justifyContent: 'center', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
                                                     Update
                                         </Button>
-                                                <Button style={{ fontWeight: 'bold', fontSize: 14, height: 40, display: 'flex', width: '100%', textAlign: 'center', justifyContent: 'center', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', marginTop: 10 }}>
+                                                <Button disabled={this.state.disable} loading={this.state.disable} style={{ fontWeight: 'bold', fontSize: 14, height: 40, display: 'flex', width: '100%', textAlign: 'center', justifyContent: 'center', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', marginTop: 10 }}>
                                                     Cancel
                                         </Button>
                                             </Form.Item>
