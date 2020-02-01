@@ -49,7 +49,7 @@ class Review extends React.Component {
                 {
                     title: 'Client',
                     dataIndex: 'headline',
-                    render: text => <Link to="">{text.clientName > 30 ? `${text.clientName(0, 30)}...` : text.clientName}</Link>
+                    render: text => <Link to="#">{text.clientName > 30 ? `${text.clientName(0, 30)}...` : text.clientName}</Link>
                 },
                 {
                     title: 'Sold Price',
