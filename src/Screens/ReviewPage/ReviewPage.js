@@ -118,8 +118,8 @@ class Review extends React.Component {
                 if (values.city !== viewForm.city) {
                     values.city = city[values.city]
                 }
-                
-                // this.setState({ loading: true, disable: true })
+
+                this.setState({ loading: true, disable: true })
                 var formData = new FormData();
                 for (var i = 0; i < values.upload.length; i++) {
                     formData.append(`upload${i}`, values.upload[i].originFileObj)
@@ -143,11 +143,14 @@ class Review extends React.Component {
                     .then((result) => {
                         console.log('result', result)
                         if (result.data.success) {
-                            // window.location.reload()
+                            toast.success("Approved and updated successfully!!!")
+                            setTimeout(() => {
+                                window.location.reload()
+                            }, 1000)
                         }
                         else {
-                            // this.setState({ loading: false, disable: false })
-                            toast.error(result.data.message)
+                            this.setState({ loading: false, disable: false })
+                            toast.error("Something Went Wrong!!!")
                         }
                     })
                     .catch((err) => {
@@ -209,7 +212,7 @@ class Review extends React.Component {
                                 bordered={true}
                                 HasData={isData}
                                 dataSource={allData}
-                                loading={allData.length ? false : true}
+                                loading={isData ? true : false}
                                 tableLayout={'fixed'}
                             />
                         </div> :
