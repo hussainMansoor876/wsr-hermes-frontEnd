@@ -42,6 +42,7 @@ class Review extends React.Component {
             isData: true,
             allData: [],
             viewForm: null,
+            loading: true,
             edit: false,
             columns: [
                 {
@@ -97,7 +98,7 @@ class Review extends React.Component {
                         action: v
                     })
                 })
-                this.setState({ allData, isData: allData.length ? true : false })
+                this.setState({ allData, isData: allData.length ? true : false, loading: false })
             })
             .catch((err) => console.log(err))
     }
@@ -108,13 +109,6 @@ class Review extends React.Component {
 
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                // if (!validator.isAlpha(values.clientName)) {
-                //     return toast.error("Client Name Must be an alphabet!!!");
-                // }
-                // else if (!validator.isAlphanumeric(values.title)) {
-                //     return toast.error("Title Must be an alphaNumeric!!!");
-                // }
-                // this.setState({ loading: true, disable: true })
                 if (values.city !== viewForm.city) {
                     values.city = city[values.city]
                 }
@@ -198,7 +192,7 @@ class Review extends React.Component {
 
 
     render() {
-        const { city, allData, columns, isData, viewForm, edit } = this.state
+        const { city, allData, columns, isData, viewForm, edit, loading } = this.state
         const { getFieldDecorator } = this.props.form;
         return (
             <div>
@@ -212,7 +206,7 @@ class Review extends React.Component {
                                 bordered={true}
                                 HasData={isData}
                                 dataSource={allData}
-                                loading={isData ? true : false}
+                                loading={loading}
                                 tableLayout={'fixed'}
                             />
                         </div> :
