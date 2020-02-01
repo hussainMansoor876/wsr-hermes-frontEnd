@@ -160,10 +160,18 @@ class Review extends React.Component {
 
 
     delFile(item) {
-        axios.post('http://127.0.0.1:3001/subform/del-file', item)
+        const { viewForm } = this.state
+        axios.post('http://127.0.0.1:3001/subform/del-file', {
+            file: item,
+            _id: viewForm._id
+        })
             .then((result) => {
                 console.log('result', result)
                 if (result.data.success) {
+                    result.data.data.date = moment(result.data.data.paidDate).toObject()
+                    this.setState({
+                        viewForm: result.data.data
+                    })
                 }
                 else {
                     toast.error("Something Went Wrong!!!")
