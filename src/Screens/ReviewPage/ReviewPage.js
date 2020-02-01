@@ -158,6 +158,25 @@ class Review extends React.Component {
     }
 
 
+    delFile(item) {
+        console.log('item', item)
+        axios.post('http://127.0.0.1:3001/subform/del-file', item)
+            .then((result) => {
+                console.log('result', result)
+                // if (result.data.success) {
+                //     // window.location.reload()
+                // }
+                // else {
+                //     // this.setState({ loading: false, disable: false })
+                //     toast.error(result.data.message)
+                // }
+            })
+            .catch((err) => {
+                toast.error("Something Went Wrong!!!")
+            })
+    }
+
+
     render() {
         const { city, allData, columns, isData, viewForm, edit } = this.state
         const { getFieldDecorator } = this.props.form;
@@ -408,7 +427,7 @@ class Review extends React.Component {
                                                 pagination={true}
                                                 renderItem={item => (
                                                     <List.Item
-                                                        actions={[<a key="list-loadmore-edit" target="_blank" href={item.url}>View</a>]}
+                                                        actions={[<a key="list-loadmore-edit" target="_blank" href={item.url}>View</a>, <a style={{ color: 'red' }} key="list-loadmore-edit" onClick={() => this.delFile(item)} >Delete</a>]}
                                                     >
                                                         <Skeleton avatar title={false} loading={item.loading} active>
                                                             <List.Item.Meta
