@@ -140,7 +140,7 @@ class Review extends React.Component {
                 formData.append('paidDate', values.paidDate)
                 formData.append('_id', viewForm._id)
                 formData.append('files', JSON.stringify(viewForm.files))
-                axios.post('http://127.0.0.1:3001/subform/submission', formData)
+                axios.post('http://127.0.0.1:3001/subform/update-form', formData)
                     .then((result) => {
                         console.log('result', result)
                         if (result.data.success) {
