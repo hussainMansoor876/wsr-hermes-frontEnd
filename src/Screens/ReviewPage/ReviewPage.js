@@ -422,7 +422,7 @@ class Review extends React.Component {
                                                 // loading={initLoading}
                                                 itemLayout="horizontal"
                                                 // loadMore={loadMore}
-                                                dataSource={viewForm.files}
+                                                dataSource={viewForm.files ? viewForm.files : []}
                                                 bordered={true}
                                                 pagination={true}
                                                 renderItem={item => (
@@ -434,7 +434,7 @@ class Review extends React.Component {
                                                                 avatar={
                                                                     <Avatar src={item.url} />
                                                                 }
-                                                                title={<a href="#">{item.public_id.split('/')[3]}</a>}
+                                                                title={<a href="#">{item.public_id.split('/')[3].length > 20 ? `${item.public_id.split('/')[3].slice(0,20)}...` : item.public_id.split('/')[3]}</a>}
                                                             />
                                                         </Skeleton>
                                                     </List.Item>
