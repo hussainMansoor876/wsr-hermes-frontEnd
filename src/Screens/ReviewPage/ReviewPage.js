@@ -45,7 +45,6 @@ class Review extends React.Component {
             loading: true,
             edit: false,
             disable: false,
-            loadingButton: false,
             columns: [
                 {
                     title: 'Client',
@@ -115,7 +114,7 @@ class Review extends React.Component {
                     values.city = city[values.city]
                 }
 
-                this.setState({ loadingButton: true, disable: true })
+                this.setState({ disable: true })
                 var formData = new FormData();
                 for (var i = 0; i < values.upload.length; i++) {
                     formData.append(`upload${i}`, values.upload[i].originFileObj)
@@ -145,7 +144,7 @@ class Review extends React.Component {
                             }, 1000)
                         }
                         else {
-                            this.setState({ loadingButton: false, disable: false })
+                            this.setState({ disable: false })
                             toast.error("Something Went Wrong!!!")
                         }
                     })
@@ -171,6 +170,7 @@ class Review extends React.Component {
                 console.log('result', result)
                 if (result.data.success) {
                     result.data.data.date = moment(result.data.data.paidDate).toObject()
+                    toast.success("File Deleted Successfully!!!")
                     this.setState({
                         viewForm: result.data.data
                     })
@@ -484,7 +484,7 @@ class Review extends React.Component {
                                                 <Button htmlType="submit" disabled={this.state.disable} loading={this.state.disable} style={{ backgroundColor: '#120894', color: 'white', fontWeight: 'bold', fontSize: 14, height: 40, display: 'flex', width: '100%', textAlign: 'center', justifyContent: 'center', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
                                                     Update
                                         </Button>
-                                                <Button disabled={this.state.disable} loading={this.state.disable} style={{ fontWeight: 'bold', fontSize: 14, height: 40, display: 'flex', width: '100%', textAlign: 'center', justifyContent: 'center', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', marginTop: 10 }}>
+                                                <Button disabled={this.state.disable} style={{ fontWeight: 'bold', fontSize: 14, height: 40, display: 'flex', width: '100%', textAlign: 'center', justifyContent: 'center', alignItems: 'center', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', marginTop: 10 }}>
                                                     Cancel
                                         </Button>
                                             </Form.Item>
