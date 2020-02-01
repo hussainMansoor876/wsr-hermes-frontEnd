@@ -163,13 +163,14 @@ class Review extends React.Component {
         axios.post('http://127.0.0.1:3001/subform/del-file', item)
             .then((result) => {
                 console.log('result', result)
-                // if (result.data.success) {
-                //     // window.location.reload()
-                // }
-                // else {
-                //     // this.setState({ loading: false, disable: false })
-                //     toast.error(result.data.message)
-                // }
+                if (result.data.success) {
+                    // window.location.reload()
+
+                }
+                else {
+                    // this.setState({ loading: false, disable: false })
+                    toast.error(result.data.message)
+                }
             })
             .catch((err) => {
                 toast.error("Something Went Wrong!!!")
@@ -203,7 +204,8 @@ class Review extends React.Component {
                             }}>
                                 <Descriptions.Item span={2}>
                                     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
-                                        <Button onClick={() => this.formEdit()}>Edit</Button>
+                                        <Button onClick={() => this.formEdit()} style={{ marginRight: 5 }}>Edit</Button>
+                                        <Button type="primary" onClick={() => this.formEdit()}>Approve</Button>
                                     </div>
                                 </Descriptions.Item>
                                 <Descriptions.Item label="AgentId">{viewForm.agentId}</Descriptions.Item>
@@ -434,7 +436,7 @@ class Review extends React.Component {
                                                                 avatar={
                                                                     <Avatar src={item.url} />
                                                                 }
-                                                                title={<a href="#">{item.public_id.split('/')[3].length > 20 ? `${item.public_id.split('/')[3].slice(0,20)}...` : item.public_id.split('/')[3]}</a>}
+                                                                title={<a href="#">{item.public_id.split('/')[3].length > 20 ? `${item.public_id.split('/')[3].slice(0, 20)}...` : item.public_id.split('/')[3]}</a>}
                                                             />
                                                         </Skeleton>
                                                     </List.Item>
