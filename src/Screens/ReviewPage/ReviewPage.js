@@ -140,7 +140,7 @@ class Review extends React.Component {
                     formData.append('paidDate', values.paidDate)
                     formData.append('_id', viewForm._id)
                     formData.append('files', JSON.stringify(viewForm.files))
-                    axios.post('http://127.0.0.1:3001/subform/update-form', formData)
+                    axios.post('https://wsr-server.herokuapp.com/subform/update-form', formData)
                         .then((result) => {
                             console.log('result', result)
                             if (result.data.success) {
@@ -170,7 +170,7 @@ class Review extends React.Component {
 
     delFile(item) {
         const { viewForm } = this.state
-        axios.post('http://127.0.0.1:3001/subform/del-file', {
+        axios.post('https://wsr-server.herokuapp.com/subform/del-file', {
             file: item,
             _id: viewForm._id
         })
@@ -193,7 +193,7 @@ class Review extends React.Component {
     }
 
     approveForm(id) {
-        axios.post('http://127.0.0.1:3001/subform/approve', { id })
+        axios.post('https://wsr-server.herokuapp.com/subform/approve', { id })
             .then((result) => {
                 if (result.data.success) {
                     window.location.reload()
