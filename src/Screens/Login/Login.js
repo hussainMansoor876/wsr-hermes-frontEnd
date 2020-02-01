@@ -28,7 +28,7 @@ class Login extends React.Component {
             this.props.removeUser()
         }
         if (user) {
-            this.props.history.replace('/submission')
+            this.props.history.replace('/review')
         }
     }
 
@@ -48,7 +48,7 @@ class Login extends React.Component {
                     .then((result) => {
                         if (result.data.success) {
                             this.props.loginUser(result.data.user)
-                            this.props.history.push('/submission')
+                            this.props.history.push('/review')
                         }
                         else {
                             this.setState({ loading: false, disable: false })
