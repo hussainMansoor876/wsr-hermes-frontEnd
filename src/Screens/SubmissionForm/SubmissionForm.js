@@ -82,7 +82,7 @@ class Submission extends React.Component {
                 axios.post('https://wsr-server.herokuapp.com/subform/submission', formData)
                     .then((result) => {
                         if (result.data.success) {
-                            this.setState({ loading: false, disable: false })
+                            this.setState({ loading: false })
                             toast.success("Successfully added data!!!")
                             setTimeout(() => {
                                 window.location.reload()
