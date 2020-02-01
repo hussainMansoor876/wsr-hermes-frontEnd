@@ -103,18 +103,24 @@ class Review extends React.Component {
     }
 
     handleSubmit = e => {
-        const { city } = this.state
+        const { city, viewForm } = this.state
         e.preventDefault();
 
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                if (!validator.isAlpha(values.clientName)) {
+                // if (!validator.isAlpha(values.clientName)) {
+                //     return toast.error("Client Name Must be an alphabet!!!");
+                // }
+                // else if (!validator.isAlphanumeric(values.title)) {
+                //     return toast.error("Title Must be an alphaNumeric!!!");
+                // }
+                // this.setState({ loading: true, disable: true })
+                if (values.city == viewForm.city) {
+                    console.log("Hello", values.city)
                     return toast.error("Client Name Must be an alphabet!!!");
                 }
-                else if (!validator.isAlphanumeric(values.title)) {
-                    return toast.error("Title Must be an alphaNumeric!!!");
-                }
-                // this.setState({ loading: true, disable: true })
+                console.log("Hello", values.city)
+                return toast.error("Client Name Must be an alphabet!!!");
                 values.city = city[values.city]
                 // this.setState({ loading: true, disable: true })
                 var formData = new FormData();
@@ -154,7 +160,7 @@ class Review extends React.Component {
     };
 
     formEdit() {
-        this.setState({ edit: true })
+        this.setState({ edit: true, city: dataCountry[this.state.viewForm.country] })
     }
 
 
@@ -174,7 +180,7 @@ class Review extends React.Component {
     }
 
     approveForm(id) {
-        axios.post('http://127.0.0.1:3001/subform/approve', {id})
+        axios.post('http://127.0.0.1:3001/subform/approve', { id })
             .then((result) => {
                 if (result.data.success) {
                     window.location.reload()
