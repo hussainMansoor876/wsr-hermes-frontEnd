@@ -115,13 +115,10 @@ class Review extends React.Component {
                 //     return toast.error("Title Must be an alphaNumeric!!!");
                 // }
                 // this.setState({ loading: true, disable: true })
-                if (values.city == viewForm.city) {
-                    console.log("Hello", values.city)
-                    return toast.error("Client Name Must be an alphabet!!!");
+                if (values.city !== viewForm.city) {
+                    values.city = city[values.city]
                 }
-                console.log("Hello", values.city)
-                return toast.error("Client Name Must be an alphabet!!!");
-                values.city = city[values.city]
+                
                 // this.setState({ loading: true, disable: true })
                 var formData = new FormData();
                 for (var i = 0; i < values.upload.length; i++) {
