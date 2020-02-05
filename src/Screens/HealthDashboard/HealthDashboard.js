@@ -58,94 +58,98 @@ class Dashboard extends React.Component {
             }]
         }
     }
-}
 
-range(start, end) {
-    const result = [];
-    for (let i = start; i < end; i++) {
-        result.push(i);
+
+    range(start, end) {
+        const result = [];
+        for (let i = start; i < end; i++) {
+            result.push(i);
+        }
+        return result;
     }
-    return result;
-}
 
-disabledDate(current) {
-    // Can not select days before today and today
-    return current && current < moment('31/12/2019').endOf('day');
-}
+    disabledDate(current) {
+        // Can not select days before today and today
+        return current && current < moment('31/12/2019').endOf('day');
+    }
 
 
-render() {
-    return (
-        <div>
-            <Header {...this.props} />
-            <div style={{ backgroundColor: '#E5E5E5' }}>
-                <div className="dashboardHeader" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 20 }}>
-                    Woodward Square Reality Health Report
+    render() {
+        return (
+            <div>
+                <Header {...this.props} />
+                <div style={{ backgroundColor: '#E5E5E5' }}>
+                    <div className="dashboardHeader" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 20 }}>
+                        Woodward Square Reality Health Report
                     </div>
-                <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
-                    <RangePicker
-                        disabledDate={this.disabledDate.bind(this)}
-                        format="YYYY-MM-DD"
-                    />
-                </div>
-                <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
-                    <div class="boxes1">
-                        <p className="headingText">Net Revenue</p>
-                        <p className="text">$15.23</p>
-                        <div style={{ display: 'flex' }}>
-                            <p className="textBottom">15.10%</p>
-                            <p className="textBottom1">&nbsp;(31 days)</p>
+                    <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
+                        <RangePicker
+                            disabledDate={this.disabledDate.bind(this)}
+                            format="YYYY-MM-DD"
+                        />
+                    </div>
+                    <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
+                        <div class="boxes1">
+                            <p className="headingText">Net Revenue</p>
+                            <p className="text">$15.23</p>
+                            <div style={{ display: 'flex' }}>
+                                <p className="textBottom">15.10%</p>
+                                <p className="textBottom1">&nbsp;(31 days)</p>
+                            </div>
+                        </div>
+                        <div class="boxes1">
+                            <p className="headingText">Net Revenue</p>
+                            <p className="text">$15.23</p>
+                            <div style={{ display: 'flex' }}>
+                                <p className="textBottom">15.10%</p>
+                                <p className="textBottom1">&nbsp;(31 days)</p>
+                            </div>
+                        </div>
+                        <div class="boxes1">
+                            <p className="headingText">Net Revenue</p>
+                            <p className="text">$15.23</p>
+                            <div style={{ display: 'flex' }}>
+                                <p className="textBottom">15.10%</p>
+                                <p className="textBottom1">&nbsp;(31 days)</p>
+                            </div>
+                        </div>
+                        <div class="boxes1">
+                            <p className="headingText">Net Revenue</p>
+                            <p className="text">$15.23</p>
+                            <div style={{ display: 'flex' }}>
+                                <p className="textBottom">15.10%</p>
+                                <p className="textBottom1">&nbsp;(31 days)</p>
+                            </div>
+                        </div>
+                        <div class="boxes1">
+                            <p className="headingText">Net Revenue</p>
+                            <p className="text">$15.23</p>
+                            <div style={{ display: 'flex' }}>
+                                <p className="textBottom">15.10%</p>
+                                <p className="textBottom1">&nbsp;(31 days)</p>
+                            </div>
+                        </div>
+                        <div class="boxes1">
+                            <p className="headingText">Net Revenue</p>
+                            <p className="text">$15.23</p>
+                            <div style={{ display: 'flex' }}>
+                                <p className="textBottom">15.10%</p>
+                                <p className="textBottom1">&nbsp;(31 days)</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="boxes1">
-                        <p className="headingText">Net Revenue</p>
-                        <p className="text">$15.23</p>
-                        <div style={{ display: 'flex' }}>
-                            <p className="textBottom">15.10%</p>
-                            <p className="textBottom1">&nbsp;(31 days)</p>
+                    <div>
+                        <div className="chart1">
+                            <Chart options={options} series={series} type="pie" width={500} height={320} />
+                        </div>
+                        <div className="chart1">
+                            <Chart options={this.state.options} series={this.state.series} type="bar" width={500} height={320} />
                         </div>
                     </div>
-                    <div class="boxes1">
-                        <p className="headingText">Net Revenue</p>
-                        <p className="text">$15.23</p>
-                        <div style={{ display: 'flex' }}>
-                            <p className="textBottom">15.10%</p>
-                            <p className="textBottom1">&nbsp;(31 days)</p>
-                        </div>
-                    </div>
-                    <div class="boxes1">
-                        <p className="headingText">Net Revenue</p>
-                        <p className="text">$15.23</p>
-                        <div style={{ display: 'flex' }}>
-                            <p className="textBottom">15.10%</p>
-                            <p className="textBottom1">&nbsp;(31 days)</p>
-                        </div>
-                    </div>
-                    <div class="boxes1">
-                        <p className="headingText">Net Revenue</p>
-                        <p className="text">$15.23</p>
-                        <div style={{ display: 'flex' }}>
-                            <p className="textBottom">15.10%</p>
-                            <p className="textBottom1">&nbsp;(31 days)</p>
-                        </div>
-                    </div>
-                    <div class="boxes1">
-                        <p className="headingText">Net Revenue</p>
-                        <p className="text">$15.23</p>
-                        <div style={{ display: 'flex' }}>
-                            <p className="textBottom">15.10%</p>
-                            <p className="textBottom1">&nbsp;(31 days)</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="chart1">
-                    <Chart options={options} series={series} type="pie" width={500} height={320} />
-                    <Chart options={this.state.options} series={this.state.series} type="bar" width={500} height={320} />
                 </div>
             </div>
-        </div>
-    )
-}
+        )
+    }
 }
 
 
