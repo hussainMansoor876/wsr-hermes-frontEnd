@@ -245,7 +245,7 @@ class Dashboard extends React.Component {
                                     </div>
                                     <div className="div6">
                                         <div className="div3">
-                                            <h1 className="divBody">Commission Earned</h1>
+                                            <h1 className="divBody">Commission</h1>
                                             <h1 className="divBody">$76,259</h1>
                                         </div>
                                         <div className="div3">
