@@ -308,7 +308,7 @@
   background: #FFFFFF;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  flex: 1;
+  flex: 3;
   margin-right: 10px;
 }
 
@@ -320,6 +320,32 @@
 
 .mLeft{
   margin-left: 10px;
+}
+
+.div1{
+  height: 320px;
+}
+
+.heading2{
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  align-items: center;
+  text-align: center;
+
+  color: #3D3D3D;
+}
+
+.chart4{
+  /* width: 725px; */
+  height: 320px;
+  left: 57px;
+  top: 500px;
+  margin-right: 10px;
+  background: #FFFFFF;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
 .chartBody{
