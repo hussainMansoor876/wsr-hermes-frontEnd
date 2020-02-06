@@ -99,26 +99,26 @@ class Dashboard extends React.Component {
             },
             series2: [{
                 data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
-              }],
-              options2: {
+            }],
+            options2: {
                 chart: {
-                  type: 'bar',
-                  height: 350
+                    type: 'bar',
+                    height: 350
                 },
                 plotOptions: {
-                  bar: {
-                    horizontal: true,
-                  }
+                    bar: {
+                        horizontal: true,
+                    }
                 },
                 dataLabels: {
-                  enabled: false
+                    enabled: false
                 },
                 xaxis: {
-                  categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
-                    'United States', 'China', 'Germany'
-                  ],
+                    categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
+                        'United States', 'China', 'Germany'
+                    ],
                 }
-              },
+            },
         }
     }
 
@@ -265,7 +265,10 @@ class Dashboard extends React.Component {
                         flex: 1
                     }}>
                         <div className="div4">
-                        <Chart options={this.state.options2} series={this.state.series2} type="bar" height={300} />
+                            <Chart options={this.state.options2} series={this.state.series2} type="bar" height={300} />
+                        </div>
+                        <div className="div5">
+                            <Chart options={this.state.options2} series={this.state.series2} type="bar" height={300} />
                         </div>
                     </div>
                 </div>

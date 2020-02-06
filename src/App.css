@@ -393,7 +393,17 @@
 
 .div4{
   height: 300px;
-  flex: 1;
+  flex: 4;
+  background: #FFFFFF;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin: 10px;
+  margin-right: 10px;
+}
+
+.div5{
+  height: 300px;
+  flex: 3;
   background: #FFFFFF;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
