@@ -258,6 +258,38 @@ class Dashboard extends React.Component {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="div8">
+                                    <div className="div7">
+                                        <div className="div3 deal1">
+                                            <h1 className="divBody">Deals</h1>
+                                            <h1 className="divBody">4</h1>
+                                        </div>
+                                        <div className="div3">
+                                            <h1 className="divBody">Sales Volume</h1>
+                                            <h1 className="divBody">$3,113,800</h1>
+                                        </div>
+                                    </div>
+                                    <div className="div7">
+                                        <div className="div3">
+                                            <h1 className="divBody">WSR Revenue</h1>
+                                            <h1 className="divBody">$4,500</h1>
+                                        </div>
+                                        <div className="div3">
+                                            <h1 className="divBody">Commission</h1>
+                                            <h1 className="divBody">$76,259</h1>
+                                        </div>
+                                    </div>
+                                    <div className="div7">
+                                        <div className="div3">
+                                            <h1 className="divBody">Cap Fill</h1>
+                                            <h1 className="divBody">100%</h1>
+                                        </div>
+                                        <div className="div3">
+                                            <h1 className="divBody">Recruits</h1>
+                                            <h1 className="divBody">4</h1>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="chart2">

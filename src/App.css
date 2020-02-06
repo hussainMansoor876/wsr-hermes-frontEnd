@@ -385,6 +385,12 @@
   flex: 1;
 }
 
+.div8{
+  display: none;
+  margin: 20px;
+  flex: 1;
+}
+
 .div3{
   flex: 2;
 }
@@ -474,5 +480,15 @@
   .div6{
     justify-content: center;
     align-items: center;
+  }
+}
+
+@media(max-width: 500px){
+  .div8{
+    display: block;
+  }
+  
+  .div2{
+    display: none;
   }
 }
