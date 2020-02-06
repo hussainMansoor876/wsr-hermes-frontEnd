@@ -40,6 +40,7 @@ class Header extends React.Component {
 
     openNav() {
         this.sideBar.style.width = "250px"
+        this.sideBar.style.height = "100%"
         if (window.innerWidth > 500) {
             document.getElementById("root").style.marginLeft = "250px";
         }
@@ -47,6 +48,7 @@ class Header extends React.Component {
 
     closeNav() {
         this.sideBar.style.width = "0"
+        this.sideBar.style.height = "0"
         if (window.innerWidth > 500) {
             document.getElementById("root").style.marginLeft = "0";
         }
