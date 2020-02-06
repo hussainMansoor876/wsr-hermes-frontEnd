@@ -493,7 +493,8 @@
 
 @media(max-width: 500px){
   .div8{
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   .div2{
@@ -508,7 +509,6 @@
 
 @media(max-width: 300px){
   .div7{
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
