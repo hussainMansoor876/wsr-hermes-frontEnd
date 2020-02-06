@@ -362,6 +362,12 @@
   justify-content: space-between;
 }
 
+@media(max-width: 1050px){
+  .chartBody{
+    display: block;
+  }
+}
+
 .divBody{
   font-family: Lato;
   font-style: normal;
