@@ -62,3 +62,14 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+.navbar1{
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.navbar2{
+  font-size: 25px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+}
