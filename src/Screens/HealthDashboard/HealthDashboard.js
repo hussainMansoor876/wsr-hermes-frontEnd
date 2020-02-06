@@ -179,7 +179,7 @@ class Dashboard extends React.Component {
                         </div>
                     </div>
                     <div className="chartBody">
-                        <div style={{ flex: 1, flexDirection: 'row', display: 'flex' }}>
+                        <div className="chart3">
                             <div className="chart1">
                                 <Chart options={options} series={series} type="pie" height={320} />
                             </div>
@@ -188,7 +188,7 @@ class Dashboard extends React.Component {
                             </div>
                         </div>
                         <div className="chart2">
-                            <Chart options={this.state.options1} series={this.state.series1} type="line" height={320} />
+                            <Chart options={this.state.options1} series={this.state.series1} type="line" height={640} />
                         </div>
                     </div>
                 </div>

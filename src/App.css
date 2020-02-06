@@ -308,8 +308,13 @@
   background: #FFFFFF;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  flex: 1;
+  flex: 2;
   margin-right: 10px;
+}
+
+.chart3{
+  display: flex;
+  flex: 3;
 }
 
 .chartBody{
