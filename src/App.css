@@ -508,18 +508,9 @@
 
 @media(max-width: 300px){
   .div7{
-    display: block;
-  }
-
-  .div3{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-self: center;
     align-items: center;
-    justify-self: center;
-  }
-
-  .divBody{
-    display: block;
   }
 }
