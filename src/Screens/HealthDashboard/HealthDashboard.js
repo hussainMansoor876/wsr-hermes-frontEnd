@@ -180,9 +180,7 @@ class Dashboard extends React.Component {
                         </div>
                     </div>
                     <div className="chartBody">
-                        <div style={{
-                            flex: 4,
-                        }}>
+                        <div className="chartBody1">
                             <div className="chart3">
                                 <div className="chart1 mLeft">
                                     <Chart options={options} series={series} type="pie" height={320} />

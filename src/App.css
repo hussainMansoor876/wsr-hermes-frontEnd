@@ -372,6 +372,7 @@
   display: flex;
   align-items: center;
   text-align: center;
+  margin-top: 15px;
 
   color: #3D3D3D;
 }
@@ -384,4 +385,8 @@
 
 .div3{
   flex: 1;
+}
+
+.chartBody1{
+  flex: 4
 }
