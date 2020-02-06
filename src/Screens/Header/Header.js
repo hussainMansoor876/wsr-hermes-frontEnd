@@ -64,6 +64,13 @@ class Header extends React.Component {
                     <div className="navbar1">
                         <span className="navbar2" onclick="openNav()">&#9776; </span>
                     </div>
+                    <div ref={e => this.sidBar = e} class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="#">About</a>
+                        <a href="#">Services</a>
+                        <a href="#">Clients</a>
+                        <a href="#">Contact</a>
+                    </div>
                 </div>
                 <div style={{ display: 'flex', marginTop: 8 }}>
                     <img src={'https://avatars0.githubusercontent.com/u/35415573?s=400&u=7585be6ddd43c201b02168c1fe36fd5e33a06bca&v=4'} alt="" style={{ marginRight: 10, borderRadius: 50 }} height="30" width="30" />
