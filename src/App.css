@@ -429,6 +429,13 @@
   align-items: center;
 }
 
+.div7{
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .deal1{
   flex: 1 !important;
 }
@@ -485,9 +492,9 @@
 
 @media(max-width: 500px){
   .div8{
-    display: block;
+    display: flex;
   }
-  
+
   .div2{
     display: none;
   }

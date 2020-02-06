@@ -260,7 +260,7 @@ class Dashboard extends React.Component {
                                 </div>
                                 <div className="div8">
                                     <div className="div7">
-                                        <div className="div3 deal1">
+                                        <div className="div3">
                                             <h1 className="divBody">Deals</h1>
                                             <h1 className="divBody">4</h1>
                                         </div>
