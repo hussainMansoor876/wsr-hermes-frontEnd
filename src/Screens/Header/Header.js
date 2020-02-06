@@ -37,6 +37,16 @@ class Header extends React.Component {
         }, 100)
     }
 
+    openNav(){
+        this.sideBar.style.width = "250px"
+        document.getElementById("root").style.marginLeft = "250px";
+    }
+
+    closeNav(){
+        this.sideBar.style.width = "0"
+        document.getElementById("root").style.marginLeft = "0";
+    }
+
 
     render() {
         const { user } = this.props
@@ -62,10 +72,10 @@ class Header extends React.Component {
                         <div className="bar3"></div>
                     </div> */}
                     <div className="navbar1">
-                        <span className="navbar2" onclick="openNav()">&#9776; </span>
+                        <span className="navbar2" onClick={() => this.openNav()}>&#9776; </span>
                     </div>
-                    <div ref={e => this.sidBar = e} class="sidenav">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <div ref={e => this.sideBar = e} class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onClick={()=> this.closeNav()}>&times;</a>
                         <a href="#">About</a>
                         <a href="#">Services</a>
                         <a href="#">Clients</a>
