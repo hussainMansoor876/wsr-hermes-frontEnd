@@ -444,7 +444,7 @@
 
 @media(max-width: 1200px){
   .chartBody{
-    display: block;
+    flex-direction: column;
   }
 
   .chart2{
