@@ -179,11 +179,18 @@ class Dashboard extends React.Component {
                         </div>
                     </div>
                     <div className="chartBody">
-                        <div className="chart3">
-                            <div className="chart1">
-                                <Chart options={options} series={series} type="pie" height={320} />
+                        <div style={{
+                            flex: 3,
+                        }}>
+                            <div className="chart3">
+                                <div className="chart1 mLeft">
+                                    <Chart options={options} series={series} type="pie" height={320} />
+                                </div>
+                                <div className="chart1">
+                                    <Chart options={this.state.options} series={this.state.series} type="bar" height={320} />
+                                </div>
                             </div>
-                            <div className="chart1">
+                            <div className="chart1 mLeft">
                                 <Chart options={this.state.options} series={this.state.series} type="bar" height={320} />
                             </div>
                         </div>
