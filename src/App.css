@@ -362,12 +362,6 @@
   justify-content: space-between;
 }
 
-@media(max-width: 1050px){
-  .chartBody{
-    display: block;
-  }
-}
-
 .divBody{
   font-family: Lato;
   font-style: normal;
@@ -414,4 +408,17 @@
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   margin: 10px;
+}
+
+/* Media */
+
+@media(max-width: 1050px){
+  .chartBody{
+    display: block;
+  }
+
+  .chart2{
+    margin-top: 10px;
+    margin-left: 10px;
+  }
 }
