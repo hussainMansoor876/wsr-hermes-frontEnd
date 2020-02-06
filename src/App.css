@@ -342,8 +342,8 @@
 
 .chart4{
   height: 200px;
-  left: 57px;
-  top: 500px;
+  /* left: 57px;
+  top: 500px; */
   margin-right: 10px;
   background: #FFFFFF;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
@@ -455,5 +455,21 @@
 
   .chartBody2{
     display: block;
+  }
+
+  .div2{
+    display: block;
+  }
+
+  .div3{
+    flex: 1;
+  }
+
+  .chart4{
+    height: 400px;
+  }
+
+  .div6{
+    justify-content: center;
   }
 }
