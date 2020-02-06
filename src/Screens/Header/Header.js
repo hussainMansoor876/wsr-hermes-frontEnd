@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { removeUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
@@ -81,10 +81,9 @@ class Header extends React.Component {
                     </div>
                     <div ref={e => this.sideBar = e} class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onClick={() => this.closeNav()}>&times;</a>
-                        <a href="#">About</a>
-                        <a href="#">Services</a>
-                        <a href="#">Clients</a>
-                        <a href="#">Contact</a>
+                        <a href="#">Dashboard</a>
+                        <a href="#">Submission Form</a>
+                        <a href="#">Closing Review</a>
                     </div>
                 </div>
                 <div style={{ display: 'flex', marginTop: 8 }}>
