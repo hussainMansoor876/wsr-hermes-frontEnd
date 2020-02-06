@@ -386,7 +386,7 @@
 }
 
 .div3{
-  flex: 1;
+  flex: 2;
 }
 
 .chartBody1{
@@ -423,9 +423,13 @@
   align-items: center;
 }
 
+.deal1{
+  flex: 1 !important;
+}
+
 /* Media */
 
-@media(max-width: 1050px){
+@media(max-width: 1200px){
   .chartBody{
     display: block;
   }

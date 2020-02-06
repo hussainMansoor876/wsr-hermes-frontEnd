@@ -205,7 +205,7 @@ class Dashboard extends React.Component {
                         <div className="chartBody1">
                             <div className="chart3">
                                 <div className="chart1 mLeft">
-                                    <Chart options={options} series={series} type="pie" height={300} />
+                                    <Chart options={options} series={series} type="pie" height={310} />
                                 </div>
                                 <div className="chart1 mLeft1">
                                     <Chart options={this.state.options} series={this.state.series} type="bar" height={300} />
@@ -230,7 +230,7 @@ class Dashboard extends React.Component {
                                 </div>
                                 <div className="div2">
                                     <div className="div6">
-                                        <div className="div3">
+                                        <div className="div3 deal1">
                                             <h1 className="divBody">Deals</h1>
                                             <h1 className="divBody">4</h1>
                                         </div>
