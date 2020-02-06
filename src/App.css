@@ -315,6 +315,8 @@
 .chart3{
   display: flex;
   flex: 4;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10px;
 }
 
@@ -410,6 +412,10 @@
   margin: 10px;
 }
 
+.chartBody2{
+  display: flex;
+}
+
 /* Media */
 
 @media(max-width: 1050px){
@@ -434,5 +440,16 @@
 
   .mLeft1{
     margin-left: 10px;
+  }
+
+  .chartBody2{
+    display: block;
+  }
+}
+
+
+@media(max-width: 500px){
+  .chart1{
+    width: calc(100% - 40px);
   }
 }

@@ -260,10 +260,7 @@ class Dashboard extends React.Component {
                             <Chart options={this.state.options1} series={this.state.series1} type="line" height={500} />
                         </div>
                     </div>
-                    <div style={{
-                        display: 'flex',
-                        flex: 1
-                    }}>
+                    <div className="chartBody2">
                         <div className="div4">
                             <Chart options={this.state.options2} series={this.state.series2} type="bar" height={300} />
                         </div>
