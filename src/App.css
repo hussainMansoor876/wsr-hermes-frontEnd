@@ -476,12 +476,13 @@
 
   .div3{
     flex: 1;
+    display: block;
     justify-content: center;
     align-items: center;
   }
 
   .chart4{
-    height: 300px;
+    height: auto;
   }
 
   .div6{
@@ -492,10 +493,14 @@
 
 @media(max-width: 500px){
   .div8{
-    display: flex;
+    display: block;
   }
 
   .div2{
     display: none;
+  }
+
+  .chart4{
+    height: auto !important;
   }
 }
