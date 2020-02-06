@@ -21,6 +21,7 @@ class Header extends React.Component {
         const { user, location } = this.props
         console.log(location)
         console.log(user)
+        console.log(window.innerWidth)
 
         if (!user) {
             this.props.history.replace('/')
@@ -37,14 +38,18 @@ class Header extends React.Component {
         }, 100)
     }
 
-    openNav(){
+    openNav() {
         this.sideBar.style.width = "250px"
-        document.getElementById("root").style.marginLeft = "250px";
+        if (window.innerWidth > 500) {
+            document.getElementById("root").style.marginLeft = "250px";
+        }
     }
 
-    closeNav(){
+    closeNav() {
         this.sideBar.style.width = "0"
-        document.getElementById("root").style.marginLeft = "0";
+        if (window.innerWidth > 500) {
+            document.getElementById("root").style.marginLeft = "0";
+        }
     }
 
 
@@ -75,7 +80,7 @@ class Header extends React.Component {
                         <span className="navbar2" onClick={() => this.openNav()}>&#9776; </span>
                     </div>
                     <div ref={e => this.sideBar = e} class="sidenav">
-                        <a href="javascript:void(0)" class="closebtn" onClick={()=> this.closeNav()}>&times;</a>
+                        <a href="javascript:void(0)" class="closebtn" onClick={() => this.closeNav()}>&times;</a>
                         <a href="#">About</a>
                         <a href="#">Services</a>
                         <a href="#">Clients</a>

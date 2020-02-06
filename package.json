@@ -29,6 +29,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "react-toastify": "^5.5.0",
+    "react-window-size": "^1.2.2",
     "reactstrap": "^8.3.2",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
