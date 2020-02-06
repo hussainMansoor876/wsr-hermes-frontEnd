@@ -463,13 +463,16 @@
 
   .div3{
     flex: 1;
+    justify-content: center;
+    align-items: center;
   }
 
   .chart4{
-    height: 400px;
+    height: 300px;
   }
 
   .div6{
     justify-content: center;
+    align-items: center;
   }
 }
