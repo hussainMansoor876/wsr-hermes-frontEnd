@@ -416,6 +416,13 @@
   display: flex;
 }
 
+.div6{
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* Media */
 
 @media(max-width: 1050px){

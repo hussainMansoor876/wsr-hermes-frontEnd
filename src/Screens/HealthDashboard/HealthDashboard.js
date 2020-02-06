@@ -229,7 +229,7 @@ class Dashboard extends React.Component {
                                     </Select>
                                 </div>
                                 <div className="div2">
-                                    <div>
+                                    <div className="div6">
                                         <div className="div3">
                                             <h1 className="divBody">Deals</h1>
                                             <h1 className="divBody">4</h1>
@@ -243,7 +243,7 @@ class Dashboard extends React.Component {
                                             <h1 className="divBody">$4,500</h1>
                                         </div>
                                     </div>
-                                    <div>
+                                    <div className="div6">
                                         <div className="div3">
                                             <h1 className="divBody">Commission Earned</h1>
                                             <h1 className="divBody">$76,259</h1>
