@@ -427,4 +427,12 @@
   .chart3{
     display: block;
   }
+
+  .mLeft{
+    margin-bottom: 10px;
+  }
+
+  .mLeft1{
+    margin-left: 10px;
+  }
 }
