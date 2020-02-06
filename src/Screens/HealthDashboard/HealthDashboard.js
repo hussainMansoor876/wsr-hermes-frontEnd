@@ -268,7 +268,7 @@ class Dashboard extends React.Component {
                             <Chart options={this.state.options2} series={this.state.series2} type="bar" height={300} />
                         </div>
                         <div className="div5">
-                            <Chart options={this.state.options2} series={this.state.series2} type="bar" height={300} />
+                            <Chart options={this.state.options} series={this.state.series} type="bar" height={300} />
                         </div>
                     </div>
                 </div>
