@@ -301,6 +301,7 @@
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   flex: 1;
+  margin-right: 10px;
 }
 
 .chart2{
@@ -308,6 +309,7 @@
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   flex: 1;
+  margin-right: 10px;
 }
 
 .chartBody{
