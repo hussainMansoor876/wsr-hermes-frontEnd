@@ -467,16 +467,16 @@
   }
 
   .chartBody2{
-    display: block;
+    flex-direction: column;
   }
 
   .div2{
-    display: block;
+    flex-direction: column;
   }
 
   .div3{
     flex: 1;
-    display: block;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
