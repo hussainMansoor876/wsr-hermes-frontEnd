@@ -360,3 +360,27 @@
   flex: 1;
   justify-content: space-between;
 }
+
+.divBody{
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #3D3D3D;
+}
+
+.div2{
+  display: flex;
+  margin: 20px;
+  flex: 1;
+}
+
+.div3{
+  flex: 1;
+}

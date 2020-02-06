@@ -208,6 +208,32 @@ class Dashboard extends React.Component {
                                         <Option value="tom">Tom</Option>
                                     </Select>
                                 </div>
+                                <div className="div2">
+                                    <div className="div3">
+                                        <h1 className="divBody">Deals</h1>
+                                        <h1 className="divBody">4</h1>
+                                    </div>
+                                    <div className="div3">
+                                        <h1 className="divBody">Sales Volume</h1>
+                                        <h1 className="divBody">$3,113,800</h1>
+                                    </div>
+                                    <div className="div3">
+                                        <h1 className="divBody">WSR Revenue</h1>
+                                        <h1 className="divBody">4</h1>
+                                    </div>
+                                    <div className="div3">
+                                        <h1 className="divBody">Commission Earned</h1>
+                                        <h1 className="divBody">4</h1>
+                                    </div>
+                                    <div className="div3">
+                                        <h1 className="divBody">Cap Fill</h1>
+                                        <h1 className="divBody">4</h1>
+                                    </div>
+                                    <div className="div3">
+                                        <h1 className="divBody">Recruits</h1>
+                                        <h1 className="divBody">4</h1>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="chart2">
