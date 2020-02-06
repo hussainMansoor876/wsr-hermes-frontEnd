@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
-import { DatePicker } from 'antd';
+import { DatePicker, Select } from 'antd';
 import Header from '../Header/Header'
 import moment from 'moment';
 import Chart from 'react-apexcharts'
 
 const { RangePicker } = DatePicker;
+const { Option } = Select;
 
 var series = [25, 15, 44, 55, 41, 17]
 var options = {
@@ -192,6 +193,21 @@ class Dashboard extends React.Component {
                             </div>
                             <div className="chart4 mLeft">
                                 <h1 className="heading2">Agent Summary</h1>
+                                <div className="select1">
+                                    <Select
+                                        showSearch
+                                        style={{ width: 200 }}
+                                        placeholder="Select a person"
+                                        optionFilterProp="children"
+                                        filterOption={(input, option) =>
+                                            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                        }
+                                    >
+                                        <Option value="jack">Jack</Option>
+                                        <Option value="lucy">Lucy</Option>
+                                        <Option value="tom">Tom</Option>
+                                    </Select>
+                                </div>
                             </div>
                         </div>
                         <div className="chart2">
