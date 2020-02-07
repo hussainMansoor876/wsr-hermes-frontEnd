@@ -124,7 +124,7 @@ class Submission extends React.Component {
                                             <Input
                                                 minLength={3}
                                                 type="text"
-                                                // disabled={true}
+                                                disabled={true}
                                                 placeholder="Agent Id"
                                             />,
                                         )}
