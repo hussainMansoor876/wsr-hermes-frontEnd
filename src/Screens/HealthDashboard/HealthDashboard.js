@@ -159,6 +159,7 @@ class Dashboard extends React.Component {
                             stats.deal = data.data.length
                             for (var i of data.data) {
                                 console.log(i)
+                                stats.revenue += i.soldPrice - i.transactionFee
                                 stats.sales += i.soldPrice
                             }
                             console.log(stats)
