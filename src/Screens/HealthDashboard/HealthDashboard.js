@@ -148,7 +148,7 @@ class Dashboard extends React.Component {
                     axios.get(`http://127.0.0.1:3001/subform/get-user/${allData[0]._id}`)
                     .then((response)=>{
                         this.setState({
-                            currentAgent
+                            currentAgent: response.data.data
                         })
                     })
                 })
@@ -158,8 +158,8 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { allData } = this.state
-        if (!allData.length) {
+        const { allData, currentAgent } = this.state
+        if (!allData.length && !currentAgent.length) {
             return (
                 <div>
                     <Header {...this.props} />
