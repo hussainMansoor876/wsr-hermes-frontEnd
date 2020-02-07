@@ -157,9 +157,8 @@ class Dashboard extends React.Component {
                         .then((response) => {
                             var { data } = response
                             stats.deal = data.data.length
-                            stats.sales = data.data
-                                .map(item => item.soldPrice)
-                                .reduce((prev, curr) => prev + curr, 0);
+                            stats.sales = data.data.map(item => item.soldPrice).reduce((prev, curr) => prev + curr, 0);
+                            
                             console.log(stats)
                             this.setState({
                                 currentAgent: response.data.data
