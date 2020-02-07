@@ -120,6 +120,7 @@ class Dashboard extends React.Component {
                     ],
                 }
             },
+            allData: []
         }
     }
 
@@ -137,21 +138,13 @@ class Dashboard extends React.Component {
     }
 
     async componentWillMount() {
-        await axios.get('https://wsr-server.herokuapp.com/subform/getAll')
+        const { allData } = this.state
+        await axios.get('http://127.0.0.1:3001/admin/getAll')
             .then((res) => {
                 const { data } = res.data
-                data.map((v, i) => {
-                    v.date = moment(v.paidDate).toObject()
-                    return allData.push({
-                        key: i,
-                        headline: v,
-                        status: v.soldPrice,
-                        author: v.agentId,
-                        date: v.timestamp,
-                        action: v
-                    })
+                console.log('data', data)
                 })
-                this.setState({ allData, isData: allData.length ? true : false, loading: false })
+                // this.setState({ allData, isData: allData.length ? true : false, loading: false })
             })
             .catch((err) => console.log(err))
     }
