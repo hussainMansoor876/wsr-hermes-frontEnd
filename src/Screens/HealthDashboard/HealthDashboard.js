@@ -143,7 +143,6 @@ class Dashboard extends React.Component {
             .then((res) => {
                 const { data } = res.data
                 console.log('data', data)
-                })
                 // this.setState({ allData, isData: allData.length ? true : false, loading: false })
             })
             .catch((err) => console.log(err))
