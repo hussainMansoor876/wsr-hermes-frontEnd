@@ -103,7 +103,8 @@ class Submission extends React.Component {
 
     render() {
         const { city } = this.state
-        const { getFieldDecorator } = this.props.form;
+        const { user, form } = this.props
+        const { getFieldDecorator } = form;
         return (
             <div>
                 <Header {...this.props} />
@@ -117,11 +118,13 @@ class Submission extends React.Component {
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('agentId', {
+                                            initialValue: user._id,
                                             rules: [{ required: true, message: 'Please input your First Name!' }],
                                         })(
                                             <Input
                                                 minLength={3}
                                                 type="text"
+                                                // disabled={true}
                                                 placeholder="Agent Id"
                                             />,
                                         )}
