@@ -26,7 +26,7 @@ class Header extends React.Component {
             this.props.history.replace('/')
         }
 
-        if(user && user.role === 'agent' && location.pathname === '/dashboard'){
+        if (user && user.role === 'agent' && location.pathname === '/dashboard') {
             this.props.history.replace('/submission')
         }
     }
@@ -86,9 +86,12 @@ class Header extends React.Component {
                     </div>
                     <div ref={e => this.sideBar = e} class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onClick={() => this.closeNav()}>&times;</a>
-                        <Link className="sideLink" to="#">Dashboard</Link>
-                        <Link className="sideLink" to="#">Submission Form</Link>
-                        <Link className="sideLink" to="#">Closing Review</Link>
+                        {user.role === 'admin' ? <div>
+                            <Link className="sideLink" to="/dashboard" onClick={()=> this.closeNav()}>Dashboard</Link>
+                            <Link className="sideLink" to="/submission" onClick={()=> this.closeNav()}>Submission Form</Link>
+                            <Link className="sideLink" to="/review" onClick={()=> this.closeNav()}>Closing Review</Link>
+                        </div>
+                            : <Link className="sideLink" to="/submission" onClick={()=> this.closeNav()}>Submission Form</Link>}
                     </div>
                 </div>
                 <div style={{ display: 'flex', marginTop: 8 }}>
