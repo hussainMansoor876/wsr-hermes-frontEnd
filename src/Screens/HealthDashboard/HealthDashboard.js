@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
-import { DatePicker, Select } from 'antd';
+import { DatePicker, Select, Skeleton } from 'antd';
 import Header from '../Header/Header'
 import moment from 'moment';
 import Chart from 'react-apexcharts'
@@ -150,6 +150,16 @@ class Dashboard extends React.Component {
 
     render() {
         const { allData } = this.state
+        if (!allData.length) {
+            return (
+                <div>
+                    <Header {...this.props} />
+                    <div style={{ backgroundColor: '#E5E5E5' }}>
+                        <Skeleton paragraph={{ rows: 20 }} />
+                    </div>
+                </div>
+            )
+        }
         return (
             <div>
                 <Header {...this.props} />
@@ -232,12 +242,13 @@ class Dashboard extends React.Component {
                                         defaultValue={allData.length ? allData[0].name : "null"}
                                         // placeholder="Select a person"
                                         optionFilterProp="children"
+                                        onChange={(e) => console.log(e)}
                                         filterOption={(input, option) =>
                                             option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                                         }
                                     >
                                         {allData.map((v, i) => {
-                                            return <Option value={v._id}>{v.name}</Option>
+                                            return <Option value={v._id}>{v.fname}</Option>
                                         })}
                                         {/* <Option value="jack">Jack</Option>
                                         <Option value="lucy">Lucy</Option>
