@@ -6,6 +6,7 @@ import { DatePicker, Select } from 'antd';
 import Header from '../Header/Header'
 import moment from 'moment';
 import Chart from 'react-apexcharts'
+import axios from 'axios'
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
@@ -133,6 +134,26 @@ class Dashboard extends React.Component {
 
     disabledDate(current) {
         return current && current < moment('31/12/2019').endOf('day');
+    }
+
+    async componentWillMount() {
+        await axios.get('https://wsr-server.herokuapp.com/subform/getAll')
+            .then((res) => {
+                const { data } = res.data
+                data.map((v, i) => {
+                    v.date = moment(v.paidDate).toObject()
+                    return allData.push({
+                        key: i,
+                        headline: v,
+                        status: v.soldPrice,
+                        author: v.agentId,
+                        date: v.timestamp,
+                        action: v
+                    })
+                })
+                this.setState({ allData, isData: allData.length ? true : false, loading: false })
+            })
+            .catch((err) => console.log(err))
     }
 
 
