@@ -121,7 +121,13 @@ class Dashboard extends React.Component {
                 }
             },
             allData: [],
-            currentAgent: []
+            currentAgent: [],
+            stats: {
+                deal: 0,
+                sales: 0,
+                revenue: 0,
+                commission: 0
+            }
         }
     }
 
@@ -265,7 +271,7 @@ class Dashboard extends React.Component {
                                     <div className="div6">
                                         <div className="div3 deal1">
                                             <h1 className="divBody">Deals</h1>
-                                            <h1 className="divBody">4</h1>
+                                            <h1 className="divBody">{currentAgent.length}</h1>
                                         </div>
                                         <div className="div3">
                                             <h1 className="divBody">Sales Volume</h1>
