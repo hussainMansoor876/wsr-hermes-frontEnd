@@ -86,9 +86,9 @@ class Header extends React.Component {
                     </div>
                     <div ref={e => this.sideBar = e} class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onClick={() => this.closeNav()}>&times;</a>
-                        <a href="#">Dashboard</a>
-                        <a href="#">Submission Form</a>
-                        <a href="#">Closing Review</a>
+                        <Link to="#">Dashboard</Link>
+                        <Link to="#">Submission Form</Link>
+                        <Link to="#">Closing Review</Link>
                     </div>
                 </div>
                 <div style={{ display: 'flex', marginTop: 8 }}>
