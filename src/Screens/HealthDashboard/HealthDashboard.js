@@ -229,15 +229,18 @@ class Dashboard extends React.Component {
                                     <Select
                                         showSearch
                                         style={{ width: 200 }}
-                                        placeholder="Select a person"
+                                        // placeholder="Select a person"
                                         optionFilterProp="children"
                                         filterOption={(input, option) =>
                                             option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                                         }
                                     >
-                                        <Option value="jack">Jack</Option>
+                                        {allData.map((v, i) => {
+                                            return <Option value={v._id}>{v.name}</Option>
+                                        })}
+                                        {/* <Option value="jack">Jack</Option>
                                         <Option value="lucy">Lucy</Option>
-                                        <Option value="tom">Tom</Option>
+                                        <Option value="tom">Tom</Option> */}
                                     </Select>
                                 </div>
                                 <div className="div2">
