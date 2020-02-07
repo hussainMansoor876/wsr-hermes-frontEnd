@@ -149,16 +149,22 @@ class Dashboard extends React.Component {
     async componentWillMount() {
         await axios.get('http://127.0.0.1:3001/admin/getAll')
             .then((res) => {
-                const { data } = res.data
+                var { data } = res.data
                 console.log('data', data)
                 this.setState({ allData: data }, () => {
-                    const { allData } = this.state
+                    var { allData, stats } = this.state
                     axios.get(`http://127.0.0.1:3001/subform/get-user/${allData[0]._id}`)
-                    .then((response)=>{
-                        this.setState({
-                            currentAgent: response.data.data
+                        .then((response) => {
+                            var { data } = response
+                            stats.deal = data.data.length
+                            stats.sales = data.data
+                                .map(item => item.soldPrice)
+                                .reduce((prev, curr) => prev + curr, 0);
+                            console.log(stats)
+                            this.setState({
+                                currentAgent: response.data.data
+                            })
                         })
-                    })
                 })
             })
             .catch((err) => console.log(err))
