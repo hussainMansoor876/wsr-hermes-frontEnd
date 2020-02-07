@@ -132,7 +132,6 @@ class Dashboard extends React.Component {
     }
 
     disabledDate(current) {
-        // Can not select days before today and today
         return current && current < moment('31/12/2019').endOf('day');
     }
 
