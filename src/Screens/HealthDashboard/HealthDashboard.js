@@ -174,7 +174,7 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { allData, currentAgent } = this.state
+        const { allData, currentAgent, stats } = this.state
         if (!allData.length && !currentAgent.length) {
             return (
                 <div>
@@ -281,29 +281,29 @@ class Dashboard extends React.Component {
                                     <div className="div6">
                                         <div className="div3 deal1">
                                             <h1 className="divBody">Deals</h1>
-                                            <h1 className="divBody">{currentAgent.length}</h1>
+                                            <h1 className="divBody">{stats.deal}</h1>
                                         </div>
                                         <div className="div3">
                                             <h1 className="divBody">Sales Volume</h1>
-                                            <h1 className="divBody">$3,113,800</h1>
+                                            <h1 className="divBody">${stats.sales}</h1>
                                         </div>
                                         <div className="div3">
                                             <h1 className="divBody">WSR Revenue</h1>
-                                            <h1 className="divBody">$4,500</h1>
+                                            <h1 className="divBody">${stats.revenue}</h1>
                                         </div>
                                     </div>
                                     <div className="div6">
                                         <div className="div3">
                                             <h1 className="divBody">Commission</h1>
-                                            <h1 className="divBody">$76,259</h1>
+                                            <h1 className="divBody">${stats.commission}</h1>
                                         </div>
                                         <div className="div3">
                                             <h1 className="divBody">Cap Fill</h1>
-                                            <h1 className="divBody">100%</h1>
+                                            <h1 className="divBody">{stats.cap}%</h1>
                                         </div>
                                         <div className="div3">
                                             <h1 className="divBody">Recruits</h1>
-                                            <h1 className="divBody">4</h1>
+                                            <h1 className="divBody">{stats.recruits}</h1>
                                         </div>
                                     </div>
                                 </div>
