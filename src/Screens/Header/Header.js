@@ -32,9 +32,7 @@ class Header extends React.Component {
     }
 
     logout() {
-        setTimeout(() => {
-            this.props.history.push('/', { reload: true })
-        }, 100)
+        this.props.history.push('/', { reload: true })
     }
 
     openNav() {
@@ -86,17 +84,17 @@ class Header extends React.Component {
                     </div>
                     <div ref={e => this.sideBar = e} class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onClick={() => this.closeNav()}>&times;</a>
-                        {user.role === 'admin' ? <div>
-                            <Link className="sideLink" to="/dashboard" onClick={()=> this.closeNav()}>Dashboard</Link>
-                            <Link className="sideLink" to="/submission" onClick={()=> this.closeNav()}>Submission Form</Link>
-                            <Link className="sideLink" to="/review" onClick={()=> this.closeNav()}>Closing Review</Link>
+                        {user && user.role === 'admin' ? <div>
+                            <Link className="sideLink" to="/dashboard" onClick={() => this.closeNav()}>Dashboard</Link>
+                            <Link className="sideLink" to="/submission" onClick={() => this.closeNav()}>Submission Form</Link>
+                            <Link className="sideLink" to="/review" onClick={() => this.closeNav()}>Closing Review</Link>
                         </div>
-                            : <Link className="sideLink" to="/submission" onClick={()=> this.closeNav()}>Submission Form</Link>}
+                            : <Link className="sideLink" to="/submission" onClick={() => this.closeNav()}>Submission Form</Link>}
                     </div>
                 </div>
                 <div style={{ display: 'flex', marginTop: 8 }}>
                     <img src={'https://avatars0.githubusercontent.com/u/35415573?s=400&u=7585be6ddd43c201b02168c1fe36fd5e33a06bca&v=4'} alt="" style={{ marginRight: 10, borderRadius: 50 }} height="30" width="30" />
-                    <div className="dropdown">
+                    {user && <div className="dropdown">
                         <span className="header2">
                             {user.fname} &nbsp;
                             <i className="fa fa-caret-down"></i>
@@ -104,7 +102,7 @@ class Header extends React.Component {
                         <div className="dropdown-content">
                             <p className="text1" onClick={() => this.logout()}>Logout</p>
                         </div>
-                    </div>
+                    </div>}
                 </div>
             </div>
         )
