@@ -120,7 +120,8 @@ class Dashboard extends React.Component {
                     ],
                 }
             },
-            allData: []
+            allData: [],
+            currentAgent: []
         }
     }
 
@@ -142,7 +143,15 @@ class Dashboard extends React.Component {
             .then((res) => {
                 const { data } = res.data
                 console.log('data', data)
-                this.setState({ allData: data })
+                this.setState({ allData: data }, () => {
+                    const { allData } = this.state
+                    axios.get(`http://127.0.0.1:3001/subform/get-user/${allData[0]._id}`)
+                    .then((response)=>{
+                        this.setState({
+                            currentAgent
+                        })
+                    })
+                })
             })
             .catch((err) => console.log(err))
     }
@@ -239,7 +248,7 @@ class Dashboard extends React.Component {
                                     <Select
                                         showSearch
                                         style={{ width: 200 }}
-                                        defaultValue={allData.length ? allData[0].name : "null"}
+                                        defaultValue={allData && allData[0].fname}
                                         // placeholder="Select a person"
                                         optionFilterProp="children"
                                         onChange={(e) => console.log(e)}
