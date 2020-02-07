@@ -229,6 +229,7 @@ class Dashboard extends React.Component {
                                     <Select
                                         showSearch
                                         style={{ width: 200 }}
+                                        defaultValue={allData.length ? allData[0].name : "null"}
                                         // placeholder="Select a person"
                                         optionFilterProp="children"
                                         filterOption={(input, option) =>
