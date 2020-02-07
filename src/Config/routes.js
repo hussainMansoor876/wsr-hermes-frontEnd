@@ -57,6 +57,7 @@ class Routes extends Component {
                     <Route path="/dashboard" exact component={Dashboard} />
                     <Route path="/submission" exact component={SubmissionForm} />
                     <Route path="/review" exact component={ReviewPage} />
+                    <Route component={Error404} />
                 </Switch>
             </Router>
         )
