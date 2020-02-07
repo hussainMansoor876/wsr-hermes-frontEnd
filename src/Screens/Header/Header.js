@@ -41,6 +41,10 @@ class Header extends React.Component {
     openNav() {
         this.sideBar.style.width = "250px"
         this.sideBar.style.height = "100%"
+
+        // setTimeout(() => {
+        //     this.sideBar.style.height = "100%"
+        // }, 500)
         if (window.innerWidth > 500) {
             document.getElementById("root").style.marginLeft = "250px";
         }
