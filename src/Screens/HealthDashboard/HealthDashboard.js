@@ -126,7 +126,9 @@ class Dashboard extends React.Component {
                 deal: 0,
                 sales: 0,
                 revenue: 0,
-                commission: 0
+                commission: 0,
+                cap: 0,
+                recruits: 0
             }
         }
     }
