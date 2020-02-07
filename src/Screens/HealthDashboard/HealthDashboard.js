@@ -138,18 +138,18 @@ class Dashboard extends React.Component {
     }
 
     async componentWillMount() {
-        const { allData } = this.state
         await axios.get('http://127.0.0.1:3001/admin/getAll')
             .then((res) => {
                 const { data } = res.data
                 console.log('data', data)
-                // this.setState({ allData, isData: allData.length ? true : false, loading: false })
+                this.setState({ allData: data })
             })
             .catch((err) => console.log(err))
     }
 
 
     render() {
+        const { allData } = this.state
         return (
             <div>
                 <Header {...this.props} />
