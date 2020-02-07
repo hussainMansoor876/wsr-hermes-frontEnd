@@ -164,12 +164,38 @@ class Dashboard extends React.Component {
                             }
                             console.log(stats)
                             this.setState({
-                                currentAgent: response.data.data
+                                currentAgent: response.data.data,
+                                stats: stats
                             })
                         })
                 })
             })
             .catch((err) => console.log(err))
+    }
+
+    async getUpdate(id) {
+        var stats1 = {
+            deal: 0,
+            sales: 0,
+            revenue: 0,
+            commission: 0,
+            cap: 0,
+            recruits: 0
+        }
+        await axios.get(`http://127.0.0.1:3001/subform/get-user/${id}`)
+            .then((response) => {
+                var { data } = response
+                stats1.deal = data.data.length
+                for (var i of data.data) {
+                    console.log(i)
+                    stats1.revenue += i.soldPrice - i.transactionFee
+                    stats1.sales += i.soldPrice
+                }
+                console.log(stats1)
+                this.setState({
+                    stats: stats1
+                })
+            })
     }
 
 
@@ -267,7 +293,7 @@ class Dashboard extends React.Component {
                                         defaultValue={allData && allData[0].fname}
                                         // placeholder="Select a person"
                                         optionFilterProp="children"
-                                        onChange={(e) => console.log(e)}
+                                        onChange={(e) => this.getUpdate(e)}
                                         filterOption={(input, option) =>
                                             option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                                         }
