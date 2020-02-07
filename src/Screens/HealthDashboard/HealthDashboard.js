@@ -257,11 +257,8 @@ class Dashboard extends React.Component {
                                         }
                                     >
                                         {allData.map((v, i) => {
-                                            return <Option value={v._id}>{v.fname}</Option>
+                                            return <Option value={v._id} key={i}>{v.fname}</Option>
                                         })}
-                                        {/* <Option value="jack">Jack</Option>
-                                        <Option value="lucy">Lucy</Option>
-                                        <Option value="tom">Tom</Option> */}
                                     </Select>
                                 </div>
                                 <div className="div2">
