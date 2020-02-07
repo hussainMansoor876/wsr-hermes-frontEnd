@@ -147,7 +147,7 @@ class Dashboard extends React.Component {
     }
 
     async componentWillMount() {
-        await axios.get('https://wsr-server.herokuapp.com/admin/getAll')
+        await axios.get('https://wsr-server.herokuapp.com/subform/getusers')
             .then((res) => {
                 var { data } = res.data
                 console.log('data', data)
