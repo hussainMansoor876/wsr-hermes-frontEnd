@@ -21,7 +21,6 @@ class Header extends React.Component {
         const { user, location } = this.props
         console.log(location)
         console.log(user)
-        console.log(window.innerWidth)
 
         if (!user) {
             this.props.history.replace('/')

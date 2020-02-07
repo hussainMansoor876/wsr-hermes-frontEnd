@@ -147,13 +147,13 @@ class Dashboard extends React.Component {
     }
 
     async componentWillMount() {
-        await axios.get('http://127.0.0.1:3001/admin/getAll')
+        await axios.get('https://wsr-server.herokuapp.com/admin/getAll')
             .then((res) => {
                 var { data } = res.data
                 console.log('data', data)
                 this.setState({ allData: data }, () => {
                     var { allData, stats } = this.state
-                    axios.get(`http://127.0.0.1:3001/subform/get-user/${allData[0]._id}`)
+                    axios.get(`https://wsr-server.herokuapp.com/subform/get-user/${allData[0]._id}`)
                         .then((response) => {
                             var { data } = response
                             stats.deal = data.data.length
@@ -182,7 +182,7 @@ class Dashboard extends React.Component {
             cap: 0,
             recruits: 0
         }
-        await axios.get(`http://127.0.0.1:3001/subform/get-user/${id}`)
+        await axios.get(`https://wsr-server.herokuapp.com/subform/get-user/${id}`)
             .then((response) => {
                 var { data } = response
                 stats1.deal = data.data.length
