@@ -339,6 +339,71 @@ class Dashboard extends React.Component {
             })
     }
 
+    updateChart() {
+        const { startDate, endDate } = this.state
+        var topData = { ...this.state.topData }
+        var histData = { ...this.state.salePriceHist }
+        var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
+        var arr = []
+        axios.post('https://wsr-server.herokuapp.com/admin/getAll', {
+            startDate: startDate.toArray(),
+            endDate: endDate.toArray()
+        })
+            .then((res) => {
+                var { data } = res
+                if (data.success) {
+                    var len = data.data.length
+                    if (data.data.length) {
+                        var maxVal = Math.max.apply(Math, data.data.map(v => v.soldPrice))
+                        var record = this.distribute(maxVal, 5)
+                        var arr1 = record.map(v => v.literal)
+                        histData.options.xaxis.categories = arr1
+                        var saleObj = {}
+                        for (var ind of arr1) {
+                            saleObj[ind] = 0
+                        }
+                        maxVal = maxVal / 5
+                        for (var i of data.data) {
+                            console.log(i)
+                            topData.netRevenue += i.paidAmount
+                            topData.salesPerDeal += i.soldPrice
+                            obj[i.saleType] += i.paidAmount
+                            if (i.soldPrice <= maxVal) {
+                                saleObj[arr1[0]] += 1
+                            }
+                            else if (i.soldPrice <= maxVal * 2) {
+                                saleObj[arr1[1]] += 1
+                            }
+                            else if (i.soldPrice <= maxVal * 3) {
+                                saleObj[arr1[2]] += 1
+                            }
+                            else if (i.soldPrice <= maxVal * 4) {
+                                saleObj[arr1[3]] += 1
+                            }
+                            else {
+                                saleObj[arr1[4]] += 1
+                            }
+                        }
+                        topData.revPerDeal = topData.netRevenue / len
+                        topData.salesPerDeal = topData.salesPerDeal / len
+                        topData.deals = len
+
+                        histData.series[0].data = Object.entries(saleObj).map(v => v[1])
+
+                    }
+                    for (var j in obj) {
+                        arr.push(obj[j])
+                    }
+                    this.setState({
+                        loading: true, topData: topData, saleTypeChart: {
+                            ...this.state.saleTypeChart, series: arr
+                        }, salePriceHist: histData
+                    })
+                }
+
+            })
+    }
+
 
     render() {
         const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist } = this.state
