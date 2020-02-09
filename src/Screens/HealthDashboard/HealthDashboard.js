@@ -289,7 +289,7 @@ class Dashboard extends React.Component {
                 topData.activeAgent = data.length
                 this.setState({ allData: data, topData: topData }, () => {
                     var { allData, stats } = this.state
-                    axios.post(`https://wsr-server.herokuapp.com/subform/get-user/${allData[0]._id}`, {
+                    axios.post(`https://wsr-server.herokuapp.com/admin/get-user/${allData[0]._id}`, {
                         startDate: startDate.toArray(),
                         endDate: endDate.toArray()
                     })
@@ -312,6 +312,7 @@ class Dashboard extends React.Component {
     }
 
     async getUpdate(id) {
+        const { startDate, endDate } = this.state
         var stats1 = {
             deal: 0,
             sales: 0,
@@ -320,7 +321,10 @@ class Dashboard extends React.Component {
             cap: 0,
             recruits: 0
         }
-        await axios.get(`https://wsr-server.herokuapp.com/subform/get-user/${id}`)
+        await axios.get(`https://wsr-server.herokuapp.com/admin/get-user/${id}`, {
+            startDate: startDate.toArray(),
+            endDate: endDate.toArray()
+        })
             .then((response) => {
                 var { data } = response
                 stats1.deal = data.data.length
@@ -339,7 +343,6 @@ class Dashboard extends React.Component {
 
     render() {
         const { allData, currentAgent, stats, startDate, endDate, StartDateValue, loading, topData, saleTypeChart, salePriceHist } = this.state
-        console.log('topdata', topData)
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
