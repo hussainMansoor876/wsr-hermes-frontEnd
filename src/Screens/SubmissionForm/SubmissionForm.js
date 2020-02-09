@@ -40,7 +40,8 @@ class Submission extends React.Component {
         this.state = {
             city: [],
             loading: false,
-            disable: false
+            disable: false,
+            saleType: ["Buy", "Sell", "Rental", "Whole", "Referral"]
         }
     }
 
@@ -102,7 +103,7 @@ class Submission extends React.Component {
 
 
     render() {
-        const { city } = this.state
+        const { city, saleType } = this.state
         const { user, form } = this.props
         const { getFieldDecorator } = form;
         return (
@@ -244,11 +245,22 @@ class Submission extends React.Component {
                                         {getFieldDecorator('saleType', {
                                             rules: [{ required: true, message: 'Please input your Last Name!' }],
                                         })(
-                                            <Input
-                                                type="text"
-                                                minLength={3}
-                                                placeholder="Sale Type"
-                                            />,
+                                            <Select
+                                                showSearch
+                                                style={{ backgroundColor: '#fff' }}
+                                                placeholder="Select a Sale Type"
+                                                optionFilterProp="children"
+                                                onChange={e => console.log(e)}
+                                                filterOption={(input, option) =>
+                                                    option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                                }
+                                            >
+                                                {
+                                                    saleType.map((v, i) => {
+                                                        return <Option city={v} key={i}>{v}</Option>
+                                                    })
+                                                }
+                                            </Select>,
                                         )}
                                     </Form.Item>
                                     <Form.Item
