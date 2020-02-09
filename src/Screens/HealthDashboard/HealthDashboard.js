@@ -129,7 +129,9 @@ class Dashboard extends React.Component {
                 commission: 0,
                 cap: 0,
                 recruits: 0
-            }
+            },
+            startDate: moment('2020-01-01', 'YYYY-MM-DD'),
+            EndDate: moment()
         }
     }
 
@@ -143,7 +145,7 @@ class Dashboard extends React.Component {
     }
 
     disabledDate(current) {
-        return current && current < moment('31/12/2019').endOf('day');
+        return current < this.state.startDate
     }
 
     async componentWillMount() {
@@ -200,7 +202,7 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { allData, currentAgent, stats } = this.state
+        const { allData, currentAgent, stats, startDate, EndDate } = this.state
         if (!allData.length && !currentAgent.length) {
             return (
                 <div>
@@ -219,10 +221,12 @@ class Dashboard extends React.Component {
                         Woodward Square Reality Health Report
                     </div>
                     <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
-                        <RangePicker
+                        {/* <RangePicker
                             disabledDate={this.disabledDate.bind(this)}
                             format="YYYY-MM-DD"
-                        />
+                        /> */}
+                        <DatePicker defaultValue={startDate} disabledDate={this.disabledDate.bind(this)} showToday={false} />
+                        <DatePicker defaultValue={moment('2020-01-01', 'YYYY-MM-DD')} />
                     </div>
                     <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
                         <div class="boxes1">
