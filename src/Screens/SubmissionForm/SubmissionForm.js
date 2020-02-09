@@ -84,9 +84,9 @@ class Submission extends React.Component {
                         if (result.data.success) {
                             this.setState({ loading: false })
                             toast.success("Successfully added data!!!")
-                            // setTimeout(() => {
-                            //     window.location.reload()
-                            // }, 500)
+                            setTimeout(() => {
+                                window.location.reload()
+                            }, 500)
                         }
                         else {
                             this.setState({ loading: false, disable: false })
