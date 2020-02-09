@@ -312,7 +312,7 @@ class Dashboard extends React.Component {
     }
 
     async getUpdate(id) {
-        const { startDate, endDate } = this.state
+        const { StartDateValue, endDate } = this.state
         var stats1 = {
             deal: 0,
             sales: 0,
@@ -322,7 +322,7 @@ class Dashboard extends React.Component {
             recruits: 0
         }
         await axios.post(`https://wsr-server.herokuapp.com/admin/get-user/${id}`, {
-            startDate: startDate.toArray(),
+            startDate: StartDateValue.toArray(),
             endDate: endDate.toArray()
         })
             .then((response) => {
@@ -341,7 +341,7 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { allData, currentAgent, stats, startDate, endDate, StartDateValue, loading, topData, saleTypeChart, salePriceHist } = this.state
+        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist } = this.state
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
@@ -360,8 +360,8 @@ class Dashboard extends React.Component {
                         Woodward Square Reality Health Report
                     </div>
                     <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
-                        <DatePicker defaultValue={startDate} disabledDate={this.disabledDate.bind(this)} showToday={false} value={StartDateValue} onChange={(e) => this.setState({ StartDateValue: e })} />
-                        <DatePicker defaultValue={moment()} value={endDate} onChange={(e) => this.setState({ EndDate: e })} disabledDate={this.disabledEndDate.bind(this)} />
+                        <DatePicker defaultValue={startDate} disabledDate={this.disabledDate.bind(this)} showToday={false} onChange={(e) => this.setState({ StartDateValue: e })} />
+                        <DatePicker defaultValue={moment()} onChange={(e) => this.setState({ endDate: e })} disabledDate={this.disabledEndDate.bind(this)} />
                     </div>
                     <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
                         <div className="boxes1">
