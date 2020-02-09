@@ -64,7 +64,7 @@ class Dashboard extends React.Component {
                     id: 'apexchart-example',
                 },
                 xaxis: {
-                    categories: [1990, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+                    categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
                 },
                 title: {
                     text: 'Sales Amount Over Time'
@@ -72,7 +72,7 @@ class Dashboard extends React.Component {
             },
             series: [{
                 name: 'series-1',
-                data: [30, 40, 45, 50, 49, 60, 70, 91]
+                data: [30, 40, 45, 50, 49, 60, 70, 91, 88, 77, 55, 44]
             }],
             series1: [{
                 name: 'Website Blog',
@@ -100,7 +100,7 @@ class Dashboard extends React.Component {
                 },
                 labels: ['01 Jan 2001', '02 Jan 2001', '03 Jan 2001', '04 Jan 2001', '05 Jan 2001', '06 Jan 2001', '07 Jan 2001', '08 Jan 2001', '09 Jan 2001', '10 Jan 2001', '11 Jan 2001', '12 Jan 2001'],
                 xaxis: {
-                    type: 'datetime'
+                    categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
                 },
                 yaxis: [{
                     title: {
