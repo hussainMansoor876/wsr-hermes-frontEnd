@@ -74,16 +74,11 @@ class Header extends React.Component {
                     <h3 className="header-text">
                         Hermes
                     </h3>
-                    {/* <div className="container1" style={{ backgroundColor: 'white' }}>
-                        <div className="bar1"></div>
-                        <div className="bar2"></div>
-                        <div className="bar3"></div>
-                    </div> */}
                     <div className="navbar1">
                         <span className="navbar2" onClick={() => this.openNav()}>&#9776; </span>
                     </div>
-                    <div ref={e => this.sideBar = e} class="sidenav">
-                        <a href="javascript:void(0)" class="closebtn" onClick={() => this.closeNav()}>&times;</a>
+                    <div ref={e => this.sideBar = e} className="sidenav">
+                        <a href="javascript:void(0)" className="closebtn" onClick={() => this.closeNav()}>&times;</a>
                         {user && user.role === 'admin' ? <div>
                             <Link className="sideLink" to="/dashboard" onClick={() => this.closeNav()}>Dashboard</Link>
                             <Link className="sideLink" to="/submission" onClick={() => this.closeNav()}>Submission Form</Link>
