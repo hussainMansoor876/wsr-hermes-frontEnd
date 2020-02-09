@@ -134,8 +134,8 @@ class Dashboard extends React.Component {
                     text: 'Agent Performance'
                 },
                 xaxis: {
-                    categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
-                        'United States', 'China', 'Germany'
+                    categories: ['Agent 1', 'Agent 2', 'Agent 3', 'Agent 4', 'Agent 5', 'Agent 6', 'Agent 7',
+                        'Agent 8', 'Agent 9', 'Agent 10'
                     ],
                 }
             },
