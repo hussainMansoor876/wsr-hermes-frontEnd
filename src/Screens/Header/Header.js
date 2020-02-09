@@ -26,7 +26,7 @@ class Header extends React.Component {
             this.props.history.replace('/')
         }
 
-        if (user && user.role === 'agent' && location.pathname === '/dashboard') {
+        if (user && user.role === 'agent' && location.pathname === '/dashboard' || location.pathname === '/review') {
             this.props.history.replace('/submission')
         }
     }
