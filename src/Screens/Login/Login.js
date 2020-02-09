@@ -49,10 +49,12 @@ class Login extends React.Component {
                     .then((result) => {
                         if (result.data.success) {
                             this.props.loginUser(result.data.user)
-                            if(result.data.user.role === "agent"){
-                                return this.props.history.push('/submission')
+                            if (result.data.user.role === "agent") {
+                                this.props.history.push('/submission')
                             }
-                            this.props.history.push('/review')
+                            else {
+                                this.props.history.push('/dashboard')
+                            }
                         }
                         else {
                             this.setState({ loading: false, disable: false })

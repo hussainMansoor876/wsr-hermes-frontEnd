@@ -118,7 +118,7 @@ class Submission extends React.Component {
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('agentId', {
-                                            initialValue: user._id,
+                                            initialValue: user && user._id,
                                             rules: [{ required: true, message: 'Please input your First Name!' }],
                                         })(
                                             <Input
