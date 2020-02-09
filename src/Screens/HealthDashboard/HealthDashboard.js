@@ -321,7 +321,7 @@ class Dashboard extends React.Component {
             cap: 0,
             recruits: 0
         }
-        await axios.get(`https://wsr-server.herokuapp.com/admin/get-user/${id}`, {
+        await axios.post(`https://wsr-server.herokuapp.com/admin/get-user/${id}`, {
             startDate: startDate.toArray(),
             endDate: endDate.toArray()
         })
@@ -330,7 +330,7 @@ class Dashboard extends React.Component {
                 stats1.deal = data.data.length
                 for (var i of data.data) {
                     console.log(i)
-                    stats1.revenue += i.soldPrice - i.transactionFee
+                    stats1.revenue += i.paidAmount
                     stats1.sales += i.soldPrice
                 }
                 console.log(stats1)
