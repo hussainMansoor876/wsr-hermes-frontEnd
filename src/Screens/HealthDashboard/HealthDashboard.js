@@ -175,12 +175,12 @@ class Dashboard extends React.Component {
                     var len = data.data.length
                     if (data.data.length) {
                         for (var i of data.data) {
-                            console.log(i.soldPrice)
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
                         }
                         topData.revPerDeal = topData.netRevenue / len
                         topData.salesPerDeal = topData.salesPerDeal / len
+                        topData.deals = len
                     }
                     this.setState({ loading: true, topData: topData })
                 }
@@ -192,6 +192,9 @@ class Dashboard extends React.Component {
                 console.log('data', data)
                 this.setState({ allData: data }, () => {
                     var { allData, stats } = this.state
+                    this.setState({
+                        topData: { ...topData, activeAgent: allData.length }
+                    })
                     axios.get(`https://wsr-server.herokuapp.com/subform/get-user/${allData[0]._id}`)
                         .then((response) => {
                             var { data } = response
@@ -279,7 +282,7 @@ class Dashboard extends React.Component {
                         </div>
                         <div class="boxes1">
                             <p className="headingText">Sale Price per Deal</p>
-                            <p className="text">${topData.salesPerDeal}</p>
+                            <p className="text">${Math.round(topData.salesPerDeal)}</p>
                             <div style={{ display: 'flex' }}>
                                 <p className="textBottom">15.10%</p>
                                 <p className="textBottom1">&nbsp;(31 days)</p>
@@ -287,7 +290,7 @@ class Dashboard extends React.Component {
                         </div>
                         <div class="boxes1">
                             <p className="headingText">Deals</p>
-                            <p className="text">$15.23</p>
+                            <p className="text">{topData.deals}</p>
                             <div style={{ display: 'flex' }}>
                                 <p className="textBottom">15.10%</p>
                                 <p className="textBottom1">&nbsp;(31 days)</p>
@@ -295,7 +298,7 @@ class Dashboard extends React.Component {
                         </div>
                         <div class="boxes1">
                             <p className="headingText">Agents Capped</p>
-                            <p className="text">$15.23</p>
+                            <p className="text">{topData.activeAgent}</p>
                             <div style={{ display: 'flex' }}>
                                 <p className="textBottom">15.10%</p>
                                 <p className="textBottom1">&nbsp;(31 days)</p>
@@ -303,7 +306,7 @@ class Dashboard extends React.Component {
                         </div>
                         <div class="boxes1">
                             <p className="headingText">Active Agents</p>
-                            <p className="text">$15.23</p>
+                            <p className="text">{topData.activeAgent}</p>
                             <div style={{ display: 'flex' }}>
                                 <p className="textBottom">15.10%</p>
                                 <p className="textBottom1">&nbsp;(31 days)</p>
