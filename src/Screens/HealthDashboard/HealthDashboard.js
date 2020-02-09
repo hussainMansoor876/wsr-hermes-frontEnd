@@ -41,7 +41,7 @@ class Dashboard extends React.Component {
         super(props)
         this.state = {
             saleTypeChart: {
-                series: [25, 15, 44, 55, 41],
+                series: [0, 0, 0, 0, 0],
                 options: {
                     chart: {
                         width: '100%',
@@ -55,7 +55,7 @@ class Dashboard extends React.Component {
                         breakpoint: 480,
                         options: {
                             chart: {
-                                width: 200
+                                width: 310
                             },
                             legend: {
                                 position: 'bottom'
@@ -183,6 +183,8 @@ class Dashboard extends React.Component {
     async componentWillMount() {
         const { startDate, endDate } = this.state
         var topData = { ...this.state.topData }
+        var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
+        var arr = []
         axios.post('https://wsr-server.herokuapp.com/admin/getAll', {
             startDate: startDate.toArray(),
             endDate: endDate.toArray()
@@ -193,14 +195,21 @@ class Dashboard extends React.Component {
                     var len = data.data.length
                     if (data.data.length) {
                         for (var i of data.data) {
+                            console.log(i.saleType)
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
+                            obj[i.saleType] += i.paidAmount
                         }
                         topData.revPerDeal = topData.netRevenue / len
                         topData.salesPerDeal = topData.salesPerDeal / len
                         topData.deals = len
                     }
-                    this.setState({ loading: true, topData: topData })
+                    for (var j in obj) {
+                        arr.push(obj[j])
+                    }
+                    this.setState({ loading: true, topData: topData, saleTypeChart: {
+                        ...this.state.saleTypeChart, series: arr
+                    } })
                 }
 
             })
