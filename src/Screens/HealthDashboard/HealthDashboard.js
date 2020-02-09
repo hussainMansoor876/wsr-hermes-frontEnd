@@ -559,37 +559,41 @@ class Dashboard extends React.Component {
                     </div>
                     <div className="chartBody2">
                         <div className="div4">
-                            <ButtonGroup>
-                                <Button>Cancel</Button>
-                                <Button>OK</Button>
-                            </ButtonGroup>
-                                <Chart options={this.state.options2} series={this.state.series2} type="bar" height={300} />
-                        </div>
-                            <div className="div5">
-                                <Chart options={this.state.options} series={this.state.series} type="bar" height={300} />
+                            <div style={{
+                                display: 'flex'
+                            }}>
+                                <ButtonGroup>
+                                    <Button>Top 10</Button>
+                                    <Button>Bottom 10</Button>
+                                </ButtonGroup>
                             </div>
+                            <Chart options={this.state.options2} series={this.state.series2} type="bar" height={300} />
+                        </div>
+                        <div className="div5">
+                            <Chart options={this.state.options} series={this.state.series} type="bar" height={300} />
                         </div>
                     </div>
                 </div>
-                )
-            }
-        }
-        
-        
-        
+            </div>
+        )
+    }
+}
+
+
+
 const mapStateToProps = (state) => {
-                    console.log("mapToState", state.authReducer)
+    console.log("mapToState", state.authReducer)
     return {
-                    user: state.authReducer.user,
-            }
-        }
-        
+        user: state.authReducer.user,
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
-                    loginUser: (user) => dispatch(loginUser(user)),
-            }
-        }
-        
-        
-        
+        loginUser: (user) => dispatch(loginUser(user)),
+    }
+}
+
+
+
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
