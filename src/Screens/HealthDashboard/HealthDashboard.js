@@ -286,11 +286,13 @@ class Dashboard extends React.Component {
         await axios.get('https://wsr-server.herokuapp.com/admin/getusers')
             .then((res) => {
                 var { data } = res.data
-                console.log('data', data.length)
                 topData.activeAgent = data.length
                 this.setState({ allData: data, topData: topData }, () => {
                     var { allData, stats } = this.state
-                    axios.get(`https://wsr-server.herokuapp.com/subform/get-user/${allData[0]._id}`)
+                    axios.push(`https://wsr-server.herokuapp.com/subform/get-user/${allData[0]._id}`, {
+                        startDate: startDate.toArray(),
+                        endDate: endDate.toArray()
+                    })
                         .then((response) => {
                             var { data } = response
                             stats.deal = data.data.length
