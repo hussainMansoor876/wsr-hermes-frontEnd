@@ -212,8 +212,8 @@ class Dashboard extends React.Component {
             .then((res) => {
                 var { data } = res
                 if (data.success) {
-                    var len = data.data.length
                     if (data.data.length) {
+                        var len = data.data.length
                         var maxVal = Math.max.apply(Math, data.data.map(v => v.soldPrice))
                         var record = this.distribute(maxVal, 5)
                         var arr1 = record.map(v => v.literal)
@@ -319,13 +319,13 @@ class Dashboard extends React.Component {
     }
 
     updateChart() {
-        const { startDate, endDate } = this.state
+        const { StartDateValue, endDate } = this.state
         var topData = { ...this.state.topData }
         var histData = { ...this.state.salePriceHist }
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
         var arr = []
         axios.post('https://wsr-server.herokuapp.com/admin/getAll', {
-            startDate: startDate.toArray(),
+            startDate: StartDateValue.toArray(),
             endDate: endDate.toArray()
         })
             .then((res) => {
