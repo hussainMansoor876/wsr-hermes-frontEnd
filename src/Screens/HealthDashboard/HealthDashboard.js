@@ -17,11 +17,6 @@ var options = {
         type: 'pie',
     },
     labels: ["Buy", "Sell", "Rental", "Whole", "Referral"],
-    // theme: {
-    //     monochrome: {
-    //         enabled: true
-    //     }
-    // },
     title: {
         text: "Revenue By Sale Types"
     },
@@ -45,6 +40,30 @@ class Dashboard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            saleTypeChart: {
+                series: [25, 15, 44, 55, 41],
+                options: {
+                    chart: {
+                        width: '100%',
+                        type: 'pie',
+                    },
+                    labels: ["Buy", "Sell", "Rental", "Whole", "Referral"],
+                    title: {
+                        text: "Revenue By Sale Types"
+                    },
+                    responsive: [{
+                        breakpoint: 480,
+                        options: {
+                            chart: {
+                                width: 200
+                            },
+                            legend: {
+                                position: 'bottom'
+                            }
+                        }
+                    }]
+                }
+            },
             options: {
                 chart: {
                     id: 'apexchart-example'
