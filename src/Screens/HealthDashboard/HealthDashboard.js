@@ -86,6 +86,9 @@ class Dashboard extends React.Component {
                 },
                 xaxis: {
                     categories: [1990, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+                },
+                title: {
+                    text: 'Sales Amount Over Time'
                 }
             },
             series: [{
@@ -147,6 +150,9 @@ class Dashboard extends React.Component {
                 },
                 dataLabels: {
                     enabled: false
+                },
+                title: {
+                    text: 'Agent Performance'
                 },
                 xaxis: {
                     categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
