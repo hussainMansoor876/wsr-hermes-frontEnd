@@ -131,7 +131,7 @@ class Dashboard extends React.Component {
                 recruits: 0
             },
             startDate: moment('2020-01-01', 'YYYY-MM-DD'),
-            EndDate: moment(),
+            endDate: moment(),
             StartDateValue: moment('2020-01-01', 'YYYY-MM-DD')
         }
     }
@@ -154,6 +154,14 @@ class Dashboard extends React.Component {
     }
 
     async componentWillMount() {
+        const { startDate, endDate } = this.state
+        axios.post('http://127.0.0.1:3001/admin/getAll', {
+            startDate: startDate.toArray(),
+            endDate: endDate.toArray()
+        })
+            .then((res) => {
+                console.log('res', res)
+            })
         await axios.get('https://wsr-server.herokuapp.com/admin/getusers')
             .then((res) => {
                 var { data } = res.data
@@ -207,7 +215,7 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { allData, currentAgent, stats, startDate, EndDate, StartDateValue } = this.state
+        const { allData, currentAgent, stats, startDate, endDate, StartDateValue } = this.state
         if (!allData.length && !currentAgent.length) {
             return (
                 <div>
@@ -227,7 +235,7 @@ class Dashboard extends React.Component {
                     </div>
                     <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
                         <DatePicker defaultValue={startDate} disabledDate={this.disabledDate.bind(this)} showToday={false} value={StartDateValue} onChange={(e) => this.setState({ StartDateValue: e })} />
-                        <DatePicker defaultValue={moment()} value={EndDate} onChange={(e) => this.setState({ EndDate: e })} disabledDate={this.disabledEndDate.bind(this)} />
+                        <DatePicker defaultValue={moment()} value={endDate} onChange={(e) => this.setState({ EndDate: e })} disabledDate={this.disabledEndDate.bind(this)} />
                     </div>
                     <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
                         <div class="boxes1">
