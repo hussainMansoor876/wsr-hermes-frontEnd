@@ -110,7 +110,7 @@ class Dashboard extends React.Component {
                     width: [0, 4]
                 },
                 title: {
-                    text: 'Traffic Sources'
+                    text: 'Deals & Revenue Over Time'
                 },
                 dataLabels: {
                     enabled: true,
@@ -280,12 +280,10 @@ class Dashboard extends React.Component {
         await axios.get('https://wsr-server.herokuapp.com/admin/getusers')
             .then((res) => {
                 var { data } = res.data
-                console.log('data', data)
-                this.setState({ allData: data }, () => {
+                console.log('data', data.length)
+                topData.activeAgent = data.length
+                this.setState({ allData: data, topData: topData }, () => {
                     var { allData, stats } = this.state
-                    this.setState({
-                        topData: { ...topData, activeAgent: allData.length }
-                    })
                     axios.get(`https://wsr-server.herokuapp.com/subform/get-user/${allData[0]._id}`)
                         .then((response) => {
                             var { data } = response
@@ -333,6 +331,7 @@ class Dashboard extends React.Component {
 
     render() {
         const { allData, currentAgent, stats, startDate, endDate, StartDateValue, loading, topData, saleTypeChart, salePriceHist } = this.state
+        console.log('topdata', topData)
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
