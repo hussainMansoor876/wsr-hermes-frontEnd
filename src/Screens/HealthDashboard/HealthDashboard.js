@@ -333,7 +333,6 @@ class Dashboard extends React.Component {
                     stats1.revenue += i.paidAmount
                     stats1.sales += i.soldPrice
                 }
-                console.log(stats1)
                 this.setState({
                     stats: stats1
                 })
@@ -431,7 +430,6 @@ class Dashboard extends React.Component {
                                         showSearch
                                         style={{ width: 200 }}
                                         defaultValue={allData && allData[0].fname}
-                                        // placeholder="Select a person"
                                         optionFilterProp="children"
                                         onChange={(e) => this.getUpdate(e)}
                                         filterOption={(input, option) =>
