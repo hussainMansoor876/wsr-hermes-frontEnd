@@ -33,7 +33,26 @@ var options = {
     }]
 }
 
+function distribute(max, buckets) {
+    var arr = [], rpt = max / buckets, groupLiteral_low;
+    for (var i = 0; i < max; i += rpt) {
+        if (Math.ceil(i) !== i || i === 0) {
+            groupLiteral_low = Math.ceil(i);
+        } else {
+            groupLiteral_low = Math.ceil(i) + 1;
+        }
+        // arr.push({
+        //     limit: (Math.floor(rpt + i)),
+        //     literal: `[$${groupLiteral_low}, $${Math.floor(rpt + i)}]`,
+        //     min: groupLiteral_low,
+        //     max: Math.floor(rpt + i)
+        // });
+        arr.push(`[$${groupLiteral_low}, $${Math.floor(rpt + i)}]`)
+    }
+    return arr;
+}
 
+console.log(distribute(10000, 5))
 
 class Dashboard extends React.Component {
 
@@ -70,12 +89,12 @@ class Dashboard extends React.Component {
                         id: 'apexchart-example',
                     },
                     xaxis: {
-                        categories: [1990, 1990, 1993, 1994, 1995, 1996, 1997, 1998]
+                        categories: [0, 0, 0, 0, 0]
                     }
                 },
                 series: [{
                     name: 'series-1',
-                    data: [30, 40, 45, 50, 49, 60, 70, 91]
+                    data: [30, 40, 45, 50, 49]
                 }]
             },
             options: {
