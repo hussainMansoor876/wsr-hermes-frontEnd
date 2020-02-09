@@ -238,7 +238,7 @@ class Dashboard extends React.Component {
                         topData.deals = len
                         var maxVal = Math.max.apply(Math, data.data.map(v => v.soldPrice))
                         maxVal = this.distribute(maxVal, 5)
-                        console.log('maxVal', maxVal)
+                        histData.options.xaxis.categories = maxVal
                     }
                     for (var j in obj) {
                         arr.push(obj[j])
@@ -246,7 +246,7 @@ class Dashboard extends React.Component {
                     this.setState({
                         loading: true, topData: topData, saleTypeChart: {
                             ...this.state.saleTypeChart, series: arr
-                        }
+                        }, salePriceHist: histData
                     })
                 }
 
