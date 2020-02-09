@@ -195,7 +195,6 @@ class Dashboard extends React.Component {
                     var len = data.data.length
                     if (data.data.length) {
                         for (var i of data.data) {
-                            console.log(i.saleType)
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
                             obj[i.saleType] += i.paidAmount
@@ -207,9 +206,11 @@ class Dashboard extends React.Component {
                     for (var j in obj) {
                         arr.push(obj[j])
                     }
-                    this.setState({ loading: true, topData: topData, saleTypeChart: {
-                        ...this.state.saleTypeChart, series: arr
-                    } })
+                    this.setState({
+                        loading: true, topData: topData, saleTypeChart: {
+                            ...this.state.saleTypeChart, series: arr
+                        }
+                    })
                 }
 
             })
