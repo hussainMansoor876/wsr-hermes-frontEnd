@@ -229,24 +229,42 @@ class Dashboard extends React.Component {
                 if (data.success) {
                     var len = data.data.length
                     if (data.data.length) {
+                        var maxVal = Math.max.apply(Math, data.data.map(v => v.soldPrice))
+                        var record = this.distribute(maxVal, 5)
+                        var arr1 = record.map(v => v.literal)
+                        histData.options.xaxis.categories = arr1
+                        var saleObj = {}
+                        for (var ind of arr1) {
+                            saleObj[ind] = 0
+                        }
+                        maxVal = maxVal / 5
                         for (var i of data.data) {
                             console.log(i)
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
                             obj[i.saleType] += i.paidAmount
+                            if (i.soldPrice <= maxVal) {
+                                saleObj[arr1[0]] += 1
+                            }
+                            else if (i.soldPrice <= maxVal * 2) {
+                                saleObj[arr1[1]] += 1
+                            }
+                            else if (i.soldPrice <= maxVal * 3) {
+                                saleObj[arr1[2]] += 1
+                            }
+                            else if (i.soldPrice <= maxVal * 4) {
+                                saleObj[arr1[3]] += 1
+                            }
+                            else {
+                                saleObj[arr1[4]] += 1
+                            }
                         }
                         topData.revPerDeal = topData.netRevenue / len
                         topData.salesPerDeal = topData.salesPerDeal / len
                         topData.deals = len
-                        var maxVal = Math.max.apply(Math, data.data.map(v => v.soldPrice))
-                        var record = this.distribute(maxVal, 5)
-                        maxVal = record.map(v => v.literal)
-                        histData.options.xaxis.categories = maxVal
-                        var saleObj = {}
-                        for(var ind of maxVal){
-                            saleObj[ind] = 0
-                        }
-                        console.log(saleObj)
+
+                        histData.series[0].data = Object.entries(saleObj).map(v => v[1])
+
                     }
                     for (var j in obj) {
                         arr.push(obj[j])
