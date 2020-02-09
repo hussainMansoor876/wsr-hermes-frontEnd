@@ -61,7 +61,6 @@ class Submission extends React.Component {
                 // else if (!validator.isAlphanumeric(values.title)) {
                 //     return toast.error("Title Must be an alphaNumeric!!!");
                 // }
-                values.city = city[values.city]
                 this.setState({ loading: true, disable: true })
                 var formData = new FormData();
                 for (var i = 0; i < values.upload.length; i++) {
@@ -189,13 +188,14 @@ class Submission extends React.Component {
                                                 style={{ backgroundColor: '#fff' }}
                                                 placeholder="Select a city"
                                                 optionFilterProp="children"
+                                                onChange={e => console.log(e)}
                                                 filterOption={(input, option) =>
                                                     option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                                                 }
                                             >
                                                 {
                                                     city.map((v, i) => {
-                                                        return <Option city={v} key={i}>{v}</Option>
+                                                        return <Option value={v} key={i}>{v}</Option>
                                                     })
                                                 }
                                             </Select>,
@@ -257,7 +257,7 @@ class Submission extends React.Component {
                                             >
                                                 {
                                                     saleType.map((v, i) => {
-                                                        return <Option city={v} key={i}>{v}</Option>
+                                                        return <Option value={v} key={i}>{v}</Option>
                                                     })
                                                 }
                                             </Select>,
