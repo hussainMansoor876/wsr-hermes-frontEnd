@@ -8,23 +8,22 @@ import moment from 'moment';
 import Chart from 'react-apexcharts'
 import axios from 'axios'
 
-const { RangePicker } = DatePicker;
 const { Option } = Select;
 
-var series = [25, 15, 44, 55, 41, 17]
+var series = [25, 15, 44, 55, 41]
 var options = {
     chart: {
         width: '100%',
         type: 'pie',
     },
-    labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    labels: ["Buy", "Sell", "Rental", "Whole", "Referral"],
     // theme: {
     //     monochrome: {
     //         enabled: true
     //     }
     // },
     title: {
-        text: "Number of leads"
+        text: "Revenue By Sale Types"
     },
     responsive: [{
         breakpoint: 480,
