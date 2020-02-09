@@ -50,7 +50,7 @@ class Submission extends React.Component {
     }
 
     handleSubmit = e => {
-        const { city } = this.state
+
         e.preventDefault();
 
         this.props.form.validateFields((err, values) => {
@@ -73,11 +73,11 @@ class Submission extends React.Component {
                 formData.append('city', values.city)
                 formData.append('lender', values.lender)
                 formData.append('title', values.title)
-                formData.append('soldPrice', values.soldPrice)
+                formData.append('soldPrice', JSON.stringify(values.soldPrice))
                 formData.append('saleType', values.saleType)
-                formData.append('transactionFee', values.transactionFee)
+                formData.append('transactionFee', JSON.stringify(values.transactionFee))
                 formData.append('checkRec', values.checkRec)
-                formData.append('paidAmount', values.paidAmount)
+                formData.append('paidAmount', JSON.stringify(values.paidAmount))
                 formData.append('paidDate', values.paidDate)
                 axios.post('https://wsr-server.herokuapp.com/subform/submission', formData)
                     .then((result) => {
