@@ -33,26 +33,6 @@ var options = {
     }]
 }
 
-function distribute(max, buckets) {
-    var arr = [], rpt = max / buckets, groupLiteral_low;
-    for (var i = 0; i < max; i += rpt) {
-        if (Math.ceil(i) !== i || i === 0) {
-            groupLiteral_low = Math.ceil(i);
-        } else {
-            groupLiteral_low = Math.ceil(i) + 1;
-        }
-        // arr.push({
-        //     limit: (Math.floor(rpt + i)),
-        //     literal: `[$${groupLiteral_low}, $${Math.floor(rpt + i)}]`,
-        //     min: groupLiteral_low,
-        //     max: Math.floor(rpt + i)
-        // });
-        arr.push(`[$${groupLiteral_low}, $${Math.floor(rpt + i)}]`)
-    }
-    return arr;
-}
-
-console.log(distribute(10000, 5))
 
 class Dashboard extends React.Component {
 
@@ -205,6 +185,25 @@ class Dashboard extends React.Component {
         return result;
     }
 
+    distribute(max, buckets) {
+        var arr = [], rpt = max / buckets, groupLiteral_low;
+        for (var i = 0; i < max; i += rpt) {
+            if (Math.ceil(i) !== i || i === 0) {
+                groupLiteral_low = Math.ceil(i);
+            } else {
+                groupLiteral_low = Math.ceil(i) + 1;
+            }
+            // arr.push({
+            //     limit: (Math.floor(rpt + i)),
+            //     literal: `[$${groupLiteral_low}, $${Math.floor(rpt + i)}]`,
+            //     min: groupLiteral_low,
+            //     max: Math.floor(rpt + i)
+            // });
+            arr.push(`[$${groupLiteral_low}, $${Math.floor(rpt + i)}]`)
+        }
+        return arr;
+    }
+
     disabledDate(current) {
         return current < this.state.startDate
     }
@@ -216,6 +215,7 @@ class Dashboard extends React.Component {
     async componentWillMount() {
         const { startDate, endDate } = this.state
         var topData = { ...this.state.topData }
+        var histData = { ...this.state.salePriceHist }
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
         var arr = []
         axios.post('https://wsr-server.herokuapp.com/admin/getAll', {
@@ -228,6 +228,7 @@ class Dashboard extends React.Component {
                     var len = data.data.length
                     if (data.data.length) {
                         for (var i of data.data) {
+                            console.log(i)
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
                             obj[i.saleType] += i.paidAmount
@@ -235,6 +236,9 @@ class Dashboard extends React.Component {
                         topData.revPerDeal = topData.netRevenue / len
                         topData.salesPerDeal = topData.salesPerDeal / len
                         topData.deals = len
+                        var maxVal = Math.max.apply(Math, data.data.map(v => v.soldPrice))
+                        maxVal = this.distribute(maxVal, 5)
+                        console.log('maxVal', maxVal)
                     }
                     for (var j in obj) {
                         arr.push(obj[j])
