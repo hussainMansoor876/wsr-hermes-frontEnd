@@ -234,7 +234,7 @@ class Dashboard extends React.Component {
                             </div>
                         </div>
                         <div class="boxes1">
-                            <p className="headingText">Net Revenue</p>
+                            <p className="headingText">Revenue per Deal</p>
                             <p className="text">$15.23</p>
                             <div style={{ display: 'flex' }}>
                                 <p className="textBottom">15.10%</p>
@@ -242,7 +242,7 @@ class Dashboard extends React.Component {
                             </div>
                         </div>
                         <div class="boxes1">
-                            <p className="headingText">Net Revenue</p>
+                            <p className="headingText">Sale Price per Deal</p>
                             <p className="text">$15.23</p>
                             <div style={{ display: 'flex' }}>
                                 <p className="textBottom">15.10%</p>
@@ -250,7 +250,7 @@ class Dashboard extends React.Component {
                             </div>
                         </div>
                         <div class="boxes1">
-                            <p className="headingText">Net Revenue</p>
+                            <p className="headingText">Deals</p>
                             <p className="text">$15.23</p>
                             <div style={{ display: 'flex' }}>
                                 <p className="textBottom">15.10%</p>
@@ -258,7 +258,7 @@ class Dashboard extends React.Component {
                             </div>
                         </div>
                         <div class="boxes1">
-                            <p className="headingText">Net Revenue</p>
+                            <p className="headingText">Agents Capped</p>
                             <p className="text">$15.23</p>
                             <div style={{ display: 'flex' }}>
                                 <p className="textBottom">15.10%</p>
@@ -266,7 +266,7 @@ class Dashboard extends React.Component {
                             </div>
                         </div>
                         <div class="boxes1">
-                            <p className="headingText">Net Revenue</p>
+                            <p className="headingText">Active Agents</p>
                             <p className="text">$15.23</p>
                             <div style={{ display: 'flex' }}>
                                 <p className="textBottom">15.10%</p>
