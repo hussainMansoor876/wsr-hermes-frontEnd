@@ -176,6 +176,7 @@ class Dashboard extends React.Component {
                         console.log(i)
                         topData.netRevenue += i.paidAmount
                     }
+                    topData.revPerDeal = data.data.length ? topData.netRevenue / data.data.length : 0
                     this.setState({ loading: true, topData: topData })
                 }
 
@@ -266,7 +267,7 @@ class Dashboard extends React.Component {
                         </div>
                         <div class="boxes1">
                             <p className="headingText">Revenue per Deal</p>
-                            <p className="text">$15.23</p>
+                            <p className="text">${Math.round(topData.revPerDeal)}</p>
                             <div style={{ display: 'flex' }}>
                                 <p className="textBottom">15.10%</p>
                                 <p className="textBottom1">&nbsp;(31 days)</p>
