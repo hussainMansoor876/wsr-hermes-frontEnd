@@ -241,8 +241,12 @@ class Dashboard extends React.Component {
                         var maxVal = Math.max.apply(Math, data.data.map(v => v.soldPrice))
                         var record = this.distribute(maxVal, 5)
                         maxVal = record.map(v => v.literal)
-                        
                         histData.options.xaxis.categories = maxVal
+                        var saleObj = {}
+                        for(var ind of maxVal){
+                            saleObj[ind] = 0
+                        }
+                        console.log(saleObj)
                     }
                     for (var j in obj) {
                         arr.push(obj[j])
