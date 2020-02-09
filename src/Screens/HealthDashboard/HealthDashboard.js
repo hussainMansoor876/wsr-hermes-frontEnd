@@ -70,6 +70,9 @@ class Dashboard extends React.Component {
                     },
                     xaxis: {
                         categories: [0, 0, 0, 0, 0]
+                    },
+                    title: {
+                        text: 'Closing By Sale Price'
                     }
                 },
                 series: [{
@@ -193,13 +196,12 @@ class Dashboard extends React.Component {
             } else {
                 groupLiteral_low = Math.ceil(i) + 1;
             }
-            // arr.push({
-            //     limit: (Math.floor(rpt + i)),
-            //     literal: `[$${groupLiteral_low}, $${Math.floor(rpt + i)}]`,
-            //     min: groupLiteral_low,
-            //     max: Math.floor(rpt + i)
-            // });
-            arr.push(`[$${groupLiteral_low}, $${Math.floor(rpt + i)}]`)
+            arr.push({
+                limit: (Math.floor(rpt + i)),
+                literal: `[$${groupLiteral_low}, $${Math.floor(rpt + i)}]`,
+                min: groupLiteral_low,
+                max: Math.floor(rpt + i)
+            });
         }
         return arr;
     }
@@ -237,7 +239,9 @@ class Dashboard extends React.Component {
                         topData.salesPerDeal = topData.salesPerDeal / len
                         topData.deals = len
                         var maxVal = Math.max.apply(Math, data.data.map(v => v.soldPrice))
-                        maxVal = this.distribute(maxVal, 5)
+                        var record = this.distribute(maxVal, 5)
+                        maxVal = record.map(v => v.literal)
+                        
                         histData.options.xaxis.categories = maxVal
                     }
                     for (var j in obj) {
