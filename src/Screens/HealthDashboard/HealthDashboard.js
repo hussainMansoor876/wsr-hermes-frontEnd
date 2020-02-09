@@ -164,14 +164,21 @@ class Dashboard extends React.Component {
 
     async componentWillMount() {
         const { startDate, endDate } = this.state
-        var topData = {...this.state.topData}
+        var topData = { ...this.state.topData }
         axios.post('http://127.0.0.1:3001/admin/getAll', {
             startDate: startDate.toArray(),
             endDate: endDate.toArray()
         })
             .then((res) => {
-                console.log('res', res)
-                this.setState({ loading: true })
+                var { data } = res
+                if (data.success) {
+                    for (var i of data.data) {
+                        console.log(i)
+                        topData.netRevenue += i.paidAmount
+                    }
+                    this.setState({ loading: true, topData: topData })
+                }
+
             })
         await axios.get('https://wsr-server.herokuapp.com/admin/getusers')
             .then((res) => {
@@ -226,7 +233,7 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { allData, currentAgent, stats, startDate, endDate, StartDateValue, loading } = this.state
+        const { allData, currentAgent, stats, startDate, endDate, StartDateValue, loading, topData } = this.state
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
@@ -251,7 +258,7 @@ class Dashboard extends React.Component {
                     <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
                         <div class="boxes1">
                             <p className="headingText">Net Revenue</p>
-                            <p className="text">$15.23</p>
+                            <p className="text">${topData.netRevenue}</p>
                             <div style={{ display: 'flex' }}>
                                 <p className="textBottom">15.10%</p>
                                 <p className="textBottom1">&nbsp;(31 days)</p>
