@@ -425,8 +425,12 @@ class Dashboard extends React.Component {
                         Woodward Square Reality Health Report
                     </div>
                     <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
-                        <DatePicker defaultValue={startDate} disabledDate={this.disabledDate.bind(this)} showToday={false} onChange={(e) => this.setState({ StartDateValue: e })} />
-                        <DatePicker defaultValue={moment()} onChange={(e) => this.setState({ endDate: e })} disabledDate={this.disabledEndDate.bind(this)} />
+                        <DatePicker defaultValue={startDate} disabledDate={this.disabledDate.bind(this)} showToday={false} onChange={(e) => this.setState({ StartDateValue: e }, () => {
+                            this.updateChart()
+                        })} />
+                        <DatePicker defaultValue={moment()} onChange={(e) => this.setState({ endDate: e }, () => {
+                            this.updateChart()
+                        })} disabledDate={this.disabledEndDate.bind(this)} />
                     </div>
                     <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
                         <div className="boxes1">
