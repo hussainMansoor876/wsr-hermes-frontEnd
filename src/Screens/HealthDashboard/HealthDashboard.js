@@ -2,36 +2,15 @@ import React, { Component } from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import Loader from '../../Components/Loader';
-import { DatePicker, Select, Skeleton } from 'antd';
+import { DatePicker, Select, Skeleton, Button } from 'antd';
 import Header from '../Header/Header'
 import moment from 'moment';
 import Chart from 'react-apexcharts'
 import axios from 'axios'
 
 const { Option } = Select;
+const ButtonGroup = Button.Group;
 
-var series = [25, 15, 44, 55, 41]
-var options = {
-    chart: {
-        width: '100%',
-        type: 'pie',
-    },
-    labels: ["Buy", "Sell", "Rental", "Whole", "Referral"],
-    title: {
-        text: "Revenue By Sale Types"
-    },
-    responsive: [{
-        breakpoint: 480,
-        options: {
-            chart: {
-                width: 200
-            },
-            legend: {
-                position: 'bottom'
-            }
-        }
-    }]
-}
 
 
 class Dashboard extends React.Component {
@@ -580,33 +559,37 @@ class Dashboard extends React.Component {
                     </div>
                     <div className="chartBody2">
                         <div className="div4">
-                            <Chart options={this.state.options2} series={this.state.series2} type="bar" height={300} />
+                            <ButtonGroup>
+                                <Button>Cancel</Button>
+                                <Button>OK</Button>
+                            </ButtonGroup>
+                                <Chart options={this.state.options2} series={this.state.series2} type="bar" height={300} />
                         </div>
-                        <div className="div5">
-                            <Chart options={this.state.options} series={this.state.series} type="bar" height={300} />
+                            <div className="div5">
+                                <Chart options={this.state.options} series={this.state.series} type="bar" height={300} />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        )
-    }
-}
-
-
-
+                )
+            }
+        }
+        
+        
+        
 const mapStateToProps = (state) => {
-    console.log("mapToState", state.authReducer)
+                    console.log("mapToState", state.authReducer)
     return {
-        user: state.authReducer.user,
-    }
-}
-
+                    user: state.authReducer.user,
+            }
+        }
+        
 const mapDispatchToProps = (dispatch) => {
     return {
-        loginUser: (user) => dispatch(loginUser(user)),
-    }
-}
-
-
-
+                    loginUser: (user) => dispatch(loginUser(user)),
+            }
+        }
+        
+        
+        
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
