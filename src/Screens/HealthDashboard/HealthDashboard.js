@@ -64,18 +64,20 @@ class Dashboard extends React.Component {
                     }]
                 }
             },
-            options: {
-                chart: {
-                    id: 'apexchart-example'
+            salePriceHist: {
+                options: {
+                    chart: {
+                        id: 'apexchart-example',
+                    },
+                    xaxis: {
+                        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+                    }
                 },
-                xaxis: {
-                    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-                }
+                series: [{
+                    name: 'series-1',
+                    data: [30, 40, 45, 50, 49, 60, 70, 91]
+                }]
             },
-            series: [{
-                name: 'series-1',
-                data: [30, 40, 45, 50, 49, 60, 70, 91]
-            }],
             series1: [{
                 name: 'Website Blog',
                 type: 'column',
@@ -269,7 +271,7 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { allData, currentAgent, stats, startDate, endDate, StartDateValue, loading, topData, saleTypeChart } = this.state
+        const { allData, currentAgent, stats, startDate, endDate, StartDateValue, loading, topData, saleTypeChart, salePriceHist } = this.state
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
@@ -348,7 +350,7 @@ class Dashboard extends React.Component {
                                     <Chart options={saleTypeChart.options} series={saleTypeChart.series} type="pie" height={310} />
                                 </div>
                                 <div className="chart1 mLeft1">
-                                    <Chart options={this.state.options} series={this.state.series} type="bar" height={300} />
+                                    <Chart options={salePriceHist.options} series={salePriceHist.series} type="histogram" height={300} />
                                 </div>
                             </div>
                             <div className="chart4 mLeft">
