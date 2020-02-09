@@ -61,7 +61,7 @@ class Submission extends React.Component {
                 // else if (!validator.isAlphanumeric(values.title)) {
                 //     return toast.error("Title Must be an alphaNumeric!!!");
                 // }
-                this.setState({ loading: true, disable: true })
+                // this.setState({ loading: true, disable: true })
                 var formData = new FormData();
                 for (var i = 0; i < values.upload.length; i++) {
                     formData.append(`upload${i}`, values.upload[i].originFileObj)
@@ -73,20 +73,20 @@ class Submission extends React.Component {
                 formData.append('city', values.city)
                 formData.append('lender', values.lender)
                 formData.append('title', values.title)
-                formData.append('soldPrice', JSON.stringify(values.soldPrice))
+                formData.append('soldPrice', values.soldPrice)
                 formData.append('saleType', values.saleType)
-                formData.append('transactionFee', JSON.stringify(values.transactionFee))
+                formData.append('transactionFee', values.transactionFee)
                 formData.append('checkRec', values.checkRec)
-                formData.append('paidAmount', JSON.stringify(values.paidAmount))
+                formData.append('paidAmount', values.paidAmount)
                 formData.append('paidDate', values.paidDate)
                 axios.post('http://127.0.0.1:3001/subform/submission', formData)
                     .then((result) => {
                         if (result.data.success) {
                             this.setState({ loading: false })
-                            toast.success("Successfully added data!!!")
-                            setTimeout(() => {
-                                window.location.reload()
-                            }, 1000)
+                            // toast.success("Successfully added data!!!")
+                            // setTimeout(() => {
+                            //     window.location.reload()
+                            // }, 1000)
                         }
                         else {
                             this.setState({ loading: false, disable: false })
