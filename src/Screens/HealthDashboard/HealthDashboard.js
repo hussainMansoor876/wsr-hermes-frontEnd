@@ -70,7 +70,7 @@ class Dashboard extends React.Component {
                         id: 'apexchart-example',
                     },
                     xaxis: {
-                        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+                        categories: [1990, 1990, 1993, 1994, 1995, 1996, 1997, 1998]
                     }
                 },
                 series: [{
@@ -78,6 +78,18 @@ class Dashboard extends React.Component {
                     data: [30, 40, 45, 50, 49, 60, 70, 91]
                 }]
             },
+            options: {
+                chart: {
+                    id: 'apexchart-example',
+                },
+                xaxis: {
+                    categories: [1990, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+                }
+            },
+            series: [{
+                name: 'series-1',
+                data: [30, 40, 45, 50, 49, 60, 70, 91]
+            }],
             series1: [{
                 name: 'Website Blog',
                 type: 'column',
