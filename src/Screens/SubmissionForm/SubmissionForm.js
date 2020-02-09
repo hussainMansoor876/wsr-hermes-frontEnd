@@ -61,7 +61,7 @@ class Submission extends React.Component {
                 // else if (!validator.isAlphanumeric(values.title)) {
                 //     return toast.error("Title Must be an alphaNumeric!!!");
                 // }
-                // this.setState({ loading: true, disable: true })
+                this.setState({ loading: true, disable: true })
                 var formData = new FormData();
                 for (var i = 0; i < values.upload.length; i++) {
                     formData.append(`upload${i}`, values.upload[i].originFileObj)
@@ -84,9 +84,9 @@ class Submission extends React.Component {
                         if (result.data.success) {
                             this.setState({ loading: false })
                             toast.success("Successfully added data!!!")
-                            setTimeout(() => {
-                                window.location.reload()
-                            }, 500)
+                            // setTimeout(() => {
+                            //     window.location.reload()
+                            // }, 500)
                         }
                         else {
                             this.setState({ loading: false, disable: false })
@@ -188,7 +188,6 @@ class Submission extends React.Component {
                                                 style={{ backgroundColor: '#fff' }}
                                                 placeholder="Select a city"
                                                 optionFilterProp="children"
-                                                onChange={e => console.log(e)}
                                                 filterOption={(input, option) =>
                                                     option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                                                 }
@@ -250,7 +249,6 @@ class Submission extends React.Component {
                                                 style={{ backgroundColor: '#fff' }}
                                                 placeholder="Select a Sale Type"
                                                 optionFilterProp="children"
-                                                onChange={e => console.log(e)}
                                                 filterOption={(input, option) =>
                                                     option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                                                 }
