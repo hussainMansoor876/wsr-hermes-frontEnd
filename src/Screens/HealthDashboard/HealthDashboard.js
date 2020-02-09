@@ -132,7 +132,16 @@ class Dashboard extends React.Component {
             },
             startDate: moment('2020-01-01', 'YYYY-MM-DD'),
             endDate: moment(),
-            StartDateValue: moment('2020-01-01', 'YYYY-MM-DD')
+            StartDateValue: moment('2020-01-01', 'YYYY-MM-DD'),
+            loading: false,
+            topData: {
+                netRevenue: 0,
+                revPerDeal: 0,
+                salesPerDeal: 0,
+                deals: 0,
+                AgentCapped: 0,
+                activeAgent: 0,
+            }
         }
     }
 
@@ -155,12 +164,14 @@ class Dashboard extends React.Component {
 
     async componentWillMount() {
         const { startDate, endDate } = this.state
+        var topData = {...this.state.topData}
         axios.post('http://127.0.0.1:3001/admin/getAll', {
             startDate: startDate.toArray(),
             endDate: endDate.toArray()
         })
             .then((res) => {
                 console.log('res', res)
+                this.setState({ loading: true })
             })
         await axios.get('https://wsr-server.herokuapp.com/admin/getusers')
             .then((res) => {
@@ -180,7 +191,7 @@ class Dashboard extends React.Component {
                             console.log(stats)
                             this.setState({
                                 currentAgent: response.data.data,
-                                stats: stats
+                                stats: stats,
                             })
                         })
                 })
@@ -215,8 +226,8 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { allData, currentAgent, stats, startDate, endDate, StartDateValue } = this.state
-        if (!allData.length && !currentAgent.length) {
+        const { allData, currentAgent, stats, startDate, endDate, StartDateValue, loading } = this.state
+        if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
                     <Header {...this.props} />
