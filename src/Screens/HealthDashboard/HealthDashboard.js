@@ -183,7 +183,7 @@ class Dashboard extends React.Component {
     async componentWillMount() {
         const { startDate, endDate } = this.state
         var topData = { ...this.state.topData }
-        axios.post('http://127.0.0.1:3001/admin/getAll', {
+        axios.post('https://wsr-server.herokuapp.com/admin/getAll', {
             startDate: startDate.toArray(),
             endDate: endDate.toArray()
         })
