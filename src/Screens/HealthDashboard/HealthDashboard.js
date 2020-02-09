@@ -289,7 +289,7 @@ class Dashboard extends React.Component {
                 topData.activeAgent = data.length
                 this.setState({ allData: data, topData: topData }, () => {
                     var { allData, stats } = this.state
-                    axios.push(`https://wsr-server.herokuapp.com/subform/get-user/${allData[0]._id}`, {
+                    axios.post(`https://wsr-server.herokuapp.com/subform/get-user/${allData[0]._id}`, {
                         startDate: startDate.toArray(),
                         endDate: endDate.toArray()
                     })
