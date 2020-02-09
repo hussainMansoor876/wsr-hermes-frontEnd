@@ -259,7 +259,7 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { allData, currentAgent, stats, startDate, endDate, StartDateValue, loading, topData } = this.state
+        const { allData, currentAgent, stats, startDate, endDate, StartDateValue, loading, topData, saleTypeChart } = this.state
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
@@ -282,7 +282,7 @@ class Dashboard extends React.Component {
                         <DatePicker defaultValue={moment()} value={endDate} onChange={(e) => this.setState({ EndDate: e })} disabledDate={this.disabledEndDate.bind(this)} />
                     </div>
                     <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
-                        <div class="boxes1">
+                        <div className="boxes1">
                             <p className="headingText">Net Revenue</p>
                             <p className="text">${topData.netRevenue}</p>
                             <div style={{ display: 'flex' }}>
@@ -290,7 +290,7 @@ class Dashboard extends React.Component {
                                 <p className="textBottom1">&nbsp;(31 days)</p>
                             </div>
                         </div>
-                        <div class="boxes1">
+                        <div className="boxes1">
                             <p className="headingText">Revenue per Deal</p>
                             <p className="text">${Math.round(topData.revPerDeal)}</p>
                             <div style={{ display: 'flex' }}>
@@ -298,7 +298,7 @@ class Dashboard extends React.Component {
                                 <p className="textBottom1">&nbsp;(31 days)</p>
                             </div>
                         </div>
-                        <div class="boxes1">
+                        <div className="boxes1">
                             <p className="headingText">Sale Price per Deal</p>
                             <p className="text">${Math.round(topData.salesPerDeal)}</p>
                             <div style={{ display: 'flex' }}>
@@ -306,7 +306,7 @@ class Dashboard extends React.Component {
                                 <p className="textBottom1">&nbsp;(31 days)</p>
                             </div>
                         </div>
-                        <div class="boxes1">
+                        <div className="boxes1">
                             <p className="headingText">Deals</p>
                             <p className="text">{topData.deals}</p>
                             <div style={{ display: 'flex' }}>
@@ -314,7 +314,7 @@ class Dashboard extends React.Component {
                                 <p className="textBottom1">&nbsp;(31 days)</p>
                             </div>
                         </div>
-                        <div class="boxes1">
+                        <div className="boxes1">
                             <p className="headingText">Agents Capped</p>
                             <p className="text">{topData.activeAgent}</p>
                             <div style={{ display: 'flex' }}>
@@ -322,7 +322,7 @@ class Dashboard extends React.Component {
                                 <p className="textBottom1">&nbsp;(31 days)</p>
                             </div>
                         </div>
-                        <div class="boxes1">
+                        <div className="boxes1">
                             <p className="headingText">Active Agents</p>
                             <p className="text">{topData.activeAgent}</p>
                             <div style={{ display: 'flex' }}>
@@ -335,7 +335,7 @@ class Dashboard extends React.Component {
                         <div className="chartBody1">
                             <div className="chart3">
                                 <div className="chart1 mLeft">
-                                    <Chart options={options} series={series} type="pie" height={310} />
+                                    <Chart options={saleTypeChart.options} series={saleTypeChart.series} type="pie" height={310} />
                                 </div>
                                 <div className="chart1 mLeft1">
                                     <Chart options={this.state.options} series={this.state.series} type="bar" height={300} />
