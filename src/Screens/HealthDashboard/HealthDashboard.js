@@ -77,11 +77,11 @@ class Dashboard extends React.Component {
             series1: [{
                 name: 'Website Blog',
                 type: 'column',
-                data: [440, 505, 414, 671, 227, 413, 201, 352, 752, 320, 257, 160]
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             }, {
                 name: 'Social Media',
                 type: 'line',
-                data: [23, 42, 35, 27, 43, 22, 17, 31, 22, 22, 12, 16]
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             }],
             options1: {
                 chart: {
@@ -98,7 +98,6 @@ class Dashboard extends React.Component {
                     enabled: true,
                     enabledOnSeries: [1]
                 },
-                labels: ['01 Jan 2001', '02 Jan 2001', '03 Jan 2001', '04 Jan 2001', '05 Jan 2001', '06 Jan 2001', '07 Jan 2001', '08 Jan 2001', '09 Jan 2001', '10 Jan 2001', '11 Jan 2001', '12 Jan 2001'],
                 xaxis: {
                     categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
                 },
@@ -212,6 +211,7 @@ class Dashboard extends React.Component {
             .then((res) => {
                 var { data } = res
                 if (data.success) {
+                    console.log('res', moment(data.data[0].timestamp).year())
                     if (data.data.length) {
                         var len = data.data.length
                         var maxVal = Math.max.apply(Math, data.data.map(v => v.soldPrice))
@@ -224,7 +224,6 @@ class Dashboard extends React.Component {
                         }
                         maxVal = maxVal / 5
                         for (var i of data.data) {
-                            console.log(i)
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
                             obj[i.saleType] += i.paidAmount
@@ -582,7 +581,6 @@ class Dashboard extends React.Component {
 
 
 const mapStateToProps = (state) => {
-    console.log("mapToState", state.authReducer)
     return {
         user: state.authReducer.user,
     }
