@@ -578,7 +578,7 @@ class Dashboard extends React.Component {
                             <Chart options={lineChart.options} series={lineChart.series} type="line" height={500} />
                         </div>
                     </div>
-                    <div className="chartBody2" style={{ marginBottom: 40 }}>
+                    <div className="chartBody2">
                         <div className="div4">
                             <div style={{
                                 display: 'flex'
