@@ -245,6 +245,7 @@ class Dashboard extends React.Component {
         var histData = { ...this.state.salePriceHist }
         var lineData = { ...this.state.lineChart }
         var month = { 0: 0, 1: 2, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
+        var monthLine = { 0: 0, 1: 2, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
         var arr = []
         axios.post('https://wsr-server.herokuapp.com/admin/getAll', {
@@ -268,6 +269,7 @@ class Dashboard extends React.Component {
                         maxVal = maxVal / 5
                         for (var i of data.data) {
                             month[moment(i.timestamp).month()] += i.paidAmount
+                            monthLine[moment(i.timestamp).month()] += 1
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
                             obj[i.saleType] += i.paidAmount
@@ -291,6 +293,7 @@ class Dashboard extends React.Component {
                         topData.salesPerDeal = topData.salesPerDeal / len
                         topData.deals = len
                         lineData.series[0].data = Object.entries(month).map(v => v[1])
+                        lineData.series[1].data = Object.entries(monthLine).map(v => v[1])
 
                         histData.series[0].data = Object.entries(saleObj).map(v => v[1])
 
