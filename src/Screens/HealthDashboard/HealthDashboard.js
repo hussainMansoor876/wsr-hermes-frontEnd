@@ -74,15 +74,6 @@ class Dashboard extends React.Component {
                 name: 'series-1',
                 data: [30, 40, 45, 50, 49, 60, 70, 91, 88, 77, 55, 44]
             }],
-            series1: [{
-                name: 'Website Blog',
-                type: 'column',
-                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            }, {
-                name: 'Social Media',
-                type: 'line',
-                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            }],
             lineChart: {
                 series: [{
                     name: 'Website Blog',
@@ -123,36 +114,6 @@ class Dashboard extends React.Component {
                         }
                     }]
                 }
-            },
-            options1: {
-                chart: {
-                    height: 350,
-                    type: 'line',
-                },
-                stroke: {
-                    width: [0, 4]
-                },
-                title: {
-                    text: 'Deals & Revenue Over Time'
-                },
-                dataLabels: {
-                    enabled: true,
-                    enabledOnSeries: [1]
-                },
-                xaxis: {
-                    categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-                },
-                yaxis: [{
-                    title: {
-                        text: 'Website Blog',
-                    },
-
-                }, {
-                    opposite: true,
-                    title: {
-                        text: 'Social Media'
-                    }
-                }]
             },
             series2: [{
                 data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
@@ -255,7 +216,6 @@ class Dashboard extends React.Component {
             .then((res) => {
                 var { data } = res
                 if (data.success) {
-                    console.log('res', month[moment(data.data[0].timestamp).month()])
                     if (data.data.length) {
                         var len = data.data.length
                         var maxVal = Math.max.apply(Math, data.data.map(v => v.soldPrice))
@@ -367,6 +327,7 @@ class Dashboard extends React.Component {
 
     updateChart() {
         const { StartDateValue, endDate } = this.state
+        this.setState({ loading: false })
         var topData = { ...this.state.topData }
         var histData = { ...this.state.salePriceHist }
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
