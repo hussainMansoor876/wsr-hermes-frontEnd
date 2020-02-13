@@ -243,6 +243,7 @@ class Dashboard extends React.Component {
         const { startDate, endDate } = this.state
         var topData = { ...this.state.topData }
         var histData = { ...this.state.salePriceHist }
+        var lineData = { ...this.state.lineChart }
         var month = { 0: 0, 1: 2, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
         var arr = []
@@ -289,7 +290,7 @@ class Dashboard extends React.Component {
                         topData.revPerDeal = topData.netRevenue / len
                         topData.salesPerDeal = topData.salesPerDeal / len
                         topData.deals = len
-                        console.log(month)
+                        lineData.series[0].data = 
 
                         histData.series[0].data = Object.entries(saleObj).map(v => v[1])
 
