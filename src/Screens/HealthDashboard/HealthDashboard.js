@@ -118,7 +118,7 @@ class Dashboard extends React.Component {
                 }
             },
             series2: [{
-                data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+                data: []
             }],
             options2: {
                 chart: {
@@ -137,9 +137,7 @@ class Dashboard extends React.Component {
                     text: 'Agent Performance'
                 },
                 xaxis: {
-                    categories: ['Agent 1', 'Agent 2', 'Agent 3', 'Agent 4', 'Agent 5', 'Agent 6', 'Agent 7',
-                        'Agent 8', 'Agent 9', 'Agent 10'
-                    ],
+                    categories: [],
                 }
             },
             allData: [],
@@ -580,7 +578,7 @@ class Dashboard extends React.Component {
                             <Chart options={lineChart.options} series={lineChart.series} type="line" height={500} />
                         </div>
                     </div>
-                    <div className="chartBody2">
+                    <div className="chartBody2" style={{ marginBottom: 40 }}>
                         <div className="div4">
                             <div style={{
                                 display: 'flex'
