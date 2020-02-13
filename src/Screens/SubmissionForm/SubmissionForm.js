@@ -79,7 +79,7 @@ class Submission extends React.Component {
                 formData.append('checkRec', values.checkRec)
                 formData.append('paidAmount', values.paidAmount)
                 formData.append('paidDate', values.paidDate)
-                axios.post('https://wsr-server.herokuapp.com/subform/submission', formData)
+                axios.post('https://wsr-hermes-server.herokuapp.com/subform/submission', formData)
                     .then((result) => {
                         if (result.data.success) {
                             this.setState({ loading: false })

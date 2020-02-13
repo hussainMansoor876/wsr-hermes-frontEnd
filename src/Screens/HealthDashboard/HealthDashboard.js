@@ -212,7 +212,7 @@ class Dashboard extends React.Component {
         var monthLine = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
         var arr = []
-        axios.post('https://wsr-server.herokuapp.com/admin/getAll', {
+        axios.post('https://wsr-hermes-server.herokuapp.com/admin/getAll', {
             startDate: startDate.toArray(),
             endDate: endDate.toArray()
         })
@@ -274,13 +274,13 @@ class Dashboard extends React.Component {
                 }
 
             })
-        await axios.get('https://wsr-server.herokuapp.com/admin/getusers')
+        await axios.get('https://wsr-hermes-server.herokuapp.com/admin/getusers')
             .then((res) => {
                 var { data } = res.data
                 topData.activeAgent = data.length
                 this.setState({ allData: data, topData: topData }, () => {
                     var { allData, stats } = this.state
-                    axios.post(`https://wsr-server.herokuapp.com/admin/get-user/${allData[0]._id}`, {
+                    axios.post(`https://wsr-hermes-server.herokuapp.com/admin/get-user/${allData[0]._id}`, {
                         startDate: startDate.toArray(),
                         endDate: endDate.toArray()
                     })
@@ -312,7 +312,7 @@ class Dashboard extends React.Component {
             cap: 0,
             recruits: 0
         }
-        await axios.post(`https://wsr-server.herokuapp.com/admin/get-user/${id}`, {
+        await axios.post(`https://wsr-hermes-server.herokuapp.com/admin/get-user/${id}`, {
             startDate: StartDateValue.toArray(),
             endDate: endDate.toArray()
         })
@@ -340,7 +340,7 @@ class Dashboard extends React.Component {
         var lineData = { ...this.state.lineChart }
         var month = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var monthLine = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
-        axios.post('https://wsr-server.herokuapp.com/admin/getAll', {
+        axios.post('https://wsr-hermes-server.herokuapp.com/admin/getAll', {
             startDate: StartDateValue.toArray(),
             endDate: endDate.toArray()
         })
