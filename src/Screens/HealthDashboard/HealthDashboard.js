@@ -59,21 +59,23 @@ class Dashboard extends React.Component {
                     data: [30, 40, 45, 50, 49]
                 }]
             },
-            options: {
-                chart: {
-                    id: 'apexchart-example',
+            SaleAmountChart: {
+                options: {
+                    chart: {
+                        id: 'apexchart-example',
+                    },
+                    xaxis: {
+                        categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+                    },
+                    title: {
+                        text: 'Sales Amount Over Time'
+                    }
                 },
-                xaxis: {
-                    categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-                },
-                title: {
-                    text: 'Sales Amount Over Time'
-                }
+                series: [{
+                    name: 'series-1',
+                    data: [30, 40, 45, 50, 49, 60, 70, 91, 88, 77, 55, 44]
+                }]
             },
-            series: [{
-                name: 'series-1',
-                data: [30, 40, 45, 50, 49, 60, 70, 91, 88, 77, 55, 44]
-            }],
             lineChart: {
                 series: [{
                     name: 'Website Blog',
@@ -403,7 +405,7 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart } = this.state
+        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart } = this.state
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
@@ -588,7 +590,7 @@ class Dashboard extends React.Component {
                             <Chart options={this.state.options2} series={this.state.series2} type="bar" height={300} />
                         </div>
                         <div className="div5">
-                            <Chart options={this.state.options} series={this.state.series} type="bar" height={300} />
+                            <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} />
                         </div>
                     </div>
                 </div>
