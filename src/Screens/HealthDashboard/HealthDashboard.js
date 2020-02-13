@@ -202,6 +202,7 @@ class Dashboard extends React.Component {
         const { startDate, endDate } = this.state
         var topData = { ...this.state.topData }
         var histData = { ...this.state.salePriceHist }
+        var month = { 0: 0, 1: 2, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
         var arr = []
         axios.post('https://wsr-server.herokuapp.com/admin/getAll', {
@@ -211,7 +212,7 @@ class Dashboard extends React.Component {
             .then((res) => {
                 var { data } = res
                 if (data.success) {
-                    console.log('res', moment(data.data[0].timestamp).year())
+                    console.log('res', month[moment(data.data[0].timestamp).month()])
                     if (data.data.length) {
                         var len = data.data.length
                         var maxVal = Math.max.apply(Math, data.data.map(v => v.soldPrice))
@@ -224,6 +225,7 @@ class Dashboard extends React.Component {
                         }
                         maxVal = maxVal / 5
                         for (var i of data.data) {
+                            month[moment(i.timestamp).month()] += i.paidAmount
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
                             obj[i.saleType] += i.paidAmount
@@ -246,6 +248,7 @@ class Dashboard extends React.Component {
                         topData.revPerDeal = topData.netRevenue / len
                         topData.salesPerDeal = topData.salesPerDeal / len
                         topData.deals = len
+                        console.log(month)
 
                         histData.series[0].data = Object.entries(saleObj).map(v => v[1])
 
