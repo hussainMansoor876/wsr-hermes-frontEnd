@@ -83,6 +83,47 @@ class Dashboard extends React.Component {
                 type: 'line',
                 data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             }],
+            lineChart: {
+                series: [{
+                    name: 'Website Blog',
+                    type: 'column',
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                }, {
+                    name: 'Social Media',
+                    type: 'line',
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                }],
+                options: {
+                    chart: {
+                        height: 350,
+                        type: 'line',
+                    },
+                    stroke: {
+                        width: [0, 4]
+                    },
+                    title: {
+                        text: 'Deals & Revenue Over Time'
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        enabledOnSeries: [1]
+                    },
+                    xaxis: {
+                        categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+                    },
+                    yaxis: [{
+                        title: {
+                            text: 'Website Blog',
+                        },
+
+                    }, {
+                        opposite: true,
+                        title: {
+                            text: 'Social Media'
+                        }
+                    }]
+                }
+            },
             options1: {
                 chart: {
                     height: 350,
@@ -387,7 +428,7 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist } = this.state
+        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart } = this.state
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
@@ -556,7 +597,7 @@ class Dashboard extends React.Component {
                             </div>
                         </div>
                         <div className="chart2">
-                            <Chart options={this.state.options1} series={this.state.series1} type="line" height={500} />
+                            <Chart options={lineChart.options} series={lineChart.series} type="line" height={500} />
                         </div>
                     </div>
                     <div className="chartBody2">
