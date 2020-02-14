@@ -210,6 +210,7 @@ class Dashboard extends React.Component {
         var monthLine = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
         var arr = []
+        var allObj = {}
         axios.post('https://wsr-hermes-server.herokuapp.com/admin/getAll', {
             startDate: startDate.toArray(),
             endDate: endDate.toArray()
@@ -229,11 +230,15 @@ class Dashboard extends React.Component {
                         }
                         maxVal = maxVal / 5
                         for (var i of data.data) {
+                            if (!allObj[i.agentId]) {
+                                allObj[i.agentId] = 0
+                            }
                             month[moment(i.timestamp).month()] += i.paidAmount
                             monthLine[moment(i.timestamp).month()] += 1
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
                             obj[i.saleType] += i.paidAmount
+                            allObj[i.agentId] += 1
                             if (i.soldPrice <= maxVal) {
                                 saleObj[arr1[0]] += 1
                             }
@@ -256,7 +261,7 @@ class Dashboard extends React.Component {
                         lineData.series[0].data = Object.entries(month).map(v => v[1])
                         lineData.series[1].data = Object.entries(monthLine).map(v => v[1])
                         saleAmount.series[0].data = Object.entries(month).map(v => v[1])
-
+                        console.log('allObj', allObj)
                         histData.series[0].data = Object.entries(saleObj).map(v => v[1])
 
                     }
@@ -278,6 +283,7 @@ class Dashboard extends React.Component {
                 topData.activeAgent = data.length
                 this.setState({ allData: data, topData: topData }, () => {
                     var { allData, stats } = this.state
+                    console.log('allData', allData)
                     axios.post(`https://wsr-hermes-server.herokuapp.com/admin/get-user/${allData[0]._id}`, {
                         startDate: startDate.toArray(),
                         endDate: endDate.toArray()
