@@ -140,7 +140,7 @@ class Submission extends React.Component {
                                             <Input
                                                 type="text"
                                                 minLength={3}
-                                                onChange={(e)=> console.log(e.target.value.split("         "))}
+                                                onChange={(e)=> console.log(JSON.stringify(e.target.value.split("         ")))}
                                                 placeholder="Client Name"
                                             />,
                                         )}
