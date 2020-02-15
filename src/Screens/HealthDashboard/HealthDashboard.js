@@ -134,9 +134,6 @@ class Dashboard extends React.Component {
                     dataLabels: {
                         enabled: false
                     },
-                    title: {
-                        text: 'Agent Performance'
-                    },
                     xaxis: {
                         categories: [],
                     }
@@ -274,7 +271,7 @@ class Dashboard extends React.Component {
 
                         sortable.sort((a, b) => {
                             return a[1] - b[1];
-                        })
+                        }).reverse()
 
                         sortableId = sortable.map(v => v[0])
                         sortableVal = sortable.map(v => v[1])
@@ -429,8 +426,6 @@ class Dashboard extends React.Component {
                         loading: true, topData: topData, saleTypeChart: {
                             ...this.state.saleTypeChart, series: arr
                         }, salePriceHist: histData, lineChart: lineData
-                    }, () => {
-                        console.log(this.state.lineChart)
                     })
                 }
 
@@ -614,11 +609,18 @@ class Dashboard extends React.Component {
                     <div className="chartBody2">
                         <div className="div4">
                             <div style={{
-                                display: 'flex'
+                                display: 'flex',
+                                justifyContent: 'space-between'
                             }}>
                                 <ButtonGroup>
                                     <Button>Top 10</Button>
                                     <Button>Bottom 10</Button>
+                                </ButtonGroup>
+                                <h4>Agent Performance</h4>
+                                <ButtonGroup>
+                                    <Button>Sales Volume</Button>
+                                    <Button>Sales Amount</Button>
+                                    <Button>Recruits</Button>
                                 </ButtonGroup>
                             </div>
                             <Chart options={AgentChart.options} series={AgentChart.series} type="bar" height={270} />
