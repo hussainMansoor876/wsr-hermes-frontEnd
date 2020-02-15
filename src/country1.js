@@ -46,7 +46,79 @@ var data1 = JSON.parse(`{
 
         "Mississippi": ["Bay Saint Louis","Biloxi","Canton","Clarksdale","Columbia","Columbus","Corinth","Greenville","Greenwood","Grenada","Gulfport","Hattiesburg","Holly Springs","Jackson","Laurel","Meridian","Natchez","Ocean Springs","Oxford","Pascagoula","Pass Christian","Philadelphia","Port Gibson","Starkville","Tupelo","Vicksburg","West Point","Yazoo City"],
 
+        "Missouri": ["Boonville","Branson","Cape Girardeau","Carthage","Chillicothe","Clayton","Columbia","Excelsior Springs","Ferguson","Florissant","Fulton","Hannibal","Independence","Jefferson City","Joplin","Kansas City","Kirksville","Lamar","Lebanon","Lexington","Maryville","Mexico","Monett","Neosho","New Madrid","Rolla","Saint Charles","Saint Joseph","Saint Louis","Sainte Genevieve","Salem","Sedalia","Springfield","Warrensburg","West Plains"],
+
+        "Montana": ["Anaconda","Billings","Bozeman","Butte","Dillon","Fort Benton","Glendive","Great Falls","Havre","Helena","Kalispell","Lewistown","Livingston","Miles City","Missoula","Virginia City"],
+
+        "Nebraska": ["Beatrice","Bellevue","Boys Town","Chadron","Columbus","Fremont","Grand Island","Hastings","Kearney","Lincoln","McCook","Minden","Nebraska City","Norfolk","North Platte","Omaha","Plattsmouth","Red Cloud","Sidney"],
+
+        "Nevada": ["Boulder City","Carson City","Elko","Ely","Fallon","Genoa","Goldfield","Henderson","Las Vegas","North Las Vegas","Reno","Sparks","Virginia City","Winnemucca"],
+
+        "New Hampshire": ["Berlin","Claremont","Concord","Derry","Dover","Durham","Exeter","Franklin","Hanover","Hillsborough","Keene","Laconia","Lebanon","Manchester","Nashua","Peterborough","Plymouth","Portsmouth","Rochester","Salem","Somersworth"],
         
+        "New Jersey": Asbury Park
+        Atlantic City
+        Bayonne
+        Bloomfield
+        Bordentown
+        Bound Brook
+        Bridgeton
+        Burlington
+        Caldwell
+        Camden
+        Cape May
+        Clifton
+        Cranford
+        East Orange
+        Edison
+        Elizabeth
+        Englewood
+        Fort Lee
+        Glassboro
+        Hackensack
+        Haddonfield
+        Hoboken
+        Irvington
+        Jersey City
+        Lakehurst
+        Lakewood
+        Long Beach
+        Long Branch
+        Madison
+        Menlo Park
+        Millburn
+        Millville
+        Montclair
+        Morristown
+        Mount Holly
+        New Brunswick
+        New Milford
+        Newark
+        Ocean City
+        Orange
+        Parsippany–Troy Hills
+        Passaic
+        Paterson
+        Perth Amboy
+        Plainfield
+        Princeton
+        Ridgewood
+        Roselle
+        Rutherford
+        Salem
+        Somerville
+        South Orange Village
+        Totowa
+        Trenton
+        Union
+        Union City
+        Vineland
+        Wayne
+        Weehawken
+        West New York
+        West Orange
+        Willingboro
+        Woodbridge
 }`)
 
 export default data1
