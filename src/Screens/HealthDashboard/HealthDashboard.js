@@ -261,7 +261,7 @@ class Dashboard extends React.Component {
                         lineData.series[0].data = Object.entries(month).map(v => v[1])
                         lineData.series[1].data = Object.entries(monthLine).map(v => v[1])
                         saleAmount.series[0].data = Object.entries(month).map(v => v[1])
-                        console.log('allObj', allObj)
+                        console.log('allObj', Object.entries(allObj).map(v => v[0]))
                         histData.series[0].data = Object.entries(saleObj).map(v => v[1])
 
                     }
