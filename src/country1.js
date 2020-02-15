@@ -42,39 +42,11 @@ var data1 = JSON.parse(`{
 
         "Michigan": ["Adrian","Alma","Ann Arbor","Battle Creek","Bay City","Benton Harbor","Bloomfield Hills","Cadillac","Charlevoix","Cheboygan","Dearborn","Detroit","East Lansing","Eastpointe","Ecorse","Escanaba","Flint","Grand Haven","Grand Rapids","Grayling","Grosse Pointe","Hancock","Highland Park","Holland","Houghton","Interlochen","Iron Mountain","Ironwood","Ishpeming","Jackson","Kalamazoo","Lansing","Livonia","Ludington","Mackinaw City","Manistee","Marquette","Menominee","Midland","Monroe","Mount Clemens","Mount Pleasant","Muskegon","Niles","Petoskey","Pontiac","Port Huron","Royal Oak","Saginaw","Saint Ignace","Saint Joseph","Sault Sainte Marie","Traverse City","Trenton","Warren","Wyandotte","Ypsilanti"],
 
-        "Minnesota": Albert Lea
-        Alexandria
-        Austin
-        Bemidji
-        Bloomington
-        Brainerd
-        Crookston
-        Duluth
-        Ely
-        Eveleth
-        Faribault
-        Fergus Falls
-        Hastings
-        Hibbing
-        International Falls
-        Little Falls
-        Mankato
-        Minneapolis
-        Moorhead
-        New Ulm
-        Northfield
-        Owatonna
-        Pipestone
-        Red Wing
-        Rochester
-        Saint Cloud
-        Saint Paul
-        Sauk Centre
-        South Saint Paul
-        Stillwater
-        Virginia
-        Willmar
-        Winona        
+        "Minnesota": ["Albert Lea","Alexandria","Austin","Bemidji","Bloomington","Brainerd","Crookston","Duluth","Ely","Eveleth","Faribault","Fergus Falls","Hastings","Hibbing","International Falls","Little Falls","Mankato","Minneapolis","Moorhead","New Ulm","Northfield","Owatonna","Pipestone","Red Wing","Rochester","Saint Cloud","Saint Paul","Sauk Centre","South Saint Paul","Stillwater","Virginia","Willmar","Winona"],
+
+        "Mississippi": ["Bay Saint Louis","Biloxi","Canton","Clarksdale","Columbia","Columbus","Corinth","Greenville","Greenwood","Grenada","Gulfport","Hattiesburg","Holly Springs","Jackson","Laurel","Meridian","Natchez","Ocean Springs","Oxford","Pascagoula","Pass Christian","Philadelphia","Port Gibson","Starkville","Tupelo","Vicksburg","West Point","Yazoo City"],
+
+        
 }`)
 
 export default data1
