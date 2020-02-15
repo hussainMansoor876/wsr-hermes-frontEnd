@@ -303,8 +303,8 @@ class Dashboard extends React.Component {
                                 }
                             }
                             console.log('sort', sortableName)
-                            AgentData.series[0].data = sortableVal
-                            AgentData.options.xaxis.categories = sortableName
+                            AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
+                            AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
                             axios.post(`https://wsr-hermes-server.herokuapp.com/admin/get-user/${allData[0]._id}`, {
                                 startDate: startDate.toArray(),
                                 endDate: endDate.toArray()
@@ -322,7 +322,7 @@ class Dashboard extends React.Component {
                                         stats: stats,
                                         AgentChart: AgentData,
                                         loading: true
-                                    }, () => console.log('this', this.state.AgentChart))
+                                    })
                                 })
                         })
                     })
