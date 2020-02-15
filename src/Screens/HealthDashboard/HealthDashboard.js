@@ -555,6 +555,49 @@ class Dashboard extends React.Component {
                     document.getElementById(i).className = "ant-btn"
                 }
             }
+
+            for (var j of dashData) {
+                if (!allObj[j.agentId]) {
+                    allObj[j.agentId] = 0
+                }
+                allObj[j.agentId] += j.saleAmount
+            }
+
+            var sortable = [];
+            for (var vehicle in allObj) {
+                sortable.push([vehicle, allObj[vehicle]]);
+            }
+
+            if (e.id === "top10") {
+                sortable.sort((a, b) => {
+                    return a[1] - b[1];
+                }).reverse()
+            }
+
+            else {
+                sortable.sort((a, b) => {
+                    return a[1] - b[1];
+                })
+            }
+
+            sortableId = sortable.map(v => v[0])
+            sortableVal = sortable.map(v => v[1])
+
+            for (var k of sortableId) {
+                for (var d of allData) {
+                    if (d._id === k) {
+                        sortableName.push(d.fname)
+                    }
+                }
+            }
+            AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
+            AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
+
+            this.setState({
+                AgentChart: AgentData,
+                loadingChart: true
+            })
+
         })
     }
 
