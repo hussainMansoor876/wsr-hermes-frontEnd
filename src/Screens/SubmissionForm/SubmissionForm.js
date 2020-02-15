@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom'
 import validator from 'validator'
 import { toast } from 'react-toastify';
 import data from '../../country'
+import data1 from '../../country1'
+
 import axios from 'axios'
 import { Form, Icon, Input, Button, Upload, notification, Select, DatePicker, message } from 'antd';
 
@@ -16,7 +18,7 @@ const { Dragger } = Upload
 
 const title = "Error"
 
-// console.log('data', data)
+console.log('data', data1)
 
 const props = {
     name: 'file',
