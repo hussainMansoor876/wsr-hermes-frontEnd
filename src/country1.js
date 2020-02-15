@@ -58,7 +58,113 @@ var data1 = JSON.parse(`{
         
         "New Jersey": ["Asbury Park","Atlantic City","Bayonne","Bloomfield","Bordentown","Bound Brook","Bridgeton","Burlington","Caldwell","Camden","Cape May","Clifton","Cranford","East Orange","Edison","Elizabeth","Englewood","Fort Lee","Glassboro","Hackensack","Haddonfield","Hoboken","Irvington","Jersey City","Lakehurst","Lakewood","Long Beach","Long Branch","Madison","Menlo Park","Millburn","Millville","Montclair","Morristown","Mount Holly","New Brunswick","New Milford","Newark","Ocean City","Orange","Parsippany–Troy Hills","Passaic","Paterson","Perth Amboy","Plainfield","Princeton","Ridgewood","Roselle","Rutherford","Salem","Somerville","South Orange Village","Totowa","Trenton","Union","Union City","Vineland","Wayne","Weehawken","West New York","West Orange","Willingboro","Woodbridge"],
 
-        "New Mexico"
+        "New Mexico": ["Acoma","Alamogordo","Albuquerque","Artesia","Belen","Carlsbad","Clovis","Deming","Farmington","Gallup","Grants","Hobbs","Las Cruces","Las Vegas","Los Alamos","Lovington","Portales","Raton","Roswell","Santa Fe","Shiprock","Silver City","Socorro","Taos","Truth or Consequences","Tucumcari"],
+
+        "New York": Albany
+        Amsterdam
+        Auburn
+        Babylon
+        Batavia
+        Beacon
+        Bedford
+        Binghamton
+        Bronx
+        Brooklyn
+        Buffalo
+        Chautauqua
+        Cheektowaga
+        Clinton
+        Cohoes
+        Coney Island
+        Cooperstown
+        Corning
+        Cortland
+        Crown Point
+        Dunkirk
+        East Aurora
+        East Hampton
+        Eastchester
+        Elmira
+        Flushing
+        Forest Hills
+        Fredonia
+        Garden City
+        Geneva
+        Glens Falls
+        Gloversville
+        Great Neck
+        Hammondsport
+        Harlem
+        Hempstead
+        Herkimer
+        Hudson
+        Huntington
+        Hyde Park
+        Ilion
+        Ithaca
+        Jamestown
+        Johnstown
+        Kingston
+        Lackawanna
+        Lake Placid
+        Levittown
+        Lockport
+        Mamaroneck
+        Manhattan
+        Massena
+        Middletown
+        Mineola
+        Mount Vernon
+        New Paltz
+        New Rochelle
+        New Windsor
+        New York City
+        Newburgh
+        Niagara Falls
+        North Hempstead
+        Nyack
+        Ogdensburg
+        Olean
+        Oneida
+        Oneonta
+        Ossining
+        Oswego
+        Oyster Bay
+        Palmyra
+        Peekskill
+        Plattsburgh
+        Port Washington
+        Potsdam
+        Poughkeepsie
+        Queens
+        Rensselaer
+        Rochester
+        Rome
+        Rotterdam
+        Rye
+        Sag Harbor
+        Saranac Lake
+        Saratoga Springs
+        Scarsdale
+        Schenectady
+        Seneca Falls
+        Southampton
+        Staten Island
+        Stony Brook
+        Stony Point
+        Syracuse
+        Tarrytown
+        Ticonderoga
+        Tonawanda
+        Troy
+        Utica
+        Watertown
+        Watervliet
+        Watkins Glen
+        West Seneca
+        White Plains
+        Woodstock
+        Yonkers
 }`)
 
 export default data1
