@@ -72,7 +72,11 @@ var data1 = JSON.parse(`{
 
         "Oregon": ["Albany","Ashland","Astoria","Baker City","Beaverton","Bend","Brookings","Burns","Coos Bay","Corvallis","Eugene","Grants Pass","Hillsboro","Hood River","Jacksonville","John Day","Klamath Falls","La Grande","Lake Oswego","Lakeview","McMinnville","Medford","Newberg","Newport","Ontario","Oregon City","Pendleton","Port Orford","Portland","Prineville","Redmond","Reedsport","Roseburg","Salem","Seaside","Springfield","The Dalles","Tillamook"],
 
-        "Pennsylvania": ["Abington","Aliquippa","Allentown","Altoona","Ambridge","Bedford","Bethlehem","Bloomsburg","Bradford","Bristol","Carbondale","Carlisle","Chambersburg","Chester","Columbia","Easton","Erie","Franklin","Germantown","Gettysburg","Greensburg","Hanover","Harmony","Harrisburg","Hazleton","Hershey","Homestead","Honesdale","Indiana","Jeannette","Jim Thorpe","Johnstown","Lancaster","Lebanon","Levittown","Lewistown","Lock Haven","Lower Southampton","McKeesport","Meadville","Middletown","Monroeville","Nanticoke","New Castle","New Hope","New Kensington","Norristown","Oil City","Philadelphia","Phoenixville","Pittsburgh","Pottstown","Pottsville","Reading","Scranton","Shamokin","Sharon","State College","Stroudsburg","Sunbury","Swarthmore","Tamaqua","Titusville","Uniontown","Warren","Washington","West Chester","Wilkes-Barre","Williamsport","York"]
+        "Pennsylvania": ["Abington","Aliquippa","Allentown","Altoona","Ambridge","Bedford","Bethlehem","Bloomsburg","Bradford","Bristol","Carbondale","Carlisle","Chambersburg","Chester","Columbia","Easton","Erie","Franklin","Germantown","Gettysburg","Greensburg","Hanover","Harmony","Harrisburg","Hazleton","Hershey","Homestead","Honesdale","Indiana","Jeannette","Jim Thorpe","Johnstown","Lancaster","Lebanon","Levittown","Lewistown","Lock Haven","Lower Southampton","McKeesport","Meadville","Middletown","Monroeville","Nanticoke","New Castle","New Hope","New Kensington","Norristown","Oil City","Philadelphia","Phoenixville","Pittsburgh","Pottstown","Pottsville","Reading","Scranton","Shamokin","Sharon","State College","Stroudsburg","Sunbury","Swarthmore","Tamaqua","Titusville","Uniontown","Warren","Washington","West Chester","Wilkes-Barre","Williamsport","York"],
+
+        "Rhode Island": ["Barrington","Bristol","Central Falls","Cranston","East Greenwich","East Providence","Kingston","Middletown","Narragansett","Newport","North Kingstown","Pawtucket","Portsmouth","Providence","South Kingstown","Tiverton","Warren","Warwick","Westerly","Wickford","Woonsocket"],
+
+        
 }`)
 
 export default data1
