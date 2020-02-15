@@ -72,17 +72,17 @@ class Dashboard extends React.Component {
                     }
                 },
                 series: [{
-                    name: 'series-1',
+                    name: 'Revenue',
                     data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 }]
             },
             lineChart: {
                 series: [{
-                    name: 'Website Blog',
+                    name: 'Revenue',
                     type: 'column',
                     data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 }, {
-                    name: 'Social Media',
+                    name: 'Deals',
                     type: 'line',
                     data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 }],
