@@ -160,7 +160,8 @@ class Dashboard extends React.Component {
                 deals: 0,
                 AgentCapped: 0,
                 activeAgent: 0,
-            }
+            },
+            dashData: []
         }
     }
 
@@ -283,7 +284,8 @@ class Dashboard extends React.Component {
                         topData: topData, saleTypeChart: {
                             ...this.state.saleTypeChart, series: arr
                         }, salePriceHist: histData, lineChart: lineData,
-                        SaleAmountChart: saleAmount
+                        SaleAmountChart: saleAmount,
+                        dashData: data.data
                     })
                 }
 
@@ -421,8 +423,6 @@ class Dashboard extends React.Component {
                         topData.revPerDeal = topData.netRevenue / len
                         topData.salesPerDeal = topData.salesPerDeal / len
                         topData.deals = len
-                        console.log(month)
-                        console.log(monthLine)
                         lineData.series[0].data = Object.entries(month).map(v => v[1])
                         lineData.series[1].data = Object.entries(monthLine).map(v => v[1])
                         saleAmount.series[0].data = Object.entries(month).map(v => v[1])
@@ -458,7 +458,8 @@ class Dashboard extends React.Component {
                         loading: true, topData: topData, saleTypeChart: {
                             ...this.state.saleTypeChart, series: arr
                         }, salePriceHist: histData, lineChart: lineData,
-                        SaleAmountChart: saleAmount, AgentChart: AgentData
+                        SaleAmountChart: saleAmount, AgentChart: AgentData,
+                        dashData: data.data
                     })
                 }
 
