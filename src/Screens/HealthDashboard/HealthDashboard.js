@@ -445,7 +445,8 @@ class Dashboard extends React.Component {
                     this.setState({
                         loading: true, topData: topData, saleTypeChart: {
                             ...this.state.saleTypeChart, series: arr
-                        }, salePriceHist: histData, lineChart: lineData
+                        }, salePriceHist: histData, lineChart: lineData,
+                        SaleAmountChart: saleAmount
                     })
                 }
 
