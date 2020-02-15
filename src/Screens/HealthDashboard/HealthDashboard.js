@@ -365,6 +365,10 @@ class Dashboard extends React.Component {
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
         var arr = []
         var lineData = { ...this.state.lineChart }
+        var saleAmount = { ...this.state.SaleAmountChart }
+        var AgentData = { ...this.state.AgentChart }
+        var sortableId = []
+        var sortableVal = []
         var month = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var monthLine = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         axios.post('https://wsr-hermes-server.herokuapp.com/admin/getAll', {
@@ -415,6 +419,7 @@ class Dashboard extends React.Component {
                         console.log(monthLine)
                         lineData.series[0].data = Object.entries(month).map(v => v[1])
                         lineData.series[1].data = Object.entries(monthLine).map(v => v[1])
+                        saleAmount.series[0].data = Object.entries(month).map(v => v[1])
                         histData.series[0].data = Object.entries(saleObj).map(v => v[1])
 
                     }
