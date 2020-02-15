@@ -467,6 +467,10 @@ class Dashboard extends React.Component {
     }
 
     updateData(e) {
+        const { dashData } = this.state
+        var sortableId = []
+        var sortableVal = []
+        var allObj = {}
         var ids = ["top10", "bottom10"]
         for (var i of ids) {
             if (i === e.id) {
@@ -475,6 +479,38 @@ class Dashboard extends React.Component {
             else {
                 document.getElementById(i).className = "ant-btn"
             }
+        }
+
+        if (e.id === "top10") {
+            for (var j of dashData) {
+                if (!allObj[j.agentId]) {
+                    allObj[j.agentId] = 0
+                }
+                allObj[j.agentId] += 1
+            }
+
+            var sortable = [];
+            for (var vehicle in allObj) {
+                sortable.push([vehicle, allObj[vehicle]]);
+            }
+
+            sortable.sort((a, b) => {
+                return a[1] - b[1];
+            }).reverse()
+
+            sortableId = sortable.map(v => v[0])
+            sortableVal = sortable.map(v => v[1])
+
+            for (var k of sortableId) {
+                console.log('k', k)
+                for (var d of allData) {
+                    if (d._id === k) {
+                        sortableName.push(d.fname)
+                    }
+                }
+            }
+            AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
+            AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
         }
     }
 
