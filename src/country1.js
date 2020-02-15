@@ -28,7 +28,11 @@ var data1 = JSON.parse(`{
 
         "Iowa": ["Amana Colonies","Ames","Boone","Burlington","Cedar Falls","Cedar Rapids","Charles City","Cherokee","Clinton","Council Bluffs","Davenport","Des Moines","Dubuque","Estherville","Fairfield","Fort Dodge","Grinnell","Indianola","Iowa City","Keokuk","Mason City","Mount Pleasant","Muscatine","Newton","Oskaloosa","Ottumwa","Sioux City","Waterloo","Webster City","West Des Moines"],
 
-        ""
+        "Kansas": ["Abilene","Arkansas City","Atchison","Chanute","Coffeyville","Council Grove","Dodge City","Emporia","Fort Scott","Garden City","Great Bend","Hays","Hutchinson","Independence","Junction City","Kansas City","Lawrence","Leavenworth","Liberal","Manhattan","McPherson","Medicine Lodge","Newton","Olathe","Osawatomie","Ottawa","Overland Park","Pittsburg","Salina","Shawnee","Smith Center","Topeka","Wichita"],
+
+        "Kentucky": ["Ashland","Barbourville","Bardstown","Berea","Boonesborough","Bowling Green","Campbellsville","Covington","Danville","Elizabethtown","Frankfort","Harlan","Harrodsburg","Hazard","Henderson","Hodgenville","Hopkinsville","Lexington","Louisville","Mayfield","Maysville","Middlesboro","Newport","Owensboro","Paducah","Paris","Richmond"],
+
+        "Louisiana": ["Abbeville","Alexandria","Bastrop","Baton Rouge","Bogalusa","Bossier City","Gretna","Houma","Lafayette","Lake Charles","Monroe","Morgan City","Natchitoches","New Iberia","New Orleans","Opelousas","Ruston","Saint Martinville","Shreveport","Thibodaux"]
         
 }`)
 
