@@ -162,7 +162,9 @@ class Dashboard extends React.Component {
                 activeAgent: 0,
             },
             dashData: [],
-            loadingChart: true
+            loadingChart: true,
+            currentTop: "top10",
+            currentVal: "volume"
         }
     }
 
@@ -517,7 +519,6 @@ class Dashboard extends React.Component {
             sortableVal = sortable.map(v => v[1])
 
             for (var k of sortableId) {
-                console.log('k', k)
                 for (var d of allData) {
                     if (d._id === k) {
                         sortableName.push(d.fname)
@@ -536,14 +537,25 @@ class Dashboard extends React.Component {
 
     updateData1(e) {
         var ids = ["volume", "amount", "recruits"]
-        for (var i of ids) {
-            if (i === e.id) {
-                document.getElementById(e.id).className = "ant-btn btn-group"
+        const { dashData, allData, AgentChart } = this.state
+        var AgentData = { ...AgentChart }
+        var sortableId = []
+        var sortableVal = []
+        var allObj = {}
+        var sortableName = []
+
+        this.setState({
+            loadingChart: false
+        }, () => {
+            for (var i of ids) {
+                if (i === e.id) {
+                    document.getElementById(e.id).className = "ant-btn btn-group"
+                }
+                else {
+                    document.getElementById(i).className = "ant-btn"
+                }
             }
-            else {
-                document.getElementById(i).className = "ant-btn"
-            }
-        }
+        })
     }
 
 
