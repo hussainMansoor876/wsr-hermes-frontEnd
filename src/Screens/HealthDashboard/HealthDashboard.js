@@ -263,7 +263,16 @@ class Dashboard extends React.Component {
                         saleAmount.series[0].data = Object.entries(month).map(v => v[1])
                         console.log('allObj', Object.entries(allObj).map(v => v[0]))
                         histData.series[0].data = Object.entries(saleObj).map(v => v[1])
+                        var sortable = [];
+                        for (var vehicle in allObj) {
+                            sortable.push([vehicle, allObj[vehicle]]);
+                        }
 
+                        sortable.sort((a, b) => {
+                            return a[1] - b[1];
+                        });
+
+                        console.log('sortable', sortable)
                     }
                     for (var j in obj) {
                         arr.push(obj[j])
