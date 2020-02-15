@@ -1,4 +1,4 @@
-var data = JSON.parse(`{
+{
   "New York": [
     "New York",
     "Buffalo",
@@ -1101,6 +1101,4 @@ var data = JSON.parse(`{
   "Vermont": [
     "Burlington"
   ]
-}`)
-
-export default data;
+}
