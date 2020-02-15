@@ -16,7 +16,20 @@ var data1 = JSON.parse(`{
         "Delaware": ["Dover", "Lewes", "Milford", "New Castle", "Newark", "Smyrna", "Wilmington"],
         "Florida": ["Apalachicola","Bartow","Belle Glade","Boca Raton","Bradenton","Cape Coral","Clearwater","Cocoa Beach","Cocoa-Rockledge","Coral Gables","Daytona Beach","De Land","Deerfield Beach","Delray Beach","Fernandina Beach","Fort Lauderdale","Fort Myers","Fort Pierce","Fort Walton Beach","Gainesville","Hallandale Beach","Hialeah","Hollywood","Homestead","Jacksonville","Key West","Lake City","Lake Wales","Lakeland","Largo","Melbourne","Miami","Miami Beach","Naples","New Smyrna Beach","Ocala","Orlando","Ormond Beach","Palatka","Palm Bay","Palm Beach","Panama City","Pensacola","Pompano Beach","Saint Augustine","Saint Petersburg","Sanford","Sarasota","Sebring","Tallahassee","Tampa","Tarpon Springs","Titusville","Venice","West Palm Beach","White Springs","Winter Haven","Winter Park"],
 
-        "Georgia": ["Albany","Americus","Andersonville","Athens","Atlanta","Augusta","Bainbridge","Blairsville","Brunswick","Calhoun","Carrollton","Columbus","Dahlonega","Dalton","Darien","Decatur","Douglas","East Point","Fitzgerald","Fort Valley","Gainesville","La Grange","Macon","Marietta","Milledgeville","Plains","Rome","Savannah","Toccoa","Valdosta","Warm Springs","Warner Robins","Washington","Waycross"]
+        "Georgia": ["Albany","Americus","Andersonville","Athens","Atlanta","Augusta","Bainbridge","Blairsville","Brunswick","Calhoun","Carrollton","Columbus","Dahlonega","Dalton","Darien","Decatur","Douglas","East Point","Fitzgerald","Fort Valley","Gainesville","La Grange","Macon","Marietta","Milledgeville","Plains","Rome","Savannah","Toccoa","Valdosta","Warm Springs","Warner Robins","Washington","Waycross"],
+
+        "Hawaii": SubmissionForm.js:145 ["Hanalei","Hilo","Honaunau","Honolulu","Kahului","Kaneohe","Kapaa","Kawaihae","Lahaina","Laie","Wahiawa","Wailuku","Waimea"],
+
+        "Idaho": SubmissionForm.js:145 ["Blackfoot","Boise","Bonners Ferry","Caldwell","Coeur d’Alene","Idaho City","Idaho Falls","Kellogg","Lewiston","Moscow","Nampa","Pocatello","Priest River","Rexburg","Sun Valley","Twin Falls"],
+
+        "Illinois": SubmissionForm.js:145 ["Alton","Arlington Heights","Arthur","Aurora","Belleville","Belvidere","Bloomington","Brookfield","Cahokia","Cairo","Calumet City","Canton","Carbondale","Carlinville","Carthage","Centralia","Champaign","Charleston","Chester","Chicago","Chicago Heights","Cicero","Collinsville","Danville","Decatur","DeKalb","Des Plaines","Dixon","East Moline","East Saint Louis","Effingham","Elgin","Elmhurst","Evanston","Freeport","Galena","Galesburg","Glen Ellyn","Glenview","Granite City","Harrisburg","Herrin","Highland Park","Jacksonville","Joliet","Kankakee","Kaskaskia","Kewanee","La Salle","Lake Forest","Libertyville","Lincoln","Lisle","Lombard","Macomb","Mattoon","Moline","Monmouth","Mount Vernon","Mundelein","Naperville","Nauvoo","Normal","North Chicago","Oak Park","Oregon","Ottawa","Palatine","Park Forest","Park Ridge","Pekin","Peoria","Petersburg","Pontiac","Quincy","Rantoul","River Forest","Rock Island","Rockford","Salem","Shawneetown","Skokie","South Holland","Springfield","Streator","Summit","Urbana","Vandalia","Virden","Waukegan","Wheaton","Wilmette","Winnetka","Wood River","Zion"],
+
+        "Indiana": SubmissionForm.js:145 ["Anderson","Bedford","Bloomington","Columbus","Connersville","Corydon","Crawfordsville","East Chicago","Elkhart","Elwood","Evansville","Fort Wayne","French Lick","Gary","Geneva","Goshen","Greenfield","Hammond","Hobart","Huntington","Indianapolis","Jeffersonville","Kokomo","Lafayette","Madison","Marion","Michigan City","Mishawaka","Muncie","Nappanee","Nashville","New Albany","New Castle","New Harmony","Peru","Plymouth","Richmond","Santa Claus","Shelbyville","South Bend","Terre Haute","Valparaiso","Vincennes","Wabash","West Lafayette"],
+
+        "Iowa": ["Amana Colonies","Ames","Boone","Burlington","Cedar Falls","Cedar Rapids","Charles City","Cherokee","Clinton","Council Bluffs","Davenport","Des Moines","Dubuque","Estherville","Fairfield","Fort Dodge","Grinnell","Indianola","Iowa City","Keokuk","Mason City","Mount Pleasant","Muscatine","Newton","Oskaloosa","Ottumwa","Sioux City","Waterloo","Webster City","West Des Moines"],
+
+        ""
+        
 }`)
 
 export default data1
