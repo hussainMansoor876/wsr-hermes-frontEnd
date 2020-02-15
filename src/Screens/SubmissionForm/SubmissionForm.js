@@ -7,7 +7,7 @@ import Header from '../Header/Header'
 import { Link } from 'react-router-dom'
 import validator from 'validator'
 import { toast } from 'react-toastify';
-import data from '../../country'
+import data from '../../city'
 // import data1 from '../../country1'
 
 import axios from 'axios'
@@ -18,7 +18,6 @@ const { Dragger } = Upload
 
 const title = "Error"
 
-// console.log('data', data1)
 
 const props = {
     name: 'file',
@@ -142,7 +141,6 @@ class Submission extends React.Component {
                                             <Input
                                                 type="text"
                                                 minLength={3}
-                                                onChange={(e)=> console.log(JSON.stringify(e.target.value.split("         ")))}
                                                 placeholder="Client Name"
                                             />,
                                         )}
