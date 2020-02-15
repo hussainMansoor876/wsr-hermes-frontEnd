@@ -369,6 +369,7 @@ class Dashboard extends React.Component {
         var AgentData = { ...this.state.AgentChart }
         var sortableId = []
         var sortableVal = []
+        var allObj = {}
         var month = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var monthLine = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         axios.post('https://wsr-hermes-server.herokuapp.com/admin/getAll', {
@@ -390,12 +391,16 @@ class Dashboard extends React.Component {
                         }
                         maxVal = maxVal / 5
                         for (var i of data.data) {
+                            if (!allObj[i.agentId]) {
+                                allObj[i.agentId] = 0
+                            }
                             month[moment(i.timestamp).month()] += i.paidAmount
                             monthLine[moment(i.timestamp).month()] += 1
                             console.log(i.paidAmount)
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
                             obj[i.saleType] += i.paidAmount
+                            allObj[i.agentId] += 1
                             if (i.soldPrice <= maxVal) {
                                 saleObj[arr1[0]] += 1
                             }
