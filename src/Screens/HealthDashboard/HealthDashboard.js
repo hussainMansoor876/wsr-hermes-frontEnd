@@ -161,7 +161,8 @@ class Dashboard extends React.Component {
                 AgentCapped: 0,
                 activeAgent: 0,
             },
-            dashData: []
+            dashData: [],
+            loadingChart: true
         }
     }
 
@@ -469,8 +470,11 @@ class Dashboard extends React.Component {
     }
 
     updateData(e) {
-        const { dashData, allData } = this.state
-        var { AgentChart } = this.state
+        const { dashData, allData, AgentChart } = this.state
+        this.setState({
+            loadingChart: false
+        })
+        var AgentData = { ...AgentChart }
         var sortableId = []
         var sortableVal = []
         var allObj = {}
@@ -522,12 +526,12 @@ class Dashboard extends React.Component {
                 }
             }
         }
-        AgentChart.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
-        AgentChart.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
+        AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
+        AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
 
         this.setState({
-            AgentChart: AgentChart,
-            loading: true
+            AgentChart: AgentData,
+            loadingChart: true
         })
     }
 
@@ -545,7 +549,7 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart, AgentChart } = this.state
+        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart, AgentChart, loadingChart } = this.state
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
@@ -734,7 +738,7 @@ class Dashboard extends React.Component {
                                     <Button id="recruits" onClick={(e) => this.updateData1(e.target)}>Recruits</Button>
                                 </ButtonGroup>
                             </div>
-                            <Chart options={AgentChart.options} series={AgentChart.series} type="bar" height={270} />
+                            {loadingChart ? <Chart options={AgentChart.options} series={AgentChart.series} type="bar" height={270} /> : <Skeleton />}
                         </div>
                         <div className="div5">
                             <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} />
