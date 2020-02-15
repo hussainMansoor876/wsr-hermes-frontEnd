@@ -470,7 +470,7 @@ class Dashboard extends React.Component {
 
     updateData(e) {
         const { dashData, allData } = this.state
-        var AgentData = { ...this.state.AgentChart }
+        var { AgentChart } = this.state
         var sortableId = []
         var sortableVal = []
         var allObj = {}
@@ -522,11 +522,11 @@ class Dashboard extends React.Component {
                 }
             }
         }
-        AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
-        AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
+        AgentChart.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
+        AgentChart.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
 
         this.setState({
-            AgentChart: AgentData,
+            AgentChart: AgentChart,
             loading: true
         })
     }
