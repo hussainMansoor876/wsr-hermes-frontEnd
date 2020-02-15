@@ -40,8 +40,41 @@ var data1 = JSON.parse(`{
 
         "Massachusetts": ["Abington","Adams","Amesbury","Amherst","Andover","Arlington","Athol","Attleboro","Barnstable","Bedford","Beverly","Boston","Bourne","Braintree","Brockton","Brookline","Cambridge","Canton","Charlestown","Chelmsford","Chelsea","Chicopee","Clinton","Cohasset","Concord","Danvers","Dartmouth","Dedham","Dennis","Duxbury","Eastham","Edgartown","Everett","Fairhaven","Fall River","Falmouth","Fitchburg","Framingham","Gloucester","Great Barrington","Greenfield","Groton","Harwich","Haverhill","Hingham","Holyoke","Hyannis","Ipswich","Lawrence","Lenox","Leominster","Lexington","Lowell","Ludlow","Lynn","Malden","Marblehead","Marlborough","Medford","Milton","Nahant","Natick","New Bedford","Newburyport","Newton","North Adams","Northampton","Norton","Norwood","Peabody","Pittsfield","Plymouth","Provincetown","Quincy","Randolph","Revere","Salem","Sandwich","Saugus","Somerville","South Hadley","Springfield","Stockbridge","Stoughton","Sturbridge","Sudbury","Taunton","Tewksbury","Truro","Watertown","Webster","Wellesley","Wellfleet","West Bridgewater","West Springfield","Westfield","Weymouth","Whitman","Williamstown","Woburn","Woods Hole","Worcester"],
 
-        "Michigan": ["Adrian","Alma","Ann Arbor","Battle Creek","Bay City","Benton Harbor","Bloomfield Hills","Cadillac","Charlevoix","Cheboygan","Dearborn","Detroit","East Lansing","Eastpointe","Ecorse","Escanaba","Flint","Grand Haven","Grand Rapids","Grayling","Grosse Pointe","Hancock","Highland Park","Holland","Houghton","Interlochen","Iron Mountain","Ironwood","Ishpeming","Jackson","Kalamazoo","Lansing","Livonia","Ludington","Mackinaw City","Manistee","Marquette","Menominee","Midland","Monroe","Mount Clemens","Mount Pleasant","Muskegon","Niles","Petoskey","Pontiac","Port Huron","Royal Oak","Saginaw","Saint Ignace","Saint Joseph","Sault Sainte Marie","Traverse City","Trenton","Warren","Wyandotte","Ypsilanti"]
-        
+        "Michigan": ["Adrian","Alma","Ann Arbor","Battle Creek","Bay City","Benton Harbor","Bloomfield Hills","Cadillac","Charlevoix","Cheboygan","Dearborn","Detroit","East Lansing","Eastpointe","Ecorse","Escanaba","Flint","Grand Haven","Grand Rapids","Grayling","Grosse Pointe","Hancock","Highland Park","Holland","Houghton","Interlochen","Iron Mountain","Ironwood","Ishpeming","Jackson","Kalamazoo","Lansing","Livonia","Ludington","Mackinaw City","Manistee","Marquette","Menominee","Midland","Monroe","Mount Clemens","Mount Pleasant","Muskegon","Niles","Petoskey","Pontiac","Port Huron","Royal Oak","Saginaw","Saint Ignace","Saint Joseph","Sault Sainte Marie","Traverse City","Trenton","Warren","Wyandotte","Ypsilanti"],
+
+        "Minnesota": Albert Lea
+        Alexandria
+        Austin
+        Bemidji
+        Bloomington
+        Brainerd
+        Crookston
+        Duluth
+        Ely
+        Eveleth
+        Faribault
+        Fergus Falls
+        Hastings
+        Hibbing
+        International Falls
+        Little Falls
+        Mankato
+        Minneapolis
+        Moorhead
+        New Ulm
+        Northfield
+        Owatonna
+        Pipestone
+        Red Wing
+        Rochester
+        Saint Cloud
+        Saint Paul
+        Sauk Centre
+        South Saint Paul
+        Stillwater
+        Virginia
+        Willmar
+        Winona        
 }`)
 
 export default data1
