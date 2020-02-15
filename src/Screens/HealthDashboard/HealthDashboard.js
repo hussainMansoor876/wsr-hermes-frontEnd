@@ -358,7 +358,7 @@ class Dashboard extends React.Component {
     }
 
     updateChart() {
-        const { StartDateValue, endDate } = this.state
+        const { StartDateValue, endDate, allData } = this.state
         this.setState({ loading: false })
         var topData = { ...this.state.topData }
         var histData = { ...this.state.salePriceHist }
@@ -370,6 +370,7 @@ class Dashboard extends React.Component {
         var sortableId = []
         var sortableVal = []
         var allObj = {}
+        var sortableName = []
         var month = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var monthLine = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         axios.post('https://wsr-hermes-server.herokuapp.com/admin/getAll', {
@@ -438,6 +439,17 @@ class Dashboard extends React.Component {
 
                         sortableId = sortable.map(v => v[0])
                         sortableVal = sortable.map(v => v[1])
+
+                        for (var k of sortableId) {
+                            console.log('k', k)
+                            for (var d of allData) {
+                                if (d._id === k) {
+                                    sortableName.push(d.fname)
+                                }
+                            }
+                        }
+                        AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
+                        AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
                     }
                     for (var j in obj) {
                         arr.push(obj[j])
@@ -446,7 +458,7 @@ class Dashboard extends React.Component {
                         loading: true, topData: topData, saleTypeChart: {
                             ...this.state.saleTypeChart, series: arr
                         }, salePriceHist: histData, lineChart: lineData,
-                        SaleAmountChart: saleAmount
+                        SaleAmountChart: saleAmount, AgentChart: AgentData
                     })
                 }
 
