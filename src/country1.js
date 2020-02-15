@@ -60,7 +60,11 @@ var data1 = JSON.parse(`{
 
         "New Mexico": ["Acoma","Alamogordo","Albuquerque","Artesia","Belen","Carlsbad","Clovis","Deming","Farmington","Gallup","Grants","Hobbs","Las Cruces","Las Vegas","Los Alamos","Lovington","Portales","Raton","Roswell","Santa Fe","Shiprock","Silver City","Socorro","Taos","Truth or Consequences","Tucumcari"],
 
-        "New York": 
+        "New York": ["Albany","Amsterdam","Auburn","Babylon","Batavia","Beacon","Bedford","Binghamton","Bronx","Brooklyn","Buffalo","Chautauqua","Cheektowaga","Clinton","Cohoes","Coney Island","Cooperstown","Corning","Cortland","Crown Point","Dunkirk","East Aurora","East Hampton","Eastchester","Elmira","Flushing","Forest Hills","Fredonia","Garden City","Geneva","Glens Falls","Gloversville","Great Neck","Hammondsport","Harlem","Hempstead","Herkimer","Hudson","Huntington","Hyde Park","Ilion","Ithaca","Jamestown","Johnstown","Kingston","Lackawanna","Lake Placid","Levittown","Lockport","Mamaroneck","Manhattan","Massena","Middletown","Mineola","Mount Vernon","New Paltz","New Rochelle","New Windsor","New York City","Newburgh","Niagara Falls","North Hempstead","Nyack","Ogdensburg","Olean","Oneida","Oneonta","Ossining","Oswego","Oyster Bay","Palmyra","Peekskill","Plattsburgh","Port Washington","Potsdam","Poughkeepsie","Queens","Rensselaer","Rochester","Rome","Rotterdam","Rye","Sag Harbor","Saranac Lake","Saratoga Springs","Scarsdale","Schenectady","Seneca Falls","Southampton","Staten Island","Stony Brook","Stony Point","Syracuse","Tarrytown","Ticonderoga","Tonawanda","Troy","Utica","Watertown","Watervliet","Watkins Glen","West Seneca","White Plains","Woodstock","Yonkers"],
+
+        "North Carolina": ["Asheboro","Asheville","Bath","Beaufort","Boone","Burlington","Chapel Hill","Charlotte","Concord","Durham","Edenton","Elizabeth City","Fayetteville","Gastonia","Goldsboro","Greensboro","Greenville","Halifax","Henderson","Hickory","High Point","Hillsborough","Jacksonville","Kinston","Kitty Hawk","Lumberton","Morehead City","Morganton","Nags Head","New Bern","Pinehurst","Raleigh","Rocky Mount","Salisbury","Shelby","Washington","Wilmington","Wilson","Winston-Salem"],
+        
+        
 }`)
 
 export default data1
