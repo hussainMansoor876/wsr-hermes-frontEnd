@@ -76,7 +76,27 @@ var data1 = JSON.parse(`{
 
         "Rhode Island": ["Barrington","Bristol","Central Falls","Cranston","East Greenwich","East Providence","Kingston","Middletown","Narragansett","Newport","North Kingstown","Pawtucket","Portsmouth","Providence","South Kingstown","Tiverton","Warren","Warwick","Westerly","Wickford","Woonsocket"],
 
-        
+        "South Carolina": ["Abbeville","Aiken","Anderson","Beaufort","Camden","Charleston","Columbia","Darlington","Florence","Gaffney","Georgetown","Greenville","Greenwood","Hartsville","Lancaster","Mount Pleasant","Myrtle Beach","Orangeburg","Rock Hill","Spartanburg","Sumter","Union"],
+
+        "South Dakota": ["Aberdeen","Belle Fourche","Brookings","Canton","Custer","De Smet","Deadwood","Hot Springs","Huron","Lead","Madison","Milbank","Mitchell","Mobridge","Pierre","Rapid City","Sioux Falls","Spearfish","Sturgis","Vermillion","Watertown","Yankton"],
+
+        "Tennessee": ["Alcoa","Athens","Chattanooga","Clarksville","Cleveland","Columbia","Cookeville","Dayton","Elizabethton","Franklin","Gallatin","Gatlinburg","Greeneville","Jackson","Johnson City","Jonesborough","Kingsport","Knoxville","Lebanon","Maryville","Memphis","Morristown","Murfreesboro","Nashville","Norris","Oak Ridge","Shelbyville","Tullahoma"],
+
+        "Texas": ["Abilene","Alpine","Amarillo","Arlington","Austin","Baytown","Beaumont","Big Spring","Borger","Brownsville","Bryan","Canyon","Cleburne","College Station","Corpus Christi","Crystal City","Dallas","Del Rio","Denison","Denton","Eagle Pass","Edinburg","El Paso","Fort Worth","Freeport","Galveston","Garland","Goliad","Greenville","Harlingen","Houston","Huntsville","Irving","Johnson City","Kilgore","Killeen","Kingsville","Laredo","Longview","Lubbock","Lufkin","Marshall","McAllen","McKinney","Mesquite","Midland","Mission","Nacogdoches","New Braunfels","Odessa","Orange","Pampa","Paris","Pasadena","Pecos","Pharr","Plainview","Plano","Port Arthur","Port Lavaca","Richardson","San Angelo","San Antonio","San Felipe","San Marcos","Sherman","Sweetwater","Temple","Texarkana","Texas City","Tyler","Uvalde","Victoria","Waco","Weatherford","Wichita Falls","Ysleta"],
+
+        "Utah": ["Alta","American Fork","Bountiful","Brigham City","Cedar City","Clearfield","Delta","Fillmore","Green River","Heber City","Kanab","Layton","Lehi","Logan","Manti","Moab","Monticello","Murray","Nephi","Ogden","Orderville","Orem","Panguitch","Park City","Payson","Price","Provo","Saint George","Salt Lake City","Spanish Fork","Springville","Tooele","Vernal"],
+
+        "Vermont": ["Barre","Bellows Falls","Bennington","Brattleboro","Burlington","Essex","Manchester","Middlebury","Montpelier","Newport","Plymouth","Rutland","Saint Albans","Saint Johnsbury","Sharon","Winooski"],
+
+        "Virginia": ["Abingdon","Alexandria","Bristol","Charlottesville","Chesapeake","Danville","Fairfax","Falls Church","Fredericksburg","Hampton","Hanover","Hopewell","Lexington","Lynchburg","Manassas","Martinsville","New Market","Newport News","Norfolk","Petersburg","Portsmouth","Reston","Richmond","Roanoke","Staunton","Suffolk","Virginia Beach","Waynesboro","Williamsburg","Winchester"],
+
+        "Washington": ["Aberdeen","Anacortes","Auburn","Bellevue","Bellingham","Bremerton","Centralia","Coulee Dam","Coupeville","Ellensburg","Ephrata","Everett","Hoquiam","Kelso","Kennewick","Longview","Moses Lake","Oak Harbor","Olympia","Pasco","Point Roberts","Port Angeles","Pullman","Puyallup","Redmond","Renton","Richland","Seattle","Spokane","Tacoma","Vancouver","Walla Walla","Wenatchee","Yakima"],
+
+        "West Virginia": ["Bath","Beckley","Bluefield","Buckhannon","Charles Town","Charleston","Clarksburg","Elkins","Fairmont","Grafton","Harpers Ferry","Hillsboro","Hinton","Huntington","Keyser","Lewisburg","Logan","Martinsburg","Morgantown","Moundsville","New Martinsville","Parkersburg","Philippi","Point Pleasant","Princeton","Romney","Shepherdstown","South Charleston","Summersville","Weirton","Welch","Wellsburg","Weston","Wheeling","White Sulphur Springs","Williamson"],
+
+        "Wisconsin": ["Appleton","Ashland","Baraboo","Belmont","Beloit","Eau Claire","Fond du Lac","Green Bay","Hayward","Janesville","Kenosha","La Crosse","Lake Geneva","Madison","Manitowoc","Marinette","Menasha","Milwaukee","Neenah","New Glarus","Oconto","Oshkosh","Peshtigo","Portage","Prairie du Chien","Racine","Rhinelander","Ripon","Sheboygan","Spring Green","Stevens Point","Sturgeon Bay","Superior","Waukesha","Wausau","Wauwatosa","West Allis","West Bend","Wisconsin Dells"],
+
+        "Wyoming": ["Buffalo","Casper","Cheyenne","Cody","Douglas","Evanston","Gillette","Green River","Jackson","Lander","Laramie","Newcastle","Powell","Rawlins","Riverton","Rock Springs","Sheridan","Ten Sleep","Thermopolis","Torrington","Worland"]
 }`)
 
 export default data1
