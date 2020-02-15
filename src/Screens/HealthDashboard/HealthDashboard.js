@@ -302,7 +302,6 @@ class Dashboard extends React.Component {
                                     }
                                 }
                             }
-                            console.log('sort', sortableName)
                             AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
                             AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
                             axios.post(`https://wsr-hermes-server.herokuapp.com/admin/get-user/${allData[0]._id}`, {
@@ -613,12 +612,12 @@ class Dashboard extends React.Component {
                                 justifyContent: 'space-between'
                             }}>
                                 <ButtonGroup>
-                                    <Button>Top 10</Button>
+                                    <Button className="btn-group">Top 10</Button>
                                     <Button>Bottom 10</Button>
                                 </ButtonGroup>
                                 <h4>Agent Performance</h4>
                                 <ButtonGroup>
-                                    <Button>Sales Volume</Button>
+                                    <Button className="btn-group1">Sales Volume</Button>
                                     <Button>Sales Amount</Button>
                                     <Button>Recruits</Button>
                                 </ButtonGroup>
