@@ -165,7 +165,7 @@ class Submission extends React.Component {
                                             <Select
                                                 showSearch
                                                 style={{ backgroundColor: '#fff' }}
-                                                placeholder="Select a Country"
+                                                placeholder="Select State"
                                                 optionFilterProp="children"
                                                 onSelect={(e) => this.setState({ city: data[e] })}
                                                 filterOption={(input, option) =>
