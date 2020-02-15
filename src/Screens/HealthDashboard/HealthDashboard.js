@@ -472,7 +472,7 @@ class Dashboard extends React.Component {
     }
 
     updateData(e) {
-        const { dashData, allData, AgentChart } = this.state
+        const { dashData, allData, AgentChart, currentVal } = this.state
         var AgentData = { ...AgentChart }
         var sortableId = []
         var sortableVal = []
@@ -495,7 +495,16 @@ class Dashboard extends React.Component {
                 if (!allObj[j.agentId]) {
                     allObj[j.agentId] = 0
                 }
-                allObj[j.agentId] += 1
+
+                if (currentVal === "volume") {
+                    allObj[j.agentId] += 1
+                }
+                else if (currentVal === "amount") {
+                    allObj[j.agentId] += j.soldPrice
+                }
+                else{
+                    allObj[j.agentId] += 1
+                }
             }
 
             var sortable = [];
@@ -607,7 +616,8 @@ class Dashboard extends React.Component {
 
             this.setState({
                 AgentChart: AgentData,
-                loadingChart: true
+                loadingChart: true,
+                currentVal: e.id
             })
 
         })
