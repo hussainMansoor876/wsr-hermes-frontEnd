@@ -267,12 +267,9 @@ class Dashboard extends React.Component {
                             sortable.push([vehicle, allObj[vehicle]]);
                         }
 
-                        sortable.sort(function (a, b) {
+                        sortable.sort((a, b) => {
                             return a[1] - b[1];
-                        });
-                        var list = { "you": 100, "me": 75, "foo": 116, "bar": 15 };
-                        var keysSorted = Object.keys(allObj).sort(function (a, b) { return list[a] - list[b] }).reverse()
-                        console.log(keysSorted);
+                        })
 
                         console.log('allObj', allObj)
                         console.log('sortable', sortable)
