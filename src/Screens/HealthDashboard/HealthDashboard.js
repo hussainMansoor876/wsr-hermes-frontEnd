@@ -431,6 +431,19 @@ class Dashboard extends React.Component {
             })
     }
 
+    updateData(e) {
+        var ids = ["top10", "bottom10"]
+        console.log(e)
+        for (var i of ids) {
+            if (i === e.id) {
+                document.getElementById(e.id).className = "ant-btn btn-group"
+            }
+            else {
+                document.getElementById(i).className = "ant-btn"
+            }
+        }
+    }
+
 
     render() {
         const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart, AgentChart } = this.state
@@ -612,14 +625,14 @@ class Dashboard extends React.Component {
                                 justifyContent: 'space-between'
                             }}>
                                 <ButtonGroup>
-                                    <Button className="btn-group">Top 10</Button>
-                                    <Button>Bottom 10</Button>
+                                    <Button className="btn-group" onClick={(e) => this.updateData(e.target)} id="top10">Top 10</Button>
+                                    <Button id="bottom10" onClick={(e) => this.updateData(e.target)}>Bottom 10</Button>
                                 </ButtonGroup>
                                 <h4>Agent Performance</h4>
                                 <ButtonGroup>
-                                    <Button className="btn-group1">Sales Volume</Button>
-                                    <Button>Sales Amount</Button>
-                                    <Button>Recruits</Button>
+                                    <Button className="btn-group1" id="volume">Sales Volume</Button>
+                                    <Button id="amount">Sales Amount</Button>
+                                    <Button id="recruits">Recruits</Button>
                                 </ButtonGroup>
                             </div>
                             <Chart options={AgentChart.options} series={AgentChart.series} type="bar" height={270} />
