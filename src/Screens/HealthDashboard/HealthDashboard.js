@@ -433,7 +433,18 @@ class Dashboard extends React.Component {
 
     updateData(e) {
         var ids = ["top10", "bottom10"]
-        console.log(e)
+        for (var i of ids) {
+            if (i === e.id) {
+                document.getElementById(e.id).className = "ant-btn btn-group"
+            }
+            else {
+                document.getElementById(i).className = "ant-btn"
+            }
+        }
+    }
+
+    updateData1(e) {
+        var ids = ["volume", "amount", "recruits"]
         for (var i of ids) {
             if (i === e.id) {
                 document.getElementById(e.id).className = "ant-btn btn-group"
@@ -630,9 +641,9 @@ class Dashboard extends React.Component {
                                 </ButtonGroup>
                                 <h4>Agent Performance</h4>
                                 <ButtonGroup>
-                                    <Button className="btn-group1" id="volume">Sales Volume</Button>
-                                    <Button id="amount">Sales Amount</Button>
-                                    <Button id="recruits">Recruits</Button>
+                                    <Button className="btn-group1" id="volume" onClick={(e) => this.updateData1(e.target)}>Sales Volume</Button>
+                                    <Button id="amount" onClick={(e) => this.updateData1(e.target)}>Sales Amount</Button>
+                                    <Button id="recruits" onClick={(e) => this.updateData1(e.target)}>Recruits</Button>
                                 </ButtonGroup>
                             </div>
                             <Chart options={AgentChart.options} series={AgentChart.series} type="bar" height={270} />
