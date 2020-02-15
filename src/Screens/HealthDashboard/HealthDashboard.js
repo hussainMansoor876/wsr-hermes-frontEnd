@@ -537,7 +537,7 @@ class Dashboard extends React.Component {
 
     updateData1(e) {
         var ids = ["volume", "amount", "recruits"]
-        const { dashData, allData, AgentChart } = this.state
+        const { dashData, allData, AgentChart, currentTop } = this.state
         var AgentData = { ...AgentChart }
         var sortableId = []
         var sortableVal = []
@@ -560,15 +560,19 @@ class Dashboard extends React.Component {
                 if (!allObj[j.agentId]) {
                     allObj[j.agentId] = 0
                 }
-                allObj[j.agentId] += j.saleAmount
+
+                console.log(j)
+                allObj[j.agentId] += j.soldPrice
             }
+
+            console.log('obj', allObj)
 
             var sortable = [];
             for (var vehicle in allObj) {
                 sortable.push([vehicle, allObj[vehicle]]);
             }
 
-            if (e.id === "top10") {
+            if (currentTop === "top10") {
                 sortable.sort((a, b) => {
                     return a[1] - b[1];
                 }).reverse()
