@@ -307,7 +307,7 @@ class Review extends React.Component {
                                                     <Select
                                                         showSearch
                                                         style={{ backgroundColor: '#fff' }}
-                                                        placeholder="Select a Country"
+                                                        placeholder="Select State"
                                                         optionFilterProp="children"
                                                         onSelect={(e) => this.setState({ city: dataCountry[e] })}
                                                         filterOption={(input, option) =>
