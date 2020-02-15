@@ -117,27 +117,29 @@ class Dashboard extends React.Component {
                     }]
                 }
             },
-            series2: [{
-                data: []
-            }],
-            options2: {
-                chart: {
-                    type: 'bar',
-                    height: 350
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: true,
+            AgentChart: {
+                series: [{
+                    data: []
+                }],
+                options: {
+                    chart: {
+                        type: 'bar',
+                        height: 350
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: true,
+                        }
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    title: {
+                        text: 'Agent Performance'
+                    },
+                    xaxis: {
+                        categories: [],
                     }
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                title: {
-                    text: 'Agent Performance'
-                },
-                xaxis: {
-                    categories: [],
                 }
             },
             allData: [],
@@ -207,7 +209,6 @@ class Dashboard extends React.Component {
         var lineData = { ...this.state.lineChart }
         var saleAmount = { ...this.state.SaleAmountChart }
         var sortableId = []
-        var sortableVal = []
         var month = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var monthLine = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
@@ -432,7 +433,7 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart } = this.state
+        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart, AgentChart } = this.state
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
@@ -614,7 +615,7 @@ class Dashboard extends React.Component {
                                     <Button>Bottom 10</Button>
                                 </ButtonGroup>
                             </div>
-                            <Chart options={this.state.options2} series={this.state.series2} type="bar" height={270} />
+                            <Chart options={AgentChart.options} series={AgentChart.series} type="bar" height={270} />
                         </div>
                         <div className="div5">
                             <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} />
