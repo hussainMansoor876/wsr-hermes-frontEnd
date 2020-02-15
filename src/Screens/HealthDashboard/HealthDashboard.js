@@ -208,7 +208,7 @@ class Dashboard extends React.Component {
         var histData = { ...this.state.salePriceHist }
         var lineData = { ...this.state.lineChart }
         var saleAmount = { ...this.state.SaleAmountChart }
-        var AgentDate = { ...this.state.AgentChart }
+        var AgentData = { ...this.state.AgentChart }
         var sortableId = []
         var sortableVal = []
         var month = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
@@ -283,7 +283,7 @@ class Dashboard extends React.Component {
                         arr.push(obj[j])
                     }
                     this.setState({
-                        loading: true, topData: topData, saleTypeChart: {
+                        topData: topData, saleTypeChart: {
                             ...this.state.saleTypeChart, series: arr
                         }, salePriceHist: histData, lineChart: lineData,
                         SaleAmountChart: saleAmount
@@ -306,6 +306,8 @@ class Dashboard extends React.Component {
                                 }
                             }
                             console.log('sort', sortableName)
+                            AgentData.series[0].data = sortableVal
+                            AgentData.options.xaxis.categories = sortableName
                             axios.post(`https://wsr-hermes-server.herokuapp.com/admin/get-user/${allData[0]._id}`, {
                                 startDate: startDate.toArray(),
                                 endDate: endDate.toArray()
@@ -321,7 +323,9 @@ class Dashboard extends React.Component {
                                     this.setState({
                                         currentAgent: response.data.data,
                                         stats: stats,
-                                    })
+                                        AgentChart: AgentData,
+                                        loading: true
+                                    }, () => console.log('this', this.state.AgentChart))
                                 })
                         })
                     })
