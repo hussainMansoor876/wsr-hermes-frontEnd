@@ -208,7 +208,9 @@ class Dashboard extends React.Component {
         var histData = { ...this.state.salePriceHist }
         var lineData = { ...this.state.lineChart }
         var saleAmount = { ...this.state.SaleAmountChart }
+        var AgentDate = { ...this.state.AgentChart }
         var sortableId = []
+        var sortableVal = []
         var month = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var monthLine = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
