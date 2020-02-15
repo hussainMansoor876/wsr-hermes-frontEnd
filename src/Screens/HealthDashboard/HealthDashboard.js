@@ -206,6 +206,8 @@ class Dashboard extends React.Component {
         var histData = { ...this.state.salePriceHist }
         var lineData = { ...this.state.lineChart }
         var saleAmount = { ...this.state.SaleAmountChart }
+        var sortableId = []
+        var sortableVal = []
         var month = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var monthLine = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
@@ -271,7 +273,8 @@ class Dashboard extends React.Component {
                             return a[1] - b[1];
                         })
 
-                        console.log('allObj', allObj)
+                        sortableId = sortable.map(v => v[0])
+                        sortableVal = sortable.map(v => v[1])
                         console.log('sortable', sortable)
                     }
                     for (var j in obj) {
@@ -285,34 +288,41 @@ class Dashboard extends React.Component {
                     })
                 }
 
-            })
-        await axios.get('https://wsr-hermes-server.herokuapp.com/admin/getusers')
-            .then((res) => {
-                var { data } = res.data
-                topData.activeAgent = data.length
-                this.setState({ allData: data, topData: topData }, () => {
-                    var { allData, stats } = this.state
-                    console.log('allData', allData)
-                    axios.post(`https://wsr-hermes-server.herokuapp.com/admin/get-user/${allData[0]._id}`, {
-                        startDate: startDate.toArray(),
-                        endDate: endDate.toArray()
-                    })
-                        .then((response) => {
-                            var { data } = response
-                            stats.deal = data.data.length
-                            for (var i of data.data) {
-                                stats.revenue += i.paidAmount
-                                stats.sales += i.soldPrice
-                            }
-                            console.log(stats)
-                            this.setState({
-                                currentAgent: response.data.data,
-                                stats: stats,
+                axios.get('https://wsr-hermes-server.herokuapp.com/admin/getusers')
+                    .then((res) => {
+                        var { data } = res.data
+                        topData.activeAgent = data.length
+                        this.setState({ allData: data, topData: topData }, () => {
+                            var { allData, stats } = this.state
+                            sortableId = sortableId.map(v => {
+                                for (var d of allData) {
+                                    if (d._id === v) {
+                                        return d.name
+                                    }
+                                }
                             })
+                            console.log('sort', sortableId)
+                            axios.post(`https://wsr-hermes-server.herokuapp.com/admin/get-user/${allData[0]._id}`, {
+                                startDate: startDate.toArray(),
+                                endDate: endDate.toArray()
+                            })
+                                .then((response) => {
+                                    var { data } = response
+                                    stats.deal = data.data.length
+                                    for (var i of data.data) {
+                                        stats.revenue += i.paidAmount
+                                        stats.sales += i.soldPrice
+                                    }
+                                    console.log(stats)
+                                    this.setState({
+                                        currentAgent: response.data.data,
+                                        stats: stats,
+                                    })
+                                })
                         })
-                })
+                    })
+                    .catch((err) => console.log(err))
             })
-            .catch((err) => console.log(err))
     }
 
     async getUpdate(id) {
