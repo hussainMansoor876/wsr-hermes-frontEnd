@@ -483,43 +483,53 @@ class Dashboard extends React.Component {
             }
         }
 
-        for (var j of dashData) {
-            if (!allObj[j.agentId]) {
-                allObj[j.agentId] = 0
-            }
-            allObj[j.agentId] += 1
-        }
-
-        var sortable = [];
-        for (var vehicle in allObj) {
-            sortable.push([vehicle, allObj[vehicle]]);
-        }
-
-        if (e.id === "top10") {
-            sortable.sort((a, b) => {
-                return a[1] - b[1];
-            }).reverse()
-        }
-
-        else {
-            sortable.sort((a, b) => {
-                return a[1] - b[1];
-            })
-        }
-
-        sortableId = sortable.map(v => v[0])
-        sortableVal = sortable.map(v => v[1])
-
-        for (var k of sortableId) {
-            console.log('k', k)
-            for (var d of allData) {
-                if (d._id === k) {
-                    sortableName.push(d.fname)
+        setTimeout(() => {
+            this.setState({
+                loading: false
+            }, () => {
+                for (var j of dashData) {
+                    if (!allObj[j.agentId]) {
+                        allObj[j.agentId] = 0
+                    }
+                    allObj[j.agentId] += 1
                 }
-            }
-        }
-        AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
-        AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
+
+                var sortable = [];
+                for (var vehicle in allObj) {
+                    sortable.push([vehicle, allObj[vehicle]]);
+                }
+
+                if (e.id === "top10") {
+                    sortable.sort((a, b) => {
+                        return a[1] - b[1];
+                    }).reverse()
+                }
+
+                else {
+                    sortable.sort((a, b) => {
+                        return a[1] - b[1];
+                    })
+                }
+
+                sortableId = sortable.map(v => v[0])
+                sortableVal = sortable.map(v => v[1])
+
+                for (var k of sortableId) {
+                    console.log('k', k)
+                    for (var d of allData) {
+                        if (d._id === k) {
+                            sortableName.push(d.fname)
+                        }
+                    }
+                }
+                AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
+                AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
+
+                this.setState({
+                    AgentChart: AgentData
+                })
+            })
+        }, 500)
     }
 
     updateData1(e) {
