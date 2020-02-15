@@ -56,69 +56,9 @@ var data1 = JSON.parse(`{
 
         "New Hampshire": ["Berlin","Claremont","Concord","Derry","Dover","Durham","Exeter","Franklin","Hanover","Hillsborough","Keene","Laconia","Lebanon","Manchester","Nashua","Peterborough","Plymouth","Portsmouth","Rochester","Salem","Somersworth"],
         
-        "New Jersey": Asbury Park
-        Atlantic City
-        Bayonne
-        Bloomfield
-        Bordentown
-        Bound Brook
-        Bridgeton
-        Burlington
-        Caldwell
-        Camden
-        Cape May
-        Clifton
-        Cranford
-        East Orange
-        Edison
-        Elizabeth
-        Englewood
-        Fort Lee
-        Glassboro
-        Hackensack
-        Haddonfield
-        Hoboken
-        Irvington
-        Jersey City
-        Lakehurst
-        Lakewood
-        Long Beach
-        Long Branch
-        Madison
-        Menlo Park
-        Millburn
-        Millville
-        Montclair
-        Morristown
-        Mount Holly
-        New Brunswick
-        New Milford
-        Newark
-        Ocean City
-        Orange
-        Parsippany–Troy Hills
-        Passaic
-        Paterson
-        Perth Amboy
-        Plainfield
-        Princeton
-        Ridgewood
-        Roselle
-        Rutherford
-        Salem
-        Somerville
-        South Orange Village
-        Totowa
-        Trenton
-        Union
-        Union City
-        Vineland
-        Wayne
-        Weehawken
-        West New York
-        West Orange
-        Willingboro
-        Woodbridge
+        "New Jersey": ["Asbury Park","Atlantic City","Bayonne","Bloomfield","Bordentown","Bound Brook","Bridgeton","Burlington","Caldwell","Camden","Cape May","Clifton","Cranford","East Orange","Edison","Elizabeth","Englewood","Fort Lee","Glassboro","Hackensack","Haddonfield","Hoboken","Irvington","Jersey City","Lakehurst","Lakewood","Long Beach","Long Branch","Madison","Menlo Park","Millburn","Millville","Montclair","Morristown","Mount Holly","New Brunswick","New Milford","Newark","Ocean City","Orange","Parsippany–Troy Hills","Passaic","Paterson","Perth Amboy","Plainfield","Princeton","Ridgewood","Roselle","Rutherford","Salem","Somerville","South Orange Village","Totowa","Trenton","Union","Union City","Vineland","Wayne","Weehawken","West New York","West Orange","Willingboro","Woodbridge"],
+
+        "New Mexico"
 }`)
 
 export default data1
