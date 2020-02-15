@@ -323,6 +323,8 @@ class Dashboard extends React.Component {
                                         stats: stats,
                                         AgentChart: AgentData,
                                         loading: true
+                                    }, () => {
+                                        document.getElementById("top10").className = "ant-btn btn-group"
                                     })
                                 })
                         })
@@ -483,53 +485,50 @@ class Dashboard extends React.Component {
             }
         }
 
-        setTimeout(() => {
-            this.setState({
-                loading: false
-            }, () => {
-                for (var j of dashData) {
-                    if (!allObj[j.agentId]) {
-                        allObj[j.agentId] = 0
-                    }
-                    allObj[j.agentId] += 1
-                }
 
-                var sortable = [];
-                for (var vehicle in allObj) {
-                    sortable.push([vehicle, allObj[vehicle]]);
-                }
 
-                if (e.id === "top10") {
-                    sortable.sort((a, b) => {
-                        return a[1] - b[1];
-                    }).reverse()
-                }
+        for (var j of dashData) {
+            if (!allObj[j.agentId]) {
+                allObj[j.agentId] = 0
+            }
+            allObj[j.agentId] += 1
+        }
 
-                else {
-                    sortable.sort((a, b) => {
-                        return a[1] - b[1];
-                    })
-                }
+        var sortable = [];
+        for (var vehicle in allObj) {
+            sortable.push([vehicle, allObj[vehicle]]);
+        }
 
-                sortableId = sortable.map(v => v[0])
-                sortableVal = sortable.map(v => v[1])
+        if (e.id === "top10") {
+            sortable.sort((a, b) => {
+                return a[1] - b[1];
+            }).reverse()
+        }
 
-                for (var k of sortableId) {
-                    console.log('k', k)
-                    for (var d of allData) {
-                        if (d._id === k) {
-                            sortableName.push(d.fname)
-                        }
-                    }
-                }
-                AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
-                AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
-
-                this.setState({
-                    AgentChart: AgentData
-                })
+        else {
+            sortable.sort((a, b) => {
+                return a[1] - b[1];
             })
-        }, 500)
+        }
+
+        sortableId = sortable.map(v => v[0])
+        sortableVal = sortable.map(v => v[1])
+
+        for (var k of sortableId) {
+            console.log('k', k)
+            for (var d of allData) {
+                if (d._id === k) {
+                    sortableName.push(d.fname)
+                }
+            }
+        }
+        AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
+        AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
+
+        this.setState({
+            AgentChart: AgentData,
+            loading: true
+        })
     }
 
     updateData1(e) {
@@ -725,7 +724,7 @@ class Dashboard extends React.Component {
                                 justifyContent: 'space-between'
                             }}>
                                 <ButtonGroup>
-                                    <Button className="btn-group" onClick={(e) => this.updateData(e.target)} id="top10">Top 10</Button>
+                                    <Button onClick={(e) => this.updateData(e.target)} id="top10">Top 10</Button>
                                     <Button id="bottom10" onClick={(e) => this.updateData(e.target)}>Bottom 10</Button>
                                 </ButtonGroup>
                                 <h4>Agent Performance</h4>
