@@ -275,7 +275,6 @@ class Dashboard extends React.Component {
 
                         sortableId = sortable.map(v => v[0])
                         sortableVal = sortable.map(v => v[1])
-                        console.log('sortable', sortable)
                     }
                     for (var j in obj) {
                         arr.push(obj[j])
@@ -291,17 +290,19 @@ class Dashboard extends React.Component {
                 axios.get('https://wsr-hermes-server.herokuapp.com/admin/getusers')
                     .then((res) => {
                         var { data } = res.data
+                        var sortableName = []
                         topData.activeAgent = data.length
                         this.setState({ allData: data, topData: topData }, () => {
                             var { allData, stats } = this.state
-                            sortableId = sortableId.map(v => {
+                            for (var k of sortableId) {
+                                console.log('k', k)
                                 for (var d of allData) {
-                                    if (d._id === v) {
-                                        return d.name
+                                    if (d._id === k) {
+                                        sortableName.push(d.fname)
                                     }
                                 }
-                            })
-                            console.log('sort', sortableId)
+                            }
+                            console.log('sort', sortableName)
                             axios.post(`https://wsr-hermes-server.herokuapp.com/admin/get-user/${allData[0]._id}`, {
                                 startDate: startDate.toArray(),
                                 endDate: endDate.toArray()
