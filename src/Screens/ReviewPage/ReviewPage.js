@@ -450,7 +450,7 @@ class Review extends React.Component {
                                                     <DatePicker style={{ width: '100%' }} />,
                                                 )}
                                             </Form.Item>
-                                            <List
+                                            {viewForm.files.length ? <List
                                                 style={{ backgroundColor: '#fff', marginBottom: 10 }}
                                                 itemLayout="horizontal"
                                                 dataSource={viewForm.files ? viewForm.files : []}
@@ -470,7 +470,7 @@ class Review extends React.Component {
                                                         </Skeleton>
                                                     </List.Item>
                                                 )}
-                                            />
+                                            /> : null}
                                             <Form.Item className="sign-up">
                                                 {getFieldDecorator('upload', {
                                                     valuePropName: 'fileList',

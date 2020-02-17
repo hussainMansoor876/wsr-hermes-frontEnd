@@ -58,16 +58,12 @@ class Submission extends React.Component {
 
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                // if (!validator.isAlpha(values.clientName)) {
-                //     return toast.error("Client Name Must be an alphabet!!!");
-                // }
-                // else if (!validator.isAlphanumeric(values.title)) {
-                //     return toast.error("Title Must be an alphaNumeric!!!");
-                // }
                 this.setState({ loading: true, disable: true })
                 var formData = new FormData();
-                for (var i = 0; i < values.upload.length; i++) {
-                    formData.append(`upload${i}`, values.upload[i].originFileObj)
+                if (values.upload) {
+                    for (var i = 0; i < values.upload.length; i++) {
+                        formData.append(`upload${i}`, values.upload[i].originFileObj)
+                    }
                 }
                 formData.append('agentId', values.agentId)
                 formData.append('clientName', values.clientName)
