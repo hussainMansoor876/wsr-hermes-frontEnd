@@ -5,7 +5,7 @@ import Loader from '../../Components/Loader';
 import logo from '../../assets/images/logo-dark.png';
 import Header from '../Header/Header'
 import { Link } from 'react-router-dom'
-import dataCountry from '../../country'
+import dataCountry from '../../city'
 import validator from 'validator'
 import { toast } from 'react-toastify';
 import axios from 'axios'
