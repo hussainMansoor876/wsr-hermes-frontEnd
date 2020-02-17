@@ -243,7 +243,6 @@ class Dashboard extends React.Component {
                             monthLine[moment(i.timestamp).month()] += 1
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
-                            console.log(typeof(i.paidAmount) === "string" && i._id)
                             obj[i.saleType] += i.paidAmount
                             allObj[i.agentId] += 1
                             if (i.soldPrice <= maxVal) {
