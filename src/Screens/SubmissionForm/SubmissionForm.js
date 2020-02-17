@@ -54,6 +54,8 @@ class Submission extends React.Component {
 
     handleSubmit = e => {
 
+        const { user } = this.props
+
         e.preventDefault();
 
         this.props.form.validateFields((err, values) => {
@@ -65,7 +67,7 @@ class Submission extends React.Component {
                         formData.append(`upload${i}`, values.upload[i].originFileObj)
                     }
                 }
-                formData.append('agentId', values.agentId)
+                formData.append('agentId', user._id)
                 formData.append('clientName', values.clientName)
                 formData.append('streetAddress', values.streetAddress)
                 formData.append('country', values.country)
@@ -116,15 +118,13 @@ class Submission extends React.Component {
                                     <Form.Item
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
-                                        {getFieldDecorator('agentId', {
-                                            initialValue: user && user._id,
+                                        {getFieldDecorator('agentName', {
                                             rules: [{ required: true, message: 'Please input your First Name!' }],
                                         })(
                                             <Input
                                                 minLength={3}
                                                 type="text"
-                                                disabled={true}
-                                                placeholder="Agent Id"
+                                                placeholder="Agent Name"
                                             />,
                                         )}
                                     </Form.Item>
@@ -233,7 +233,7 @@ class Submission extends React.Component {
                                         })(
                                             <Input
                                                 type="number"
-                                                placeholder="Sold Price"
+                                                placeholder="$ XXX,XXX.XX"
                                             />,
                                         )}
                                     </Form.Item>
@@ -302,7 +302,7 @@ class Submission extends React.Component {
                                         {getFieldDecorator('paidDate', {
                                             rules: [{ required: true, message: 'Please input your Last Name!' }],
                                         })(
-                                            <DatePicker style={{ width: '100%' }} />,
+                                            <DatePicker style={{ width: '100%' }} placeholder="Submission Date" />,
                                         )}
                                     </Form.Item>
 
