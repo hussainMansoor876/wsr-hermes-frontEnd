@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { Form, Icon, Input, Button, notification, Select, DatePicker } from 'antd';
 import Loader from '../../Components/Loader';
-import data from '../../country'
+import data from '../../city'
 import logo from '../../assets/images/logo-dark.png';
 import validator from 'validator'
 import { toast } from 'react-toastify';
@@ -222,7 +222,7 @@ class Signup extends React.Component {
                                                     <Select
                                                         showSearch
                                                         style={{ backgroundColor: '#fff' }}
-                                                        placeholder="Select a Country"
+                                                        placeholder="Select State"
                                                         optionFilterProp="children"
                                                         onSelect={(e) => this.setState({ city: data[e] })}
                                                         filterOption={(input, option) =>
