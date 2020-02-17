@@ -243,6 +243,7 @@ class Dashboard extends React.Component {
                             monthLine[moment(i.timestamp).month()] += 1
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
+                            console.log(typeof(i.paidAmount) === "string" && i._id)
                             obj[i.saleType] += i.paidAmount
                             allObj[i.agentId] += 1
                             if (i.soldPrice <= maxVal) {
@@ -280,6 +281,7 @@ class Dashboard extends React.Component {
                         sortableId = sortable.map(v => v[0])
                         sortableVal = sortable.map(v => v[1])
                     }
+                    console.log('obj', obj)
                     for (var j in obj) {
                         arr.push(obj[j])
                     }
@@ -404,7 +406,6 @@ class Dashboard extends React.Component {
                             }
                             month[moment(i.timestamp).month()] += i.paidAmount
                             monthLine[moment(i.timestamp).month()] += 1
-                            console.log(i.paidAmount)
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
                             obj[i.saleType] += i.paidAmount
@@ -626,6 +627,7 @@ class Dashboard extends React.Component {
 
     render() {
         const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart, AgentChart, loadingChart } = this.state
+        console.log('saleTypeChart', saleTypeChart)
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
