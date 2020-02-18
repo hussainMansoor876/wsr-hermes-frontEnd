@@ -45,6 +45,7 @@ class Review extends React.Component {
             loading: true,
             edit: false,
             disable: false,
+            saleType: ["Buy", "Sell", "Rental", "Whole", "Referral"],
             columns: [
                 {
                     title: 'Client',
@@ -210,7 +211,7 @@ class Review extends React.Component {
 
 
     render() {
-        const { city, allData, columns, isData, viewForm, edit, loading } = this.state
+        const { city, allData, columns, isData, viewForm, edit, loading, saleType } = this.state
         const { getFieldDecorator } = this.props.form;
         return (
             <div>
@@ -394,11 +395,21 @@ class Review extends React.Component {
                                                     initialValue: viewForm.saleType,
                                                     rules: [{ required: true, message: 'Please input your Last Name!' }],
                                                 })(
-                                                    <Input
-                                                        type="text"
-                                                        minLength={3}
-                                                        placeholder="Sale Type"
-                                                    />,
+                                                    <Select
+                                                        showSearch
+                                                        style={{ backgroundColor: '#fff' }}
+                                                        placeholder="Select a Sale Type"
+                                                        optionFilterProp="children"
+                                                        filterOption={(input, option) =>
+                                                            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                                        }
+                                                    >
+                                                        {
+                                                            saleType.map((v, i) => {
+                                                                return <Option value={v} key={i}>{v}</Option>
+                                                            })
+                                                        }
+                                                    </Select>,
                                                 )}
                                             </Form.Item>
                                             <Form.Item
