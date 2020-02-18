@@ -211,6 +211,7 @@ class Submission extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
+                                        lable="Lender"
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('lender', {
@@ -224,6 +225,7 @@ class Submission extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
+                                        label="Company Title"
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('title', {
@@ -232,7 +234,7 @@ class Submission extends React.Component {
                                             <Input
                                                 type="text"
                                                 minLength={3}
-                                                placeholder="Title Company"
+                                                placeholder="Company Title"
                                             />,
                                         )}
                                     </Form.Item>
