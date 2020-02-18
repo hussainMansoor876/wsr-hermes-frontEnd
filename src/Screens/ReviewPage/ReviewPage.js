@@ -240,7 +240,7 @@ class Review extends React.Component {
                                         <Button type="primary" onClick={() => this.approveForm(viewForm._id)}>Approve</Button>
                                     </div>
                                 </Descriptions.Item>
-                                <Descriptions.Item label="AgentId">{viewForm.agentId}</Descriptions.Item>
+                                <Descriptions.Item label="Agent Name">{viewForm.agentId}</Descriptions.Item>
                                 <Descriptions.Item label="Client Name">{viewForm.clientName}</Descriptions.Item>
                                 <Descriptions.Item label="Street Address">{viewForm.streetAddress}</Descriptions.Item>
                                 <Descriptions.Item label="Country">{viewForm.country}</Descriptions.Item>
