@@ -256,7 +256,11 @@ class Review extends React.Component {
                             </Descriptions> :
                                 <div className="card1">
                                     <div>
-                                        <Form onSubmit={this.handleSubmit} className="login-form" encType="multipart/form-data">
+                                        <Form 
+                                        onSubmit={this.handleSubmit} 
+                                        className="login-form" 
+                                        hideRequiredMark={true}
+                                        encType="multipart/form-data">
                                             <h1 className="heading1" >Review Submission Form</h1>
                                             <Form.Item
                                                 label="Agent Name"
