@@ -211,7 +211,7 @@ class Submission extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
-                                        lable="Lender"
+                                        label="Lender"
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('lender', {
@@ -239,6 +239,7 @@ class Submission extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
+                                        label="Sold Price"
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('soldPrice', {
