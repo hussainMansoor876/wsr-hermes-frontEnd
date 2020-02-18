@@ -124,7 +124,7 @@ class Submission extends React.Component {
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('agentName', {
-                                            rules: [{ required: true, message: 'Please input your First Name!' }],
+                                            rules: [{ required: true, message: 'Please input Agent Name!' }],
                                         })(
                                             <Input
                                                 minLength={3}
@@ -138,7 +138,7 @@ class Submission extends React.Component {
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('clientName', {
-                                            rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                            rules: [{ required: true, message: 'Please input Client Name!' }],
                                         })(
                                             <Input
                                                 type="text"
@@ -152,7 +152,7 @@ class Submission extends React.Component {
                                         label="Street Address"
                                     >
                                         {getFieldDecorator('streetAddress', {
-                                            rules: [{ required: true, message: 'Please input your username!' }],
+                                            rules: [{ required: true, message: 'Please input Street Address!' }],
                                         })(
                                             <Input
                                                 style={{ backgroundColor: '#FCFCFC' }}
@@ -166,7 +166,7 @@ class Submission extends React.Component {
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('country', {
-                                            rules: [{ required: true, message: 'Please Select Your Country!' }],
+                                            rules: [{ required: true, message: 'Please Select State!' }],
                                         })(
                                             <Select
                                                 showSearch
@@ -191,7 +191,7 @@ class Submission extends React.Component {
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('city', {
-                                            rules: [{ required: true, message: 'Please Select Your City!' }],
+                                            rules: [{ required: true, message: 'Please Select City!' }],
                                         })(
                                             <Select
                                                 showSearch
@@ -215,7 +215,7 @@ class Submission extends React.Component {
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('lender', {
-                                            rules: [{ required: true, message: 'Please input your First Name!' }],
+                                            rules: [{ required: true, message: 'Please input Lender!' }],
                                         })(
                                             <Input
                                                 minLength={3}
@@ -229,7 +229,7 @@ class Submission extends React.Component {
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('title', {
-                                            rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                            rules: [{ required: true, message: 'Please input Company Title!' }],
                                         })(
                                             <Input
                                                 type="text"
@@ -243,7 +243,7 @@ class Submission extends React.Component {
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('soldPrice', {
-                                            rules: [{ required: true, message: 'Please input your First Name!' }],
+                                            rules: [{ required: true, message: 'Please input Sold Price!' }],
                                         })(
                                             <Input
                                                 type="number"
@@ -256,7 +256,7 @@ class Submission extends React.Component {
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('saleType', {
-                                            rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                            rules: [{ required: true, message: 'Please Select Sale Type!' }],
                                         })(
                                             <Select
                                                 showSearch
@@ -280,7 +280,7 @@ class Submission extends React.Component {
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('transactionFee', {
-                                            rules: [{ required: true, message: 'Please input your First Name!' }],
+                                            rules: [{ required: true, message: 'Please input Transaction Fee!' }],
                                         })(
                                             <Input
                                                 type="number"
@@ -293,7 +293,7 @@ class Submission extends React.Component {
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('checkRec', {
-                                            rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                            rules: [{ required: true, message: 'CHeck Recieved!' }],
                                         })(
                                             <Input
                                                 type="text"
@@ -306,7 +306,7 @@ class Submission extends React.Component {
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('paidAmount', {
-                                            rules: [{ required: true, message: 'Please input your First Name!' }],
+                                            rules: [{ required: true, message: 'Please input Paid Amount!' }],
                                         })(
                                             <Input
                                                 type="number"
@@ -319,7 +319,7 @@ class Submission extends React.Component {
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('paidDate', {
-                                            rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                            rules: [{ required: true, message: 'Please Select Submission Date!' }],
                                         })(
                                             <DatePicker style={{ width: '100%' }} placeholder="Submission Date" />,
                                         )}
