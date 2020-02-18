@@ -116,6 +116,7 @@ class Submission extends React.Component {
                                 <Form onSubmit={this.handleSubmit} className="login-form">
                                     <h1 className="heading1" >Closing Submission Form</h1>
                                     <Form.Item
+                                        label="Agent Name"
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('agentName', {
@@ -128,7 +129,9 @@ class Submission extends React.Component {
                                             />,
                                         )}
                                     </Form.Item>
+                                    <label></label>
                                     <Form.Item
+                                        label="Client Name"
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('clientName', {
@@ -141,7 +144,10 @@ class Submission extends React.Component {
                                             />,
                                         )}
                                     </Form.Item>
-                                    <Form.Item className="sign-up">
+                                    <Form.Item
+                                        className="sign-up"
+                                        label="Street Address"
+                                    >
                                         {getFieldDecorator('streetAddress', {
                                             rules: [{ required: true, message: 'Please input your username!' }],
                                         })(
