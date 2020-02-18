@@ -264,7 +264,6 @@ class Review extends React.Component {
                                             <h1 className="heading1" >Review Submission Form</h1>
                                             <Form.Item
                                                 label="Agent Name"
-                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                             >
                                                 {getFieldDecorator('agentId', {
                                                     initialValue: viewForm.agentId,
@@ -280,7 +279,6 @@ class Review extends React.Component {
                                             </Form.Item>
                                             <Form.Item
                                                 label="Client Name"
-                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('clientName', {
                                                     initialValue: viewForm.clientName,
@@ -309,7 +307,6 @@ class Review extends React.Component {
                                             </Form.Item>
                                             <Form.Item
                                                 label="State"
-                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                             >
                                                 {getFieldDecorator('country', {
                                                     initialValue: viewForm.country,
@@ -335,7 +332,6 @@ class Review extends React.Component {
                                             </Form.Item>
                                             <Form.Item
                                                 label="City"
-                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('city', {
                                                     initialValue: viewForm.city,
@@ -360,7 +356,6 @@ class Review extends React.Component {
                                             </Form.Item>
                                             <Form.Item
                                                 label="Lender"
-                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                             >
                                                 {getFieldDecorator('lender', {
                                                     initialValue: viewForm.lender,
@@ -375,7 +370,6 @@ class Review extends React.Component {
                                             </Form.Item>
                                             <Form.Item
                                                 label="Company Title"
-                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('title', {
                                                     initialValue: viewForm.title,
@@ -390,7 +384,6 @@ class Review extends React.Component {
                                             </Form.Item>
                                             <Form.Item
                                                 label="Sold Price"
-                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                             >
                                                 {getFieldDecorator('soldPrice', {
                                                     initialValue: viewForm.soldPrice,
@@ -404,7 +397,6 @@ class Review extends React.Component {
                                             </Form.Item>
                                             <Form.Item
                                                 label="Sale Type"
-                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('saleType', {
                                                     initialValue: viewForm.saleType,
@@ -429,7 +421,6 @@ class Review extends React.Component {
                                             </Form.Item>
                                             <Form.Item
                                                 label="Transaction Fee"
-                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                             >
                                                 {getFieldDecorator('transactionFee', {
                                                     initialValue: viewForm.transactionFee,
@@ -443,7 +434,6 @@ class Review extends React.Component {
                                             </Form.Item>
                                             <Form.Item
                                                 label="Check"
-                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('checkRec', {
                                                     initialValue: viewForm.checkRec,
@@ -457,7 +447,6 @@ class Review extends React.Component {
                                             </Form.Item>
                                             <Form.Item
                                                 label="Paid Amount"
-                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                             >
                                                 {getFieldDecorator('paidAmount', {
                                                     initialValue: viewForm.paidAmount,
@@ -471,7 +460,6 @@ class Review extends React.Component {
                                             </Form.Item>
                                             <Form.Item
                                                 label="Submission Date"
-                                                style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                             >
                                                 {getFieldDecorator('paidDate', {
                                                     initialValue: moment(`${viewForm.date.years}-${viewForm.date.months}-${viewForm.date.days}/`, 'YYYY/MM/DD'),
