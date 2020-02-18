@@ -330,7 +330,7 @@ class Review extends React.Component {
                                             >
                                                 {getFieldDecorator('city', {
                                                     initialValue: viewForm.city,
-                                                    rules: [{ required: true, message: 'Please Select Your City!' }],
+                                                    rules: [{ required: true, message: 'Please Select City!' }],
                                                 })(
                                                     <Select
                                                         showSearch
@@ -354,7 +354,7 @@ class Review extends React.Component {
                                             >
                                                 {getFieldDecorator('lender', {
                                                     initialValue: viewForm.lender,
-                                                    rules: [{ required: true, message: 'Please input your First Name!' }],
+                                                    rules: [{ required: true, message: 'Please input Lender!' }],
                                                 })(
                                                     <Input
                                                         minLength={3}
@@ -368,7 +368,7 @@ class Review extends React.Component {
                                             >
                                                 {getFieldDecorator('title', {
                                                     initialValue: viewForm.title,
-                                                    rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                                    rules: [{ required: true, message: 'Please input Title!' }],
                                                 })(
                                                     <Input
                                                         type="text"
@@ -382,7 +382,7 @@ class Review extends React.Component {
                                             >
                                                 {getFieldDecorator('soldPrice', {
                                                     initialValue: viewForm.soldPrice,
-                                                    rules: [{ required: true, message: 'Please input your First Name!' }],
+                                                    rules: [{ required: true, message: 'Please input Sold Price!' }],
                                                 })(
                                                     <Input
                                                         type="number"
@@ -395,7 +395,7 @@ class Review extends React.Component {
                                             >
                                                 {getFieldDecorator('saleType', {
                                                     initialValue: viewForm.saleType,
-                                                    rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                                    rules: [{ required: true, message: 'Please Select Sale Type!' }],
                                                 })(
                                                     <Select
                                                         showSearch
@@ -419,7 +419,7 @@ class Review extends React.Component {
                                             >
                                                 {getFieldDecorator('transactionFee', {
                                                     initialValue: viewForm.transactionFee,
-                                                    rules: [{ required: true, message: 'Please input your First Name!' }],
+                                                    rules: [{ required: true, message: 'Please input Transaction Fee!' }],
                                                 })(
                                                     <Input
                                                         type="number"
@@ -432,7 +432,7 @@ class Review extends React.Component {
                                             >
                                                 {getFieldDecorator('checkRec', {
                                                     initialValue: viewForm.checkRec,
-                                                    rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                                    rules: [{ required: true, message: 'Check Received !' }],
                                                 })(
                                                     <Input
                                                         type="text"
@@ -445,7 +445,7 @@ class Review extends React.Component {
                                             >
                                                 {getFieldDecorator('paidAmount', {
                                                     initialValue: viewForm.paidAmount,
-                                                    rules: [{ required: true, message: 'Please input your First Name!' }],
+                                                    rules: [{ required: true, message: 'Please input Paid Amount!' }],
                                                 })(
                                                     <Input
                                                         type="number"
@@ -458,7 +458,7 @@ class Review extends React.Component {
                                             >
                                                 {getFieldDecorator('paidDate', {
                                                     initialValue: moment(`${viewForm.date.years}-${viewForm.date.months}-${viewForm.date.days}/`, 'YYYY/MM/DD'),
-                                                    rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                                    rules: [{ required: true, message: 'Please Select Submission Date!' }],
                                                 })(
                                                     <DatePicker style={{ width: '100%' }} />,
                                                 )}
