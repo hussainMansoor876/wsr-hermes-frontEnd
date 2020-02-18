@@ -274,7 +274,7 @@ class Review extends React.Component {
                                                 </Skeleton>
                                             </List.Item>
                                         )}
-                                    /> : null}
+                                    /> : "No Files"}
                                 </Descriptions.Item>
                             </Descriptions> :
                                 <div className="card1">
