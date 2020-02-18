@@ -121,7 +121,6 @@ class Submission extends React.Component {
                                     <h1 className="heading1" >Closing Submission Form</h1>
                                     <Form.Item
                                         label="Agent Name"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('agentName', {
                                             rules: [{ required: true, message: 'Please input Agent Name!' }],
@@ -135,7 +134,6 @@ class Submission extends React.Component {
                                     </Form.Item>
                                     <Form.Item
                                         label="Client Name"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('clientName', {
                                             rules: [{ required: true, message: 'Please input Client Name!' }],
@@ -163,7 +161,6 @@ class Submission extends React.Component {
                                     </Form.Item>
                                     <Form.Item
                                         label="State"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('country', {
                                             rules: [{ required: true, message: 'Please Select State!' }],
@@ -188,7 +185,6 @@ class Submission extends React.Component {
                                     </Form.Item>
                                     <Form.Item
                                         label="City"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('city', {
                                             rules: [{ required: true, message: 'Please Select City!' }],
@@ -212,7 +208,6 @@ class Submission extends React.Component {
                                     </Form.Item>
                                     <Form.Item
                                         label="Lender"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('lender', {
                                             rules: [{ required: true, message: 'Please input Lender!' }],
@@ -226,7 +221,6 @@ class Submission extends React.Component {
                                     </Form.Item>
                                     <Form.Item
                                         label="Company Title"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('title', {
                                             rules: [{ required: true, message: 'Please input Company Title!' }],
@@ -240,7 +234,6 @@ class Submission extends React.Component {
                                     </Form.Item>
                                     <Form.Item
                                         label="Sold Price"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('soldPrice', {
                                             rules: [{ required: true, message: 'Please input Sold Price!' }],
@@ -253,7 +246,6 @@ class Submission extends React.Component {
                                     </Form.Item>
                                     <Form.Item
                                         label="Sale Type"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('saleType', {
                                             rules: [{ required: true, message: 'Please Select Sale Type!' }],
@@ -277,7 +269,6 @@ class Submission extends React.Component {
                                     </Form.Item>
                                     <Form.Item
                                         label="Transaction Fee"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('transactionFee', {
                                             rules: [{ required: true, message: 'Please input Transaction Fee!' }],
@@ -290,7 +281,6 @@ class Submission extends React.Component {
                                     </Form.Item>
                                     <Form.Item
                                         label="Check Recieved"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('checkRec', {
                                             rules: [{ required: true, message: 'CHeck Recieved!' }],
@@ -303,7 +293,6 @@ class Submission extends React.Component {
                                     </Form.Item>
                                     <Form.Item
                                         label="Paid Amount"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('paidAmount', {
                                             rules: [{ required: true, message: 'Please input Paid Amount!' }],
@@ -316,7 +305,6 @@ class Submission extends React.Component {
                                     </Form.Item>
                                     <Form.Item
                                         label="Submission Date"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('paidDate', {
                                             rules: [{ required: true, message: 'Please Select Submission Date!' }],
