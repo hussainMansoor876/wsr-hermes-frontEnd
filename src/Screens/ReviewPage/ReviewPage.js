@@ -253,14 +253,37 @@ class Review extends React.Component {
                                 <Descriptions.Item label="Check Recieved">{viewForm.checkRec}</Descriptions.Item>
                                 <Descriptions.Item label="Paid Amount">{viewForm.paidAmount}</Descriptions.Item>
                                 <Descriptions.Item label="Date">{viewForm.paidDate}</Descriptions.Item>
+                                <Descriptions.Item label="Files">
+                                    {viewForm.files.length ? <List
+                                        style={{ backgroundColor: '#fff', marginBottom: 10 }}
+                                        itemLayout="horizontal"
+                                        dataSource={viewForm.files ? viewForm.files : []}
+                                        bordered={true}
+                                        pagination={true}
+                                        renderItem={item => (
+                                            <List.Item
+                                                actions={[<a key="list-loadmore-edit" target="_blank" href={item.url}>View</a>]}
+                                            >
+                                                <Skeleton avatar title={false} loading={item.loading} active>
+                                                    <List.Item.Meta
+                                                        avatar={
+                                                            <Avatar src={item.url} />
+                                                        }
+                                                        title={<a href="#">{item.public_id.split('/')[3].length > 20 ? `${item.public_id.split('/')[3].slice(0, 20)}...` : item.public_id.split('/')[3]}</a>}
+                                                    />
+                                                </Skeleton>
+                                            </List.Item>
+                                        )}
+                                    /> : null}
+                                </Descriptions.Item>
                             </Descriptions> :
                                 <div className="card1">
                                     <div>
-                                        <Form 
-                                        onSubmit={this.handleSubmit} 
-                                        className="login-form" 
-                                        hideRequiredMark={true}
-                                        encType="multipart/form-data">
+                                        <Form
+                                            onSubmit={this.handleSubmit}
+                                            className="login-form"
+                                            hideRequiredMark={true}
+                                            encType="multipart/form-data">
                                             <h1 className="heading1" >Review Submission Form</h1>
                                             <Form.Item
                                                 label="Agent Name"
