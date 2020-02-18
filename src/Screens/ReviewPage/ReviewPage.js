@@ -268,6 +268,7 @@ class Review extends React.Component {
                                                     <Input
                                                         minLength={3}
                                                         type="text"
+                                                        disabled={true}
                                                         placeholder="Agent Id"
                                                     />,
                                                 )}
