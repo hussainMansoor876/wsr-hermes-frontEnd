@@ -71,9 +71,9 @@ class Review extends React.Component {
                         <Button onClick={() => this.setState({ viewForm: v })} type="secondary" style={{ marginBottom: 5 }} block>
                             Details
                             </Button>
-                        <Button type="primary" block onClick={() => this.approveForm(v._id)}>
+                        {/* <Button type="primary" block onClick={() => this.approveForm(v._id)}>
                             Approve
-                            </Button>
+                            </Button> */}
                     </div>
                 }
             ]
