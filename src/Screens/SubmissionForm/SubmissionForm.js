@@ -113,7 +113,11 @@ class Submission extends React.Component {
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'ceenter' }}>
                         <div className="card1">
                             <div>
-                                <Form onSubmit={this.handleSubmit} className="login-form">
+                                <Form
+                                    onSubmit={this.handleSubmit}
+                                    className="login-form"
+                                    hideRequiredMark={true}
+                                >
                                     <h1 className="heading1" >Closing Submission Form</h1>
                                     <Form.Item
                                         label="Agent Name"
@@ -129,7 +133,6 @@ class Submission extends React.Component {
                                             />,
                                         )}
                                     </Form.Item>
-                                    <label></label>
                                     <Form.Item
                                         label="Client Name"
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
