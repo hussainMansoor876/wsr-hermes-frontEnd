@@ -252,6 +252,7 @@ class Submission extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
+                                        label="Sale Type"
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('saleType', {
@@ -275,6 +276,7 @@ class Submission extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
+                                        label="Transaction Fee"
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                     >
                                         {getFieldDecorator('transactionFee', {
@@ -287,6 +289,7 @@ class Submission extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
+                                        label="Check Recieved"
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('checkRec', {
