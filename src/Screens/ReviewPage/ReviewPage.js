@@ -259,17 +259,18 @@ class Review extends React.Component {
                                         <Form onSubmit={this.handleSubmit} className="login-form" encType="multipart/form-data">
                                             <h1 className="heading1" >Review Submission Form</h1>
                                             <Form.Item
+                                            label="Agent Name"
                                                 style={{ display: 'inline-block', width: 'calc(50% - 3px)', marginRight: 6 }}
                                             >
                                                 {getFieldDecorator('agentId', {
                                                     initialValue: viewForm.agentId,
-                                                    rules: [{ required: true, message: 'Please input your First Name!' }],
+                                                    rules: [{ required: true, message: 'Please input Agent Name!' }],
                                                 })(
                                                     <Input
                                                         minLength={3}
                                                         type="text"
                                                         disabled={true}
-                                                        placeholder="Agent Id"
+                                                        placeholder="Agent Name"
                                                     />,
                                                 )}
                                             </Form.Item>
@@ -278,7 +279,7 @@ class Review extends React.Component {
                                             >
                                                 {getFieldDecorator('clientName', {
                                                     initialValue: viewForm.clientName,
-                                                    rules: [{ required: true, message: 'Please input your Last Name!' }],
+                                                    rules: [{ required: true, message: 'Please input Client Name!' }],
                                                 })(
                                                     <Input
                                                         type="text"
@@ -290,7 +291,7 @@ class Review extends React.Component {
                                             <Form.Item className="sign-up">
                                                 {getFieldDecorator('streetAddress', {
                                                     initialValue: viewForm.streetAddress,
-                                                    rules: [{ required: true, message: 'Please input your username!' }],
+                                                    rules: [{ required: true, message: 'Please input Street Address!' }],
                                                 })(
                                                     <Input
                                                         style={{ backgroundColor: '#FCFCFC' }}
@@ -304,7 +305,7 @@ class Review extends React.Component {
                                             >
                                                 {getFieldDecorator('country', {
                                                     initialValue: viewForm.country,
-                                                    rules: [{ required: true, message: 'Please Select Your Country!' }],
+                                                    rules: [{ required: true, message: 'Please Select State!' }],
                                                 })(
                                                     <Select
                                                         showSearch
