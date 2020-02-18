@@ -394,7 +394,7 @@ class Review extends React.Component {
                                                 })(
                                                     <Input
                                                         type="number"
-                                                        placeholder="Sold Price"
+                                                        placeholder="$ XXX,XXX.XX"
                                                     />,
                                                 )}
                                             </Form.Item>
@@ -473,7 +473,7 @@ class Review extends React.Component {
                                                     initialValue: moment(`${viewForm.date.years}-${viewForm.date.months}-${viewForm.date.days}/`, 'YYYY/MM/DD'),
                                                     rules: [{ required: true, message: 'Please Select Submission Date!' }],
                                                 })(
-                                                    <DatePicker style={{ width: '100%' }} />,
+                                                    <DatePicker style={{ width: '100%' }} placeholder="Submission Date" />,
                                                 )}
                                             </Form.Item>
                                             {viewForm.files.length ? <List
