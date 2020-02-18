@@ -187,6 +187,7 @@ class Submission extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
+                                        label="City"
                                         style={{ display: 'inline-block', width: 'calc(50% - 3px)' }}
                                     >
                                         {getFieldDecorator('city', {
