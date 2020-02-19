@@ -164,7 +164,8 @@ class Dashboard extends React.Component {
             dashData: [],
             loadingChart: true,
             currentTop: "top10",
-            currentVal: "volume"
+            currentVal: "volume",
+            loadingData: true
         }
     }
 
@@ -367,7 +368,7 @@ class Dashboard extends React.Component {
 
     updateChart() {
         const { StartDateValue, endDate, allData } = this.state
-        this.setState({ loading: false })
+        this.setState({ loadingData: false })
         var topData = { ...this.state.topData }
         var histData = { ...this.state.salePriceHist }
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
@@ -446,7 +447,6 @@ class Dashboard extends React.Component {
                         sortableVal = sortable.map(v => v[1])
 
                         for (var k of sortableId) {
-                            console.log('k', k)
                             for (var d of allData) {
                                 if (d._id === k) {
                                     sortableName.push(d.fname)
@@ -460,7 +460,7 @@ class Dashboard extends React.Component {
                         arr.push(obj[j])
                     }
                     this.setState({
-                        loading: true, topData: topData, saleTypeChart: {
+                        loadingData: true, topData: topData, saleTypeChart: {
                             ...this.state.saleTypeChart, series: arr
                         }, salePriceHist: histData, lineChart: lineData,
                         SaleAmountChart: saleAmount, AgentChart: AgentData,
@@ -502,7 +502,7 @@ class Dashboard extends React.Component {
                 else if (currentVal === "amount") {
                     allObj[j.agentId] += j.soldPrice
                 }
-                else{
+                else {
                     allObj[j.agentId] += 1
                 }
             }
@@ -578,7 +578,7 @@ class Dashboard extends React.Component {
                 else if (e.id === "amount") {
                     allObj[j.agentId] += j.soldPrice
                 }
-                else{
+                else {
                     allObj[j.agentId] += 1
                 }
             }
@@ -625,7 +625,7 @@ class Dashboard extends React.Component {
 
 
     render() {
-        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart, AgentChart, loadingChart } = this.state
+        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart, AgentChart, loadingChart, loadingData } = this.state
         console.log('saleTypeChart', saleTypeChart)
         if (!allData.length & !currentAgent.length || !loading) {
             return (
@@ -652,175 +652,178 @@ class Dashboard extends React.Component {
                             this.updateChart()
                         })} disabledDate={this.disabledEndDate.bind(this)} />
                     </div>
-                    <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
-                        <div className="boxes1">
-                            <p className="headingText">Net Revenue</p>
-                            <p className="text">${topData.netRevenue}</p>
-                            <div style={{ display: 'flex' }}>
-                                <p className="textBottom">15.10%</p>
-                                <p className="textBottom1">&nbsp;(31 days)</p>
-                            </div>
-                        </div>
-                        <div className="boxes1">
-                            <p className="headingText">Revenue per Deal</p>
-                            <p className="text">${Math.round(topData.revPerDeal)}</p>
-                            <div style={{ display: 'flex' }}>
-                                <p className="textBottom">15.10%</p>
-                                <p className="textBottom1">&nbsp;(31 days)</p>
-                            </div>
-                        </div>
-                        <div className="boxes1">
-                            <p className="headingText">Sale Price per Deal</p>
-                            <p className="text">${Math.round(topData.salesPerDeal)}</p>
-                            <div style={{ display: 'flex' }}>
-                                <p className="textBottom">15.10%</p>
-                                <p className="textBottom1">&nbsp;(31 days)</p>
-                            </div>
-                        </div>
-                        <div className="boxes1">
-                            <p className="headingText">Deals</p>
-                            <p className="text">{topData.deals}</p>
-                            <div style={{ display: 'flex' }}>
-                                <p className="textBottom">15.10%</p>
-                                <p className="textBottom1">&nbsp;(31 days)</p>
-                            </div>
-                        </div>
-                        <div className="boxes1">
-                            <p className="headingText">Agents Capped</p>
-                            <p className="text">{topData.activeAgent}</p>
-                            <div style={{ display: 'flex' }}>
-                                <p className="textBottom">15.10%</p>
-                                <p className="textBottom1">&nbsp;(31 days)</p>
-                            </div>
-                        </div>
-                        <div className="boxes1">
-                            <p className="headingText">Active Agents</p>
-                            <p className="text">{topData.activeAgent}</p>
-                            <div style={{ display: 'flex' }}>
-                                <p className="textBottom">15.10%</p>
-                                <p className="textBottom1">&nbsp;(31 days)</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="chartBody">
-                        <div className="chartBody1">
-                            <div className="chart3">
-                                <div className="chart1 mLeft">
-                                    <Chart options={saleTypeChart.options} series={saleTypeChart.series} type="pie" height={310} />
-                                </div>
-                                <div className="chart1 mLeft1">
-                                    <Chart options={salePriceHist.options} series={salePriceHist.series} type="histogram" height={300} />
+                    {loadingData ? <div>
+                        <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
+                            <div className="boxes1">
+                                <p className="headingText">Net Revenue</p>
+                                <p className="text">${topData.netRevenue}</p>
+                                <div style={{ display: 'flex' }}>
+                                    <p className="textBottom">15.10%</p>
+                                    <p className="textBottom1">&nbsp;(31 days)</p>
                                 </div>
                             </div>
-                            <div className="chart4 mLeft">
-                                <h1 className="heading2">Agent Summary</h1>
-                                <div className="select1">
-                                    <Select
-                                        showSearch
-                                        style={{ width: 200 }}
-                                        defaultValue={allData && allData[0].fname}
-                                        optionFilterProp="children"
-                                        onChange={(e) => this.getUpdate(e)}
-                                        filterOption={(input, option) =>
-                                            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                                        }
-                                    >
-                                        {allData.map((v, i) => {
-                                            return <Option value={v._id} key={i}>{v.fname}</Option>
-                                        })}
-                                    </Select>
+                            <div className="boxes1">
+                                <p className="headingText">Revenue per Deal</p>
+                                <p className="text">${Math.round(topData.revPerDeal)}</p>
+                                <div style={{ display: 'flex' }}>
+                                    <p className="textBottom">15.10%</p>
+                                    <p className="textBottom1">&nbsp;(31 days)</p>
                                 </div>
-                                <div className="div2">
-                                    <div className="div6">
-                                        <div className="div3 deal1">
-                                            <h1 className="divBody">Deals</h1>
-                                            <h1 className="divBody">{stats.deal}</h1>
-                                        </div>
-                                        <div className="div3">
-                                            <h1 className="divBody">Sales Volume</h1>
-                                            <h1 className="divBody">${stats.sales}</h1>
-                                        </div>
-                                        <div className="div3">
-                                            <h1 className="divBody">WSR Revenue</h1>
-                                            <h1 className="divBody">${stats.revenue}</h1>
-                                        </div>
-                                    </div>
-                                    <div className="div6">
-                                        <div className="div3">
-                                            <h1 className="divBody">Commission</h1>
-                                            <h1 className="divBody">${stats.commission}</h1>
-                                        </div>
-                                        <div className="div3">
-                                            <h1 className="divBody">Cap Fill</h1>
-                                            <h1 className="divBody">{stats.cap}%</h1>
-                                        </div>
-                                        <div className="div3">
-                                            <h1 className="divBody">Recruits</h1>
-                                            <h1 className="divBody">{stats.recruits}</h1>
-                                        </div>
-                                    </div>
+                            </div>
+                            <div className="boxes1">
+                                <p className="headingText">Sale Price per Deal</p>
+                                <p className="text">${Math.round(topData.salesPerDeal)}</p>
+                                <div style={{ display: 'flex' }}>
+                                    <p className="textBottom">15.10%</p>
+                                    <p className="textBottom1">&nbsp;(31 days)</p>
                                 </div>
-                                <div className="div8">
-                                    <div className="div7">
-                                        <div className="div3">
-                                            <h1 className="divBody">Deals</h1>
-                                            <h1 className="divBody">4</h1>
-                                        </div>
-                                        <div className="div3">
-                                            <h1 className="divBody">Sales Volume</h1>
-                                            <h1 className="divBody">$3,113,800</h1>
-                                        </div>
-                                    </div>
-                                    <div className="div7">
-                                        <div className="div3">
-                                            <h1 className="divBody">WSR Revenue</h1>
-                                            <h1 className="divBody">$4,500</h1>
-                                        </div>
-                                        <div className="div3">
-                                            <h1 className="divBody">Commission</h1>
-                                            <h1 className="divBody">$76,259</h1>
-                                        </div>
-                                    </div>
-                                    <div className="div7">
-                                        <div className="div3">
-                                            <h1 className="divBody">Cap Fill</h1>
-                                            <h1 className="divBody">100%</h1>
-                                        </div>
-                                        <div className="div3">
-                                            <h1 className="divBody">Recruits</h1>
-                                            <h1 className="divBody">4</h1>
-                                        </div>
-                                    </div>
+                            </div>
+                            <div className="boxes1">
+                                <p className="headingText">Deals</p>
+                                <p className="text">{topData.deals}</p>
+                                <div style={{ display: 'flex' }}>
+                                    <p className="textBottom">15.10%</p>
+                                    <p className="textBottom1">&nbsp;(31 days)</p>
+                                </div>
+                            </div>
+                            <div className="boxes1">
+                                <p className="headingText">Agents Capped</p>
+                                <p className="text">{topData.activeAgent}</p>
+                                <div style={{ display: 'flex' }}>
+                                    <p className="textBottom">15.10%</p>
+                                    <p className="textBottom1">&nbsp;(31 days)</p>
+                                </div>
+                            </div>
+                            <div className="boxes1">
+                                <p className="headingText">Active Agents</p>
+                                <p className="text">{topData.activeAgent}</p>
+                                <div style={{ display: 'flex' }}>
+                                    <p className="textBottom">15.10%</p>
+                                    <p className="textBottom1">&nbsp;(31 days)</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="chart2">
-                            <Chart options={lineChart.options} series={lineChart.series} type="line" height={500} />
-                        </div>
-                    </div>
-                    <div className="chartBody2">
-                        <div className="div4">
-                            <div style={{
-                                display: 'flex',
-                                justifyContent: 'space-between'
-                            }}>
-                                <ButtonGroup>
-                                    <Button onClick={(e) => this.updateData(e.target)} id="top10">Top 10</Button>
-                                    <Button id="bottom10" onClick={(e) => this.updateData(e.target)}>Bottom 10</Button>
-                                </ButtonGroup>
-                                <h4>Agent Performance</h4>
-                                <ButtonGroup>
-                                    <Button className="btn-group1" id="volume" onClick={(e) => this.updateData1(e.target)}>Sales Volume</Button>
-                                    <Button id="amount" onClick={(e) => this.updateData1(e.target)}>Sales Amount</Button>
-                                    <Button id="recruits" onClick={(e) => this.updateData1(e.target)}>Recruits</Button>
-                                </ButtonGroup>
+                        <div className="chartBody">
+                            <div className="chartBody1">
+                                <div className="chart3">
+                                    <div className="chart1 mLeft">
+                                        <Chart options={saleTypeChart.options} series={saleTypeChart.series} type="pie" height={310} />
+                                    </div>
+                                    <div className="chart1 mLeft1">
+                                        <Chart options={salePriceHist.options} series={salePriceHist.series} type="histogram" height={300} />
+                                    </div>
+                                </div>
+                                <div className="chart4 mLeft">
+                                    <h1 className="heading2">Agent Summary</h1>
+                                    <div className="select1">
+                                        <Select
+                                            showSearch
+                                            style={{ width: 200 }}
+                                            defaultValue={allData && allData[0].fname}
+                                            optionFilterProp="children"
+                                            onChange={(e) => this.getUpdate(e)}
+                                            filterOption={(input, option) =>
+                                                option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                            }
+                                        >
+                                            {allData.map((v, i) => {
+                                                return <Option value={v._id} key={i}>{v.fname}</Option>
+                                            })}
+                                        </Select>
+                                    </div>
+                                    <div className="div2">
+                                        <div className="div6">
+                                            <div className="div3 deal1">
+                                                <h1 className="divBody">Deals</h1>
+                                                <h1 className="divBody">{stats.deal}</h1>
+                                            </div>
+                                            <div className="div3">
+                                                <h1 className="divBody">Sales Volume</h1>
+                                                <h1 className="divBody">${stats.sales}</h1>
+                                            </div>
+                                            <div className="div3">
+                                                <h1 className="divBody">WSR Revenue</h1>
+                                                <h1 className="divBody">${stats.revenue}</h1>
+                                            </div>
+                                        </div>
+                                        <div className="div6">
+                                            <div className="div3">
+                                                <h1 className="divBody">Commission</h1>
+                                                <h1 className="divBody">${stats.commission}</h1>
+                                            </div>
+                                            <div className="div3">
+                                                <h1 className="divBody">Cap Fill</h1>
+                                                <h1 className="divBody">{stats.cap}%</h1>
+                                            </div>
+                                            <div className="div3">
+                                                <h1 className="divBody">Recruits</h1>
+                                                <h1 className="divBody">{stats.recruits}</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="div8">
+                                        <div className="div7">
+                                            <div className="div3">
+                                                <h1 className="divBody">Deals</h1>
+                                                <h1 className="divBody">4</h1>
+                                            </div>
+                                            <div className="div3">
+                                                <h1 className="divBody">Sales Volume</h1>
+                                                <h1 className="divBody">$3,113,800</h1>
+                                            </div>
+                                        </div>
+                                        <div className="div7">
+                                            <div className="div3">
+                                                <h1 className="divBody">WSR Revenue</h1>
+                                                <h1 className="divBody">$4,500</h1>
+                                            </div>
+                                            <div className="div3">
+                                                <h1 className="divBody">Commission</h1>
+                                                <h1 className="divBody">$76,259</h1>
+                                            </div>
+                                        </div>
+                                        <div className="div7">
+                                            <div className="div3">
+                                                <h1 className="divBody">Cap Fill</h1>
+                                                <h1 className="divBody">100%</h1>
+                                            </div>
+                                            <div className="div3">
+                                                <h1 className="divBody">Recruits</h1>
+                                                <h1 className="divBody">4</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            {loadingChart ? <Chart options={AgentChart.options} series={AgentChart.series} type="bar" height={270} /> : <Skeleton />}
+                            <div className="chart2">
+                                <Chart options={lineChart.options} series={lineChart.series} type="line" height={500} />
+                            </div>
                         </div>
-                        <div className="div5">
-                            <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} />
+                        <div className="chartBody2">
+                            <div className="div4">
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between'
+                                }}>
+                                    <ButtonGroup>
+                                        <Button onClick={(e) => this.updateData(e.target)} id="top10">Top 10</Button>
+                                        <Button id="bottom10" onClick={(e) => this.updateData(e.target)}>Bottom 10</Button>
+                                    </ButtonGroup>
+                                    <h4>Agent Performance</h4>
+                                    <ButtonGroup>
+                                        <Button className="btn-group1" id="volume" onClick={(e) => this.updateData1(e.target)}>Sales Volume</Button>
+                                        <Button id="amount" onClick={(e) => this.updateData1(e.target)}>Sales Amount</Button>
+                                        <Button id="recruits" onClick={(e) => this.updateData1(e.target)}>Recruits</Button>
+                                    </ButtonGroup>
+                                </div>
+                                {loadingChart ? <Chart options={AgentChart.options} series={AgentChart.series} type="bar" height={270} /> : <Skeleton />}
+                            </div>
+                            <div className="div5">
+                                <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} />
+                            </div>
                         </div>
-                    </div>
+
+                    </div> : <Skeleton />}
                 </div>
             </div>
         )
