@@ -823,7 +823,7 @@ class Dashboard extends React.Component {
                             </div>
                         </div>
 
-                    </div> : <Skeleton />}
+                    </div> : <Skeleton paragraph={{ rows: 20 }} />}
                 </div>
             </div>
         )
