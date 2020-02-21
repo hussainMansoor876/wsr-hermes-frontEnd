@@ -7,6 +7,7 @@ import Loader from '../../Components/Loader';
 import './Header.css'
 import logo from '../../assets/images/logo-dark.png';
 import ClosingSubmission from '../../assets/images/bagitems1.png'
+import Dashboard from '../../assets/images/dash.png'
 
 
 class Header extends React.Component {
@@ -87,7 +88,7 @@ class Header extends React.Component {
                         <a href="javascript:void(0)" className="closebtn" onClick={() => this.closeNav()}>&times;</a>
                         {user && user.role === 'admin' ? <div>
                             <Link className="sideLink" to="/dashboard" onClick={() => this.closeNav()}>
-                                <img src={ClosingSubmission} alt="Submission Form" className="side-icon" />
+                                <img src={Dashboard} alt="Submission Form" className="side-icon" />
                                 Dashboard
                             </Link>
                             <Link className="sideLink" to="/submission" onClick={() => this.closeNav()}>
