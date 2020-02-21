@@ -94,9 +94,6 @@ class Dashboard extends React.Component {
                     stroke: {
                         width: [0, 4]
                     },
-                    title: {
-                        text: 'Deals & Revenue Over Time'
-                    },
                     dataLabels: {
                         enabled: true,
                         enabledOnSeries: [1]
@@ -280,7 +277,6 @@ class Dashboard extends React.Component {
                         }).reverse()
 
                         sortableId = sortable.map(v => v[0])
-                        // sortableVal = sortable.map(v => v[1])
                     }
                     console.log('obj', obj)
                     for (var j in obj) {
@@ -629,7 +625,6 @@ class Dashboard extends React.Component {
 
     render() {
         const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart, AgentChart, loadingChart, loadingData } = this.state
-        console.log('saleTypeChart', saleTypeChart)
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
@@ -799,6 +794,7 @@ class Dashboard extends React.Component {
                                 </div>
                             </div>
                             <div className="chart2">
+                                <h4 style={{ textAlign: 'center' }}>Deals & Revenue Over Time</h4>
                                 <Chart options={lineChart.options} series={lineChart.series} type="line" height={500} />
                             </div>
                         </div>
