@@ -128,3 +128,8 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+.side-icon{
+  margin-top: -5px;
+  margin-right: 1px;
+}
