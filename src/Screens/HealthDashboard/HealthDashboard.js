@@ -26,9 +26,6 @@ class Dashboard extends React.Component {
                         type: 'pie',
                     },
                     labels: ["Buy", "Sell", "Rental", "Whole", "Referral"],
-                    title: {
-                        text: "Revenue By Sale Types"
-                    },
                     responsive: [{
                         breakpoint: 480,
                         options: {
@@ -705,9 +702,11 @@ class Dashboard extends React.Component {
                             <div className="chartBody1">
                                 <div className="chart3">
                                     <div className="chart1 mLeft">
+                                        <h4 style={{ textAlign: 'center' }}>Revenue By Sale Types</h4>
                                         <Chart options={saleTypeChart.options} series={saleTypeChart.series} type="pie" height={310} />
                                     </div>
                                     <div className="chart1 mLeft1">
+                                        <h4 style={{ textAlign: 'center' }}>Closing By Sale Price</h4>
                                         <Chart options={salePriceHist.options} series={salePriceHist.series} type="histogram" height={300} />
                                     </div>
                                 </div>
