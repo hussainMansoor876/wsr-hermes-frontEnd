@@ -48,9 +48,9 @@ class Review extends React.Component {
             saleType: ["Buy", "Sell", "Rental", "Whole", "Referral"],
             columns: [
                 {
-                    title: 'Client',
-                    dataIndex: 'headline',
-                    render: text => <Link to="#">{text.clientName > 30 ? `${text.clientName(0, 30)}...` : text.clientName}</Link>
+                    title: 'Street Address',
+                    dataIndex: 'address',
+                    render: text => <Link to="#">{text > 30 ? `${text(0, 30)}...` : text}</Link>
                 },
                 {
                     title: 'Sold Price',
@@ -91,7 +91,7 @@ class Review extends React.Component {
                     v.date = moment(v.paidDate).toObject()
                     return allData.push({
                         key: i,
-                        headline: v,
+                        address: v.streetAddress,
                         status: v.soldPrice,
                         status1: v.review ? "Approved" : "Pending",
                         date: v.timestamp,
