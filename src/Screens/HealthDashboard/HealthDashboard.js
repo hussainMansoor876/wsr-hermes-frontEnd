@@ -270,6 +270,7 @@ class Dashboard extends React.Component {
                         saleAmount.series[0].data = Object.entries(month).map(v => v[1])
                         histData.series[0].data = Object.entries(saleObj).map(v => v[1])
                         var sortable = [];
+                        console.log('allData', allObj)
                         for (var vehicle in allObj) {
                             sortable.push([vehicle, allObj[vehicle]]);
                         }
@@ -279,7 +280,7 @@ class Dashboard extends React.Component {
                         }).reverse()
 
                         sortableId = sortable.map(v => v[0])
-                        sortableVal = sortable.map(v => v[1])
+                        // sortableVal = sortable.map(v => v[1])
                     }
                     console.log('obj', obj)
                     for (var j in obj) {
@@ -299,6 +300,7 @@ class Dashboard extends React.Component {
                         var { data } = res.data
                         var sortableName = []
                         topData.activeAgent = data.length
+                        console.log('data', data)
                         this.setState({ allData: data, topData: topData }, () => {
                             var { allData, stats } = this.state
                             for (var k of sortableId) {
@@ -306,6 +308,7 @@ class Dashboard extends React.Component {
                                 for (var d of allData) {
                                     if (d._id === k) {
                                         sortableName.push(d.fname)
+                                        sortableVal.push(allObj[k])
                                     }
                                 }
                             }
