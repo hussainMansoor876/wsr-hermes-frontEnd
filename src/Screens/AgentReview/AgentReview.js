@@ -55,9 +55,10 @@ class Review extends React.Component {
                 {
                     title: 'Sold Price',
                     dataIndex: 'status',
+                    render: text => <p>${text.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                 },
                 {
-                    title: 'Added Date',
+                    title: 'Submission Date',
                     dataIndex: 'date'
                 },
                 {

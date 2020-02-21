@@ -62,7 +62,7 @@ class Review extends React.Component {
                     dataIndex: 'author',
                 },
                 {
-                    title: 'Added Date',
+                    title: 'Submission Date',
                     dataIndex: 'date'
                 },
                 {
