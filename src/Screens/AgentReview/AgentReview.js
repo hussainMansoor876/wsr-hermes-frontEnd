@@ -57,12 +57,12 @@ class Review extends React.Component {
                     dataIndex: 'status',
                 },
                 {
-                    title: 'Agent Id',
-                    dataIndex: 'author',
-                },
-                {
                     title: 'Added Date',
                     dataIndex: 'date'
+                },
+                {
+                    title: 'Status',
+                    dataIndex: 'status1'
                 },
                 {
                     title: 'Action',
@@ -71,9 +71,6 @@ class Review extends React.Component {
                         <Button onClick={() => this.setState({ viewForm: v })} type="secondary" style={{ marginBottom: 5 }} block>
                             Details
                             </Button>
-                        {/* <Button type="primary" block onClick={() => this.approveForm(v._id)}>
-                            Approve
-                            </Button> */}
                     </div>
                 }
             ]
@@ -86,16 +83,18 @@ class Review extends React.Component {
 
     async componentWillMount() {
         const { allData } = this.state
-        await axios.get('https://wsr-hermes-server.herokuapp.com/subform/getAll')
+        const { user } = this.props
+        await axios.get(`https://wsr-hermes-server.herokuapp.com/subform/get-user/${user._id}`)
             .then((res) => {
                 const { data } = res.data
                 data.map((v, i) => {
                     v.date = moment(v.paidDate).toObject()
+                    console.log(v)
                     return allData.push({
                         key: i,
                         headline: v,
                         status: v.soldPrice,
-                        author: v.agentId,
+                        status1: v.review ? "Approved" : "Pending",
                         date: v.timestamp,
                         action: v
                     })
