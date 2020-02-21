@@ -57,7 +57,7 @@ class Review extends React.Component {
                     dataIndex: 'status',
                 },
                 {
-                    title: 'Agent Id',
+                    title: 'Agent Name',
                     dataIndex: 'author',
                 },
                 {
@@ -71,9 +71,6 @@ class Review extends React.Component {
                         <Button onClick={() => this.setState({ viewForm: v })} type="secondary" style={{ marginBottom: 5 }} block>
                             Details
                             </Button>
-                        {/* <Button type="primary" block onClick={() => this.approveForm(v._id)}>
-                            Approve
-                            </Button> */}
                     </div>
                 }
             ]
@@ -95,7 +92,7 @@ class Review extends React.Component {
                         key: i,
                         headline: v,
                         status: v.soldPrice,
-                        author: v.agentId,
+                        author: v.agentName,
                         date: v.timestamp,
                         action: v
                     })
@@ -126,8 +123,6 @@ class Review extends React.Component {
 
                 }
                 finally {
-                    formData.append('agentId', values.agentId)
-                    formData.append('clientName', values.clientName)
                     formData.append('streetAddress', values.streetAddress)
                     formData.append('country', values.country)
                     formData.append('city', values.city)
