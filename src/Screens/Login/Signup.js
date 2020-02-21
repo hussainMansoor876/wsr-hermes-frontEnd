@@ -270,35 +270,6 @@ class Signup extends React.Component {
                                                     placeholder="Zip Code"
                                                 />)}
                                             </Form.Item>
-                                            <Form.Item
-                                                style={{ display: 'inline-block', width: 'calc(50% - 1px)' }}>
-                                                {getFieldDecorator('board', {
-                                                    rules: [{ required: true, message: 'Please input your board!' }],
-                                                })(<Input
-                                                    prefix={<Icon type="number" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                                    placeholder="Board"
-                                                />)}
-                                            </Form.Item>
-                                            <Form.Item
-                                                style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
-                                            >
-                                                {getFieldDecorator('license', {
-                                                    rules: [{ required: true, message: 'Please input your license number!' }],
-                                                })(<Input
-                                                    prefix={<Icon type="number" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                                    placeholder="License Number"
-                                                />)}
-                                            </Form.Item>
-                                            <Form.Item
-                                                style={{ display: 'inline-block', width: 'calc(50% - 1px)' }}
-                                            >
-                                                {getFieldDecorator('recruited', {
-                                                    rules: [{ required: true, message: 'Please input your Recruited!' }],
-                                                })(<Input
-                                                    prefix={<Icon type="number" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                                    placeholder="Recruited By"
-                                                />)}
-                                            </Form.Item>
                                             <Form.Item>
                                                 <Button disabled={this.state.disable} loading={this.state.loading} type="primary" htmlType="submit" className="login-form-button btn-block signup-btn">
                                                     Register
