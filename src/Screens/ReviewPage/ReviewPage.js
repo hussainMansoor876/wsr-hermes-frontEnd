@@ -151,6 +151,7 @@ class Review extends React.Component {
                             }
                         })
                         .catch((err) => {
+                            this.setState({ disable: false })
                             toast.error("Something Went Wrong!!!")
                         })
                 }
@@ -241,7 +242,7 @@ class Review extends React.Component {
                                         </div>
                                     </div>
                                 </Descriptions.Item>
-                                <Descriptions.Item label="Agent Name">{viewForm.agentId}</Descriptions.Item>
+                                <Descriptions.Item label="Agent Name">{viewForm.agentName}</Descriptions.Item>
                                 <Descriptions.Item label="Client Name">{viewForm.clientName}</Descriptions.Item>
                                 <Descriptions.Item label="Street Address">{viewForm.streetAddress}</Descriptions.Item>
                                 <Descriptions.Item label="Country">{viewForm.country}</Descriptions.Item>
@@ -286,21 +287,6 @@ class Review extends React.Component {
                                             hideRequiredMark={true}
                                             encType="multipart/form-data">
                                             <h1 className="heading1" >Review Submission Form</h1>
-                                            <Form.Item
-                                                label="Agent Name"
-                                            >
-                                                {getFieldDecorator('agentId', {
-                                                    initialValue: viewForm.agentId,
-                                                    rules: [{ required: true, message: 'Please input Agent Name!' }],
-                                                })(
-                                                    <Input
-                                                        minLength={3}
-                                                        type="text"
-                                                        disabled={true}
-                                                        placeholder="Agent Name"
-                                                    />,
-                                                )}
-                                            </Form.Item>
                                             <Form.Item
                                                 label="Client Name"
                                             >
