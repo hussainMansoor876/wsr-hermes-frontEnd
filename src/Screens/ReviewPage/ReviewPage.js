@@ -199,7 +199,6 @@ class Review extends React.Component {
                     window.location.reload()
                 }
                 else {
-                    // this.setState({ loading: false, disable: false })
                     toast.error("Something Went Wrong!!!")
                 }
             })
