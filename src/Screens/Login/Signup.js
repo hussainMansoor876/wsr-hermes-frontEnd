@@ -277,12 +277,8 @@ class Signup extends React.Component {
                                                 Already have account? <Link to="" className="login-form-forgot" style={{ color: '#1abc9c' }}>Sign In</Link>
                                             </Form.Item>
                                         </Form>
-
-
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
