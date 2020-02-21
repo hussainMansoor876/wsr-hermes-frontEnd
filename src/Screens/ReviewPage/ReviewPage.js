@@ -50,7 +50,7 @@ class Review extends React.Component {
                 {
                     title: 'Street Address',
                     dataIndex: 'address',
-                    render: text => <Link to="#">{text.streetAddress > 30 ? `${text.streetAddress(0, 30)}...` : text.streetAddress}</Link>
+                    render: text => <Link to="#">{text.length > 30 ? `${text.slice(0, 30)}...` : text}</Link>
                 },
                 {
                     title: 'Sold Price',
