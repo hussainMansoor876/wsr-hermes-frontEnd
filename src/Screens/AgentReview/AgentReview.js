@@ -89,7 +89,6 @@ class Review extends React.Component {
                 const { data } = res.data
                 data.map((v, i) => {
                     v.date = moment(v.paidDate).toObject()
-                    console.log(v)
                     return allData.push({
                         key: i,
                         headline: v,
@@ -125,7 +124,6 @@ class Review extends React.Component {
 
                 }
                 finally {
-                    formData.append('agentId', values.agentId)
                     formData.append('clientName', values.clientName)
                     formData.append('streetAddress', values.streetAddress)
                     formData.append('country', values.country)
@@ -140,9 +138,8 @@ class Review extends React.Component {
                     formData.append('paidDate', values.paidDate)
                     formData.append('_id', viewForm._id)
                     formData.append('files', JSON.stringify(viewForm.files))
-                    axios.post('https://wsr-hermes-server.herokuapp.com/subform/update-form', formData)
+                    axios.post('https://wsr-hermes-server.herokuapp.com/subform/update-agent-form', formData)
                         .then((result) => {
-                            console.log('result', result)
                             if (result.data.success) {
                                 toast.success("Approved and updated successfully!!!")
                                 setTimeout(() => {
@@ -155,6 +152,7 @@ class Review extends React.Component {
                             }
                         })
                         .catch((err) => {
+                            this.setState({ disable: false })
                             toast.error("Something Went Wrong!!!")
                         })
                 }
@@ -286,21 +284,6 @@ class Review extends React.Component {
                                             hideRequiredMark={true}
                                             encType="multipart/form-data">
                                             <h1 className="heading1" >Review Submission Form</h1>
-                                            <Form.Item
-                                                label="Agent Name"
-                                            >
-                                                {getFieldDecorator('agentId', {
-                                                    initialValue: viewForm.agentId,
-                                                    rules: [{ required: true, message: 'Please input Agent Name!' }],
-                                                })(
-                                                    <Input
-                                                        minLength={3}
-                                                        type="text"
-                                                        disabled={true}
-                                                        placeholder="Agent Name"
-                                                    />,
-                                                )}
-                                            </Form.Item>
                                             <Form.Item
                                                 label="Client Name"
                                             >
