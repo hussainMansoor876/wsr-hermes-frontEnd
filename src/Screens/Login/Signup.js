@@ -261,7 +261,6 @@ class Signup extends React.Component {
                                                 )}
                                             </Form.Item>
                                             <Form.Item
-                                                style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
                                             >
                                                 {getFieldDecorator('zip', {
                                                     rules: [{ required: true, message: 'Please input your zip code!' }],
