@@ -55,6 +55,7 @@ class Review extends React.Component {
                 {
                     title: 'Sold Price',
                     dataIndex: 'status',
+                    render: text => <p>${text.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                 },
                 {
                     title: 'Agent Name',
@@ -90,7 +91,7 @@ class Review extends React.Component {
                     v.date = moment(v.paidDate).toObject()
                     return allData.push({
                         key: i,
-                        address: v,
+                        address: v.streetAddress,
                         status: v.soldPrice,
                         author: v.agentName,
                         date: v.timestamp,
