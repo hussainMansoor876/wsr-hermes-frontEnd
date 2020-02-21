@@ -89,12 +89,13 @@ class Review extends React.Component {
                 const { data } = res.data
                 data.map((v, i) => {
                     v.date = moment(v.paidDate).toObject()
+                    console.log('date', v.timestamp.split(' '))
                     return allData.push({
                         key: i,
                         address: v.streetAddress,
                         status: v.soldPrice,
                         author: v.agentName,
-                        date: v.timestamp,
+                        date: v.timestamp.split(' ').slice(0, 4),
                         action: v
                     })
                 })
