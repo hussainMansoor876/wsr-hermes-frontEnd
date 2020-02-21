@@ -6,6 +6,7 @@ import { Icon } from 'antd'
 import Loader from '../../Components/Loader';
 import './Header.css'
 import logo from '../../assets/images/logo-dark.png';
+import ClosingSubmission from '../../assets/images/bagitems1.png'
 
 
 class Header extends React.Component {
@@ -39,15 +40,17 @@ class Header extends React.Component {
     }
 
     openNav() {
-        this.sideBar.style.width = "250px"
         // this.sideBar.style.height = "100%"
 
         // setTimeout(() => {
         //     this.sideBar.style.height = "100%"
         // }, 500)
-        // if (window.innerWidth > 500) {
-        //     document.getElementById("root").style.marginLeft = "250px";
-        // }
+        if (window.innerWidth > 500) {
+            this.sideBar.style.width = "270px"
+        }
+        else{
+            this.sideBar.style.width = "300px"
+        }
     }
 
     closeNav() {
@@ -89,7 +92,10 @@ class Header extends React.Component {
                         </div>
                             :
                             <div>
-                                <Link className="sideLink" to="/submission" onClick={() => this.closeNav()}>Submission Form</Link>
+                                <Link className="sideLink" to="/submission" onClick={() => this.closeNav()}>
+                                    <img src={ClosingSubmission} alt="Submission Form" />
+                                    Submission Form
+                                </Link>
                                 <Link className="sideLink" to="/subreview" onClick={() => this.closeNav()}>Closing Review</Link>
                             </div>}
                     </div>
