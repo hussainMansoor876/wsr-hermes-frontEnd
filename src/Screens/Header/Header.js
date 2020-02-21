@@ -48,7 +48,7 @@ class Header extends React.Component {
         if (window.innerWidth > 500) {
             this.sideBar.style.width = "270px"
         }
-        else{
+        else {
             this.sideBar.style.width = "300px"
         }
     }
