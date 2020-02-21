@@ -141,7 +141,7 @@ class Review extends React.Component {
                     axios.post('https://wsr-hermes-server.herokuapp.com/subform/update-agent-form', formData)
                         .then((result) => {
                             if (result.data.success) {
-                                toast.success("Approved and updated successfully!!!")
+                                toast.success("Updated successfully!!!")
                                 setTimeout(() => {
                                     window.location.reload()
                                 }, 1000)
