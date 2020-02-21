@@ -730,17 +730,17 @@ class Dashboard extends React.Component {
                                             </div>
                                             <div className="div3">
                                                 <h1 className="divBody">Sales Volume</h1>
-                                                <h1 className="divBody">${stats.sales}</h1>
+                                                <h1 className="divBody">${stats.sales.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h1>
                                             </div>
                                             <div className="div3">
                                                 <h1 className="divBody">WSR Revenue</h1>
-                                                <h1 className="divBody">${stats.revenue}</h1>
+                                                <h1 className="divBody">${stats.revenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h1>
                                             </div>
                                         </div>
                                         <div className="div6">
                                             <div className="div3">
                                                 <h1 className="divBody">Commission</h1>
-                                                <h1 className="divBody">${stats.commission}</h1>
+                                                <h1 className="divBody">${stats.commission.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h1>
                                             </div>
                                             <div className="div3">
                                                 <h1 className="divBody">Cap Fill</h1>
