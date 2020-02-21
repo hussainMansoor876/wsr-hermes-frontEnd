@@ -68,6 +68,7 @@ class Submission extends React.Component {
                     }
                 }
                 formData.append('agentId', user._id)
+                formData.append('agentName', `${user.fname} ${user.lname}`)
                 formData.append('clientName', values.clientName)
                 formData.append('streetAddress', values.streetAddress)
                 formData.append('country', values.country)
@@ -119,19 +120,6 @@ class Submission extends React.Component {
                                     hideRequiredMark={true}
                                 >
                                     <h1 className="heading1" >Closing Submission Form</h1>
-                                    <Form.Item
-                                        label="Agent Name"
-                                    >
-                                        {getFieldDecorator('agentName', {
-                                            rules: [{ required: true, message: 'Please input Agent Name!' }],
-                                        })(
-                                            <Input
-                                                minLength={3}
-                                                type="text"
-                                                placeholder="Agent Name"
-                                            />,
-                                        )}
-                                    </Form.Item>
                                     <Form.Item
                                         label="Client Name"
                                     >
