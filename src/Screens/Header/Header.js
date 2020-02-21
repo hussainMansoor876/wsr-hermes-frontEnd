@@ -86,9 +86,17 @@ class Header extends React.Component {
                     <div ref={e => this.sideBar = e} className="sidenav">
                         <a href="javascript:void(0)" className="closebtn" onClick={() => this.closeNav()}>&times;</a>
                         {user && user.role === 'admin' ? <div>
-                            <Link className="sideLink" to="/dashboard" onClick={() => this.closeNav()}>Dashboard</Link>
-                            <Link className="sideLink" to="/submission" onClick={() => this.closeNav()}>Submission Form</Link>
-                            <Link className="sideLink" to="/review" onClick={() => this.closeNav()}>Closing Review</Link>
+                            <Link className="sideLink" to="/dashboard" onClick={() => this.closeNav()}>
+                            <img src={ClosingSubmission} alt="Submission Form" className="side-icon" />
+                                Dashboard
+                            </Link>
+                            <Link className="sideLink" to="/submission" onClick={() => this.closeNav()}>
+                            <img src={ClosingSubmission} alt="Submission Form" className="side-icon" />
+                                Submission Form
+                                </Link>
+                            <Link className="sideLink" to="/review" onClick={() => this.closeNav()}>
+                                Closing Review
+                                </Link>
                         </div>
                             :
                             <div>
@@ -96,7 +104,10 @@ class Header extends React.Component {
                                     <img src={ClosingSubmission} alt="Submission Form" className="side-icon" />
                                     Submission Form
                                 </Link>
-                                <Link className="sideLink" to="/subreview" onClick={() => this.closeNav()}>Closing Review</Link>
+                                <Link className="sideLink" to="/subreview" onClick={() => this.closeNav()}>
+                                <img src={ClosingSubmission} alt="Submission Form" className="side-icon" />
+                                    Closing Review
+                                    </Link>
                             </div>}
                     </div>
                 </div>
