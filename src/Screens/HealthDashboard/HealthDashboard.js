@@ -60,9 +60,6 @@ class Dashboard extends React.Component {
                     },
                     xaxis: {
                         categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-                    },
-                    title: {
-                        text: 'Sales Amount Over Time'
                     }
                 },
                 series: [{
@@ -814,6 +811,7 @@ class Dashboard extends React.Component {
                                 {loadingChart ? <Chart options={AgentChart.options} series={AgentChart.series} type="bar" height={270} /> : <Skeleton />}
                             </div>
                             <div className="div5">
+                                <h4 style={{ textAlign: 'center' }}>Sales Amount Over Time</h4>
                                 <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} />
                             </div>
                         </div>
