@@ -234,9 +234,12 @@ class Review extends React.Component {
                                 marginBottom: 20
                             }}>
                                 <Descriptions.Item span={2}>
-                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
-                                        <Button onClick={() => this.formEdit()} style={{ marginRight: 5 }}>Edit</Button>
-                                        <Button type="primary" onClick={() => this.approveForm(viewForm._id)}>Approve</Button>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                                        {<Button onClick={() => this.setState({ viewForm: false })} style={{ marginRight: 5 }}>
+                                            <Icon type="left" />
+                                            Back
+                                            </Button>}
+                                        {!viewForm.review ? <Button onClick={() => this.formEdit()} style={{ marginRight: 5 }}>Edit</Button> : null}
                                     </div>
                                 </Descriptions.Item>
                                 <Descriptions.Item label="Client Name">{viewForm.clientName}</Descriptions.Item>
