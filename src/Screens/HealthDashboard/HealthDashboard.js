@@ -645,7 +645,7 @@ class Dashboard extends React.Component {
                         <div style={{ textAlign: 'center', display: 'block', margin: 10 }}>
                             <div className="boxes1">
                                 <p className="headingText">Net Revenue</p>
-                                <p className="text">${topData.netRevenue}</p>
+                                <p className="text">${topData.netRevenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                                 <div style={{ display: 'flex' }}>
                                     <p className="textBottom">15.10%</p>
                                     <p className="textBottom1">&nbsp;(31 days)</p>
@@ -653,7 +653,7 @@ class Dashboard extends React.Component {
                             </div>
                             <div className="boxes1">
                                 <p className="headingText">Revenue per Deal</p>
-                                <p className="text">${Math.round(topData.revPerDeal)}</p>
+                                <p className="text">${Math.round(topData.revPerDeal).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                                 <div style={{ display: 'flex' }}>
                                     <p className="textBottom">15.10%</p>
                                     <p className="textBottom1">&nbsp;(31 days)</p>
@@ -661,7 +661,7 @@ class Dashboard extends React.Component {
                             </div>
                             <div className="boxes1">
                                 <p className="headingText">Sale Price per Deal</p>
-                                <p className="text">${Math.round(topData.salesPerDeal)}</p>
+                                <p className="text">${Math.round(topData.salesPerDeal).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                                 <div style={{ display: 'flex' }}>
                                     <p className="textBottom">15.10%</p>
                                     <p className="textBottom1">&nbsp;(31 days)</p>
