@@ -95,7 +95,7 @@ class Review extends React.Component {
                         address: v.streetAddress,
                         status: v.soldPrice,
                         status1: v.review ? "Approved" : "Pending",
-                        date: v.timestamp,
+                        date: v.timestamp.split(' ').slice(0, 4).join(" "),
                         action: v
                     })
                 })
