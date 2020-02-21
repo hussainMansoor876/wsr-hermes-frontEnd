@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
-import { Login, Signup, Confirm, Recover, Error404, Error500, Logout, Dashboard, SubmissionForm, ReviewPage } from '../Screens'
+import { Login, Signup, Confirm, Recover, Error404, Error500, Logout, Dashboard, SubmissionForm, ReviewPage, AgentReview } from '../Screens'
 
 
 function PrivateRoute({ component: Component, isLoggedIn, ...rest }) {
@@ -57,6 +57,7 @@ class Routes extends Component {
                     <Route path="/dashboard" exact component={Dashboard} />
                     <Route path="/submission" exact component={SubmissionForm} />
                     <Route path="/review" exact component={ReviewPage} />
+                    <Route path="/subreview" exact component={AgentReview} />
                     <Route component={Error404} />
                 </Switch>
             </Router>

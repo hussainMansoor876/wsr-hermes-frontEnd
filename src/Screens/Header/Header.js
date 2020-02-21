@@ -87,7 +87,11 @@ class Header extends React.Component {
                             <Link className="sideLink" to="/submission" onClick={() => this.closeNav()}>Submission Form</Link>
                             <Link className="sideLink" to="/review" onClick={() => this.closeNav()}>Closing Review</Link>
                         </div>
-                            : <Link className="sideLink" to="/submission" onClick={() => this.closeNav()}>Submission Form</Link>}
+                            :
+                            <div>
+                                <Link className="sideLink" to="/submission" onClick={() => this.closeNav()}>Submission Form</Link>
+                                <Link className="sideLink" to="/subreview" onClick={() => this.closeNav()}>Closing Review</Link>
+                            </div>}
                     </div>
                 </div>
                 <div style={{ display: 'flex', marginTop: 8 }}>

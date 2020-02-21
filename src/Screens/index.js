@@ -8,6 +8,7 @@ import Recover from './Login/Recover'
 import Dashboard from './HealthDashboard/HealthDashboard'
 import SubmissionForm from './SubmissionForm/SubmissionForm'
 import ReviewPage from './ReviewPage/ReviewPage'
+import AgentReview from './AgentReview/AgentReview'
 
 
 export {
@@ -20,5 +21,6 @@ export {
     Recover,
     Dashboard,
     SubmissionForm,
-    ReviewPage
+    ReviewPage,
+    AgentReview
 }
