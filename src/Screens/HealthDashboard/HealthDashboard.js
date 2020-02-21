@@ -46,9 +46,6 @@ class Dashboard extends React.Component {
                     },
                     xaxis: {
                         categories: [0, 0, 0, 0, 0]
-                    },
-                    title: {
-                        text: 'Closing By Sale Price'
                     }
                 },
                 series: [{
