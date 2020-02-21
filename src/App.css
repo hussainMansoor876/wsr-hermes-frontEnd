@@ -193,8 +193,6 @@
 .boxes1{
   height: 100px;
   width: calc(16.666% - 10px);
-  /* left: 57px; */
-  /* top: 150px; */
   display: inline-block;
 
   overflow: hidden;
