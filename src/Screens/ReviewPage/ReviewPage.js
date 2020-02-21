@@ -236,7 +236,7 @@ class Review extends React.Component {
                             }}>
                                 <Descriptions.Item span={2}>
                                     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                                        <Button onClick={() => this.formEdit()} style={{ marginRight: 5 }}>
+                                        <Button onClick={() => this.setState({ viewForm: false })}>
                                             <Icon type="left" />
                                             Back
                                         </Button>
