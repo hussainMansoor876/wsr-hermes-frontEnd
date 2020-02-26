@@ -294,6 +294,7 @@ class Dashboard extends React.Component {
                                 console.log('k', k)
                                 for (var d of allData) {
                                     if (d._id === k) {
+                                        console.log('***', d)
                                         sortableName.push(d.fname)
                                         sortableVal.push(allObj[k])
                                     }
@@ -434,12 +435,12 @@ class Dashboard extends React.Component {
                         }).reverse()
 
                         sortableId = sortable.map(v => v[0])
-                        sortableVal = sortable.map(v => v[1])
 
                         for (var k of sortableId) {
                             for (var d of allData) {
                                 if (d._id === k) {
                                     sortableName.push(d.fname)
+                                    sortableVal.push(allObj[k])
                                 }
                             }
                         }
