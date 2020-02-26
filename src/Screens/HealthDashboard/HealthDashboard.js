@@ -631,7 +631,7 @@ class Dashboard extends React.Component {
                 <Header {...this.props} />
                 <div style={{ backgroundColor: '#E5E5E5' }}>
                     <div className="dashboardHeader" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 20 }}>
-                        Woodward Square Reality Health Report
+                        Woodward Square Realty Health Report
                     </div>
                     <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
                         <DatePicker defaultValue={startDate} allowClear={false} disabledDate={this.disabledDate.bind(this)} showToday={false} onChange={(e) => this.setState({ StartDateValue: e }, () => {
