@@ -694,15 +694,9 @@ class Dashboard extends React.Component {
                         </div>
                         <div className="chartBody">
                             <div className="chartBody1">
-                                <div className="chart3">
-                                    <div className="chart1 mLeft">
-                                        <h4 style={{ textAlign: 'center' }}>Revenue By Sale Types</h4>
-                                        <Chart options={saleTypeChart.options} series={saleTypeChart.series} type="pie" height={310} />
-                                    </div>
-                                    <div className="chart1 mLeft1">
-                                        <h4 style={{ textAlign: 'center' }}>Closing By Sale Price</h4>
-                                        <Chart options={salePriceHist.options} series={salePriceHist.series} type="histogram" height={300} />
-                                    </div>
+                                <div className="div5">
+                                    <h4 style={{ textAlign: 'center' }}>Sales Amount Over Time</h4>
+                                    <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} />
                                 </div>
                                 <div className="chart4 mLeft">
                                     <h1 className="heading2">Agent Summary</h1>
@@ -791,6 +785,16 @@ class Dashboard extends React.Component {
                                 <Chart options={lineChart.options} series={lineChart.series} type="line" height={500} />
                             </div>
                         </div>
+                        <div className="chart3">
+                            <div className="chart1 mLeft">
+                                <h4 style={{ textAlign: 'center' }}>Revenue By Sale Types</h4>
+                                <Chart options={saleTypeChart.options} series={saleTypeChart.series} type="pie" height={310} />
+                            </div>
+                            <div className="chart1 mLeft1">
+                                <h4 style={{ textAlign: 'center' }}>Closing By Sale Price</h4>
+                                <Chart options={salePriceHist.options} series={salePriceHist.series} type="histogram" height={300} />
+                            </div>
+                        </div>
                         <div className="chartBody2">
                             <div className="div4">
                                 <div style={{
@@ -809,10 +813,6 @@ class Dashboard extends React.Component {
                                     </ButtonGroup>
                                 </div>
                                 {loadingChart ? <Chart options={AgentChart.options} series={AgentChart.series} type="bar" height={270} /> : <Skeleton />}
-                            </div>
-                            <div className="div5">
-                                <h4 style={{ textAlign: 'center' }}>Sales Amount Over Time</h4>
-                                <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} />
                             </div>
                         </div>
 

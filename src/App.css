@@ -298,6 +298,8 @@
   border-radius: 5px;
   flex: 1;
   margin-right: 10px;
+  margin-top: 10px;
+  height: 350px;
   padding-top: 5px;
 }
 
@@ -408,12 +410,13 @@
 }
 
 .div5{
-  height: 300px;
+  height: 350px;
   flex: 3;
   background: #FFFFFF;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   margin: 10px;
+  margin-top: 0;
   padding-top: 5px;
 }
 
