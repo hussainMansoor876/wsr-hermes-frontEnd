@@ -788,9 +788,9 @@ class Dashboard extends React.Component {
                         <div className="chart3">
                             <div className="chart1 mLeft">
                                 <h4 style={{ textAlign: 'center' }}>Revenue By Sale Types</h4>
-                                <Chart options={saleTypeChart.options} series={saleTypeChart.series} type="pie" height={310} />
+                                <Chart options={saleTypeChart.options} series={saleTypeChart.series} type="pie" height={300} />
                             </div>
-                            <div className="chart1 mLeft1">
+                            <div className="chart1">
                                 <h4 style={{ textAlign: 'center' }}>Closing By Sale Price</h4>
                                 <Chart options={salePriceHist.options} series={salePriceHist.series} type="histogram" height={300} />
                             </div>

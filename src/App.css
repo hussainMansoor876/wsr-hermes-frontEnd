@@ -324,6 +324,10 @@
   margin-left: 10px;
 }
 
+.mRight{
+  margin-right: 35px;
+}
+
 .div1{
   height: 320px;
 }
@@ -442,6 +446,10 @@
   flex: 1 !important;
 }
 
+.mLeft2{
+  margin-left: -20px;
+}
+
 /* Media */
 
 @media(max-width: 1200px){
@@ -455,6 +463,12 @@
   }
 }
 
+@media(max-width: 1000px){
+  .chart3{
+    display: block;
+  }
+}
+
 @media(max-width: 800px){
   .chart3{
     display: block;
@@ -462,6 +476,10 @@
 
   .mLeft{
     margin-bottom: 10px;
+  }
+
+  .mRight{
+    margin-right: 10px;
   }
 
   .mLeft1{
