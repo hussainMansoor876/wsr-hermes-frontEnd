@@ -746,10 +746,10 @@ class Dashboard extends React.Component {
                                         paddingLeft: 10
                                     }}>
                                         <span>&nbsp;</span>
-                                        <h4 style={{ textAlign: 'center' }}>Sales Amount Over Time</h4>
+                                        <h4 style={{ marginTop: 5, paddingLeft: 120 }}>Sales Amount Over Time</h4>
                                         <Select
                                             showSearch
-                                            style={{ width: 200 }}
+                                            style={{ width: 120 }}
                                             defaultValue={yearsData && StartDateValue.year()}
                                             placeholder="Select Year"
                                             onChange={(e) => this.updateSaleChart(e)}
@@ -856,10 +856,10 @@ class Dashboard extends React.Component {
                                     paddingLeft: 10
                                 }}>
                                     <span>&nbsp;</span>
-                                    <h4 style={{ textAlign: 'center' }}>Deals & Revenue Over Time</h4>
+                                    <h4 style={{ textAlign: 'center', marginTop: 5, paddingLeft: 120 }}>Deals & Revenue Over Time</h4>
                                     <Select
                                         showSearch
-                                        style={{ width: 200 }}
+                                        style={{ width: 120 }}
                                         defaultValue={yearsData && StartDateValue.year()}
                                         placeholder="Select Year"
                                         onChange={(e) => this.updateLineChart(e)}
