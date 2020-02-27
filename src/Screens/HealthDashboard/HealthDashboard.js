@@ -651,7 +651,7 @@ class Dashboard extends React.Component {
             saleAmount.series[0].data = Object.entries(yearsData[e]['month']).map(v => v[1])
 
             this.setState({
-                lineChart: lineData,
+                SaleAmountChart: saleAmount,
                 loadingSaleChart: false
             })
         })
