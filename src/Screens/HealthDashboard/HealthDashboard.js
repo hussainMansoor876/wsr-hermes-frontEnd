@@ -7,11 +7,11 @@ import Chart from 'react-apexcharts'
 import axios from 'axios'
 import RevenueOverview from './RevenueOverview'
 import AgentSummary from './AgentSummary'
+import AgentPerformance from './AgentPerformance'
 import Header from '../Header/Header'
 import allState from './allState'
 
 const { Option } = Select;
-const ButtonGroup = Button.Group;
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -20,7 +20,6 @@ class Dashboard extends React.Component {
             ...allState
         }
     }
-
 
     range(start, end) {
         const result = [];
@@ -625,26 +624,7 @@ class Dashboard extends React.Component {
                                 <Chart options={salePriceHist.options} series={salePriceHist.series} type="histogram" height={300} />
                             </div>
                         </div>
-                        <div className="chartBody2">
-                            <div className="div4">
-                                <div style={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between'
-                                }}>
-                                    <ButtonGroup>
-                                        <Button onClick={(e) => this.updateData(e.target)} className="btn-group1" id="top10">Top 10</Button>
-                                        <Button id="bottom10" onClick={(e) => this.updateData(e.target)}>Bottom 10</Button>
-                                    </ButtonGroup>
-                                    <h4>Agent Performance</h4>
-                                    <ButtonGroup>
-                                        <Button className="btn-group1" id="volume" onClick={(e) => this.updateData1(e.target)}>Sales Volume</Button>
-                                        <Button id="amount" onClick={(e) => this.updateData1(e.target)}>Sales Amount</Button>
-                                        <Button id="recruits" onClick={(e) => this.updateData1(e.target)}>Recruits</Button>
-                                    </ButtonGroup>
-                                </div>
-                                {loadingChart ? <Chart options={AgentChart.options} series={AgentChart.series} type="bar" height={270} /> : <Skeleton />}
-                            </div>
-                        </div>
+                        <AgentPerformance {...this.props} loadingChart={loadingChart} AgentChart={AgentChart} updateData={this.updateData.bind(this)} updateData1={this.updateData1.bind(this)} />
 
                     </div> : <Skeleton paragraph={{ rows: 20 }} />}
                 </div>
