@@ -336,7 +336,7 @@ class Submission extends React.Component {
 const SubmissionForm = Form.create({ name: 'normal_login' })(Submission);
 
 const mapStateToProps = (state) => {
-    console.log("mapToState", state.authReducer)
+    
     return {
         user: state.authReducer.user,
     }

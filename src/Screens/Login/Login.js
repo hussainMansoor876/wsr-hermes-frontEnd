@@ -146,7 +146,7 @@ class Login extends React.Component {
 const LoginComp = Form.create({ name: 'normal_login' })(Login);
 
 const mapStateToProps = (state) => {
-    console.log("mapToState", state.authReducer)
+    
     return {
         user: state.authReducer.user,
     }

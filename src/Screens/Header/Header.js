@@ -133,7 +133,7 @@ class Header extends React.Component {
 
 
 const mapStateToProps = (state) => {
-    console.log("mapToState", state.authReducer)
+    
     return {
         user: state.authReducer.user,
     }

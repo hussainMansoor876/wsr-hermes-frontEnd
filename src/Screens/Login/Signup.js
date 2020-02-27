@@ -292,7 +292,7 @@ const SignupComp = Form.create({ name: 'normal_login' })(Signup);
 
 
 const mapStateToProps = (state) => {
-    console.log("mapToState", state.authReducer)
+    
     return {
         user: state.authReducer.user,
     }

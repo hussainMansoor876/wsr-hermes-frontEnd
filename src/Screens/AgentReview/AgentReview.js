@@ -537,7 +537,7 @@ class Review extends React.Component {
 const ReviewForm = Form.create({ name: 'normal_login' })(Review);
 
 const mapStateToProps = (state) => {
-    console.log("mapToState", state.authReducer)
+    
     return {
         user: state.authReducer.user,
     }
