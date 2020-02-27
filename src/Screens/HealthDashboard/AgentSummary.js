@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
-import { DatePicker, Select, Skeleton, Button } from 'antd';
+import { Select } from 'antd';
 
-
+const { Option } = Select;
 
 class AgentSummary extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-
-        }
     }
 
 
 
     render() {
-        const { getUpdate } = this.props
+        const { getUpdate, allData, stats } = this.props
         return (
             <div className="chart4 mLeft">
                 <h1 className="heading2">Agent Summary</h1>
@@ -27,7 +24,7 @@ class AgentSummary extends React.Component {
                         style={{ width: 200 }}
                         defaultValue={allData && allData[0].fname}
                         optionFilterProp="children"
-                        onChange={(e) => this.getUpdate(e)}
+                        onChange={(e) => getUpdate(e)}
                         filterOption={(input, option) =>
                             option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                         }

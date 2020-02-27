@@ -677,8 +677,8 @@ class Dashboard extends React.Component {
                             flexDirection: 'row',
                             width: 345,
                         }}>
-                            <h4 style={{ flex: 1}}>Start Date</h4>
-                            <h4 style={{ flex: 1}}>End Date</h4>
+                            <h4 style={{ flex: 1 }}>Start Date</h4>
+                            <h4 style={{ flex: 1 }}>End Date</h4>
                         </div>
                     </div>
                     <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
@@ -721,87 +721,7 @@ class Dashboard extends React.Component {
                                     </div>
                                     {!loadingSaleChart ? <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} /> : <Skeleton />}
                                 </div>
-                                <div className="chart4 mLeft">
-                                    <h1 className="heading2">Agent Summary</h1>
-                                    <div className="select1">
-                                        <Select
-                                            showSearch
-                                            style={{ width: 200 }}
-                                            defaultValue={allData && allData[0].fname}
-                                            optionFilterProp="children"
-                                            onChange={(e) => this.getUpdate(e)}
-                                            filterOption={(input, option) =>
-                                                option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                                            }
-                                        >
-                                            {allData.map((v, i) => {
-                                                return <Option value={v._id} key={i}>{v.fname}</Option>
-                                            })}
-                                        </Select>
-                                    </div>
-                                    <div className="div2">
-                                        <div className="div6">
-                                            <div className="div3 deal1">
-                                                <h1 className="divBody">Deals</h1>
-                                                <h1 className="divBody">{stats.deal}</h1>
-                                            </div>
-                                            <div className="div3">
-                                                <h1 className="divBody">Sales Volume</h1>
-                                                <h1 className="divBody">${stats.sales.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h1>
-                                            </div>
-                                            <div className="div3">
-                                                <h1 className="divBody">WSR Revenue</h1>
-                                                <h1 className="divBody">${stats.revenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h1>
-                                            </div>
-                                        </div>
-                                        <div className="div6">
-                                            <div className="div3">
-                                                <h1 className="divBody">Commission</h1>
-                                                <h1 className="divBody">${stats.commission.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h1>
-                                            </div>
-                                            <div className="div3">
-                                                <h1 className="divBody">Cap Fill</h1>
-                                                <h1 className="divBody">{stats.cap}%</h1>
-                                            </div>
-                                            <div className="div3">
-                                                <h1 className="divBody">Recruits</h1>
-                                                <h1 className="divBody">{stats.recruits}</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="div8">
-                                        <div className="div7">
-                                            <div className="div3">
-                                                <h1 className="divBody">Deals</h1>
-                                                <h1 className="divBody">4</h1>
-                                            </div>
-                                            <div className="div3">
-                                                <h1 className="divBody">Sales Volume</h1>
-                                                <h1 className="divBody">$3,113,800</h1>
-                                            </div>
-                                        </div>
-                                        <div className="div7">
-                                            <div className="div3">
-                                                <h1 className="divBody">WSR Revenue</h1>
-                                                <h1 className="divBody">$4,500</h1>
-                                            </div>
-                                            <div className="div3">
-                                                <h1 className="divBody">Commission</h1>
-                                                <h1 className="divBody">$76,259</h1>
-                                            </div>
-                                        </div>
-                                        <div className="div7">
-                                            <div className="div3">
-                                                <h1 className="divBody">Cap Fill</h1>
-                                                <h1 className="divBody">100%</h1>
-                                            </div>
-                                            <div className="div3">
-                                                <h1 className="divBody">Recruits</h1>
-                                                <h1 className="divBody">4</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <AgentSummary {...this.props} getUpdate={this.getUpdate.bind(this)} allData={allData} stats={stats} />
                             </div>
                             <div className="chart2">
                                 <div style={{
