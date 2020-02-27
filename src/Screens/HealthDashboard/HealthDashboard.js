@@ -677,6 +677,18 @@ class Dashboard extends React.Component {
                     <div className="dashboardHeader" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 20 }}>
                         Woodward Square Realty Health Report
                     </div>
+                    <div style={{ display: 'flex', margin: 20, marginBottom: -20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
+                        <div style={{
+                            display: 'flex',
+                            // justifyContent: 'space-around',
+                            flexDirection: 'row',
+                            width: 345,
+                            // backgroundColor: 'blue'
+                        }}>
+                            <h4 style={{ flex: 1}}>Start Date</h4>
+                            <h4 style={{ flex: 1}}>End Date</h4>
+                        </div>
+                    </div>
                     <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
                         <DatePicker defaultValue={startDate} allowClear={false} showToday={false} onChange={(e) => this.setState({ StartDateValue: e }, () => {
                             this.updateChart()

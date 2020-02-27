@@ -524,6 +524,10 @@
   .chart4{
     height: auto !important;
   }
+
+  .h-date{
+    margin-right: 0 !important;
+  }
 }
 
 
