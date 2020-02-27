@@ -155,7 +155,8 @@ class Dashboard extends React.Component {
             currentVal: "volume",
             loadingData: true,
             yearsData: {},
-            loadingLineChart: false
+            loadingLineChart: false,
+            loadingSaleChart: false
         }
     }
 
@@ -640,9 +641,25 @@ class Dashboard extends React.Component {
         })
     }
 
+    updateSaleChart(e) {
+        const { yearsData } = this.state
+        var saleAmount = { ...this.state.SaleAmountChart }
+
+        this.setState({
+            loadingSaleChart: true
+        }, () => {
+            saleAmount.series[0].data = Object.entries(yearsData[e]['month']).map(v => v[1])
+
+            this.setState({
+                lineChart: lineData,
+                loadingSaleChart: false
+            })
+        })
+    }
+
 
     render() {
-        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart, AgentChart, loadingChart, loadingData, yearsData, StartDateValue, loadingLineChart } = this.state
+        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart, AgentChart, loadingChart, loadingData, yearsData, StartDateValue, loadingLineChart, loadingSaleChart } = this.state
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
@@ -723,7 +740,32 @@ class Dashboard extends React.Component {
                             <div className="chartBody1">
                                 <div className="div5">
                                     <h4 style={{ textAlign: 'center' }}>Sales Amount Over Time</h4>
-                                    <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} />
+                                    <div style={{
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        paddingRight: 20,
+                                        paddingLeft: 10
+                                    }}>
+                                        <span>&nbsp;</span>
+                                        <h4 style={{ textAlign: 'center' }}>Deals & Revenue Over Time</h4>
+                                        <Select
+                                            showSearch
+                                            style={{ width: 200 }}
+                                            defaultValue={yearsData && StartDateValue.year()}
+                                            placeholder="Select Year"
+                                            onChange={(e) => this.updateSaleChart(e)}
+                                            optionFilterProp="children"
+                                            filterOption={(input, option) =>
+                                                option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                            }
+                                        >
+                                            {Object.keys(yearsData).map((v, i) => {
+                                                return <Option value={v} key={i}>{v}</Option>
+                                            })
+                                            }
+                                        </Select>
+                                    </div>
+                                    {!loadingSaleChart ? <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} /> : <Skeleton />}
                                 </div>
                                 <div className="chart4 mLeft">
                                     <h1 className="heading2">Agent Summary</h1>
