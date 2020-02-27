@@ -154,7 +154,8 @@ class Dashboard extends React.Component {
             currentTop: "top10",
             currentVal: "volume",
             loadingData: true,
-            yearsData: {}
+            yearsData: {},
+            loadingLineChart: false
         }
     }
 
@@ -203,8 +204,6 @@ class Dashboard extends React.Component {
         var AgentData = { ...this.state.AgentChart }
         var sortableId = []
         var sortableVal = []
-        var month = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
-        var monthLine = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
         var arr = []
         var allObj = {}
@@ -638,17 +637,22 @@ class Dashboard extends React.Component {
         const { yearsData } = this.state
         var lineData = { ...this.state.lineChart }
 
-        lineData.series[0].data = Object.entries(yearsData[e]['month']).map(v => v[1])
-        lineData.series[1].data = Object.entries(yearsData[e]['monthLine']).map(v => v[1])
-
         this.setState({
-            lineChart: lineData
+            loadingLineChart: true
+        }, () => {
+            lineData.series[0].data = Object.entries(yearsData[e]['month']).map(v => v[1])
+            lineData.series[1].data = Object.entries(yearsData[e]['monthLine']).map(v => v[1])
+
+            this.setState({
+                lineChart: lineData,
+                loadingLineChart: false
+            })
         })
     }
 
 
     render() {
-        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart, AgentChart, loadingChart, loadingData, yearsData, StartDateValue } = this.state
+        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart, AgentChart, loadingChart, loadingData, yearsData, StartDateValue, loadingLineChart } = this.state
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
@@ -839,7 +843,7 @@ class Dashboard extends React.Component {
                                         }
                                     </Select>
                                 </div>
-                                <Chart options={lineChart.options} series={lineChart.series} type="line" height={500} />
+                                {!loadingLineChart ? <Chart options={lineChart.options} series={lineChart.series} type="line" height={500} /> : <Skeleton />}
                             </div>
                         </div>
                         <div className="chart3">
