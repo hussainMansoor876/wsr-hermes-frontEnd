@@ -12,8 +12,6 @@ import SelectComp from './SelectComponent'
 import Header from '../Header/Header'
 import allState from './allState'
 
-const { Option } = Select;
-
 class Dashboard extends React.Component {
     constructor(props) {
         super(props)
