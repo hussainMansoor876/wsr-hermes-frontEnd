@@ -265,8 +265,6 @@ class Dashboard extends React.Component {
                         saleAmount.series[0].data = Object.entries(yData[startDate.year()]['month']).map(v => v[1])
                         histData.series[0].data = Object.entries(saleObj).map(v => v[1])
                         var sortable = [];
-                        console.log('allData', allObj)
-                        console.log('this***', yData)
                         for (var vehicle in allObj) {
                             sortable.push([vehicle, allObj[vehicle]]);
                         }
@@ -277,7 +275,6 @@ class Dashboard extends React.Component {
 
                         sortableId = sortable.map(v => v[0])
                     }
-                    console.log('obj', obj)
                     for (var j in obj) {
                         arr.push(obj[j])
                     }
@@ -296,14 +293,11 @@ class Dashboard extends React.Component {
                         var { data } = res.data
                         var sortableName = []
                         topData.activeAgent = data.length
-                        console.log('data', data)
                         this.setState({ allData: data, topData: topData }, () => {
                             var { allData, stats } = this.state
                             for (var k of sortableId) {
-                                console.log('k', k)
                                 for (var d of allData) {
                                     if (d._id === k) {
-                                        console.log('***', d)
                                         sortableName.push(d.fname)
                                         sortableVal.push(allObj[k])
                                     }
@@ -322,7 +316,6 @@ class Dashboard extends React.Component {
                                         stats.revenue += i.paidAmount
                                         stats.sales += i.soldPrice
                                     }
-                                    console.log(stats)
                                     this.setState({
                                         currentAgent: response.data.data,
                                         stats: stats,
@@ -356,7 +349,6 @@ class Dashboard extends React.Component {
                 var { data } = response
                 stats1.deal = data.data.length
                 for (var i of data.data) {
-                    console.log(i)
                     stats1.revenue += i.paidAmount
                     stats1.sales += i.soldPrice
                 }
@@ -438,7 +430,6 @@ class Dashboard extends React.Component {
                         topData.revPerDeal = topData.netRevenue / len
                         topData.salesPerDeal = topData.salesPerDeal / len
                         topData.deals = len
-                        console.log('start', yData)
                         lineData.series[0].data = Object.entries(yData[StartDateValue.year()]['month']).map(v => v[1])
                         lineData.series[1].data = Object.entries(yData[StartDateValue.year()]['monthLine']).map(v => v[1])
                         saleAmount.series[0].data = Object.entries(yData[StartDateValue.year()]['month']).map(v => v[1])
@@ -581,7 +572,6 @@ class Dashboard extends React.Component {
                     allObj[j.agentId] = 0
                 }
 
-                console.log(j)
                 if (e.id === "volume") {
                     allObj[j.agentId] += 1
                 }
