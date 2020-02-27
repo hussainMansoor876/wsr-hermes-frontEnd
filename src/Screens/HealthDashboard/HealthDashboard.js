@@ -3,6 +3,7 @@ import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import { DatePicker, Select, Skeleton, Button } from 'antd';
 import RevenueOverview from './RevenueOverview'
+import AgentSummary from './AgentSummary'
 import Header from '../Header/Header'
 import moment from 'moment';
 import Chart from 'react-apexcharts'
