@@ -764,7 +764,7 @@ class Dashboard extends React.Component {
                                             }
                                         </Select>
                                     </div>
-                                    {!loadingSaleChart ? <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={350} /> : <Skeleton />}
+                                    {!loadingSaleChart ? <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} /> : <Skeleton />}
                                 </div>
                                 <div className="chart4 mLeft">
                                     <h1 className="heading2">Agent Summary</h1>
