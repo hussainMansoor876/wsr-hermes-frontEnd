@@ -680,10 +680,8 @@ class Dashboard extends React.Component {
                     <div style={{ display: 'flex', margin: 20, marginBottom: -20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
                         <div style={{
                             display: 'flex',
-                            // justifyContent: 'space-around',
                             flexDirection: 'row',
                             width: 345,
-                            // backgroundColor: 'blue'
                         }}>
                             <h4 style={{ flex: 1}}>Start Date</h4>
                             <h4 style={{ flex: 1}}>End Date</h4>
