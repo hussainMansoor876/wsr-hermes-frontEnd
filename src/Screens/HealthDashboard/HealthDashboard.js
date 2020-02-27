@@ -636,8 +636,13 @@ class Dashboard extends React.Component {
 
     updateLineChart(e) {
         const { yearsData } = this.state
-        this.setState({
+        var lineData = { ...this.state.lineChart }
 
+        lineData.series[0].data = Object.entries(yearsData[e]['month']).map(v => v[1])
+        lineData.series[1].data = Object.entries(yearsData[e]['monthLine']).map(v => v[1])
+
+        this.setState({
+            lineChart: lineData
         })
     }
 
