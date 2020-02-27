@@ -8,6 +8,7 @@ import axios from 'axios'
 import RevenueOverview from './RevenueOverview'
 import AgentSummary from './AgentSummary'
 import AgentPerformance from './AgentPerformance'
+import SelectComp from './SelectComponent'
 import Header from '../Header/Header'
 import allState from './allState'
 
@@ -564,22 +565,7 @@ class Dashboard extends React.Component {
                                     }}>
                                         <span>&nbsp;</span>
                                         <h4 style={{ marginTop: 5, paddingLeft: 120 }}>Sales Amount Over Time</h4>
-                                        <Select
-                                            showSearch
-                                            style={{ width: 120 }}
-                                            defaultValue={yearsData && StartDateValue.year()}
-                                            placeholder="Select Year"
-                                            onChange={(e) => this.updateSaleChart(e)}
-                                            optionFilterProp="children"
-                                            filterOption={(input, option) =>
-                                                option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                                            }
-                                        >
-                                            {Object.keys(yearsData).map((v, i) => {
-                                                return <Option value={v} key={i}>{v}</Option>
-                                            })
-                                            }
-                                        </Select>
+                                        <SelectComp {...this.props} startYear={StartDateValue.year()} update={this.updateSaleChart.bind(this)} yearsData={yearsData}  />
                                     </div>
                                     {!loadingSaleChart ? <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} /> : <Skeleton />}
                                 </div>
@@ -594,22 +580,7 @@ class Dashboard extends React.Component {
                                 }}>
                                     <span>&nbsp;</span>
                                     <h4 style={{ textAlign: 'center', marginTop: 5, paddingLeft: 120 }}>Deals & Revenue Over Time</h4>
-                                    <Select
-                                        showSearch
-                                        style={{ width: 120 }}
-                                        defaultValue={yearsData && StartDateValue.year()}
-                                        placeholder="Select Year"
-                                        onChange={(e) => this.updateLineChart(e)}
-                                        optionFilterProp="children"
-                                        filterOption={(input, option) =>
-                                            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                                        }
-                                    >
-                                        {Object.keys(yearsData).map((v, i) => {
-                                            return <Option value={v} key={i}>{v}</Option>
-                                        })
-                                        }
-                                    </Select>
+                                    <SelectComp {...this.props} startYear={StartDateValue.year()} update={this.updateLineChart.bind(this)} yearsData={yearsData}  />
                                 </div>
                                 {!loadingLineChart ? <Chart options={lineChart.options} series={lineChart.series} type="line" height={500} /> : <Skeleton />}
                             </div>

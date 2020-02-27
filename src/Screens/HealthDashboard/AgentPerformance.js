@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { loginUser } from '../../Redux/actions/authActions'
 import { connect } from 'react-redux';
 import Chart from 'react-apexcharts'
@@ -41,8 +41,6 @@ class AgentPerformance extends React.Component {
     }
 }
 
-
-
 const mapStateToProps = (state) => {
     return {
         user: state.authReducer.user,
@@ -54,7 +52,5 @@ const mapDispatchToProps = (dispatch) => {
         loginUser: (user) => dispatch(loginUser(user)),
     }
 }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(AgentPerformance)
