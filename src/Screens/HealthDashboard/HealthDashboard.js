@@ -739,7 +739,6 @@ class Dashboard extends React.Component {
                         <div className="chartBody">
                             <div className="chartBody1">
                                 <div className="div5">
-                                    <h4 style={{ textAlign: 'center' }}>Sales Amount Over Time</h4>
                                     <div style={{
                                         display: 'flex',
                                         justifyContent: 'space-between',
@@ -747,7 +746,7 @@ class Dashboard extends React.Component {
                                         paddingLeft: 10
                                     }}>
                                         <span>&nbsp;</span>
-                                        <h4 style={{ textAlign: 'center' }}>Deals & Revenue Over Time</h4>
+                                        <h4 style={{ textAlign: 'center' }}>Sales Amount Over Time</h4>
                                         <Select
                                             showSearch
                                             style={{ width: 200 }}
@@ -765,7 +764,7 @@ class Dashboard extends React.Component {
                                             }
                                         </Select>
                                     </div>
-                                    {!loadingSaleChart ? <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} /> : <Skeleton />}
+                                    {!loadingSaleChart ? <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={350} /> : <Skeleton />}
                                 </div>
                                 <div className="chart4 mLeft">
                                     <h1 className="heading2">Agent Summary</h1>
