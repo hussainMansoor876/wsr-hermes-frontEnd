@@ -153,7 +153,8 @@ class Dashboard extends React.Component {
             loadingChart: true,
             currentTop: "top10",
             currentVal: "volume",
-            loadingData: true
+            loadingData: true,
+            yearsData: {}
         }
     }
 
@@ -184,9 +185,9 @@ class Dashboard extends React.Component {
         return arr;
     }
 
-    disabledDate(current) {
-        return current < this.state.startDate
-    }
+    // disabledDate(current) {
+    //     return current < this.state.startDate
+    // }
 
     disabledEndDate(current) {
         return current < this.state.StartDateValue
@@ -194,6 +195,7 @@ class Dashboard extends React.Component {
 
     async componentWillMount() {
         const { startDate, endDate } = this.state
+        var yData = {}
         var topData = { ...this.state.topData }
         var histData = { ...this.state.salePriceHist }
         var lineData = { ...this.state.lineChart }
@@ -228,8 +230,14 @@ class Dashboard extends React.Component {
                             if (!allObj[i.agentId]) {
                                 allObj[i.agentId] = 0
                             }
-                            month[moment(i.timestamp).month()] += i.paidAmount
-                            monthLine[moment(i.timestamp).month()] += 1
+                            if (!yData[moment(i.timestamp).year()]) {
+                                yData[moment(i.timestamp).year()] = {
+                                    month: { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 },
+                                    monthLine: { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
+                                }
+                            }
+                            yData[moment(i.timestamp).year()]['month'][moment(i.timestamp).month()] += i.paidAmount
+                            yData[moment(i.timestamp).year()]['monthLine'][moment(i.timestamp).month()] += 1
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
                             obj[i.saleType] += i.paidAmount
@@ -253,12 +261,13 @@ class Dashboard extends React.Component {
                         topData.revPerDeal = topData.netRevenue / len
                         topData.salesPerDeal = topData.salesPerDeal / len
                         topData.deals = len
-                        lineData.series[0].data = Object.entries(month).map(v => v[1])
-                        lineData.series[1].data = Object.entries(monthLine).map(v => v[1])
-                        saleAmount.series[0].data = Object.entries(month).map(v => v[1])
+                        lineData.series[0].data = Object.entries(yData[startDate.year()]['month']).map(v => v[1])
+                        lineData.series[1].data = Object.entries(yData[startDate.year()]['monthLine']).map(v => v[1])
+                        saleAmount.series[0].data = Object.entries(yData[startDate.year()]['month']).map(v => v[1])
                         histData.series[0].data = Object.entries(saleObj).map(v => v[1])
                         var sortable = [];
                         console.log('allData', allObj)
+                        console.log('this***', yData)
                         for (var vehicle in allObj) {
                             sortable.push([vehicle, allObj[vehicle]]);
                         }
@@ -278,7 +287,8 @@ class Dashboard extends React.Component {
                             ...this.state.saleTypeChart, series: arr
                         }, salePriceHist: histData, lineChart: lineData,
                         SaleAmountChart: saleAmount,
-                        dashData: data.data
+                        dashData: data.data,
+                        yearsData: yData
                     })
                 }
 
@@ -359,6 +369,7 @@ class Dashboard extends React.Component {
 
     updateChart() {
         const { StartDateValue, endDate, allData } = this.state
+        var yData = {}
         this.setState({ loadingData: false })
         var topData = { ...this.state.topData }
         var histData = { ...this.state.salePriceHist }
@@ -371,8 +382,10 @@ class Dashboard extends React.Component {
         var sortableVal = []
         var allObj = {}
         var sortableName = []
-        var month = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
-        var monthLine = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
+        yData[StartDateValue.year()] = {
+            month: { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 },
+            monthLine: { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
+        }
         axios.post('https://wsr-hermes-server.herokuapp.com/admin/getAll', {
             startDate: StartDateValue.toArray(),
             endDate: endDate.toArray()
@@ -395,8 +408,14 @@ class Dashboard extends React.Component {
                             if (!allObj[i.agentId]) {
                                 allObj[i.agentId] = 0
                             }
-                            month[moment(i.timestamp).month()] += i.paidAmount
-                            monthLine[moment(i.timestamp).month()] += 1
+                            if (!yData[moment(i.timestamp).year()]) {
+                                yData[moment(i.timestamp).year()] = {
+                                    month: { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 },
+                                    monthLine: { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
+                                }
+                            }
+                            yData[moment(i.timestamp).year()]['month'][moment(i.timestamp).month()] += i.paidAmount
+                            yData[moment(i.timestamp).year()]['monthLine'][moment(i.timestamp).month()] += 1
                             topData.netRevenue += i.paidAmount
                             topData.salesPerDeal += i.soldPrice
                             obj[i.saleType] += i.paidAmount
@@ -420,9 +439,10 @@ class Dashboard extends React.Component {
                         topData.revPerDeal = topData.netRevenue / len
                         topData.salesPerDeal = topData.salesPerDeal / len
                         topData.deals = len
-                        lineData.series[0].data = Object.entries(month).map(v => v[1])
-                        lineData.series[1].data = Object.entries(monthLine).map(v => v[1])
-                        saleAmount.series[0].data = Object.entries(month).map(v => v[1])
+                        console.log('start', yData)
+                        lineData.series[0].data = Object.entries(yData[StartDateValue.year()]['month']).map(v => v[1])
+                        lineData.series[1].data = Object.entries(yData[StartDateValue.year()]['monthLine']).map(v => v[1])
+                        saleAmount.series[0].data = Object.entries(yData[StartDateValue.year()]['month']).map(v => v[1])
                         histData.series[0].data = Object.entries(saleObj).map(v => v[1])
 
                         var sortable = [];
@@ -455,7 +475,7 @@ class Dashboard extends React.Component {
                             ...this.state.saleTypeChart, series: arr
                         }, salePriceHist: histData, lineChart: lineData,
                         SaleAmountChart: saleAmount, AgentChart: AgentData,
-                        dashData: data.data
+                        dashData: data.data, yearsData: yData
                     })
                 }
 
@@ -516,12 +536,12 @@ class Dashboard extends React.Component {
             }
 
             sortableId = sortable.map(v => v[0])
-            sortableVal = sortable.map(v => v[1])
 
             for (var k of sortableId) {
                 for (var d of allData) {
                     if (d._id === k) {
                         sortableName.push(d.fname)
+                        sortableVal.push(allObj[k])
                     }
                 }
             }
@@ -593,12 +613,12 @@ class Dashboard extends React.Component {
             }
 
             sortableId = sortable.map(v => v[0])
-            sortableVal = sortable.map(v => v[1])
 
             for (var k of sortableId) {
                 for (var d of allData) {
                     if (d._id === k) {
                         sortableName.push(d.fname)
+                        sortableVal.push(allObj[k])
                     }
                 }
             }
@@ -614,9 +634,16 @@ class Dashboard extends React.Component {
         })
     }
 
+    updateLineChart(e) {
+        const { yearsData } = this.state
+        this.setState({
+
+        })
+    }
+
 
     render() {
-        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart, AgentChart, loadingChart, loadingData } = this.state
+        const { allData, currentAgent, stats, startDate, loading, topData, saleTypeChart, salePriceHist, lineChart, SaleAmountChart, AgentChart, loadingChart, loadingData, yearsData, StartDateValue } = this.state
         if (!allData.length & !currentAgent.length || !loading) {
             return (
                 <div>
@@ -635,7 +662,7 @@ class Dashboard extends React.Component {
                         Woodward Square Realty Health Report
                     </div>
                     <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
-                        <DatePicker defaultValue={startDate} allowClear={false} disabledDate={this.disabledDate.bind(this)} showToday={false} onChange={(e) => this.setState({ StartDateValue: e }, () => {
+                        <DatePicker defaultValue={startDate} allowClear={false} showToday={false} onChange={(e) => this.setState({ StartDateValue: e }, () => {
                             this.updateChart()
                         })} />
                         <DatePicker defaultValue={moment()} allowClear={false} onChange={(e) => this.setState({ endDate: e }, () => {
@@ -782,7 +809,31 @@ class Dashboard extends React.Component {
                                 </div>
                             </div>
                             <div className="chart2">
-                                <h4 style={{ textAlign: 'center' }}>Deals & Revenue Over Time</h4>
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    paddingRight: 20,
+                                    paddingLeft: 10
+                                }}>
+                                    <span>&nbsp;</span>
+                                    <h4 style={{ textAlign: 'center' }}>Deals & Revenue Over Time</h4>
+                                    <Select
+                                        showSearch
+                                        style={{ width: 200 }}
+                                        defaultValue={yearsData && StartDateValue.year()}
+                                        placeholder="Select Year"
+                                        onChange={(e) => this.updateLineChart(e)}
+                                        optionFilterProp="children"
+                                        filterOption={(input, option) =>
+                                            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                        }
+                                    >
+                                        {Object.keys(yearsData).map((v, i) => {
+                                            return <Option value={v} key={i}>{v}</Option>
+                                        })
+                                        }
+                                    </Select>
+                                </div>
                                 <Chart options={lineChart.options} series={lineChart.series} type="line" height={500} />
                             </div>
                         </div>
@@ -803,7 +854,7 @@ class Dashboard extends React.Component {
                                     justifyContent: 'space-between'
                                 }}>
                                     <ButtonGroup>
-                                        <Button onClick={(e) => this.updateData(e.target)} id="top10">Top 10</Button>
+                                        <Button onClick={(e) => this.updateData(e.target)} className="btn-group1" id="top10">Top 10</Button>
                                         <Button id="bottom10" onClick={(e) => this.updateData(e.target)}>Bottom 10</Button>
                                     </ButtonGroup>
                                     <h4>Agent Performance</h4>
@@ -819,7 +870,7 @@ class Dashboard extends React.Component {
 
                     </div> : <Skeleton paragraph={{ rows: 20 }} />}
                 </div>
-            </div>
+            </div >
         )
     }
 }
