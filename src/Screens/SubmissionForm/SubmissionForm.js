@@ -195,6 +195,19 @@ class Submission extends React.Component {
                                         )}
                                     </Form.Item>
                                     <Form.Item
+                                        label="Zip Code"
+                                    >
+                                        {getFieldDecorator('zip', {
+                                            rules: [{ required: true, message: 'Please input ZipCode!' }],
+                                        })(
+                                            <Input
+                                                minLength={5}
+                                                type="number"
+                                                placeholder="Zip Code"
+                                            />,
+                                        )}
+                                    </Form.Item>
+                                    <Form.Item
                                         label="Lender"
                                     >
                                         {getFieldDecorator('lender', {
@@ -336,7 +349,7 @@ class Submission extends React.Component {
 const SubmissionForm = Form.create({ name: 'normal_login' })(Submission);
 
 const mapStateToProps = (state) => {
-    
+
     return {
         user: state.authReducer.user,
     }
