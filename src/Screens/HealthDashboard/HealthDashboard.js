@@ -177,8 +177,6 @@ class Dashboard extends React.Component {
                                         stats: stats,
                                         AgentChart: AgentData,
                                         loading: true
-                                    }, () => {
-                                        document.getElementById("top10").className = "ant-btn btn-group"
                                     })
                                 })
                                 .catch(e => console.log('err', e))
@@ -311,6 +309,31 @@ class Dashboard extends React.Component {
                                 }
                             }
                         }
+                        axios.post(`https://wsr-hermes-server.herokuapp.com/admin/get-user/${allData[0]._id}`, {
+                            startDate: StartDateValue.toArray(),
+                            endDate: endDate.toArray()
+                        })
+                            .then((response) => {
+                                var stats = {
+                                    deal: 0,
+                                    sales: 0,
+                                    revenue: 0,
+                                    commission: 0,
+                                    cap: 0,
+                                    recruits: 0
+                                }
+                                var { data } = response
+                                stats.deal = data.data.length
+                                for (var i of data.data) {
+                                    stats.revenue += i.paidAmount
+                                    stats.sales += i.soldPrice
+                                }
+                                this.setState({
+                                    currentAgent: response.data.data,
+                                    stats: stats
+                                })
+                            })
+                            .catch(e => console.log('err', e))
                         AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
                         AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
                     }
@@ -564,7 +587,7 @@ class Dashboard extends React.Component {
                                     }}>
                                         <span>&nbsp;</span>
                                         <h4 style={{ marginTop: 5, paddingLeft: 120 }}>Sales Amount Over Time</h4>
-                                        <SelectComp {...this.props} startYear={StartDateValue.year()} update={this.updateSaleChart.bind(this)} yearsData={yearsData}  />
+                                        <SelectComp {...this.props} startYear={StartDateValue.year()} update={this.updateSaleChart.bind(this)} yearsData={yearsData} />
                                     </div>
                                     {!loadingSaleChart ? <Chart options={SaleAmountChart.options} series={SaleAmountChart.series} type="bar" height={300} /> : <Skeleton />}
                                 </div>
@@ -579,7 +602,7 @@ class Dashboard extends React.Component {
                                 }}>
                                     <span>&nbsp;</span>
                                     <h4 style={{ textAlign: 'center', marginTop: 5, paddingLeft: 120 }}>Deals & Revenue Over Time</h4>
-                                    <SelectComp {...this.props} startYear={StartDateValue.year()} update={this.updateLineChart.bind(this)} yearsData={yearsData}  />
+                                    <SelectComp {...this.props} startYear={StartDateValue.year()} update={this.updateLineChart.bind(this)} yearsData={yearsData} />
                                 </div>
                                 {!loadingLineChart ? <Chart options={lineChart.options} series={lineChart.series} type="line" height={500} /> : <Skeleton />}
                             </div>
