@@ -63,7 +63,7 @@ class Dashboard extends React.Component {
         var obj = { "Buy": 0, "Sell": 0, "Rental": 0, "Whole": 0, "Referral": 0 }
         var arr = []
         var allObj = {}
-        axios.post('https://wsr-hermes-server.herokuapp.com/admin/getAll', {
+        axios.post('http://127.0.0.1:3001/admin/getAll', {
             startDate: startDate.toArray(),
             endDate: endDate.toArray()
         })
@@ -161,7 +161,7 @@ class Dashboard extends React.Component {
                             }
                             AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
                             AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
-                            axios.post(`https://wsr-hermes-server.herokuapp.com/admin/get-user/${allData[0]._id}`, {
+                            axios.post(`http://127.0.0.1:3001/admin/get-user/${allData[0]._id}`, {
                                 startDate: startDate.toArray(),
                                 endDate: endDate.toArray()
                             })
@@ -181,9 +181,10 @@ class Dashboard extends React.Component {
                                         document.getElementById("top10").className = "ant-btn btn-group"
                                     })
                                 })
+                                .catch(e => console.log('err', e))
                         })
                     })
-                    .catch((err) => console.log(err))
+                    .catch((err) => console.log('err', err))
             })
     }
 
@@ -233,7 +234,7 @@ class Dashboard extends React.Component {
             month: { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 },
             monthLine: { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
         }
-        axios.post('https://wsr-hermes-server.herokuapp.com/admin/getAll', {
+        axios.post('http://127.0.0.1:3001/admin/getAll', {
             startDate: StartDateValue.toArray(),
             endDate: endDate.toArray()
         })
