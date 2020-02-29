@@ -11,6 +11,7 @@ import AgentPerformance from './AgentPerformance'
 import SelectComp from './SelectComponent'
 import Header from '../Header/Header'
 import allState from './allState'
+import { toast } from 'react-toastify';
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -183,10 +184,10 @@ class Dashboard extends React.Component {
                                         loading: true
                                     })
                                 })
-                                .catch(e => console.log('err', e))
+                                .catch(e => toast.error("Something Went Wrong!!!"))
                         })
                     })
-                    .catch((err) => console.log('err', err))
+                    .catch((err) => toast.error("Something Went Wrong!!!"))
             })
     }
 
