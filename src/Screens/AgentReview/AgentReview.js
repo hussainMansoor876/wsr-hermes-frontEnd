@@ -139,6 +139,7 @@ class Review extends React.Component {
                     formData.append('paidAmount', values.paidAmount)
                     formData.append('paidDate', values.paidDate)
                     formData.append('_id', viewForm._id)
+                    formData.append('zip', viewForm.zip)
                     formData.append('files', JSON.stringify(viewForm.files))
                     axios.post('https://wsr-hermes-server.herokuapp.com/subform/update-agent-form', formData)
                         .then((result) => {
