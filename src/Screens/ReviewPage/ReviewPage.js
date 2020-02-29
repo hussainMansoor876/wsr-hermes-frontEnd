@@ -136,6 +136,7 @@ class Review extends React.Component {
                     formData.append('checkRec', values.checkRec)
                     formData.append('paidAmount', values.paidAmount)
                     formData.append('paidDate', values.paidDate)
+                    formData.append('zip', values.zip)
                     formData.append('_id', viewForm._id)
                     formData.append('files', JSON.stringify(viewForm.files))
                     axios.post('https://wsr-hermes-server.herokuapp.com/subform/update-form', formData)
@@ -368,6 +369,20 @@ class Review extends React.Component {
                                                 )}
                                             </Form.Item>
                                             <Form.Item
+                                                label="Zip Code"
+                                            >
+                                                {getFieldDecorator('zip', {
+                                                    initialValue: viewForm.zip,
+                                                    rules: [{ required: true, message: 'Please input ZipCode!' }],
+                                                })(
+                                                    <Input
+                                                        minLength={5}
+                                                        type="number"
+                                                        placeholder="Zip Code"
+                                                    />,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item
                                                 label="Lender"
                                             >
                                                 {getFieldDecorator('lender', {
@@ -541,7 +556,7 @@ class Review extends React.Component {
 const ReviewForm = Form.create({ name: 'normal_login' })(Review);
 
 const mapStateToProps = (state) => {
-    
+
     return {
         user: state.authReducer.user,
     }
