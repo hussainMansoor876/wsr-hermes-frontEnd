@@ -32,7 +32,7 @@ const allState = {
         },
         series: [{
             name: 'series-1',
-            data: [30, 40, 45, 50, 49]
+            data: [0, 0, 0, 0]
         }]
     },
     SaleAmountChart: {
