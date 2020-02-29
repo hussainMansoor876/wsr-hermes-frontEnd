@@ -47,7 +47,11 @@ class Dashboard extends React.Component {
     }
 
     disabledEndDate(current) {
-        return current < this.state.StartDateValue
+        return current < moment(this.state.StartDateValue).add(1, 'day')
+    }
+
+    disableDate(current){
+        return current > moment(this.state.endDate).add(-1, 'day')
     }
 
     async componentWillMount() {
@@ -567,7 +571,7 @@ class Dashboard extends React.Component {
                         </div>
                     </div>
                     <div style={{ display: 'flex', margin: 20, flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }} className="dateRange">
-                        <DatePicker defaultValue={startDate} allowClear={false} showToday={false} onChange={(e) => this.setState({ StartDateValue: e }, () => {
+                        <DatePicker defaultValue={startDate} disabledDate={this.disableDate.bind(this)} allowClear={false} showToday={false} onChange={(e) => this.setState({ StartDateValue: e }, () => {
                             this.updateChart()
                         })} />
                         <DatePicker defaultValue={moment()} allowClear={false} onChange={(e) => this.setState({ endDate: e }, () => {
