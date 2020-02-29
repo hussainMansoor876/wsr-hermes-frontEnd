@@ -246,6 +246,7 @@ class Review extends React.Component {
                                 <Descriptions.Item label="Street Address">{viewForm.streetAddress}</Descriptions.Item>
                                 <Descriptions.Item label="Country">{viewForm.country}</Descriptions.Item>
                                 <Descriptions.Item label="City">{viewForm.city}</Descriptions.Item>
+                                <Descriptions.Item label="Zip Code">{viewForm.zip}</Descriptions.Item>
                                 <Descriptions.Item label="Lender">{viewForm.lender}</Descriptions.Item>
                                 <Descriptions.Item label="Title Company">{viewForm.title}</Descriptions.Item>
                                 <Descriptions.Item label="Sold Price">{viewForm.soldPrice}</Descriptions.Item>
@@ -361,6 +362,20 @@ class Review extends React.Component {
                                                             })
                                                         }
                                                     </Select>,
+                                                )}
+                                            </Form.Item>
+                                            <Form.Item
+                                                label="Zip Code"
+                                            >
+                                                {getFieldDecorator('zip', {
+                                                    initialValue: viewForm.zip,
+                                                    rules: [{ required: true, message: 'Please input Lender!' }],
+                                                })(
+                                                    <Input
+                                                        minLength={5}
+                                                        type="number"
+                                                        placeholder="Zip Code"
+                                                    />,
                                                 )}
                                             </Form.Item>
                                             <Form.Item
