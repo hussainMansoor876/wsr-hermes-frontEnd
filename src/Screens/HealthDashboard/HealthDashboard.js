@@ -166,25 +166,32 @@ class Dashboard extends React.Component {
                             }
                             AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
                             AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
-                            axios.post(`https://wsr-hermes-server.herokuapp.com/admin/get-user/${allData[0]._id}`, {
-                                startDate: startDate.toArray(),
-                                endDate: endDate.toArray()
-                            })
-                                .then((response) => {
-                                    var { data } = response
-                                    stats.deal = data.data.length
-                                    for (var i of data.data) {
-                                        stats.revenue += i.paidAmount
-                                        stats.sales += i.soldPrice
-                                    }
-                                    this.setState({
-                                        currentAgent: response.data.data,
-                                        stats: stats,
-                                        AgentChart: AgentData,
-                                        loading: true
-                                    })
+                            if (allData.length) {
+                                axios.post(`https://wsr-hermes-server.herokuapp.com/admin/get-user/${allData[0]._id}`, {
+                                    startDate: startDate.toArray(),
+                                    endDate: endDate.toArray()
                                 })
-                                .catch(e => toast.error("Something Went Wrong!!!"))
+                                    .then((response) => {
+                                        var { data } = response
+                                        stats.deal = data.data.length
+                                        for (var i of data.data) {
+                                            stats.revenue += i.paidAmount
+                                            stats.sales += i.soldPrice
+                                        }
+                                        this.setState({
+                                            currentAgent: response.data.data,
+                                            stats: stats,
+                                            AgentChart: AgentData,
+                                            loading: true
+                                        })
+                                    })
+                                    .catch(e => toast.error("Something Went Wrong!!!"))
+                            }
+                            else {
+                                this.setState({
+                                    loading: true
+                                })
+                            }
                         })
                     })
                     .catch((err) => toast.error("Something Went Wrong!!!"))
