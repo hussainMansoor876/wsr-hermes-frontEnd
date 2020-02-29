@@ -51,7 +51,7 @@ class Dashboard extends React.Component {
         return current < moment(this.state.StartDateValue).add(1, 'day')
     }
 
-    disableDate(current){
+    disableDate(current) {
         return current > moment(this.state.endDate).add(-1, 'day')
     }
 
@@ -338,7 +338,7 @@ class Dashboard extends React.Component {
                                     stats: stats
                                 })
                             })
-                            .catch(e => console.log('err', e))
+                            .catch(e => toast.error("Something Went Wrong!!!"))
                         AgentData.series[0].data = sortableVal.length > 10 ? sortableVal.slice(0, 10) : sortableVal
                         AgentData.options.xaxis.categories = sortableName.length > 10 ? sortableName.slice(0, 10) : sortableName
                     }
@@ -355,6 +355,7 @@ class Dashboard extends React.Component {
                 }
 
             })
+            .catch(e => toast.error("Something Went Wrong!!!"))
     }
 
     updateData(e) {
