@@ -100,7 +100,7 @@ class Review extends React.Component {
                 })
                 this.setState({ allData, isData: allData.length ? true : false, loading: false })
             })
-            .catch((err) => console.log(err))
+            .catch((err) => toast.error('Something Went Wrong!!!'))
     }
 
     handleSubmit = e => {
@@ -141,7 +141,6 @@ class Review extends React.Component {
                     formData.append('files', JSON.stringify(viewForm.files))
                     axios.post('https://wsr-hermes-server.herokuapp.com/subform/update-form', formData)
                         .then((result) => {
-                            console.log('result', result)
                             if (result.data.success) {
                                 toast.success("Approved and updated successfully!!!")
                                 setTimeout(() => {
@@ -155,7 +154,6 @@ class Review extends React.Component {
                         })
                         .catch((err) => {
                             this.setState({ disable: false })
-                            console.log(err)
                             toast.error("Something Went Wrong!!!")
                         })
                 }
@@ -176,7 +174,6 @@ class Review extends React.Component {
             _id: viewForm._id
         })
             .then((result) => {
-                console.log('result', result)
                 if (result.data.success) {
                     result.data.data.date = moment(result.data.data.paidDate).toObject()
                     toast.success("File Deleted Successfully!!!")

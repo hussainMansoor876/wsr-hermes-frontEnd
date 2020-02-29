@@ -22,9 +22,6 @@ const props = {
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
     onChange(info) {
         const { status } = info.file;
-        if (status !== 'uploading') {
-            console.log(info.file, info.fileList);
-        }
         if (status === 'done') {
             message.success(`${info.file.name} file uploaded successfully.`);
         } else if (status === 'error') {
@@ -101,7 +98,7 @@ class Review extends React.Component {
                 })
                 this.setState({ allData, isData: allData.length ? true : false, loading: false })
             })
-            .catch((err) => console.log(err))
+            .catch((err) => toast.error("Simething Went Wrong!!!"))
     }
 
     handleSubmit = e => {
@@ -176,7 +173,6 @@ class Review extends React.Component {
             _id: viewForm._id
         })
             .then((result) => {
-                console.log('result', result)
                 if (result.data.success) {
                     result.data.data.date = moment(result.data.data.paidDate).toObject()
                     toast.success("File Deleted Successfully!!!")

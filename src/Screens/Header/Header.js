@@ -21,9 +21,6 @@ class Header extends React.Component {
 
     componentDidMount() {
         const { user, location } = this.props
-        console.log(location)
-        console.log(user)
-
         if (!user) {
             this.props.history.replace('/')
         }

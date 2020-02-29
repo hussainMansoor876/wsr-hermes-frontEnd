@@ -24,7 +24,6 @@ class Login extends React.Component {
 
     componentDidMount() {
         const { user, history } = this.props;
-        console.log(history)
         if (history.location.state) {
             this.props.removeUser()
         }
@@ -62,7 +61,7 @@ class Login extends React.Component {
                         }
                     })
                     .catch((err) => {
-                        console.log(err)
+                        toast.error('Something Went Wrong!!!')
                     })
             }
         });
