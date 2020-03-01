@@ -151,6 +151,7 @@ class Signup extends React.Component {
                                                 )}
                                             </Form.Item>
                                             <Form.Item
+                                                label="Email"
                                             >
                                                 {getFieldDecorator('email', {
                                                     rules: [{ required: true, message: 'Please input your Last Name!' }],
@@ -161,7 +162,9 @@ class Signup extends React.Component {
                                                     />,
                                                 )}
                                             </Form.Item>
-                                            <Form.Item>
+                                            <Form.Item
+                                                label="Phone"
+                                            >
                                                 {getFieldDecorator('phone', {
                                                     rules: [{ required: true, message: 'Please input your phone number!' }],
                                                 })(<Input
@@ -170,6 +173,7 @@ class Signup extends React.Component {
                                                 />)}
                                             </Form.Item>
                                             <Form.Item
+                                                label="Password"
                                                 style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
                                                 hasFeedback>
                                                 {getFieldDecorator('password', {
