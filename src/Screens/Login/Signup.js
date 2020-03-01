@@ -191,6 +191,7 @@ class Signup extends React.Component {
                                                     placeholder="Enter your Password" />)}
                                             </Form.Item>
                                             <Form.Item
+                                                label="Confirm"
                                                 style={{ display: 'inline-block', width: 'calc(50% - 1px)' }}
                                                 hasFeedback>
                                                 {getFieldDecorator('confirm', {
@@ -208,7 +209,9 @@ class Signup extends React.Component {
                                                     placeholder="Confirm Password"
                                                     onBlur={this.handleConfirmBlur} />)}
                                             </Form.Item>
-                                            <Form.Item>
+                                            <Form.Item
+                                                label="Address"
+                                            >
                                                 {getFieldDecorator('address', {
                                                     rules: [{ required: true, message: 'Please input your street address!' }],
                                                 })(<Input
@@ -217,6 +220,7 @@ class Signup extends React.Component {
                                                 />)}
                                             </Form.Item>
                                             <Form.Item
+                                                label="State"
                                                 style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
                                             >
                                                 {getFieldDecorator('country', {
@@ -241,6 +245,7 @@ class Signup extends React.Component {
                                                 )}
                                             </Form.Item>
                                             <Form.Item
+                                                label="City"
                                                 style={{ display: 'inline-block', width: 'calc(50% - 1px)' }}
                                             >
                                                 {getFieldDecorator('city', {
@@ -253,6 +258,7 @@ class Signup extends React.Component {
                                                 )}
                                             </Form.Item>
                                             <Form.Item
+                                            label="Zip Code"
                                             >
                                                 {getFieldDecorator('zip', {
                                                     rules: [{ required: true, message: 'Please input your zip code!' }],
