@@ -114,7 +114,7 @@ class Header extends React.Component {
                     {/* <img src={'https://avatars0.githubusercontent.com/u/35415573?s=400&u=7585be6ddd43c201b02168c1fe36fd5e33a06bca&v=4'} alt="" style={{ marginRight: 10, borderRadius: 50 }} height="30" width="30" /> */}
                     {user && <div className="dropdown">
                         <span className="header2">
-                            {user.fname} &nbsp;
+                            {user.fname} &nbsp;&nbsp;&nbsp;&nbsp;
                             <i className="fa fa-caret-down"></i>
                         </span>
                         <div className="dropdown-content">
