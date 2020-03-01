@@ -178,21 +178,10 @@ class Submission extends React.Component {
                                         {getFieldDecorator('city', {
                                             rules: [{ required: true, message: 'Please Select City!' }],
                                         })(
-                                            <Select
-                                                showSearch
-                                                style={{ backgroundColor: '#fff' }}
-                                                placeholder="Select a city"
-                                                optionFilterProp="children"
-                                                filterOption={(input, option) =>
-                                                    option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                                                }
-                                            >
-                                                {
-                                                    city.map((v, i) => {
-                                                        return <Option value={v} key={i}>{v}</Option>
-                                                    })
-                                                }
-                                            </Select>,
+                                            <Input
+                                                minLength={1}
+                                                placeholder="City"
+                                            />,
                                         )}
                                     </Form.Item>
                                     <Form.Item
