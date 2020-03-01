@@ -176,7 +176,7 @@ class Submission extends React.Component {
                                         label="City"
                                     >
                                         {getFieldDecorator('city', {
-                                            rules: [{ required: true, message: 'Please Select City!' }],
+                                            rules: [{ required: true, message: 'Please input City!' }],
                                         })(
                                             <Input
                                                 minLength={1}

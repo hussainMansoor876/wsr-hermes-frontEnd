@@ -234,23 +234,12 @@ class Signup extends React.Component {
                                                 style={{ display: 'inline-block', width: 'calc(50% - 1px)' }}
                                             >
                                                 {getFieldDecorator('city', {
-                                                    rules: [{ required: true, message: 'Please Select Your City!' }],
+                                                    rules: [{ required: true, message: 'Please input Your City!' }],
                                                 })(
-                                                    <Select
-                                                        showSearch
-                                                        style={{ backgroundColor: '#fff' }}
-                                                        placeholder="Select a city"
-                                                        optionFilterProp="children"
-                                                        filterOption={(input, option) =>
-                                                            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                                                        }
-                                                    >
-                                                        {
-                                                            city.map((v, i) => {
-                                                                return <Option city={v} key={i}>{v}</Option>
-                                                            })
-                                                        }
-                                                    </Select>,
+                                                    <Input
+                                                    prefix={<Icon type="number" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                    placeholder="City"
+                                                />,
                                                 )}
                                             </Form.Item>
                                             <Form.Item
