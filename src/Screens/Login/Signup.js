@@ -119,8 +119,13 @@ class Signup extends React.Component {
                                             </a>
                                             <p className="text-muted mb-4 mt-3">Don't have an account? Create your account, it takes less than a minute</p>
                                         </div>
-                                        <Form layout="horizontal" onSubmit={this.handleSubmit} className="login-form">
+                                        <Form layout="horizontal"
+                                            hideRequiredMark={true}
+                                            onSubmit={this.handleSubmit}
+                                            className="login-form"
+                                        >
                                             <Form.Item
+                                                label="First Name"
                                                 style={{ display: 'inline-block', width: 'calc(50% - 1px)', marginRight: 1 }}
                                             >
                                                 {getFieldDecorator('fname', {
@@ -133,6 +138,7 @@ class Signup extends React.Component {
                                                 )}
                                             </Form.Item>
                                             <Form.Item
+                                                label="Last Name"
                                                 style={{ display: 'inline-block', width: 'calc(50% - 1px)' }}
                                             >
                                                 {getFieldDecorator('lname', {
@@ -237,9 +243,9 @@ class Signup extends React.Component {
                                                     rules: [{ required: true, message: 'Please input Your City!' }],
                                                 })(
                                                     <Input
-                                                    prefix={<Icon type="number" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                                    placeholder="City"
-                                                />,
+                                                        prefix={<Icon type="number" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                                        placeholder="City"
+                                                    />,
                                                 )}
                                             </Form.Item>
                                             <Form.Item
@@ -274,7 +280,7 @@ const SignupComp = Form.create({ name: 'normal_login' })(Signup);
 
 
 const mapStateToProps = (state) => {
-    
+
     return {
         user: state.authReducer.user,
     }
