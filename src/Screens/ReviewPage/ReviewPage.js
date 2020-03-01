@@ -348,21 +348,11 @@ class Review extends React.Component {
                                                     initialValue: viewForm.city,
                                                     rules: [{ required: true, message: 'Please Select City!' }],
                                                 })(
-                                                    <Select
-                                                        showSearch
-                                                        style={{ backgroundColor: '#fff' }}
-                                                        placeholder="Select a city"
-                                                        optionFilterProp="children"
-                                                        filterOption={(input, option) =>
-                                                            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                                                        }
-                                                    >
-                                                        {
-                                                            city.map((v, i) => {
-                                                                return <Option city={v} key={i}>{v}</Option>
-                                                            })
-                                                        }
-                                                    </Select>,
+                                                    <Input
+                                                        minLength={1}
+                                                        type="text"
+                                                        placeholder="City"
+                                                    />,
                                                 )}
                                             </Form.Item>
                                             <Form.Item
