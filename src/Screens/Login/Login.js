@@ -94,8 +94,13 @@ class Login extends React.Component {
                                             </Link>
                                             <p className="text-muted mb-4 mt-3">Enter your email address and password to access admin panel.</p>
                                         </div>
-                                        <Form onSubmit={this.handleSubmit} className="login-form">
-                                            <Form.Item>
+                                        <Form
+                                            hideRequiredMark={true}
+                                            onSubmit={this.handleSubmit}
+                                            className="login-form">
+                                            <Form.Item
+                                                label="Email"
+                                            >
                                                 {getFieldDecorator('email', {
                                                     rules: [{ required: true, message: 'Please input your Email!' }],
                                                 })(
@@ -105,7 +110,9 @@ class Login extends React.Component {
                                                     />,
                                                 )}
                                             </Form.Item>
-                                            <Form.Item>
+                                            <Form.Item
+                                                label="Password"
+                                            >
                                                 {getFieldDecorator('password', {
                                                     rules: [{ required: true, message: 'Please input your Password!' }],
                                                 })(
@@ -145,7 +152,7 @@ class Login extends React.Component {
 const LoginComp = Form.create({ name: 'normal_login' })(Login);
 
 const mapStateToProps = (state) => {
-    
+
     return {
         user: state.authReducer.user,
     }
